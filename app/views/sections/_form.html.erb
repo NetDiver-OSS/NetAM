@@ -1,0 +1,33 @@
+<%= form_with(model: section, local: true, class: 'ui form') do |form| %>
+  <% if section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(section.errors.count, "error") %> prohibited this section from being saved:</h2>
+
+      <ul>
+        <% section.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="two fields">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: 'My home network' %>
+    </div>
+    <div class="field">
+      <%= form.label :network %>
+      <%= form.text_field :network, placeholder: '192.168.1.0/24' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil, class: 'ui button fluid' %>
+  </div>
+<% end %>
