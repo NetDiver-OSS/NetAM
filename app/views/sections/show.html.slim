@@ -1,0 +1,18 @@
+p#notice
+  = notice
+
+div.ui.cards
+    div.content
+      p
+        div.header
+          strong Name:
+          = @section.name
+      p
+        strong Description:
+        = @section.description
+      p
+        strong Network:
+        = @section.network
+        
+      = link_to 'Edit', edit_section_path(@section), class: 'ui basic blue button'
+      = link_to 'Back', sections_path, class: 'ui basic red button'
