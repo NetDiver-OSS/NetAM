@@ -1,0 +1,23 @@
+p#notice
+  = notice
+
+h1 Usages
+
+table
+  thead
+    tr
+      th Ip used
+      th section
+      th colspan=3
+  tbody
+    - @usages.each do |usage|
+      tr
+        td = usage.ip_used
+        td = usage.section_id
+        td = link_to 'Show', usage
+        td = link_to 'Edit', edit_usage_path(usage)
+        td = link_to 'Destroy', usage, method: :delete, data: { confirm: 'Are you sure?' }
+
+br
+
+= link_to 'New Usage', new_usage_path

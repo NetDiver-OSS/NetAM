@@ -1,0 +1,13 @@
+p#notice
+  = notice
+
+p
+  strong Ip used:
+  = @usage.ip_used
+
+p
+  strong Section:
+  = @usage.section_id
+
+= link_to 'Edit', edit_usage_path(@usage)
+= link_to 'Back', usages_path
