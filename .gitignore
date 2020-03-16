@@ -32,3 +32,4 @@ netam.iml
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+/db/schema.rb
