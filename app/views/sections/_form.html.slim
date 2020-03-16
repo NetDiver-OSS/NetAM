@@ -1,0 +1,24 @@
+= form_with(model: section, local: true, class: 'ui form') do |form|
+  - if section.errors.any?
+    div.error_explanation
+      h2 prohibited this section from being saved:
+        = pluralize(section.errors.count, "error") 
+
+      ul
+        - section.errors.full_messages.each do |message|
+          li = message
+
+  div.two.fields
+    div.field
+      = form.label :name
+      = form.text_field :name, placeholder: 'My home network'
+    div.field
+      = form.label :network
+      = form.text_field :network, placeholder: '192.168.1.0/24'
+
+  div.field
+    = form.label :description
+    = form.text_area :description
+  
+  div.actions
+    = form.submit nil, class: 'ui button fluid'
