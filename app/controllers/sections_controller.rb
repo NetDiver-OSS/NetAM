@@ -8,6 +8,62 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
+    Daru::View.plotting_library = :highcharts
+
+    opts = {
+        chart: {
+            plotBackgroundColor: nil,
+            plotBorderWidth: nil,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'IP Usage'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: "(Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'".js_code
+                    }
+                }
+            }
+        },
+    }
+
+    series_dt = [
+        {
+            name: 'IP',
+            colorByPoint: true,
+            data: [
+                {
+                    name: 'Used',
+                    y: 42
+                },
+                {
+                    name: 'Reserved',
+                    y: 8
+                },
+                {
+                    name: 'Fixed',
+                    y: 10
+                },
+                {
+                    name: 'Free',
+                    y: 196
+                }
+            ]
+        }
+    ]
+
+    @ip_usage_graph = Daru::View::Plot.new(series_dt, opts)
   end
 
   # GET /sections/new

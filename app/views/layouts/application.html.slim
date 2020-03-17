@@ -12,6 +12,10 @@ html
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 
+    script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = raw Daru::View.dependent_script(:highcharts)
+
   body
     div.ui.fixed.inverted.menu
       div.ui.container
@@ -23,6 +27,3 @@ html
 
     div.ui.main.container
       == yield
-
-    script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'

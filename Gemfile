@@ -21,6 +21,7 @@ gem 'turbolinks', '~> 5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'daru-view', git: 'https://github.com/SciRuby/daru-view'
 gem 'sentry-raven', '~> 2.13'
 
 # Use Redis adapter to run Action Cable in production
