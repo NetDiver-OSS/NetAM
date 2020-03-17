@@ -1,10 +1,10 @@
 div.ui.clearing.basic.segment
-    h1.ui.left.floated.header Sections
-    h3.ui.right.floated.header
-      = link_to 'New Section', new_section_path, class: 'ui secondary button'
+  h1.ui.left.floated.header Sections
+  h3.ui.right.floated.header
+    = link_to 'New Section', new_section_path, class: 'ui secondary button'
 
 p#notice
-    = notice
+  = notice
 
 div.ui.cards
   - @sections.each do |section|
@@ -17,8 +17,9 @@ div.ui.cards
         div.description
           = section.description
       div.extra.content
-        div.ui.three.buttons
+        div.ui.four.buttons
           = link_to 'Show', section, class: 'ui basic blue button'
+          = link_to 'Scan', scan_section_path(section), method: :post, class: 'ui basic blue button'
           = link_to 'Edit', edit_section_path(section), class: 'ui basic grey button'
           = link_to 'Destroy', section, method: :delete, class: 'ui basic red button', data: {confirm: 'Are you sure?'}
       div.ui.bottom.attached.progress.warning data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.size}"

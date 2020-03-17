@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy]
 
   # GET /sections
   def index
@@ -8,6 +8,11 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
+  end
+
+  # GET /sections/1/scan
+  def scan
+    ScanNetworkWithPingJob.perform_later @section
   end
 
   # GET /sections/new

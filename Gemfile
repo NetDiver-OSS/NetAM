@@ -30,6 +30,9 @@ gem 'redis-rack-cache'
 gem 'sidekiq', '~>6.0.0'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 
+# Job dependencies
+gem 'net-ping', '~> 2.0', '>= 2.0.6'
+
 gem 'slim-rails', '~> 3.2'
 
 # Reduces boot times through caching; required in config/boot.rb
