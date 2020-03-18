@@ -10,9 +10,11 @@ class SectionsController < ApplicationController
   def show
   end
 
-  # GET /sections/1/scan
+  # POST /sections/1/scan
   def scan
     ScanNetworkWithPingJob.perform_later @section
+
+    redirect_to sections_url, notice: 'Scan was successfully scheduled.'
   end
 
   # GET /sections/new
