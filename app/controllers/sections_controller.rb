@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy]
 
   # GET /sections
   def index
@@ -64,6 +64,13 @@ class SectionsController < ApplicationController
     ]
 
     @ip_usage_graph = Daru::View::Plot.new(series_dt, opts)
+  end
+
+  # POST /sections/1/scan
+  def scan
+    ScanNetworkWithPingJob.perform_later @section
+
+    redirect_to sections_url, notice: 'Scan was successfully scheduled.'
   end
 
   # GET /sections/new
