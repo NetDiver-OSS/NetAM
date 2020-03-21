@@ -12,8 +12,16 @@
     = form.text_field :section_id
 
   div.field
+    = form.label :fqdn
+    = form.text_field :fqdn
+
+  div.field
     = form.label :ip_used
     = form.text_field :ip_used
+
+  div.field
+    = form.label :description
+    = form.text_field :description
 
   div.actions
     = form.submit
