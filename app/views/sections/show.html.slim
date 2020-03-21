@@ -40,6 +40,15 @@ div.ui.cards
         - if usage.state.nil?
           td.center.aligned
             i.fas.fa-question-circle
+        - if usage.state == 0
+          td.center.aligned
             i.fas.fa-lock
+        - if usage.state == 1
+          td.center.aligned
             i.fas.fa-check-circle
+        - if usage.state == 2
+          td.center.aligned
             i.fas.fa-times-circle
+        - if usage.state == 3
+          td.center.aligned
+            i.fas.fa-random
