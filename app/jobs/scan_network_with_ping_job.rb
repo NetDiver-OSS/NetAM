@@ -8,13 +8,14 @@ class ScanNetworkWithPingJob < ApplicationJob
 
     network_to_scan = IPAddr.new args[0].network
     section_id = args[0].id
-    database_entries = Usage.where(section_id: section_id).map(&:ip_used).to_a
+    database_entries = Usage.where(section_id: section_id).map { |usage| {ip: usage.ip_used, state: usage.state} }
     online_addresses = []
 
     Sidekiq.logger.info "Starting network process: #{network_to_scan.to_string}"
 
     scan = []
     network_to_scan.to_range.each_with_index do |address, index|
+      next if database_entries.filter_map { |entry| entry[:state] if entry[:state].in?[0,3] and entry[:ip].eql?(address) }.count == 1
       scan[index] = Thread.new {
         check = Net::Ping::External.new address.to_s
 
@@ -33,7 +34,7 @@ class ScanNetworkWithPingJob < ApplicationJob
     Usage.delete Usage.where.not(ip_used: online_addresses).where(section_id: section_id).map(&:id).to_a
 
     Usage.create online_addresses.map { |address|
-      {ip_used: address, section_id: section_id} unless database_entries.include?(address)
+      {ip_used: address, section_id: section_id} unless database_entries.map{ |u| u[:ip] }.include?(address)
     }.to_a
   end
 end
