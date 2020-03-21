@@ -12,13 +12,12 @@ module Devise
           ldap.auth login, password
 
           if ldap.bind
-            admin = Admin.find_or_create_by(
-                email: ldap.search(
-                    :base => 'ou=people,dc=svk,dc=gs',
-                    :filter => Net::LDAP::Filter.eq('uid', params[:admin][:uid])
-                ).first[:mail].first.to_s
-            )
-            puts admin.inspect
+            ldap_email = ldap.search(
+                :base => 'ou=people,dc=svk,dc=gs',
+                :filter => Net::LDAP::Filter.eq('uid', params[:admin][:uid])
+            ).first[:mail].first.to_s
+
+            admin = Admin.find_or_create_by(email: ldap_email)
             success!(admin)
           else
             return fail(:invalid_login)

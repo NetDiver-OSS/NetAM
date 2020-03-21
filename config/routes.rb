@@ -20,8 +20,7 @@ Rails.application.routes.draw do
   resources :usages, format: false
 
 
-  mount Sidekiq::Web => '/sidekiq'
-  # authenticate :user, ->(user) { user.admin? } do
-  #   mount Sidekiq::Web => '/sidekiq'
-  # end
+  authenticate :admin do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
