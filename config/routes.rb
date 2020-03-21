@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
   devise_for :admins, path: 'auth', path_names: {
