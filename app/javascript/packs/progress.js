@@ -1,7 +1,9 @@
-$('.ip_usage').progress({
+$(document).ready(function () {
+  $('.ip_usage').progress({
     className: {
-        error: 'success',
-        success: 'error',
-        active: 'error'
+      error: 'success',
+      success: 'error',
+      active: 'error'
     }
+  });
 });
