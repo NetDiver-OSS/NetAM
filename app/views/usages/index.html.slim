@@ -20,7 +20,26 @@ table.ui.selectable.inverted.table
       td.center.aligned = usage.section_id
       td = usage.fqdn
       td.center.aligned = usage.ip_used
-      td.center.aligned = usage.state
+      // Display query if state not defined
+      - if usage.state.nil?
+        td.center.aligned
+          i.fas.fa-question-circle
+      // Display lock icon if host is locked
+      - if usage.state == 0
+        td.center.aligned
+          i.fas.fa-lock
+      // Display check icon if host is up
+      - if usage.state == 1
+        td.center.aligned
+          i.fas.fa-check-circle
+      // Display cross icon if host is down
+      - if usage.state == 2
+        td.center.aligned
+          i.fas.fa-times-circle
+      // Display random icon if host in in DHCP
+      - if usage.state == 3
+        td.center.aligned
+          i.fas.fa-random
       td = link_to 'Show', usage
       td = link_to 'Edit', edit_usage_path(usage)
       td = link_to 'Destroy', usage, method: :delete, data: { confirm: 'Are you sure?' }
