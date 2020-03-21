@@ -6,6 +6,7 @@
 
 .idea
 *.iml
+.history
 
 # Ignore bundler config.
 /.bundle
