@@ -31,6 +31,9 @@ gem 'redis-rack-cache'
 gem 'sidekiq', '~>6.0.0'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 
+gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'devise_ldap_authenticatable', '~> 0.8.6'
+
 # Job dependencies
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
 

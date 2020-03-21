@@ -1,0 +1,42 @@
+## Authorizations
+authorizations: &AUTHORIZATIONS
+  allow_unauthenticated_bind: false
+  group_base: oou=groups,dc=svk,dc=gs
+  required_groups:
+    - cn=ipam,ou=groups,dc=svk,dc=gs
+  require_attribute:
+    objectClass: inetOrgPerson
+  require_attribute_presence:
+    mail: true
+
+## Environment
+
+development:
+  host: 172.16.0.100
+  port: 389
+  attribute: cn
+  base: ou=people,dc=svk,dc=gs
+  admin_user: cn=admin,dc=test,dc=com
+  admin_password: admin_password
+  ssl: false
+   <<: *AUTHORIZATIONS
+
+test:
+  host: localhost
+  port: 3389
+  attribute: cn
+  base: ou=people,dc=svk,dc=gs
+  admin_user: cn=admin,dc=test,dc=com
+  admin_password: admin_password
+  ssl: simple_tls
+  # <<: *AUTHORIZATIONS
+
+production:
+  host: localhost
+  port: 636
+  attribute: cn
+  base: ou=people,dc=svk,dc=gs
+  admin_user: cn=admin,dc=test,dc=com
+  admin_password: admin_password
+  ssl: start_tls
+  # <<: *AUTHORIZATIONS
