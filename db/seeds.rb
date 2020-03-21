@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-emails = ['sebastien@sdeu.fr', 'vincent@fricou.eu', 'rigonkmalk@gmail.com']
+emails = ['sebastien@sdeu.fr', 'vincent@fricouv.eu', 'rigonkmalk@gmail.com']
 
 emails.each do |email|
   r = Random.urandom(128)

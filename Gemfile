@@ -35,6 +35,8 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'net-ldap', '~> 0.16.2'
 
 # Job dependencies
+gem 'parallel', '~> 1.19', '>= 1.19.1'
+gem 'ruby-progressbar', '~> 1.10', '>= 1.10.1'
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
 
 gem 'slim-rails', '~> 3.2'
