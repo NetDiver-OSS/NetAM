@@ -37,4 +37,9 @@ div.ui.cards
         td = usage.fqdn
         td.center.aligned = usage.ip_used
         td = usage.description
-        td.center.aligned = usage.state
+        - if usage.state.nil?
+          td.center.aligned
+            i.fas.fa-question-circle
+            i.fas.fa-lock
+            i.fas.fa-check-circle
+            i.fas.fa-times-circle
