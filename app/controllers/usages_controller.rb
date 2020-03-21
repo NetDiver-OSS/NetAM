@@ -53,6 +53,6 @@ class UsagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def usage_params
-      params.require(:usage).permit(:ip_used, :fqdn, :description, :section_id)
+      params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id)
     end
 end

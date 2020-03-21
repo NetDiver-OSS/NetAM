@@ -23,5 +23,9 @@
     = form.label :description
     = form.text_field :description
 
+  div.field
+    = form.label :state
+    = form.select :state, options_for_select([['Lock', 0],['DHCP', 3]])
+
   div.actions
     = form.submit
