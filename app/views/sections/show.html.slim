@@ -37,18 +37,23 @@ div.ui.cards
         td = usage.fqdn
         td.center.aligned = usage.ip_used
         td = usage.description
-        - if usage.state.nil?
-          td.center.aligned
-            i.fas.fa-question-circle
-        - if usage.state == 0
-          td.center.aligned
-            i.fas.fa-lock
-        - if usage.state == 1
-          td.center.aligned
-            i.fas.fa-check-circle
-        - if usage.state == 2
-          td.center.aligned
-            i.fas.fa-times-circle
-        - if usage.state == 3
-          td.center.aligned
-            i.fas.fa-random
+        // Display query if state not defined
+      - if usage.state.nil?
+        td.center.aligned
+          i.fas.fa-question-circle
+      // Display lock icon if host is locked
+      - if usage.state == 0
+        td.center.aligned
+          i.fas.fa-lock
+      // Display check icon if host is up
+      - if usage.state == 1
+        td.center.aligned
+          i.fas.fa-check-circle
+      // Display cross icon if host is down
+      - if usage.state == 2
+        td.center.aligned
+          i.fas.fa-times-circle
+      // Display random icon if host in in DHCP
+      - if usage.state == 3
+        td.center.aligned
+          i.fas.fa-random
