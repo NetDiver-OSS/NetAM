@@ -22,5 +22,5 @@ div.ui.cards
           = link_to 'Scan', scan_section_path(section), method: :post, class: 'ui basic blue button'
           = link_to 'Edit', edit_section_path(section), class: 'ui basic grey button'
           = link_to 'Destroy', section, method: :delete, class: 'ui basic red button', data: {confirm: 'Are you sure?'}
-      div.ui.bottom.attached.progress.warning data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.count}"
+      div.ui.bottom.attached.progress.ip_usage data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.count}"
         div.bar

@@ -24,7 +24,8 @@ html
         = link_to 'Home', root_path, class: 'item'
         = link_to 'Sections', sections_path, class: 'item'
         div.right.menu
-          a.item Logout
+          = link_to 'Logout', destroy_admin_session_path, method: :delete, class: "item"
 
     div.ui.main.container
+      p.notice = notice
       == yield
