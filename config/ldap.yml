@@ -1,7 +1,7 @@
 ## Authorizations
 authorizations: &AUTHORIZATIONS
   allow_unauthenticated_bind: false
-  group_base: oou=groups,dc=svk,dc=gs
+  group_base: ou=groups,dc=svk,dc=gs
   required_groups:
     - cn=ipam,ou=groups,dc=svk,dc=gs
   require_attribute:
@@ -14,17 +14,17 @@ authorizations: &AUTHORIZATIONS
 development:
   host: 172.16.0.100
   port: 389
-  attribute: cn
+  attribute: uid
   base: ou=people,dc=svk,dc=gs
-  admin_user: cn=admin,dc=test,dc=com
-  admin_password: admin_password
+  admin_user: <%= ENV['LDAP_ADMIN_USER'] %>
+  admin_password: <%= ENV['LDAP_ADMIN_PASSWORD'] %>
   ssl: false
-   <<: *AUTHORIZATIONS
+  <<: *AUTHORIZATIONS
 
 test:
   host: localhost
   port: 3389
-  attribute: cn
+  attribute: uid
   base: ou=people,dc=svk,dc=gs
   admin_user: cn=admin,dc=test,dc=com
   admin_password: admin_password
@@ -34,7 +34,7 @@ test:
 production:
   host: localhost
   port: 636
-  attribute: cn
+  attribute: uid
   base: ou=people,dc=svk,dc=gs
   admin_user: cn=admin,dc=test,dc=com
   admin_password: admin_password
