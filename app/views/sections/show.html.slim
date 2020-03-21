@@ -16,6 +16,25 @@ div.ui.cards
       p
         strong Network:
         = @section.network
-        
+
       = link_to 'Edit', edit_section_path(@section), class: 'ui basic blue button'
       = link_to 'Back', sections_path, class: 'ui basic red button'
+
+h2 Used
+div.ui.cards
+  table.ui.selectable.inverted.table
+    tr
+      th
+        h3.center.aligned FQDN
+      th
+        h3.center.aligned IP Address
+      th
+        h3.center.aligned Description
+      th
+        h3.center.aligned State
+    - @section.usages.order("inet(ip_used) ASC").each do |usage|
+      tr
+        td = usage.fqdn
+        td.center.aligned = usage.ip_used
+        td = usage.description
+        td.center.aligned = usage.state
