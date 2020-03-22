@@ -88,6 +88,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
 
     if @section.save
+      update_scheduler @section
       redirect_to @section, notice: 'Section was successfully created.'
     else
       render :new
@@ -98,6 +99,7 @@ class SectionsController < ApplicationController
   # PATCH/PUT /sections/1
   def update
     if @section.update(section_params)
+      update_scheduler @section
       redirect_to @section, notice: 'Section was successfully updated.'
     else
       render :edit
@@ -107,11 +109,23 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1
   def destroy
+    Sidekiq.remove_schedule("schedule:#{@section.id}")
     @section.destroy
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
 
   private
+
+  def update_scheduler(section)
+    schedule_name = "schedule:#{section.id}"
+
+    Sidekiq.remove_schedule(schedule_name) unless Sidekiq.get_schedule(schedule_name).nil?
+
+    Sidekiq.set_schedule(
+        schedule_name,
+        { :class => 'ScanNetworkWithPingJob', :every => section.schedule, :queue => 'default', :args => [{:id => section.id, :network => section.network}] }
+    )
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_section
@@ -120,7 +134,7 @@ class SectionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network)
+    params.require(:section).permit(:name, :description, :network, :schedule)
   end
 
 end
