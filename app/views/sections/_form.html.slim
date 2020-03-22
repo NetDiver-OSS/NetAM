@@ -1,20 +1,33 @@
 = form_with(model: section, local: true, class: 'ui form') do |form|
   - if section.errors.any?
-    div.error_explanation
-      h2 prohibited this section from being saved:
+    div.ui.message
+      div.header
+        | prohibited this section from being saved:
         = pluralize(section.errors.count, "error") 
 
-      ul
+      ul.list
         - section.errors.full_messages.each do |message|
           li = message
 
-  div.two.fields
+  div.three.fields
     div.field
       = form.label :name
-      = form.text_field :name, placeholder: 'My home network'
+      div.ui.labeled.input
+        div.ui.label
+          em.fas.fa-pencil-alt
+        = form.text_field :name, placeholder: 'My home network'
     div.field
       = form.label :network
-      = form.text_field :network, placeholder: '192.168.1.0/24'
+      div.ui.labeled.input
+        div.ui.label
+          em.fas.fa-network-wired
+        = form.text_field :network, placeholder: '192.168.1.0/24'
+    div.field
+      = form.label :schedule
+      div.ui.labeled.input
+        div.ui.label
+          em.far.fa-clock
+        = form.text_field :schedule, placeholder: '2 hours'
 
   div.field
     = form.label :description
