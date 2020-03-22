@@ -7,8 +7,8 @@ class ScanNetworkWithPingJob < ApplicationJob
   def perform(*args)
     raise 'Job can only process 1 network at the time' if args.count > 1
 
-    network_to_scan = IPAddr.new args[0].network
-    section_id = args[0].id
+    network_to_scan = IPAddr.new args[0][:network] || args[0]['network']
+    section_id = args[0][:id] || args[0]['id']
     database_entries = Usage.where(section_id: section_id).map { |usage| { ip: usage.ip_used, state: usage.state } }
 
     Sidekiq.logger.info "Starting network process: #{network_to_scan.to_string}"
