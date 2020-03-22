@@ -69,7 +69,7 @@ class SectionsController < ApplicationController
 
   # POST /sections/1/scan
   def scan
-    ScanNetworkWithPingJob.perform_later @section
+    ScanNetworkWithPingJob.perform_later({ id: @section.id, network: @section.network })
 
     redirect_to sections_url, notice: 'Scan was successfully scheduled.'
   end
