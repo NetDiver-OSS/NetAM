@@ -1,5 +1,6 @@
 h1 New Usage
 
-= render 'form', usage: @usage
-
-= link_to 'Back', usages_path
+div.ui.form
+  = render 'form', usage: @usage
+  div.ui.two.buttons
+    = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, usages_path, class: 'ui red button'

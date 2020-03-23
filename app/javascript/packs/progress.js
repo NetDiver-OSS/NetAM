@@ -6,4 +6,5 @@ $(document).ready(function () {
       active: 'error'
     }
   });
+  $('.ui.dropdown').dropdown();
 });

@@ -18,9 +18,9 @@ div.ui.cards
           = section.description
       div.extra.content
         div.ui.four.buttons
-          = link_to 'Show', section, class: 'ui basic blue button'
-          = link_to 'Scan', scan_section_path(section), method: :post, class: 'ui basic blue button'
-          = link_to 'Edit', edit_section_path(section), class: 'ui basic grey button'
-          = link_to 'Destroy', section, method: :delete, class: 'ui basic red button', data: {confirm: 'Are you sure?'}
+          = link_to '<i class="fas fa-eye"></i>'.html_safe, section, class: 'ui blue button'
+          = link_to '<i class="fas fa-search"></i>'.html_safe, scan_section_path(section), method: :post, class: 'ui blue button'
+          = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(section), class: 'ui grey button'
+          = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, section, method: :delete, class: 'ui red button', data: {confirm: 'Are you sure?'}
       div.ui.bottom.attached.progress.ip_usage data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.count}"
         div.bar
