@@ -1,13 +1,22 @@
 p#notice
   = notice
 
-p
-  strong Ip used:
-  = @usage.ip_used
+div.ui.center.aligned.basic
+  table.ui.fixed.single.line.celled.table
+    thead
+      tr
+        th.center.aligned
+          strong IP Used
+        th.center.aligned
+          strong Section
 
-p
-  strong Section:
-  = @usage.section_id
+    tbody
+      tr
+        td.center.aligned
+          = @usage.ip_used
+        td.center.aligned
+          = @usage.section_id
 
-= link_to 'Edit', edit_usage_path(@usage)
-= link_to 'Back', usages_path
+  div.ui.two.buttons
+    = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(@usage), class: 'ui green button'
+    = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, usages_path, class: 'ui red button'

@@ -3,26 +3,23 @@ p#notice
 
 = raw @ip_usage_graph.div
 
-div.ui.cards
+div.ui
   div.ui.card
     div.content
-      p
-        div.header
-          strong Name:
-          = @section.name
-      p
-        strong Description:
-        = @section.description
-      p
-        strong Network:
+      div.header
+        = @section.name
+      div.meta
         = @section.network
-
-      = link_to 'Edit', edit_section_path(@section), class: 'ui basic blue button'
-      = link_to 'Back', sections_path, class: 'ui basic red button'
+      div.description
+        = @section.description
+    div.extra.content
+      div.ui.two.buttons
+        = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(@section), class: 'ui blue button'
+        = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, sections_path, class: 'ui red button'
 
 h2 Used
 div.ui.cards
-  table.ui.selectable.inverted.table
+  table.ui.selectable.table
     tr
       th
         h3.center.aligned FQDN

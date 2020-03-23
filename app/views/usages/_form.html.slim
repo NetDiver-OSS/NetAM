@@ -7,25 +7,27 @@
         - usage.errors.full_messages.each do |message|
           li = message
 
-  div.field
-    = form.label :section_id
-    = form.text_field :section_id
+  div.four.fields
+    div.field
+      = form.label :section_id
+      div.detail
+        = form.text_field :section_id
+    div.field
+      = form.label :fqdn
+      div.detail
+        = form.text_field :fqdn
+    div.field
+      = form.label :ip_used
+      div.detail
+        = form.text_field :ip_used
+    div.field
+      = form.label :state
+      div.detail
+        = form.select :state, options_for_select([['Lock', 0],['Active', 1], ['Inactive', 2],['DHCP', 3]]), class: 'ui search dropdown'
 
   div.field
-    = form.label :fqdn
-    = form.text_field :fqdn
-
-  div.field
-    = form.label :ip_used
-    = form.text_field :ip_used
-
-  div.field
-    = form.label :description
-    = form.text_field :description
-
-  div.field
-    = form.label :state
-    = form.select :state, options_for_select([['Lock', 0],['DHCP', 3]])
+      = form.label :description
+      = form.text_area :description
 
   div.actions
-    = form.submit
+    = form.submit nil, class: 'ui button fluid'
