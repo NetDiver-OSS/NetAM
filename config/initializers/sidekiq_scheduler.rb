@@ -8,7 +8,7 @@ Sidekiq.configure_server do |config|
       Sidekiq.set_schedule(
           "schedule:#{section.id}",
           { :class => 'ScanNetworkWithPingJob', :every => section.schedule, :queue => 'default', :args => [{:id => section.id, :network => section.network}] }
-      ) unless section.schedule.empty?
+      ) unless section.schedule.nil?
     end
   end
 end
