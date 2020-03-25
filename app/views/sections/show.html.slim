@@ -1,56 +1,61 @@
 p#notice
   = notice
 
-= raw @ip_usage_graph.div
+
+div.ui.segment
+  div.ui.two.column.very.relaxed.grid
+    div.column
+      div.ui.cards
+        div.ui.card
+          div.content
+            div.header
+              = @section.name
+            div.meta
+              = @section.network
+            div.description
+              = @section.description
+          div.extra.content
+            div.ui.two.buttons
+              = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(@section), class: 'ui blue button'
+              = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, sections_path, class: 'ui red button'
+    div.column
+      = raw @ip_usage_graph.div
 
 div.ui
-  div.ui.card
-    div.content
-      div.header
-        = @section.name
-      div.meta
-        = @section.network
-      div.description
-        = @section.description
-    div.extra.content
-      div.ui.two.buttons
-        = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(@section), class: 'ui blue button'
-        = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, sections_path, class: 'ui red button'
-
-h2 Used
-div.ui.cards
-  table.ui.selectable.table
-    tr
-      th
-        h3.center.aligned FQDN
-      th
-        h3.center.aligned IP Address
-      th
-        h3.center.aligned Description
-      th
-        h3.center.aligned State
-    - @section.usages.order("inet(ip_used) ASC").each do |usage|
+  table.ui.celled.table
+    thead
       tr
-        td = usage.fqdn
-        td.center.aligned = usage.ip_used
-        td = usage.description
-        // Display query if state not defined
-        - if usage.state.nil?
-          td.center.aligned
-            i.fas.fa-question-circle
-        // Display lock icon if host is locked
-        - if usage.state == 0
-          td.center.aligned
-            i.fas.fa-lock
-        // Display check icon if host is up
-        - if usage.state == 1
-          td.center.aligned
-            i.fas.fa-check-circle
-        // Display cross icon if host is down
-        - if usage.state == 2
-          td.center.aligned
-            i.fas.fa-times-circle
-        // Display random icon if host in in DHCP
-        - if usage.state == 3
-          td.center.aligned
-            i.fas.fa-random
+        th
+          h3.center.aligned.header FQDN
+        th
+          h3.center.aligned IP Address
+        th
+          h3.center.aligned Description
+        th
+          h3.center.aligned State
+    tbody
+      - @section.usages.order("inet(ip_used) ASC").each do |usage|
+        tr
+          td = usage.fqdn
+          td.center.aligned = usage.ip_used
+          td = usage.description
+          // Display query if state not defined
+          - if usage.state.nil?
+            td.center.aligned
+              i.fas.fa-question-circle
+          // Display lock icon if host is locked
+          - if usage.state == 0
+            td.center.aligned
+              i.fas.fa-lock
+          // Display check icon if host is up
+          - if usage.state == 1
+            td.center.aligned
+              i.fas.fa-check-circle
+          // Display cross icon if host is down
+          - if usage.state == 2
+            td.center.aligned
+              i.fas.fa-times-circle
+          // Display random icon if host in in DHCP
+          - if usage.state == 3
+            td.center.aligned
+              i.fas.fa-random
