@@ -9,12 +9,13 @@ class ScanNetworkWithPingJob < ApplicationJob
 
     network_to_scan = IPAddr.new args[0][:network] || args[0]['network']
     section_id = args[0][:id] || args[0]['id']
-    database_entries = Usage.where(section_id: section_id).map { |usage| { ip: usage.ip_used, state: usage.state } }
+    database_entries = Usage.where(section_id: section_id).map { |usage| { ip: usage.ip_used, state: usage.state, fqdn: usage.fqdn } }
 
     Sidekiq.logger.info "Starting network process: #{network_to_scan.to_string}"
 
-    Parallel.each(network_to_scan.to_range, in_processes: 20, progress: "Scan network #{network_to_scan}") do |address|
+    Parallel.each(network_to_scan.to_range, in_processes: 50, progress: "Scan network #{network_to_scan}") do |address|
       address_state = database_entries.filter_map { |entry| entry[:state] if entry[:ip].to_s == address.to_s }
+      fqdn_entry = database_entries.filter_map { |entry| entry[:fqdn] if entry[:ip].to_s == address.to_s }
 
       next if address_state.count > 0 and [0, 3].include? address_state.first
       begin
@@ -29,6 +30,12 @@ class ScanNetworkWithPingJob < ApplicationJob
           addr_id.update_attributes(
             :state => 1
           )
+          unless reverse_dns.nil?
+            Sidekiq.logger.info "Found PTR for known active IP: #{address}"
+            addr_id.update_attributes(
+              :fqdn => reverse_dns
+            )
+          end
         else
           Sidekiq.logger.info "Found new active IP: #{address}"
           unless reverse_dns.nil?
