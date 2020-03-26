@@ -7,4 +7,5 @@ $(document).ready(function () {
     }
   });
   $('.ui.dropdown').dropdown();
+  $('.popupdisplay').popup();
 });
