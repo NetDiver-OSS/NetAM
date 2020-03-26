@@ -27,5 +27,7 @@ html
           = link_to 'Logout', destroy_admin_session_path, method: :delete, class: "item"
 
     div.ui.main.container
-      p.notice = notice
+      - unless notice.nil?
+        div.ui.floating.message.green
+          = notice
       == yield
