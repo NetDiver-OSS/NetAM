@@ -73,7 +73,7 @@ div.ui
           - addresses.each do |address|
             - ip_usage = @section.usages.where(ip_used: address.to_s).first
             div.column style="padding-left: 0; padding-right: 0;"
-              a class="ui label #{ip_usage.nil? ? 'grey' : 'green' }"
+              a class="ui label #{ip_usage.nil? ? 'grey' : ip_usage.state == 2 ? 'red' : ip_usage.state == 3 ? 'purple' : 'green' }" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
                 = address.to_s.split('.')[3]
                 div.detail
                   - if ip_usage.nil?
