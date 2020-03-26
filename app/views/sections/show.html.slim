@@ -21,6 +21,10 @@ div.ui.segment
     div.column
       = raw @ip_usage_graph.div
 
+div.ui.clearing.basic.segment
+  h3.ui.right.floated.header
+    = link_to 'New Usage', new_usage_path, class: 'ui secondary button'
+
 div.ui
   table.ui.celled.table
     thead
