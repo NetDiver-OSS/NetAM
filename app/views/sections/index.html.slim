@@ -1,7 +1,7 @@
 div.ui.clearing.basic.segment
   h1.ui.left.floated.header Sections
   h3.ui.right.floated.header
-    = link_to 'New Section', new_section_path, class: 'ui secondary button'
+    = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_section_path, class: 'ui secondary button'
 
 div.ui.cards
   - @sections.each do |section|
