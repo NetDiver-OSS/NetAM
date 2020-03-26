@@ -21,6 +21,10 @@ div.ui.segment
     div.column
       = raw @ip_usage_graph.div
 
+div.ui.clearing.basic.segment
+  h3.ui.right.floated.header
+    = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_usage_path, class: 'ui secondary button'
+
 div.ui
   table.ui.celled.table
     thead
@@ -59,3 +63,7 @@ div.ui
           - if usage.state == 3
             td.center.aligned
               i.fas.fa-random
+          td.center.aligned.ui.three.buttons
+            = link_to '<i class="fas fa-eye"></i>'.html_safe, usage, class: 'ui blue button'
+            = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(usage), class: 'ui grey button'
+            = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red button'
