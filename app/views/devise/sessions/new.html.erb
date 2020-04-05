@@ -3,23 +3,25 @@
     <h2 class="ui teal image header">
       <div class="content">Log-in</div>
     </h2>
+
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'ui large form') do |f| %>
       <div class="ui stacked segment">
+
         <div class="field">
-          <div class="ui labeled input">
+          <div class="ui fluid labeled input">
             <div class="ui label">
               <i class="fas fa-user"></i>
             </div>
-            <%= f.text_field :uid, autofocus: true, autocomplete: "uid", placeholder: 'uid' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address' %>
           </div>
         </div>
 
         <div class="field">
-          <div class="ui labeled input">
+          <div class="ui fluid labeled input">
             <div class="ui label">
               <i class="fas fa-lock"></i>
             </div>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password' %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password' %>
           </div>
         </div>
 
@@ -30,5 +32,7 @@
         <div class="ui error message"><%= alert %></div>
       <% end %>
     <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
 </div>

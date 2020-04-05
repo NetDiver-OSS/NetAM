@@ -1,0 +1,81 @@
+$bg-color: #DADADA;
+$text-color: rgba(0, 0, 0, 0.87);
+$primary-color: #00B5AD;
+$font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$input-border-color: rgba(34, 36, 38, 0.15);
+$input-border-radius: 0.28571429rem;
+
+$button-border-radius: 0.28571429rem;
+
+$width: 500px;
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+body {
+  background: $bg-color;
+  -webkit-font-smoothing: initial;
+}
+
+body, button {
+  font-family: $font-family;
+  color: $text-color;
+}
+
+h1 {
+  width: $width;
+  color:$primary-color;
+  vertical-align: middle;
+  overflow: hidden;
+  margin: 80px auto 0px;
+  background: none;
+  text-align: center;
+}
+
+form {
+  width: $width;
+  background: #fff;
+  padding: 1em 1em;
+  margin: 0px auto 40px;
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  font-size: 1em;
+  background: #f2f2f2;
+  padding: 6px 8px;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  outline: none;
+}
+
+button {
+  text-shadow: none;
+  margin-top: 30px;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: $button-border-radius;
+  color: #fff;
+  background: $primary-color;
+  font-size: 1.14285714rem;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}

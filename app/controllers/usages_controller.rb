@@ -1,6 +1,6 @@
 class UsagesController < ApplicationController
   before_action :set_usage, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+  before_action :authenticate_user!
 
   # GET /usages
   def index
