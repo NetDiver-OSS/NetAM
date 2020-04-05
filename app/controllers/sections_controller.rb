@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy]
+  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy, :export]
   before_action :authenticate_admin!
 
   # GET /sections
@@ -114,8 +114,8 @@ class SectionsController < ApplicationController
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
 
-  def export(section)
-    ExportSectionToCsv(section)
+  def export
+    ExportSectionToCsv.perform_later(@section)
     redirect_to sections_url, notice: 'Scan was successfully scheduled.'
   end
 
