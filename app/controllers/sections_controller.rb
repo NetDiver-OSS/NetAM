@@ -9,6 +9,13 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
+
+    ip_used = @section.usages.where(state: 0..3).count
+    ip_locked = @section.usages.where(state: 0).count
+    ip_up = @section.usages.where(state: 1).count
+    ip_down = @section.usages.where(state: 2).count
+    ip_free = IPAddr.new(@section.network).to_range.count
+
     Daru::View.plotting_library = :highcharts
 
     opts = {
@@ -46,19 +53,23 @@ class SectionsController < ApplicationController
             data: [
                 {
                     name: 'Used',
-                    y: 42
+                    y: ip_used
                 },
                 {
-                    name: 'Reserved',
-                    y: 8
+                    name: 'Locked',
+                    y: ip_locked
                 },
                 {
-                    name: 'Fixed',
-                    y: 10
+                    name: 'Up',
+                    y: ip_up
+                },
+                {
+                    name: 'Down',
+                    y: ip_down
                 },
                 {
                     name: 'Free',
-                    y: 196
+                    y: ip_free
                 }
             ]
         }
