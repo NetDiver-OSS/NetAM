@@ -32,7 +32,7 @@ gem 'sidekiq', '~>6.0.0'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'net-ldap', '~> 0.16.2'
+gem 'omniauth-ldap', '~> 2.0'
 
 # Job dependencies
 gem 'parallel', '~> 1.19', '>= 1.19.1'
