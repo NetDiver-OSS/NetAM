@@ -14,7 +14,8 @@ class SectionsController < ApplicationController
     ip_locked = @section.usages.where(state: 0).count
     ip_up = @section.usages.where(state: 1).count
     ip_down = @section.usages.where(state: 2).count
-    ip_free = IPAddr.new(@section.network).to_range.count
+    ip_dhcp = @section.usages.where(state: 3).count
+    ip_free = IPAddr.new(@section.network).to_range.count - ip_used
 
     Daru::View.plotting_library = :highcharts
 
@@ -38,9 +39,6 @@ class SectionsController < ApplicationController
                 dataLabels: {
                     enabled: true,
                     format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: "(Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'".js_code
-                    }
                 }
             }
         },
@@ -52,24 +50,31 @@ class SectionsController < ApplicationController
             colorByPoint: true,
             data: [
                 {
-                    name: 'Used',
-                    y: ip_used
-                },
-                {
                     name: 'Locked',
-                    y: ip_locked
+                    y: ip_locked,
+                    color: '#838383'
                 },
                 {
                     name: 'Up',
-                    y: ip_up
+                    y: ip_up,
+                    color: '#16ab39'
                 },
                 {
                     name: 'Down',
-                    y: ip_down
+                    y: ip_down,
+                    color: '#db2828'
                 },
                 {
                     name: 'Free',
-                    y: ip_free
+                    y: ip_free,
+                    color: '#2185d0',
+                    sliced: true,
+                    selected: true
+                },
+                {
+                    name: 'DHCP',
+                    y: ip_dhcp,
+                    color: '#9627ba'
                 }
             ]
         }
