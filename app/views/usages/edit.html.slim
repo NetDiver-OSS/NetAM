@@ -5,4 +5,4 @@ div.ui.form
 
   div.ui.two.buttons
     = link_to '<i class="fas fa-eye"></i>'.html_safe, @usage, class: 'ui blue button'
-    = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, usages_path, class: 'ui red button'
+    = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, section_path(@usage.section_id), class: 'ui red button'
