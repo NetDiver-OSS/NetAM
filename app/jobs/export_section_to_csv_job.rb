@@ -9,17 +9,18 @@ class ExportSectionToCsvJob < ApplicationJob
                                                       usage.fqdn,
                                                       usage.description,
                                                       usage.state ]}
-    attributes = %w{section_name, ip, fqdn, description, state}
+    attributes = %w{Section Address FQDN Description State}
     mycsv = CSV.generate(headers: true) do |csv|
       csv << attributes
       database_entries.each do |ip_usage|
-        if ip_usage[4] == 0
+        case ip_usage[4]
+        when 0
           ip_usage[4] = 'Reserved'
-        elsif ip_usage[4] == 1
+        when 1
           ip_usage[4] = 'Active'
-        elsif ip_usage[4] == 2
+        when 2
           ip_usage[4] = 'Inactive'
-        elsif ip_usage[4] == 3
+        when 3
           ip_usage[4] = 'DHCP'
         end
         csv << ip_usage
