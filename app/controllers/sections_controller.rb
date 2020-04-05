@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy]
+  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy, :export]
   before_action :authenticate_admin!
 
   # GET /sections
@@ -123,6 +123,11 @@ class SectionsController < ApplicationController
     Sidekiq.remove_schedule("schedule:#{@section.id}")
     @section.destroy
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
+  end
+
+  def export
+    csvExport = ExportSectionToCsvJob.perform_now(@section)
+    send_data csvExport, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
   end
 
   private

@@ -10,16 +10,15 @@ div.ui.segment
               = @section.network
             div.description
               = @section.description
-          div.extra.content
-            div.ui.two.buttons
-              = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(@section), class: 'ui blue button'
-              = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, sections_path, class: 'ui red button'
     div.column
       = raw @ip_usage_graph.div
 
 div.ui.clearing.basic.segment
   h3.ui.right.floated.header
-    = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_usage_path, class: 'ui secondary button'
+    dev.ui.three.buttons
+      = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(@section), class: 'ui blue button popupdisplay', data: {:content => "Edit section" }
+      = link_to '<i class="fas fa-download"></i>'.html_safe, export_section_path(@section.id), method: :post, class: 'ui blue button popupdisplay', data: {:content => 'Export to CSV'}
+      = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_usage_path, class: 'ui secondary button popupdisplay', data: {:content => 'Add new usage'}
 
 div.ui
   table.ui.celled.table
@@ -62,8 +61,8 @@ div.ui
               i.fas.fa-random
           td.center.aligned.ui.three.buttons
             = link_to '<i class="fas fa-eye"></i>'.html_safe, usage, class: 'ui blue button popupdisplay', data: {:content => "Show address details" }
-            = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(usage), class: 'ui grey button'
-            = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red button'
+            = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(usage), class: 'ui grey button popupdisplay', data: {:content => 'Edit'}
+            = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red button popupdisplay', data: {:content => 'Delete'}
 
 - if IPAddr.new(@section.network).ipv4?
   div.ui.basic.segment
