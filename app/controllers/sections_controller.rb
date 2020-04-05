@@ -115,8 +115,8 @@ class SectionsController < ApplicationController
   end
 
   def export
-    ExportSectionToCsv.perform_later(@section)
-    redirect_to sections_url, notice: 'Scan was successfully scheduled.'
+    ExportSectionToCsvJob.perform_now(@section)
+    #redirect_to sections_url, notice: 'Export was successfully scheduled.'
   end
 
   private
