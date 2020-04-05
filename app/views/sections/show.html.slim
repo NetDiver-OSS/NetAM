@@ -72,17 +72,33 @@ div.ui
           - addresses.each do |address|
             - ip_usage = @section.usages.where(ip_used: address.to_s).first
             div.column style="padding-left: 0; padding-right: 0;"
-              a class="ui label #{ip_usage.nil? ? 'grey' : ip_usage.state == 2 ? 'red' : ip_usage.state == 3 ? 'purple' : 'green' }" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
-                = address.to_s.split('.')[3]
-                div.detail
-                  - if ip_usage.nil?
-                    i.fas.fa-question-circle
-                  - else
-                    - if ip_usage.state == 0
-                      i.fas.fa-lock
-                    - if ip_usage.state == 1
-                      i.fas.fa-check-circle
-                    - if ip_usage.state == 2
-                      i.fas.fa-times-circle
-                    - if ip_usage.state == 3
-                      i.fas.fa-random
+              - if ip_usage.nil?
+                a class="ui label #{ip_usage.nil? ? 'grey' : ip_usage.state == 2 ? 'red' : ip_usage.state == 3 ? 'purple' : 'green' }" href="#{ip_usage.nil? ? new_usage_path : new_usage_path }"
+                  = address.to_s.split('.')[3]
+                  div.detail
+                    - if ip_usage.nil?
+                      i.fas.fa-question-circle
+                    - else
+                      - if ip_usage.state == 0
+                        i.fas.fa-lock
+                      - if ip_usage.state == 1
+                        i.fas.fa-check-circle
+                      - if ip_usage.state == 2
+                        i.fas.fa-times-circle
+                      - if ip_usage.state == 3
+                        i.fas.fa-random
+              - else
+                a class="ui label #{ip_usage.nil? ? 'grey' : ip_usage.state == 2 ? 'red' : ip_usage.state == 3 ? 'purple' : 'green' }" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
+                  = address.to_s.split('.')[3]
+                  div.detail
+                    - if ip_usage.nil?
+                      i.fas.fa-question-circle
+                    - else
+                      - if ip_usage.state == 0
+                        i.fas.fa-lock
+                      - if ip_usage.state == 1
+                        i.fas.fa-check-circle
+                      - if ip_usage.state == 2
+                        i.fas.fa-times-circle
+                      - if ip_usage.state == 3
+                        i.fas.fa-random
