@@ -114,6 +114,11 @@ class SectionsController < ApplicationController
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
 
+  def export(section)
+    ExportSectionToCsv(section)
+    redirect_to sections_url, notice: 'Scan was successfully scheduled.'
+  end
+
   private
 
   def update_scheduler(section)

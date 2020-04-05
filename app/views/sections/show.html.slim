@@ -20,6 +20,8 @@ div.ui.segment
 div.ui.clearing.basic.segment
   h3.ui.right.floated.header
     = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_usage_path, class: 'ui secondary button'
+  h3.ui.right.floated.header
+    = link_to '<i class="fas fa-file-csv"></i>'.html_safe, export_section_path(@section.id), method: :post, class: 'ui secondary button'
 
 div.ui
   table.ui.celled.table

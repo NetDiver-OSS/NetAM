@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :sections, format: false
   post '/sections/:id/scan', as: 'scan_section', to: 'sections#scan', format: false
+  post '/sections/:id/export', as: 'export_section', to: 'sections#export', format: false
 
   resources :usages, format: false
 
