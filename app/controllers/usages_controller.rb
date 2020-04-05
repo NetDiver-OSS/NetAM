@@ -25,7 +25,7 @@ class UsagesController < ApplicationController
     @usage = Usage.new(usage_params)
 
     if @usage.save
-      redirect_to @usage, notice: 'Usage was successfully created.'
+      redirect_to section_path(@usage.section_id), notice: 'Usage was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class UsagesController < ApplicationController
   # PATCH/PUT /usages/1
   def update
     if @usage.update(usage_params)
-      redirect_to @usage, notice: 'Usage was successfully updated.'
+      redirect_to section_path(@usage.section_id), notice: 'Usage was successfully updated.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class UsagesController < ApplicationController
   # DELETE /usages/1
   def destroy
     @usage.destroy
-    redirect_to usages_url, notice: 'Usage was successfully destroyed.'
+    redirect_to section_path(@usage.section_id), notice: 'Usage was successfully destroyed.'
   end
 
   private
