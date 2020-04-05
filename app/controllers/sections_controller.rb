@@ -115,8 +115,8 @@ class SectionsController < ApplicationController
   end
 
   def export
-    ExportSectionToCsvJob.perform_now(@section)
-    #redirect_to sections_url, notice: 'Export was successfully scheduled.'
+    csvExport = ExportSectionToCsvJob.perform_now(@section)
+    send_data csvExport, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
   end
 
   private
