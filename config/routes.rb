@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/sections/:id/export', as: 'export_section', to: 'sections#export', format: false
 
   resources :usages, format: false
+  post '/usages/:id/scan', as: 'scan_usage', to: 'usages#scan', format: false
 
   authenticate :user do
     mount Sidekiq::Web => '/sidekiq'

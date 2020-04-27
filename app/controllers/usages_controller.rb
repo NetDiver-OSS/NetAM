@@ -1,5 +1,5 @@
 class UsagesController < ApplicationController
-  before_action :set_usage, only: [:show, :edit, :update, :destroy]
+  before_action :set_usage, only: [:show, :scan, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /usages
@@ -18,6 +18,13 @@ class UsagesController < ApplicationController
 
   # GET /usages/1/edit
   def edit
+  end
+
+  # POST /usages/1/scan
+  def scan
+    ScanAddressWithPingJob.perform_later({ id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state })
+
+    redirect_to section_path(@usage.section_id), notice: 'Scan was successfully scheduled.'
   end
 
   # POST /usages
