@@ -144,7 +144,7 @@ class SectionsController < ApplicationController
 
     Sidekiq.set_schedule(
         schedule_name,
-        { :class => 'ScanNetworkWithPingJob', :every => section.schedule, :queue => 'default', :args => [{:id => section.id, :network => section.network}] }
+        { :class => 'ScanNetworkWithPingJob', :every => [section.schedule, first_in: '0s'], :queue => 'default', :args => [{:id => section.id, :network => section.network}] }
     )
   end
 

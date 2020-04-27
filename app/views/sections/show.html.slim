@@ -63,7 +63,7 @@ div.ui
             = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(usage), class: 'ui grey button popupdisplay', data: {:content => 'Edit'}
             = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red button popupdisplay', data: {:content => 'Delete'}
 
-- if IPAddr.new(@section.network).ipv4? and IPAddr.new(@section.network).prefix >= 24
+- if display_network?(@section.network)
   div.ui.basic.segment
     div.ui.grid
       - IPAddr.new(@section.network).to_range.each_slice(16) do |addresses|

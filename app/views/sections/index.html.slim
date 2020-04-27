@@ -3,7 +3,7 @@ div.ui.clearing.basic.segment
   h3.ui.right.floated.header
     = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_section_path, class: 'ui secondary button'
 
-div.ui.cards
+div.ui.four.cards
   - @sections.each do |section|
     div.card
       div.content
@@ -19,5 +19,6 @@ div.ui.cards
           = link_to '<i class="fas fa-search"></i>'.html_safe, scan_section_path(section), method: :post, class: 'ui blue button'
           = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(section), class: 'ui grey button'
           = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, section, method: :delete, class: 'ui red button', data: {confirm: 'Are you sure?'}
-      div.ui.bottom.attached.progress.ip_usage data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.count}"
-        div.bar
+      - if display_network?(section.network)
+        div.ui.bottom.attached.progress.ip_usage data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.count}"
+          div.bar

@@ -18,7 +18,7 @@ module Netam
     # Autoload lib/ folder including all subdirectories
     config.eager_load_paths << Rails.root.join('lib')
 
-    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+    config.action_view.field_error_proc = Proc.new do |html_tag, _|
       html_tag.html_safe
     end
 
