@@ -118,6 +118,7 @@ GEM
     hashie (3.5.7)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    ipaddress (0.8.3)
     lazy_high_charts (1.5.8)
       hash-deep-merge
     listen (3.1.5)
@@ -303,6 +304,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   daru-view!
   devise (~> 4.7, >= 4.7.1)
+  ipaddress (~> 0.8.3)
   listen (>= 3.0.5, < 3.2)
   net-ping (~> 2.0, >= 2.0.6)
   omniauth-ldap (~> 2.0)
