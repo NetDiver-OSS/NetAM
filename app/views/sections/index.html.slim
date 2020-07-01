@@ -19,6 +19,5 @@ div.ui.four.cards
           = link_to '<i class="fas fa-search"></i>'.html_safe, scan_section_path(section), method: :post, class: 'ui blue button'
           = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(section), class: 'ui grey button'
           = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, section, method: :delete, class: 'ui red button', data: {confirm: 'Are you sure?'}
-      - if display_network?(section.network)
-        div.ui.bottom.attached.progress.ip_usage data-value="#{section.usages.count}" data-total="#{IPAddr.new(section.network).to_range.count}"
-          div.bar
+      div.ui.bottom.attached.progress.ip_usage data-value="#{section.usages.count}" data-total="#{IPAddress(section.network).size}"
+        div.bar
