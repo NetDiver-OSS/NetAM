@@ -1,6 +1,6 @@
 ---
 :verbose: false
-:concurrency: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+:concurrency: <%= Rails.configuration.netam[:sidekiq][:threads] %>
 :timeout: 30
 :dynamic: true
 
