@@ -1,0 +1,35 @@
+---
+auth:
+  ldap:
+    host: <%= ENV.fetch("LDAP_HOST") { 'localhost' } %>
+    port: <%= ENV.fetch("LDAP_PORT") { 389 } %>
+    encryption: <%= ENV.fetch("LDAP_ENCRYPTION") { false } %>
+    base: <%= ENV.fetch("LDAP_BASE") { 'dc=example,dc=com' } %>
+    uid: <%= ENV.fetch("LDAP_UID") { 'uid' } %>
+    bind_dn: <%= ENV.fetch("LDAP_BIND_USER") { 'cn=admin,dc=example,dc=com' } %>
+    password: <%= ENV.fetch("LDAP_BIND_PASSWORD") { 'password' } %>
+
+sentry:
+  host: <%= ENV.fetch("SENTRY_HOST") { 'sentry.app.svk.gs' } %>
+  token: <%= ENV.fetch("SENTRY_TOKEN") { '5fb75d25f91e4265bdb126411b8c28b9:65c52a37f3be4598bfea096fac5c88f6' } %>
+
+redis:
+  host: <%= ENV.fetch("REDIS_HOST") { 'localhost' } %>
+  port: <%= ENV.fetch("REDIS_PORT") { 6379 } %>
+  db: <%= ENV.fetch("REDIS_DB") { 0 } %>
+
+database:
+  pool: <%= ENV.fetch("DB_MAX_THREADS") { 5 } %>
+  database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>
+  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
+  username: <%= ENV.fetch("DB_USER") { 'admin' } %>
+  password: <%= ENV.fetch("DB_PASS") { 'password' } %>
+
+puma:
+  max_thread: <%= ENV.fetch("PUMA_MAX_THREADS") { 5 } %>
+  min_thread: <%= ENV.fetch("PUMA_MIN_THREADS") { 1 } %>
+  port: <%= ENV.fetch("PUMA_PORT") { 3000 } %>
+
+sidekiq:
+  threads: <%= ENV.fetch("SIDEKIQ_MAX_THREADS") { 5 } %>

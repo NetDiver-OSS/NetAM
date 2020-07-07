@@ -10,6 +10,9 @@ module Netam
   class Application < Rails::Application
     require_dependency Rails.root.join('lib/netam')
 
+    # Load custom configuration file
+    config.netam = config_for(:netam)
+
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq
 
