@@ -18,7 +18,7 @@ default: &default
     port: <%= ENV.fetch("REDIS_PORT") { 6379 } %>
     db: <%= ENV.fetch("REDIS_DB") { 0 } %>
 
-  database:
+  db:
     pool: <%= ENV.fetch("DB_MAX_THREADS") { 5 } %>
     database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>
     host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
