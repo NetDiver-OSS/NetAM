@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Netam
   class Application < Rails::Application
+    require_dependency Rails.root.join('lib/netam')
+
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq
 
