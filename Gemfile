@@ -23,7 +23,7 @@ gem 'turbolinks', '~> 5'
 
 gem 'ipaddress', '~> 0.8.3'
 
-gem 'daru-view', git: 'https://github.com/SciRuby/daru-view'
+gem "react-rails", "~> 2.6"
 gem 'sentry-raven', '~> 2.13'
 
 # Use Redis adapter to run Action Cable in production
