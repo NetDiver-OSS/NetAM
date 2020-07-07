@@ -4,7 +4,7 @@
       <div class="content">Log-in</div>
     </h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'ui large form') do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui large form'}) do |f| %>
       <div class="ui stacked segment">
 
         <div class="field">
@@ -25,7 +25,11 @@
           </div>
         </div>
 
-        <%= f.submit "Log in", class: "ui fluid large teal submit button" %>
+        <div class="ui fluid buttons">
+          <%= render "devise/shared/omniauth" %>
+          <div class="or" data-text="ou"></div>
+          <%= f.submit "Log in with Email", class: "ui teal submit button" %>
+        </div>
       </div>
 
       <% if alert %>
