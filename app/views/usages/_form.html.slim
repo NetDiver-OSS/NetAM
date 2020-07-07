@@ -23,7 +23,7 @@
     div.field
       = form.label :state
       div.detail
-        = form.select :state, options_for_select([['Lock', 0],['Active', 1], ['Inactive', 2],['DHCP', 3]]), class: 'ui search dropdown'
+        = form.select :state, [:locked, :actived, :down, :dhcp], class: 'ui search dropdown'
 
   div.field
       = form.label :description

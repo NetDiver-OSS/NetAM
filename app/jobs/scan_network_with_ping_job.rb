@@ -17,7 +17,7 @@ class ScanNetworkWithPingJob < ApplicationJob
       address_state = database_entries.filter_map { |entry| entry[:state] if entry[:ip].to_s == address.to_s }
       fqdn_entry = database_entries.filter_map { |entry| entry[:fqdn] if entry[:ip].to_s == address.to_s }
 
-      next if address_state.count > 0 and [0, 3].include? address_state.first
+      next if ['locked', 'dhcp'].include? address_state.first
       begin
         reverse_dns = Resolv.new.getname address.to_s
       rescue Resolv::ResolvError
@@ -28,7 +28,7 @@ class ScanNetworkWithPingJob < ApplicationJob
           Sidekiq.logger.info "Known active IP: #{address}"
           addr_id = Usage.where(ip_used: address.to_s, section_id: section_id).first_or_create
           addr_id.update_attributes(
-            :state => 1
+            :state => :actived
           )
           unless reverse_dns.nil?
             Sidekiq.logger.info "Found PTR for known active IP: #{address}"
@@ -51,7 +51,7 @@ class ScanNetworkWithPingJob < ApplicationJob
           Sidekiq.logger.info "Known unactive IP: #{address}"
           addr_id = Usage.where(ip_used: address.to_s, section_id: section_id).first_or_create
           addr_id.update_attributes(
-            :state => 2
+            :state => :down
           )
         end
       end

@@ -39,26 +39,8 @@ div.ui
           td = usage.fqdn
           td.center.aligned = usage.ip_used
           td = usage.description
-          // Display query if state not defined
-          - if usage.state.nil?
-            td.center.aligned
-              i.fas.fa-question-circle
-          // Display lock icon if host is locked
-          - if usage.state == 0
-            td.center.aligned
-              i.fas.fa-lock
-          // Display check icon if host is up
-          - if usage.state == 1
-            td.center.aligned
-              i.fas.fa-check-circle
-          // Display cross icon if host is down
-          - if usage.state == 2
-            td.center.aligned
-              i.fas.fa-times-circle
-          // Display random icon if host in in DHCP
-          - if usage.state == 3
-            td.center.aligned
-              i.fas.fa-random
+          td.center.aligned
+            = usage_icon(usage&.state)
           td.center.aligned.ui.three.buttons
             = link_to '<i class="fas fa-search"></i>'.html_safe, scan_usage_path(usage), method: :post, class: 'ui blue button'
             = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(usage), class: 'ui grey button popupdisplay', data: {:content => 'Edit'}
@@ -72,33 +54,7 @@ div.ui
           - addresses.each do |address|
             - ip_usage = @section.usages.where(ip_used: address.to_s).first
             div.column style="padding-left: 0; padding-right: 0;"
-              - if ip_usage.nil?
-                a class="ui label #{ip_usage.nil? ? 'grey' : ip_usage.state == 2 ? 'red' : ip_usage.state == 3 ? 'purple' : 'green' }" href="#{ip_usage.nil? ? new_usage_path : new_usage_path }"
-                  = address.to_s.split('.')[3]
-                  div.detail
-                    - if ip_usage.nil?
-                      i.fas.fa-question-circle
-                    - else
-                      - if ip_usage.state == 0
-                        i.fas.fa-lock
-                      - if ip_usage.state == 1
-                        i.fas.fa-check-circle
-                      - if ip_usage.state == 2
-                        i.fas.fa-times-circle
-                      - if ip_usage.state == 3
-                        i.fas.fa-random
-              - else
-                a class="ui label #{ip_usage.nil? ? 'grey' : ip_usage.state == 2 ? 'red' : ip_usage.state == 3 ? 'purple' : 'green' }" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
-                  = address.to_s.split('.')[3]
-                  div.detail
-                    - if ip_usage.nil?
-                      i.fas.fa-question-circle
-                    - else
-                      - if ip_usage.state == 0
-                        i.fas.fa-lock
-                      - if ip_usage.state == 1
-                        i.fas.fa-check-circle
-                      - if ip_usage.state == 2
-                        i.fas.fa-times-circle
-                      - if ip_usage.state == 3
-                        i.fas.fa-random
+              a class="ui label #{usage_color(ip_usage&.state)}" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
+                = address.to_s.split('.')[3]
+                div.detail
+                  = usage_icon(ip_usage&.state)
