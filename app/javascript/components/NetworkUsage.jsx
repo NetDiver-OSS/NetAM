@@ -1,5 +1,5 @@
 import React from "react"
-import {PieChart} from "react-minimal-pie-chart";
+import { PieChart } from 'svg-charts-react'
 
 export default class NetworkUsage extends React.Component {
 
@@ -13,34 +13,9 @@ export default class NetworkUsage extends React.Component {
 
   render () {
     return (
-      <PieChart
-        data={this.state.data}
-
-        style={{
-          fontFamily:
-            '"Nunito Sans", -apple-system, Helvetica, Arial, sans-serif',
-          fontSize: '8px',
-        }}
-
-        radius={30}
-        lineWidth={15}
-
-        segmentsStyle={{ transition: 'stroke .3s', cursor: 'pointer' }}
-
-        label={
-          ({ dataEntry }) => Math.round(dataEntry.percentage) + '%'
-        }
-        labelStyle={(index) => ({
-          fill: this.state.data[index].color,
-          fontSize: '5px',
-          fontFamily: 'sans-serif',
-        })}
-
-        labelPosition={60}
-        rounded
-
-        animate
-      />
+      <div style={{width: '25rem'}}>
+        <PieChart data={this.state.data} />
+      </div>
     );
   }
 }

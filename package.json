@@ -11,8 +11,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-minimal-pie-chart": "^8.0.1",
     "react_ujs": "^2.6.1",
+    "svg-charts-react": "^0.1.7",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
