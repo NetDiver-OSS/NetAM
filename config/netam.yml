@@ -20,7 +20,6 @@ default: &default
 
   db:
     pool: <%= ENV.fetch("DB_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>
     host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
     port: <%= ENV.fetch("DB_PORT") { 5432 } %>
     username: <%= ENV.fetch("DB_USER") { 'admin' } %>
@@ -36,6 +35,10 @@ default: &default
 
 production:
   <<: *default
+  database: <%= ENV.fetch("DB_NAME") { 'netam' } %>
+
 
 development:
   <<: *default
+  database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>
+

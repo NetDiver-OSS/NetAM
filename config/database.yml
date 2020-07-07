@@ -8,15 +8,14 @@ default: &default
   port: <%= Rails.configuration.netam[:db][:porst] %>
   username: <%= Rails.configuration.netam[:db][:username] %>
   password: <%= Rails.configuration.netam[:db][:password] %>
+  database: <%= Rails.configuration.netam[:database] %>
+
 
 development:
   <<: *default
-  database: <%= Rails.configuration.netam[:db][:database] %>
 
 test:
   <<: *default
-  database: <%= Rails.configuration.netam[:db][:database] %>
 
 production:
   <<: *default
-  database: <%= Rails.configuration.netam[:db][:database] %>
