@@ -14,13 +14,13 @@ class ExportSectionToCsvJob < ApplicationJob
       csv << attributes
       database_entries.each do |ip_usage|
         case ip_usage[4]
-        when 0
+        when 'locked'
           ip_usage[4] = 'Reserved'
-        when 1
+        when 'actived'
           ip_usage[4] = 'Active'
-        when 2
+        when 'down'
           ip_usage[4] = 'Inactive'
-        when 3
+        when 'dhcp'
           ip_usage[4] = 'DHCP'
         end
         csv << ip_usage

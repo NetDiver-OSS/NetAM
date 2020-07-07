@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :scan, :edit, :update, :destroy]
+  before_action :set_section, only: [:show, :scan, :export, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   include SectionsHelper
