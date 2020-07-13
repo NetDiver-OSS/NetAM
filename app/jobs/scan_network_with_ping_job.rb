@@ -7,56 +7,61 @@ class ScanNetworkWithPingJob < ApplicationJob
   def perform(*args)
     raise 'Job can only process 1 network at the time' if args.count > 1
 
-    network_to_scan = IPAddr.new args[0][:network] || args[0]['network']
-    section_id = args[0][:id] || args[0]['id']
-    database_entries = Usage.where(section_id: section_id).map { |usage| { ip: usage.ip_used, state: usage.state, fqdn: usage.fqdn } }
+    section = {
+      id: args[0][:id] || args[0]['id'],
+      network: IPAddr.new(args[0][:network] || args[0]['network'])
+    }
 
-    Sidekiq.logger.info "Starting network process: #{network_to_scan.to_string}"
+    Sidekiq.logger.info "Starting network process: #{section[:network]}"
 
-    Parallel.each(network_to_scan.to_range, in_processes: 50, progress: "Scan network #{network_to_scan}") do |address|
-      address_state = database_entries.filter_map { |entry| entry[:state] if entry[:ip].to_s == address.to_s }
-      fqdn_entry = database_entries.filter_map { |entry| entry[:fqdn] if entry[:ip].to_s == address.to_s }
+    section_usage = Usage.where(section_id: section[:id]).select(:ip_used, :state, :fqdn)
 
-      next if ['locked', 'dhcp'].include? address_state.first
-      begin
-        reverse_dns = Resolv.new.getname address.to_s
-      rescue Resolv::ResolvError
-        #Sidekiq.logger.warn "Unable to reverse: #{address}"
+    Parallel.each(section[:network].to_range, in_processes: 50) do |address|
+      usage = {
+        state: section_usage.filter_map { |entry| entry.state if entry.ip_used.to_s == address.to_s },
+        fqdn: section_usage.filter_map { |entry| entry.fqdn if entry.ip_used.to_s == address.to_s }
+      }
+
+      if ['locked', 'dhcp'].include? usage[:state].first
+        Sidekiq.logger.error("Address #{address} is not able to be process if state is locked or dhcp")
+        next
       end
-      if Net::Ping::External.new(address.to_s).ping?
-        if address_state.count > 0
-          Sidekiq.logger.info "Known active IP: #{address}"
-          addr_id = Usage.where(ip_used: address.to_s, section_id: section_id).first_or_create
-          addr_id.update_attributes(
-            :state => :actived
-          )
-          unless reverse_dns.nil?
-            Sidekiq.logger.info "Found PTR for known active IP: #{address}"
-            addr_id.update_attributes(
-              :fqdn => reverse_dns
-            )
-          end
-        else
-          Sidekiq.logger.info "Found new active IP: #{address}"
-          unless reverse_dns.nil?
-            Sidekiq.logger.info "Found PTR for IP #{address}: #{reverse_dns}"
-            Usage.where(ip_used: address.to_s, section_id: section_id, state: 1, fqdn: reverse_dns).first_or_create
-          else
-            Usage.where(ip_used: address.to_s, section_id: section_id, state: 1).first_or_create
-          end
+
+      scanner = {
+        ping: Net::Ping::External.new(address.to_s).ping?,
+        reverse: reverse_dns(address)
+      }
+
+      current_usage = Usage.where(ip_used: address.to_s, section_id: section[:id]).first_or_create if usage[:state].count.positive?
+
+      if scanner[:ping]
+        Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"
+
+        current_usage.update_attributes(state: :actived)
+
+        unless scanner[:reverse].nil?
+          Sidekiq.logger.info "Found PTR for IP #{address}: #{scanner[:reverse]}"
+          current_usage.update_attributes(fqdn: scanner[:reverse])
         end
-        Usage.where(ip_used: address.to_s, section_id: section_id).first_or_create
+
       else
-        if address_state.count > 0
+        if usage[:state].count.positive?
           Sidekiq.logger.info "Known unactive IP: #{address}"
-          addr_id = Usage.where(ip_used: address.to_s, section_id: section_id).first_or_create
-          addr_id.update_attributes(
-            :state => :down
-          )
+
+          current_usage.update_attributes(state: :down)
         end
       end
     end
+  end
 
-    #Usage.delete Usage.where.not(ip_used: online_addresses).where(section_id: section_id).map(&:id).to_a
+  private
+
+  def reverse_dns(address)
+    begin
+      Resolv.new.getname address.to_s
+    rescue Resolv::ResolvError
+      Sidekiq.logger.error "Unable to reverse: #{address}"
+      return nil
+    end
   end
 end

@@ -1,5 +1,9 @@
 - page_title "<strong>#{@section.name.upcase}</strong><small>#{@section.network}</small>"
-- page_action( {icon: '<i class="fas fa-edit"></i>', path: edit_section_path(@section)}, {icon: '<i class="fas fa-download"></i>', path: export_section_path(@section.id), method: 'post'}, {icon: '<i class="fas fa-plus-square"></i>', path: new_usage_path} )
+- page_action( \
+  {icon: '<i class="fas fa-edit"></i> Edit', path: edit_section_path(@section)}, \
+  {icon: '<i class="fas fa-search"></i> Scan', path: scan_section_path(@section), method: 'post'}, \
+  {icon: '<i class="fas fa-download"></i> Export', path: export_section_path(@section.id), method: 'post'}, \
+  {icon: '<i class="fas fa-plus-square"></i>', path: new_usage_path} )
 
 div.row
   div.col-6
