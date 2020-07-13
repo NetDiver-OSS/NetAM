@@ -23,13 +23,13 @@ gem 'turbolinks', '~> 5'
 
 
 
-gem 'sentry-raven', '~> 2.13'
+gem 'sentry-raven', '~> 3.0'
 
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 gem 'redis-rack-cache'
 
-gem 'sidekiq', '~>6.0.0'
+gem 'sidekiq', '~>6.1.0'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 
 gem 'devise', '~> 4.7', '>= 4.7.1'

@@ -92,7 +92,7 @@ GEM
     erubi (1.9.0)
     et-orbi (1.2.4)
       tzinfo
-    faraday (0.17.3)
+    faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
     ffi (1.13.1-java)
@@ -166,8 +166,6 @@ GEM
     rack (2.2.3)
     rack-cache (1.12.0)
       rack (>= 0.4)
-    rack-protection (2.0.8.1)
-      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -269,13 +267,12 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sentry-raven (2.13.0)
-      faraday (>= 0.7.6, < 1.0)
-    sidekiq (6.0.7)
+    sentry-raven (3.0.0)
+      faraday (>= 1.0)
+    sidekiq (6.1.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
-      rack-protection (>= 2.0.0)
-      redis (>= 4.1.0)
+      redis (>= 4.2.0)
     sidekiq-scheduler (3.0.1)
       e2mmap
       redis (>= 3, < 5)
@@ -373,8 +370,8 @@ DEPENDENCIES
   rubocop-rspec (~> 1.42)
   sass-rails (>= 6)
   selenium-webdriver
-  sentry-raven (~> 2.13)
-  sidekiq (~> 6.0.0)
+  sentry-raven (~> 3.0)
+  sidekiq (~> 6.1.0)
   sidekiq-scheduler (~> 3.0, >= 3.0.1)
   simplecov (~> 0.17.1)
   slim-rails (~> 3.2)
