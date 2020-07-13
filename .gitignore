@@ -39,3 +39,4 @@ package-lock.json
 coverage/
 .scannerwork/
 owasp/
+rubocop-result.json
