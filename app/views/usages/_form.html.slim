@@ -7,27 +7,30 @@
         - usage.errors.full_messages.each do |message|
           li = message
 
-  div.four.fields
-    div.field
-      = form.label :section_id
-      div.detail
-        = form.text_field :section_id
-    div.field
-      = form.label :fqdn
-      div.detail
-        = form.text_field :fqdn
-    div.field
-      = form.label :ip_used
-      div.detail
-        = form.text_field :ip_used
-    div.field
-      = form.label :state
-      div.detail
-        = form.select :state, [:locked, :actived, :down, :dhcp], class: 'ui search dropdown'
+  div class="card-body"
+    div.row
+      div.col-3
+        div class="form-group"
+          = form.label :section_id
+          = form.select :section_id, @sections, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+      div.col-3
+        div class="form-group"
+          = form.label :fqdn
+          = form.text_field :fqdn, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      div.col-3
+        div class="form-group"
+          = form.label :ip_used
+          = form.text_field :ip_used, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      div.col-3
+        div class="form-group"
+          = form.label :state
+          = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
 
-  div.field
-      = form.label :description
-      = form.text_area :description
+    div.row
+      div.col-12
+        div.form-group
+          = form.label :description
+          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
-  div.actions
-    = form.submit nil, class: 'ui button fluid'
+  div class="card-footer"
+    = form.submit nil, class: 'btn btn-primary float-right'

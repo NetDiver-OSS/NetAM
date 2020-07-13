@@ -1,13 +1,15 @@
 <% if resource.errors.any? %>
-  <div class="ui error message">
-    <div class="header">
+  <div class="callout callout-danger">
+    <h5>
+      <i class="fas fa-exclamation"></i>
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
       %>
-    </div>
+    </h5>
+
     <% resource.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
+      <p class="mb-0">- <%= message %></p>
     <% end %>
   </div>
 <% end %>

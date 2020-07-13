@@ -1,8 +1,4 @@
-h1 Editing Usage
-
-div.ui.form
+div class="card #{'bg-dark text-white' if dark_mode?}"
+  div class="card-header"
+    h3 class="card-title" Editing Usage
   = render 'form', usage: @usage
-
-  div.ui.two.buttons
-    = link_to '<i class="fas fa-eye"></i>'.html_safe, @usage, class: 'ui blue button'
-    = link_to '<i class="fas fa-arrow-circle-left"></i>'.html_safe, section_path(@usage.section_id), class: 'ui red button'

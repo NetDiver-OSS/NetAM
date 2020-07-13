@@ -1,5 +1,6 @@
 class UsagesController < ApplicationController
   before_action :set_usage, only: [:show, :scan, :edit, :update, :destroy]
+  before_action :set_section_form, only: [:new, :edit]
   before_action :authenticate_user!
 
   # GET /usages
@@ -58,6 +59,10 @@ class UsagesController < ApplicationController
     def set_usage
       @usage = Usage.find(params[:id])
     end
+
+  def set_section_form
+    @sections = Section.all.pluck(:name, :id)
+  end
 
     # Only allow a trusted parameter "white list" through.
     def usage_params

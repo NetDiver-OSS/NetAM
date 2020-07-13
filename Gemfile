@@ -21,9 +21,8 @@ gem 'turbolinks', '~> 5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'ipaddress', '~> 0.8.3'
 
-gem "react-rails", "~> 2.6"
+
 gem 'sentry-raven', '~> 2.13'
 
 # Use Redis adapter to run Action Cable in production
@@ -38,8 +37,9 @@ gem 'omniauth-ldap', '~> 2.0'
 
 # Job dependencies
 gem 'parallel', '~> 1.19', '>= 1.19.1'
-gem 'ruby-progressbar', '~> 1.10', '>= 1.10.1'
+
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
+gem 'ipaddress', '~> 0.8.3'
 
 gem 'slim-rails', '~> 3.2'
 

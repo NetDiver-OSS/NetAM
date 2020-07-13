@@ -1,3 +1,4 @@
-h1 Editing Section
-
-= render 'form', section: @section
+div class="card #{'bg-dark text-white' if dark_mode?}"
+  div class="card-header"
+    h3 class="card-title" Editing Section
+  = render 'form', section: @section
