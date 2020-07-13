@@ -58,10 +58,6 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.13)
     bcrypt (3.1.13-java)
     bindex (0.8.1)
@@ -93,7 +89,6 @@ GEM
     erubi (1.9.0)
     et-orbi (1.2.4)
       tzinfo
-    execjs (2.7.0)
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
@@ -200,12 +195,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    react-rails (2.6.1)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     redis (4.2.1)
     redis-rack-cache (2.2.1)
       rack-cache (>= 1.10, < 2)
@@ -326,7 +315,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
-  react-rails (~> 2.6)
   redis (~> 4.0)
   redis-rack-cache
   ruby-progressbar (~> 1.10, >= 1.10.1)

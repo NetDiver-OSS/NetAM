@@ -1,6 +1,6 @@
 ---
 :verbose: false
-:concurrency: <%= Rails.configuration.netam[:sidekiq][:threads] %>
+:concurrency: 10
 :timeout: 30
 :dynamic: true
 
