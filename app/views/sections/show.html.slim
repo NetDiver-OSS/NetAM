@@ -51,11 +51,7 @@ div.row
             span class="progress-description" = "#{(@ip_free * 100 / IPAddress(@section.network).size)}%"
 
   div.col-6
-    div class="card"
-      div class="card-header"
-        h3 class="card-title" Donut Chart
-      div class="card-body"
-        canvas id="donutChart" style="height:230px; min-height:230px"
+    canvas id="donutChart" style="height:230px; min-height:230px"
 
 div.row
   div.col-12
@@ -94,21 +90,8 @@ div.row
                 = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_usage_path(usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'}
                 = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', data: {:content => 'Delete'}
 
-script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"
 javascript:
-
-  jQuery(function () {
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
-
-
-    //-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutChartCanvas = document.getElementById('donutChart').getContext('2d')
     var donutData = {
       labels: #{@chart_label},
       datasets: [
@@ -129,5 +112,3 @@ javascript:
       data: donutData,
       options: donutOptions
     })
-
-  })
