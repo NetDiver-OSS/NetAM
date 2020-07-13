@@ -1,0 +1,7 @@
+image: ruby:alpine
+
+include:
+  - local: '.gitlab/ci/_init.yml'
+
+  - local: '.gitlab/ci/test.yml'
+  - local: '.gitlab/ci/report.yml'

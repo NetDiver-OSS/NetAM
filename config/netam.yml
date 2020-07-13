@@ -33,12 +33,14 @@ default: &default
   sidekiq:
     threads: <%= ENV.fetch("SIDEKIQ_MAX_THREADS") { 5 } %>
 
-production:
-  <<: *default
-  database: <%= ENV.fetch("DB_NAME") { 'netam' } %>
-
-
 development:
   <<: *default
   database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>
 
+test:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME") { 'netam_test' } %>
+
+production:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME") { 'netam' } %>
