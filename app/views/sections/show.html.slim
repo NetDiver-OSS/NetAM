@@ -63,11 +63,11 @@ div.row
       - IPAddr.new(@section.network).to_range.each_slice(23) do |addresses|
         div class="btn-group btn-group-toggle" data-toggle="buttons"
           - addresses.each do |address|
-            - ip_usage = @section.usages.where(ip_used: address.to_s).first
-            a class="btn btn-flat text-center" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
+            - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
+            a class="btn btn-flat text-center" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage[0])}"
               = address.to_s.split('.')[3].rjust(3, '0')
               br
-              i class="fas fa-circle text-#{usage_color(ip_usage&.state)}"
+              i class="fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"
 
 
 div.row

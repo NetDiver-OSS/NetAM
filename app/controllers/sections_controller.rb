@@ -11,18 +11,18 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
-    ip_used = @section.usages.where(state: 0..3).count
+    @all_ip_used = Usage.where(section_id: params[:id]).pluck(:id, :ip_used, :state)
 
     @ip_locked = @section.usages.where(state: 0).count
     @ip_activated = @section.usages.where(state: 1).count
     @ip_down = @section.usages.where(state: 2).count
     @ip_dhcp = @section.usages.where(state: 3).count
 
-    @ip_free = IPAddress(@section.network).size - ip_used
+    @ip_free = IPAddress(@section.network).size - @section.usages.where(state: 0..3).count
 
 
     @chart_label = '["Locked", "Up", "Down", "Free", "DHCP"]'.html_safe
-    @chart_data = [@ip_locked,@ip_activated,@ip_down,@ip_free,@ip_dhcp]
+    @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
     @chart_color = '["#838383", "#16ab39", "#db2828", "#2185d0", "#9627ba"]'.html_safe
 
   end
