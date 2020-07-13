@@ -8,8 +8,19 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import './semantic.min'
-import './progress'
+require("bootstrap")
+
+import '@fortawesome/fontawesome-free/js/all.min'
+import 'admin-lte/dist/js/adminlte.min'
+import 'admin-lte/plugins/chart.js/Chart.min'
+import 'admin-lte/plugins/datatables/jquery.dataTables.min'
+import 'admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min'
+import 'admin-lte/plugins/select2/js/select2.full.min'
+
+
+
+$(".datatable").DataTable();
+$('.select2').select2()
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,60 +1,133 @@
-div.ui.segment
-  div.ui.two.column.very.relaxed.grid
-    div.column
-      div.ui.cards
-        div.ui.card
-          div.content
-            div.header
-              = @section.name
-            div.meta
-              = @section.network
-            div.description
-              = @section.description
-    div.column
-      = react_component("NetworkUsage", {data: @ip_usage_graph})
+- page_title "<strong>#{@section.name.upcase}</strong><small>#{@section.network}</small>"
+- page_action( {icon: '<i class="fas fa-edit"></i>', path: edit_section_path(@section)}, {icon: '<i class="fas fa-download"></i>', path: export_section_path(@section.id), method: 'post'}, {icon: '<i class="fas fa-plus-square"></i>', path: new_usage_path} )
 
-div.ui.clearing.basic.segment
-  h3.ui.right.floated.header
-    dev.ui.three.buttons
-      = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_section_path(@section), class: 'ui blue button popupdisplay', data: {:content => "Edit section" }
-      = link_to '<i class="fas fa-download"></i>'.html_safe, export_section_path(@section.id), method: :post, class: 'ui blue button popupdisplay', data: {:content => 'Export to CSV'}
-      = link_to '<i class="fas fa-plus-square"></i>'.html_safe, new_usage_path, class: 'ui secondary button popupdisplay', data: {:content => 'Add new usage'}
+div.row
+  div.col-6
+    div.row
+      div class="col-6"
+        div class="info-box"
+          span class="info-box-icon bg-green"
+            i class="fas fa-lock"
 
-div.ui
-  table.ui.celled.table
-    thead
-      tr
-        th
-          h3.center.aligned.header FQDN
-        th
-          h3.center.aligned IP Address
-        th
-          h3.center.aligned Description
-        th
-          h3.center.aligned State
-        th
-    tbody
-      - @section.usages.order("inet(ip_used) ASC").each do |usage|
-        tr
-          td = usage.fqdn
-          td.center.aligned = usage.ip_used
-          td = usage.description
-          td.center.aligned
-            = usage_icon(usage&.state)
-          td.center.aligned.ui.three.buttons
-            = link_to '<i class="fas fa-search"></i>'.html_safe, scan_usage_path(usage), method: :post, class: 'ui blue button'
-            = link_to '<i class="fas fa-edit"></i>'.html_safe, edit_usage_path(usage), class: 'ui grey button popupdisplay', data: {:content => 'Edit'}
-            = link_to '<i class="fas fa-trash-alt"></i>'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red button popupdisplay', data: {:content => 'Delete'}
+          div class="info-box-content"
+            span class="info-box-text" Locked
+            span class="info-box-number" = @ip_locked
+      div class="col-6"
+        div class="info-box"
+          span class="info-box-icon bg-green"
+            i class="fas fa-check-circle"
 
-- if display_network?(@section.network)
-  div.ui.basic.segment
-    div.ui.grid
-      - IPAddr.new(@section.network).to_range.each_slice(16) do |addresses|
-        div.sixteen.column.row
+          div class="info-box-content"
+            span class="info-box-text" Activated
+            span class="info-box-number" = @ip_activated
+      div class="col-6"
+        div class="info-box"
+          span class="info-box-icon bg-red"
+            i class="fas fa-times-circle"
+
+          div class="info-box-content"
+            span class="info-box-text" Down
+            span class="info-box-number" = @ip_down
+      div class="col-6"
+        div class="info-box"
+          span class="info-box-icon bg-purple"
+            i class="fas fa-random"
+
+          div class="info-box-content"
+            span class="info-box-text" DHCP
+            span class="info-box-number" = @ip_dhcp
+    div.row
+      div.col-12
+        div class="info-box bg-gradient-info"
+          span class="info-box-icon"
+            i class="fas fa-check"
+
+          div class="info-box-content"
+            span class="info-box-text" Free IP
+            span class="info-box-number" = @ip_free
+
+            div class="progress"
+              div class="progress-bar" style="width: #{(@ip_free * 100 / IPAddress(@section.network).size)}%"
+            span class="progress-description" = "#{(@ip_free * 100 / IPAddress(@section.network).size)}%"
+
+  div.col-6
+    div class="card"
+      div class="card-header"
+        h3 class="card-title" Donut Chart
+      div class="card-body"
+        canvas id="donutChart" style="height:230px; min-height:230px"
+
+div.row
+  div.col-12
+    - if display_network?(@section.network)
+      - IPAddr.new(@section.network).to_range.each_slice(23) do |addresses|
+        div class="btn-group btn-group-toggle" data-toggle="buttons"
           - addresses.each do |address|
             - ip_usage = @section.usages.where(ip_used: address.to_s).first
-            div.column style="padding-left: 0; padding-right: 0;"
-              a class="ui label #{usage_color(ip_usage&.state)}" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
-                = address.to_s.split('.')[3]
-                div.detail
-                  = usage_icon(ip_usage&.state)
+            a class="btn btn-flat text-center" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage) }"
+              = address.to_s.split('.')[3].rjust(3, '0')
+              br
+              i class="fas fa-circle text-#{usage_color(ip_usage&.state)}"
+
+
+div.row
+  div.col-12
+    table class="table table-bordered table-striped datatable"
+      thead
+        tr
+          th  FQDN
+          th IP Address
+          th Description
+          th State
+          th style="width: 20%"
+      tbody
+        - @section.usages.order("inet(ip_used) ASC").each do |usage|
+          tr
+            td = usage.fqdn
+            td = usage.ip_used
+            td = usage.description
+            td
+              = usage_icon(usage&.state)
+            td
+              div.btn-group
+                = link_to '<i class="fas fa-search"></i> Scan'.html_safe, scan_usage_path(usage), method: :post, class: 'btn btn-primary btn-sm'
+                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_usage_path(usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'}
+                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', data: {:content => 'Delete'}
+
+script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"
+javascript:
+
+  jQuery(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData = {
+      labels: #{@chart_label},
+      datasets: [
+        {
+          data: #{@chart_data},
+          backgroundColor: #{@chart_color},
+        }
+      ]
+    }
+    var donutOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+
+  })

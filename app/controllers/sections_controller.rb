@@ -13,33 +13,18 @@ class SectionsController < ApplicationController
   def show
     ip_used = @section.usages.where(state: 0..3).count
 
-    @ip_usage_graph = [
-        {
-            title: 'Locked',
-            value: @section.usages.where(state: 0).count,
-            color: '#838383'
-        },
-        {
-            title: 'Up',
-            value: @section.usages.where(state: 1).count,
-            color: '#16ab39'
-        },
-        {
-            title: 'Down',
-            value: @section.usages.where(state: 2).count,
-            color: '#db2828'
-        },
-        {
-            title: 'Free',
-            value: IPAddress(@section.network).size - ip_used,
-            color: '#2185d0'
-        },
-        {
-            title: 'DHCP',
-            value: @section.usages.where(state: 3).count,
-            color: '#9627ba'
-        }
-    ]
+    @ip_locked = @section.usages.where(state: 0).count
+    @ip_activated = @section.usages.where(state: 1).count
+    @ip_down = @section.usages.where(state: 2).count
+    @ip_dhcp = @section.usages.where(state: 3).count
+
+    @ip_free = IPAddress(@section.network).size - ip_used
+
+
+    @chart_label = '["Locked", "Up", "Down", "Free", "DHCP"]'.html_safe
+    @chart_data = [@ip_locked,@ip_activated,@ip_down,@ip_free,@ip_dhcp]
+    @chart_color = '["#838383", "#16ab39", "#db2828", "#2185d0", "#9627ba"]'.html_safe
+
   end
 
   # POST /sections/1/scan

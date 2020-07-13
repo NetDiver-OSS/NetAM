@@ -1,46 +1,49 @@
-<div class="ui middle aligned center aligned grid">
-  <div class="column">
-    <h2 class="ui teal image header">
-      <div class="content">Sign up</div>
-    </h2>
+<div class="login-box">
+  <div class="login-logo">
+    <%= link_to 'NetAM', root_path %>
+  </div>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'ui large form'}) do |f| %>
-      <div class="ui stacked segment">
-
-        <div class="field">
-          <div class="ui fluid labeled input">
-            <div class="ui label">
-              <i class="fas fa-user"></i>
-            </div>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address' %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="ui fluid labeled input">
-            <div class="ui label">
-              <i class="fas fa-lock"></i>
-            </div>
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)" %>
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="ui fluid labeled input">
-            <div class="ui label">
-              <i class="fas fa-lock"></i>
-            </div>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password (Confirmation)' %>
-          </div>
-        </div>
-
-        <%= f.submit "Sign up", class: "ui fluid teal submit button" %>
-      </div>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
 
       <%= render "devise/shared/error_messages", resource: resource %>
-    <% end %>
 
-    <%= render "devise/shared/links" %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="input-group mb-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address', class: "form-control" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class: "form-control" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password (Confirmation)', class: "form-control" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/omniauth" %>
+
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 </div>
-
