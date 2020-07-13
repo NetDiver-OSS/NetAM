@@ -9,7 +9,7 @@ div.row
   div.col-6
     div.row
       div class="col-6"
-        div class="info-box"
+        div class="info-box #{'bg-dark text-white' if dark_mode?}"
           span class="info-box-icon bg-green"
             i class="fas fa-lock"
 
@@ -17,7 +17,7 @@ div.row
             span class="info-box-text" Locked
             span class="info-box-number" = @ip_locked
       div class="col-6"
-        div class="info-box"
+        div class="info-box #{'bg-dark text-white' if dark_mode?}"
           span class="info-box-icon bg-green"
             i class="fas fa-check-circle"
 
@@ -25,7 +25,7 @@ div.row
             span class="info-box-text" Activated
             span class="info-box-number" = @ip_activated
       div class="col-6"
-        div class="info-box"
+        div class="info-box #{'bg-dark text-white' if dark_mode?}"
           span class="info-box-icon bg-red"
             i class="fas fa-times-circle"
 
@@ -33,7 +33,7 @@ div.row
             span class="info-box-text" Down
             span class="info-box-number" = @ip_down
       div class="col-6"
-        div class="info-box"
+        div class="info-box #{'bg-dark text-white' if dark_mode?}"
           span class="info-box-icon bg-purple"
             i class="fas fa-random"
 
@@ -64,7 +64,7 @@ div.row
         div class="btn-group btn-group-toggle" data-toggle="buttons"
           - addresses.each do |address|
             - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-            a class="btn btn-flat text-center" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage[0])}"
+            a class="btn btn-flat text-center #{'text-white' if dark_mode?}" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage[0])}"
               = address.to_s.split('.')[3].rjust(3, '0')
               br
               i class="fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"
@@ -75,7 +75,7 @@ div.row
     table class="table table-bordered table-striped datatable"
       thead
         tr
-          th  FQDN
+          th FQDN
           th IP Address
           th Description
           th State

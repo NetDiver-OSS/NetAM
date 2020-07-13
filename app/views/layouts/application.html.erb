@@ -10,24 +10,24 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition <%= devise_controller? ? 'login-page' : 'layout-top-nav' %> ">
+<body class="hold-transition <%= devise_controller? ? 'login-page' : 'layout-top-nav' %>">
 <% if devise_controller? %>
   <%= yield %>
 <% else %>
   <div class="wrapper">
-    <%= render 'layouts/navbar' unless devise_controller? %>
+    <%= render 'layouts/navbar' %>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper <%= 'bg-dark text-white' if dark_mode? %>">
       <div class="content-header">
         <div class="container">
           <div class="row mb-2">
             <div class="col-6">
-              <h1 class="text-dark"><%= page_title.html_safe %></h1>
+              <h1><%= page_title.html_safe %></h1>
             </div>
             <div class="col-6">
               <div class="float-right">
@@ -38,7 +38,6 @@
         </div>
       </div>
 
-
       <div class="content">
         <div class="container">
           <%= yield %>
@@ -46,7 +45,7 @@
       </div>
     </div>
 
-    <%= render 'layouts/footer' unless devise_controller? %>
+    <%= render 'layouts/footer' %>
   </div>
 <% end %>
 </body>

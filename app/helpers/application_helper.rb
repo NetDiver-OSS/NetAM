@@ -24,4 +24,8 @@ module ApplicationHelper
     @page_action.join(' ').html_safe
   end
 
+  def dark_mode?
+    cookies['dark_mode'] == 'true'
+  end
+
 end

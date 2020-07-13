@@ -12,25 +12,25 @@
       div.col-3
         div class="form-group"
           = form.label :section_id
-          = form.select :section_id, @sections, {}, {class: 'form-control'}
+          = form.select :section_id, @sections, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
       div.col-3
         div class="form-group"
           = form.label :fqdn
-          = form.text_field :fqdn, class: "form-control"
+          = form.text_field :fqdn, class: "form-control #{'bg-dark text-white' if dark_mode?}"
       div.col-3
         div class="form-group"
           = form.label :ip_used
-          = form.text_field :ip_used, class: "form-control"
+          = form.text_field :ip_used, class: "form-control #{'bg-dark text-white' if dark_mode?}"
       div.col-3
         div class="form-group"
           = form.label :state
-          = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: 'form-control'}
+          = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
 
     div.row
       div.col-12
         div.form-group
           = form.label :description
-          = form.text_area :description, placeholder: 'Description', class: "form-control", rows: "5"
+          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
   div class="card-footer"
     = form.submit nil, class: 'btn btn-primary float-right'
