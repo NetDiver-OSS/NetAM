@@ -7,7 +7,7 @@
         %p.text-muted.text-center ##{@user.id}
 
   %div.col-md-9
-    - %w[SectionsController UsagesController].each do |controller|
+    - %w[SectionsController].each do |controller|
       %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
         %div.card-header
           %h3.card-title= controller.to_s
