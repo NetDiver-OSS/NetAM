@@ -1,0 +1,33 @@
+= form_with(model: section, local: true) do |form|
+  %div.card-body
+    - if section.errors.any?
+      - section.errors.full_messages.each do |message|
+        %div.callout.callout-danger
+          %p= message
+    %div.row
+      %div.col-4
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
+              %i.fas.fa-pencil-alt
+          = form.text_field :name, placeholder: 'My home network', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      %div.col-4
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
+              %i.fas.fa-network-wired
+          = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      %div.col-4
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+              %i.fas.fa-clock
+          = form.text_field :schedule, placeholder: '2 hours', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
+    %div.row
+      %div.col-12
+        %div.form-group
+          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
+
+  %div.card-footer
+    = form.submit nil, class: 'btn btn-primary float-right'

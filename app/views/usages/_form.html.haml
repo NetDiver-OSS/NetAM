@@ -1,32 +1,28 @@
 = form_with(model: [@section, usage], local: true) do |form|
-  - if usage.errors.any?
-    div#error_explanation
-      h2 #{pluralize(usage.errors.count, "error")} prohibited this usage from being saved:
-
-      ul
-        - usage.errors.full_messages.each do |message|
-          li = message
-
-  div class="card-body"
-    div.row
-      div.col-4
-        div class="form-group"
+  %div.card-body
+    - if usage.errors.any?
+      - usage.errors.full_messages.each do |message|
+        %div.callout.callout-danger
+          %p= message
+    %div.row
+      %div.col-4
+        %div.form-group
           = form.label :fqdn
           = form.text_field :fqdn, class: "form-control #{'bg-dark text-white' if dark_mode?}"
-      div.col-4
-        div class="form-group"
+      %div.col-4
+        %div.form-group
           = form.label :ip_used
           = form.text_field :ip_used, class: "form-control #{'bg-dark text-white' if dark_mode?}"
-      div.col-4
-        div class="form-group"
+      %div.col-4
+        %div.form-group
           = form.label :state
           = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
 
-    div.row
-      div.col-12
-        div.form-group
+    %div.row
+      %div.col-12
+        %div.form-group
           = form.label :description
           = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
-  div class="card-footer"
+  %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'
