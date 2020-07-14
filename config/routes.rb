@@ -3,7 +3,8 @@ require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'sections#index'
+  root 'application#index'
+
   devise_for :users, path: '', path_names: {
       sign_in: 'login',
       sign_out: 'logout',
@@ -22,10 +23,13 @@ Rails.application.routes.draw do
   post '/usages/:id/scan', as: 'scan_usage', to: 'usages#scan', format: false
 
   mount API::Base, at: '/'
-
   mount GrapeSwaggerRails::Engine => '/docs'
 
-  authenticate :user do
+  authenticate :user, lambda { |u| u.admin? } do
+    namespace :admin do
+      resources :permissions
+    end
+
     mount Sidekiq::Web => '/sidekiq'
   end
 end
