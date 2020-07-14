@@ -3,6 +3,10 @@ module API
     class Sections < Grape::API
       include API::V1::Defaults
 
+      before do
+        authenticate!
+      end
+
       resource :sections do
         desc 'Return all sections'
         get '', root: 'section' do
