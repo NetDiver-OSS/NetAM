@@ -51,6 +51,15 @@ class SectionsController < ApplicationController
 
     if @section.save
       update_scheduler @section
+      Permission.create!(
+        {
+          user_id: current_user.id,
+          subject_class: 'Section',
+          subject_id: @section.id,
+          action: 'manage'
+        }
+      )
+
       redirect_to @section, notice: 'Section was successfully created.'
     else
       render :new
