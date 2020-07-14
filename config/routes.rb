@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   authenticate :user, lambda { |u| u.admin? } do
     namespace :admin do
+      resources :users
       resources :permissions
     end
 

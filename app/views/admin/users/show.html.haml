@@ -1,0 +1,31 @@
+- page_title "User: #{@user.email}"
+%div.row
+  %div.col-md-3
+    %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+      %div.card-body.box-profile
+        %h3.profile-username.text-center= @user.email
+        %p.text-muted.text-center ##{@user.id}
+
+  %div.col-md-9
+    %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+      %div.card-header
+        %div.row
+          %div.col-6.card-title
+            %h3 Permissions for user
+          %div.col-6
+            = link_to 'Add permission', new_admin_permission_path, class: 'btn bt-sm btn-primary float-right'
+      %div.card-body.p-0
+        %table.table.table-condensed
+          %thead
+            %tr
+              %th Subject
+              %th Subject ID
+              %th Action
+              %th
+          %tbody
+            - @user.permissions.each do |permission|
+              %tr
+                %td= permission.subject_class
+                %td= permission.subject_id
+                %td= permission.action
+

@@ -15,6 +15,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'slim-rails', '~> 3.2'
+gem 'hamlit', '~> 2.11'
 
 # Rails Delayed Jobs
 gem 'sidekiq', '~>6.1.0'

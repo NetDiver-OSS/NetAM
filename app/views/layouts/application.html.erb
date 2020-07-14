@@ -24,6 +24,23 @@
 
     <div class="content-wrapper <%= 'bg-dark text-white' if dark_mode? %>">
       <div class="content-header">
+
+        <% unless notice.nil? %>
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i> Notice</h5>
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <% unless alert.nil? %>
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-ban"></i> Error</h5>
+            <%= alert %>
+          </div>
+        <% end %>
+
         <div class="container">
           <div class="row mb-2">
             <div class="col-6">
@@ -50,13 +67,3 @@
 <% end %>
 </body>
 </html>
-
-
-
-
-
-<!--    div.ui.main.container-->
-<!--      - unless notice.nil?-->
-<!--        div.ui.floating.message.green-->
-<!--          = notice-->
-<!--      == yield-->

@@ -19,12 +19,13 @@
       </ul>
 
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <% if current_user.admin? %>
+        <% if user_signed_in? && current_user.admin? %>
           <li class="nav-item dropdown">
             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Admin
               Center</a>
             <ul class="dropdown-menu border-0 shadow">
               <li>
+                <%= link_to 'Users', admin_users_path, class: 'dropdown-item' %>
                 <%= link_to 'Permissions', admin_permissions_path, class: 'dropdown-item' %>
               </li>
             </ul>
