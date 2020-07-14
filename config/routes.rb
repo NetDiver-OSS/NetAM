@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   resources :usages, format: false
   post '/usages/:id/scan', as: 'scan_usage', to: 'usages#scan', format: false
 
+  mount API::Base, at: '/'
+
+  mount GrapeSwaggerRails::Engine => '/docs'
+
   authenticate :user do
     mount Sidekiq::Web => '/sidekiq'
   end

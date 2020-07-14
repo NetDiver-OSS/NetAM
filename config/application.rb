@@ -10,6 +10,9 @@ module Netam
   class Application < Rails::Application
     require_dependency Rails.root.join('lib/netam')
 
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+
     # Load custom configuration file
     config.netam = config_for(:netam)
 
