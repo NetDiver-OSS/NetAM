@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
   load_and_authorize_resource
+  before_action :set_permissions, only: [:edit]
 
   include SectionsHelper
 
@@ -83,6 +84,10 @@ class SectionsController < ApplicationController
   end
 
   private
+
+  def set_permissions
+    @permissions = Permission.where(subject_class: 'Section', subject_id: @section.id)
+  end
 
   def update_scheduler(section)
     schedule_name = "schedule:#{section.id}"

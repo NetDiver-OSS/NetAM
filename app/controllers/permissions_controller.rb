@@ -1,5 +1,7 @@
-class Admin::PermissionsController < ApplicationController
+class PermissionsController < ApplicationController
   load_and_authorize_resource
+
+  before_action :set_form_details, only: [:new, :edit]
 
   # GET /permissions
   def index
@@ -24,7 +26,7 @@ class Admin::PermissionsController < ApplicationController
     @permission = Permission.new(permission_params)
 
     if @permission.save
-      redirect_to @permission, notice: 'Permission was successfully created.'
+      redirect_to sections_path, notice: 'Permission was successfully created.'
     else
       render :new
     end
@@ -34,7 +36,7 @@ class Admin::PermissionsController < ApplicationController
   # PATCH/PUT /permissions/1
   def update
     if @permission.update(permission_params)
-      redirect_to @permission, notice: 'Permission was successfully updated.'
+      redirect_to sections_path, notice: 'Permission was successfully updated.'
     else
       render :edit
     end
@@ -44,13 +46,18 @@ class Admin::PermissionsController < ApplicationController
   # DELETE /permissions/1
   def destroy
     @permission.destroy
-    redirect_to admin_permissions_path, notice: 'Section was successfully destroyed.'
+    redirect_to sections_path, notice: 'Section was successfully destroyed.'
   end
 
   private
 
+  def set_form_details
+    @users = User.all.pluck(:email, :id)
+    @sections = Section.all.pluck(:name, :id)
+  end
+
   # Only allow a list of trusted parameters through.
   def permission_params
-    params.require(:permission).permit(:name, :subject_class, :subject_id, :action)
+    params.require(:permission).permit(:name, :user_id, :subject_class, :subject_id, :action)
   end
 end

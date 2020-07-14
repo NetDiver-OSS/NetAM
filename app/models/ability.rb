@@ -14,6 +14,7 @@ class Ability
       else
         can permission.action.to_sym, permission.subject_class.constantize, id: permission.subject_id
         can permission.action.to_sym, Usage, section: { id: permission.subject_id }
+        can permission.action.to_sym, Permission, subject_class: 'Section', subject_id: permission.subject_id
       end
     end
   end

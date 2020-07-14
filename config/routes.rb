@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :permissions, except: [:show]
 
   mount API::Base, at: '/'
   mount GrapeSwaggerRails::Engine => '/docs'
@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   authenticate :user, lambda { |u| u.admin? } do
     namespace :admin do
       resources :users
-      resources :permissions, except: [:show]
     end
 
     mount Sidekiq::Web => '/sidekiq'

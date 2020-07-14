@@ -18,7 +18,6 @@
             %ul.dropdown-menu.border-0.shadow
               %li
                 = link_to 'Users', admin_users_path, class: 'dropdown-item'
-                = link_to 'Permissions', admin_permissions_path, class: 'dropdown-item'
 
         %li.nav-item
           = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
