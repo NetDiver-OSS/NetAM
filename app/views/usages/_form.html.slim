@@ -1,4 +1,4 @@
-= form_with(model: usage, local: true) do |form|
+= form_with(model: [@section, usage], local: true) do |form|
   - if usage.errors.any?
     div#error_explanation
       h2 #{pluralize(usage.errors.count, "error")} prohibited this usage from being saved:
@@ -9,19 +9,15 @@
 
   div class="card-body"
     div.row
-      div.col-3
-        div class="form-group"
-          = form.label :section_id
-          = form.select :section_id, @sections, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
-      div.col-3
+      div.col-4
         div class="form-group"
           = form.label :fqdn
           = form.text_field :fqdn, class: "form-control #{'bg-dark text-white' if dark_mode?}"
-      div.col-3
+      div.col-4
         div class="form-group"
           = form.label :ip_used
           = form.text_field :ip_used, class: "form-control #{'bg-dark text-white' if dark_mode?}"
-      div.col-3
+      div.col-4
         div class="form-group"
           = form.label :state
           = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}

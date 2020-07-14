@@ -1,6 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: %i[show scan export edit update destroy]
-  before_action :authenticate_user!
+  load_and_authorize_resource
 
   include SectionsHelper
 
@@ -29,7 +28,9 @@ class SectionsController < ApplicationController
 
   # POST /sections/1/scan
   def scan
-    ScanNetworkWithPingJob.perform_later({id: @section.id, network: @section.network})
+    @section = Section.find(params[:section_id])
+
+    ScanNetworkWithPingJob.perform_later({id: @section, network: @section.network})
 
     redirect_to sections_url, notice: 'Scan was successfully scheduled.'
   end
@@ -75,6 +76,8 @@ class SectionsController < ApplicationController
   end
 
   def export
+    @section = Section.find(params[:section_id])
+
     csvExport = ExportSectionToCsvJob.perform_now(@section)
     send_data csvExport, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
   end
@@ -90,11 +93,6 @@ class SectionsController < ApplicationController
         schedule_name,
         {:class => 'ScanNetworkWithPingJob', :every => [section.schedule, first_in: '0s'], :queue => 'default', :args => [{:id => section.id, :network => section.network}]}
     )
-  end
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_section
-    @section = Section.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

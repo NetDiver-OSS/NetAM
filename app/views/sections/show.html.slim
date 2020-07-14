@@ -1,9 +1,9 @@
 - page_title "<strong>#{@section.name.upcase}</strong><small>#{@section.network}</small>"
 - page_action( \
   {icon: '<i class="fas fa-edit"></i> Edit', path: edit_section_path(@section)}, \
-  {icon: '<i class="fas fa-search"></i> Scan', path: scan_section_path(@section), method: 'post'}, \
-  {icon: '<i class="fas fa-download"></i> Export', path: export_section_path(@section.id), method: 'post'}, \
-  {icon: '<i class="fas fa-plus-square"></i>', path: new_usage_path} )
+  {icon: '<i class="fas fa-search"></i> Scan', path: section_scan_path(@section), method: 'post'}, \
+  {icon: '<i class="fas fa-download"></i> Export', path: section_export_path(@section.id), method: 'post'}, \
+  {icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id)} )
 
 div.row
   div.col-6
@@ -64,7 +64,7 @@ div.row
         div class="btn-group btn-group-toggle" data-toggle="buttons"
           - addresses.each do |address|
             - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-            a class="btn btn-flat text-center #{'text-white' if dark_mode?}" href="#{ip_usage.nil? ? new_usage_path : edit_usage_path(ip_usage[0])}"
+            a class="btn btn-flat text-center #{'text-white' if dark_mode?}" href="#{ip_usage.nil? ? new_section_usage_path(@section.id) : edit_section_usage_path(@section, ip_usage[0])}"
               = address.to_s.split('.')[3].rjust(3, '0')
               br
               i class="fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"
@@ -90,9 +90,9 @@ div.row
               = usage_icon(usage&.state)
             td
               div.btn-group
-                = link_to '<i class="fas fa-search"></i> Scan'.html_safe, scan_usage_path(usage), method: :post, class: 'btn btn-primary btn-sm'
-                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_usage_path(usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'}
-                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, usage, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', data: {:content => 'Delete'}
+                = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm'
+                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'}
+                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section_usages_path(@section, usage), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm', data: {:content => 'Delete'}
 
 javascript:
     var donutChartCanvas = document.getElementById('donutChart').getContext('2d')

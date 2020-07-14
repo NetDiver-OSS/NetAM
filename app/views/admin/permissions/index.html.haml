@@ -18,6 +18,7 @@
               %th Subject
               %th Subject ID
               %th Action
+              %th{style: "width: 15%"}
           %tbody
             - @permissions.each do |permission|
               %tr
@@ -26,4 +27,8 @@
                 %td= permission.subject_class
                 %td= permission.subject_id
                 %td= permission.action
+                %td
+                  = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_admin_permission_path(permission), class: 'btn btn-info btn-sm'
+                  = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, admin_permission_path(permission), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'}
+
 

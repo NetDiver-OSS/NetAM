@@ -20,7 +20,7 @@
   <%= yield %>
 <% else %>
   <div class="wrapper">
-    <%= render 'layouts/navbar' %>
+    <%= render partial: 'layouts/navbar' %>
 
     <div class="content-wrapper <%= 'bg-dark text-white' if dark_mode? %>">
       <div class="content-header">
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <%= render 'layouts/footer' %>
+    <%= render partial: 'layouts/footer' %>
   </div>
 <% end %>
 </body>

@@ -38,7 +38,7 @@
           <td class="project-actions text-right">
             <div class="btn-group">
               <%= link_to '<i class="fas fa-folder"></i> View'.html_safe, section, class: 'btn btn-primary btn-sm' %>
-              <%= link_to '<i class="fas fa-search"></i> Scan'.html_safe, scan_section_path(section), method: :post, class: 'btn btn-primary btn-sm' %>
+              <%= link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_scan_path(section), method: :post, class: 'btn btn-primary btn-sm' %>
 
               <%= link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_path(section), class: 'btn btn-info btn-sm' %>
               <%= link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'} %>
