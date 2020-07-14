@@ -8,3 +8,5 @@ sonarqube:report:
       artifacts: true
     - job: "owasp:test"
       artifacts: true
+    - job: "rubocop:test"
+      artifacts: true
