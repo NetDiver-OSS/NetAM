@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :permissions, except: [:show]
+  resources :api_keys, only: [:index, :create, :destroy]
 
   mount API::Base, at: '/'
   mount GrapeSwaggerRails::Engine => '/docs'

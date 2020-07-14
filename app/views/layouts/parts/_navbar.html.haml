@@ -18,6 +18,12 @@
             %ul.dropdown-menu.border-0.shadow
               %li
                 = link_to 'Users', admin_users_path, class: 'dropdown-item'
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
+            %i.fas.fa-user
+          %ul.dropdown-menu.border-0.shadow
+            %li
+              = link_to 'API Token', api_keys_path, class: 'dropdown-item'
 
         %li.nav-item
           = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
