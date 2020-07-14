@@ -1,0 +1,28 @@
+= form_with(model: [@section, usage], local: true) do |form|
+  %div.card-body
+    - if usage.errors.any?
+      - usage.errors.full_messages.each do |message|
+        %div.callout.callout-danger
+          %p= message
+    %div.row
+      %div.col-4
+        %div.form-group
+          = form.label :fqdn
+          = form.text_field :fqdn, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      %div.col-4
+        %div.form-group
+          = form.label :ip_used
+          = form.text_field :ip_used, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      %div.col-4
+        %div.form-group
+          = form.label :state
+          = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+
+    %div.row
+      %div.col-12
+        %div.form-group
+          = form.label :description
+          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
+
+  %div.card-footer
+    = form.submit nil, class: 'btn btn-primary float-right'

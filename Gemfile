@@ -3,56 +3,46 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Rails framework
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
 gem 'puma', '~> 4.1'
-# Use SCSS for stylesheets
+gem 'bootsnap', '>= 1.4.2', require: false
+
+# Database
+gem 'pg', '>= 0.18', '< 2.0'
+
+# HTML
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'hamlit', '~> 2.11'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
-
-
-gem 'sentry-raven', '~> 3.0'
-
-# Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
-gem 'redis-rack-cache'
-
+# Rails Delayed Jobs
 gem 'sidekiq', '~>6.1.0'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 
+gem 'redis', '~> 4.0'
+gem 'redis-rack-cache'
+
+# Authentification
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'omniauth-ldap', '~> 2.0'
+gem 'cancancan', '~> 3.1'
 
-# Job dependencies
+# Jobs dependencies
 gem 'parallel', '~> 1.19', '>= 1.19.1'
-
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
 gem 'ipaddress', '~> 0.8.3'
 
-gem 'slim-rails', '~> 3.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
-
+# API
 gem 'grape', '~> 1.4'
 gem 'grape-active_model_serializers', '~> 1.5', '>= 1.5.2'
-
 gem 'grape-swagger', '~> 1.2'
 gem 'grape-swagger-rails', '~> 0.3.1'
-
 gem 'grape_on_rails_routes', '~> 0.3.2'
+
+# Error notifier
+gem 'sentry-raven', '~> 3.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

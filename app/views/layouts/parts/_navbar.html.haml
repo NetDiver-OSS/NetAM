@@ -1,0 +1,25 @@
+%nav{class: "main-header navbar navbar-expand-md #{dark_mode? ? 'navbar-dark' : 'navbar-light navbar-white' }"}
+  %div.container
+    %a.navbar-brand{href: root_path}
+      %span.brand-text.font-weight-light NetAM
+
+    %button.navbar-toggler.order-1{type: 'button', data: {toggle: 'collapse', target: '#navbarCollapse'}}
+      %span.navbar-toggler-icon
+
+    %div#navbarCollapse.collapse.navbar-collapse.order-3
+      %ul.navbar-nav
+        %li.nav-item= link_to 'Home', root_path, class: 'nav-link'
+        %li.nav-item= link_to 'Sections', sections_path, class: 'nav-link'
+
+      %ul.order-1.order-md-3.navbar-nav.navbar-no-expand.ml-auto
+        - if user_signed_in? && current_user.admin?
+          %li.nav-item.dropdown
+            %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Admin Center
+            %ul.dropdown-menu.border-0.shadow
+              %li
+                = link_to 'Users', admin_users_path, class: 'dropdown-item'
+
+        %li.nav-item
+          = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
+          = link_to '<i class="fas fa-sun"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' if dark_mode?
+        %li.nav-item= link_to '<i class="fas fa-sign-out-alt"></i>'.html_safe, destroy_user_session_path, method: :delete, class: "nav-link"

@@ -1,11 +1,13 @@
 class UsagesController < ApplicationController
-  before_action :set_usage, only: [:show, :scan, :edit, :update, :destroy]
-  before_action :set_section_form, only: [:new, :edit]
-  before_action :authenticate_user!
+  load_resource :section
+  load_and_authorize_resource :usage, through: :section
+
+  before_action :get_section
+  before_action :set_usage, only: [:show, :edit, :update, :destroy]
 
   # GET /usages
   def index
-    @usages = Usage.all
+    @usages = @section.usages
   end
 
   # GET /usages/1
@@ -14,7 +16,7 @@ class UsagesController < ApplicationController
 
   # GET /usages/new
   def new
-    @usage = Usage.new
+    @usage = @section.usages.build
   end
 
   # GET /usages/1/edit
@@ -23,14 +25,16 @@ class UsagesController < ApplicationController
 
   # POST /usages/1/scan
   def scan
-    ScanAddressWithPingJob.perform_later({ id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state })
+    @usage = Usage.find(params[:usage_id])
+
+    ScanAddressWithPingJob.perform_later({id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state})
 
     redirect_to section_path(@usage.section_id), notice: 'Scan was successfully scheduled.'
   end
 
   # POST /usages
   def create
-    @usage = Usage.new(usage_params)
+    @usage = @section.usages.build(usage_params)
 
     if @usage.save
       redirect_to section_path(@usage.section_id), notice: 'Usage was successfully created.'
@@ -55,17 +59,15 @@ class UsagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_usage
-      @usage = Usage.find(params[:id])
-    end
-
-  def set_section_form
-    @sections = Section.all.pluck(:name, :id)
+  def get_section
+    @section = Section.find(params[:section_id])
+  end
+  def set_usage
+    @usage = Usage.find(params[:id])
   end
 
-    # Only allow a trusted parameter "white list" through.
-    def usage_params
-      params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def usage_params
+    params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id)
+  end
 end

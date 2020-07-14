@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable,
          :omniauthable, :omniauth_providers => [:ldap]
 
+  default_scope -> { order(id: :asc) }
+  has_many :permissions
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

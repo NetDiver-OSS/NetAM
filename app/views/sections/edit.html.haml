@@ -1,0 +1,6 @@
+%div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+  %div.card-header
+    %h3.card-title Editing Section
+  = render 'form', section: @section
+
+= render partial: 'permissions/rbac'

@@ -1,0 +1,36 @@
+= form_with(url: params[:id] ? admin_user_path : admin_users_path, model: user, local: true) do |form|
+  %div.card-body
+    - if user.errors.any?
+      - user.errors.full_messages.each do |message|
+        %div.callout.callout-danger
+          %p= message
+    %div.row
+      %div.col-6
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+              %i.fas.fa-envelope
+          = form.text_field :email, placeholder: 'Email', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      %div.col-6
+        %div.form-group
+          %div.custom-control.custom-switch
+            = form.check_box :admin, class: "custom-control-input #{'bg-dark text-white' if dark_mode?}"
+            = form.label :admin, class: 'custom-control-label'
+
+    %div.row
+      %div.col-6
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+              %i.fas.fa-key
+          = form.password_field :password, placeholder: 'Password', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
+      %div.col-6
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+              %i.fas.fa-key
+          = form.password_field :password_confirmation, placeholder: 'Password confirmation', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
+  %div.card-footer
+    = form.submit nil, class: 'btn btn-primary float-right'

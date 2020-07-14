@@ -1,0 +1,31 @@
+= form_with(model: permission, local: true) do |form|
+  %div.card-body
+    - if permission.errors.any?
+      - permission.errors.full_messages.each do |message|
+        %div.callout.callout-danger
+          %p= message
+    %div.row
+      %div.col-6
+        %div.form-group
+          = form.label :user_id
+          = form.select :user_id, @users, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+      %div.col-6
+        %div.form-group
+          = form.label :name
+          = form.text_field :name, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+    %div.row
+      %div.col-4
+        %div.form-group
+          = form.label :subject_class
+          = form.select :subject_class, ['Section'], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+      %div.col-4
+        %div.form-group
+          = form.label :subject_id
+          = form.select :subject_id, @sections, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+      %div.col-4
+        %div.form-group
+          = form.label :action
+          = form.select :action, [:read, :manage], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+
+  %div.card-footer
+    = form.submit nil, class: 'btn btn-primary float-right'
