@@ -343,13 +343,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    slim (4.1.0)
-      temple (>= 0.7.6, < 0.9)
-      tilt (>= 2.0.6, < 2.1)
-    slim-rails (3.2.0)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
-      slim (>= 3.0, < 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -436,7 +429,6 @@ DEPENDENCIES
   sidekiq (~> 6.1.0)
   sidekiq-scheduler (~> 3.0, >= 3.0.1)
   simplecov (~> 0.17.1)
-  slim-rails (~> 3.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
