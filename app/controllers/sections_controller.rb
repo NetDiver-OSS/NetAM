@@ -88,8 +88,8 @@ class SectionsController < ApplicationController
   def export
     @section = Section.find(params[:section_id])
 
-    csvExport = ExportSectionToCsvJob.perform_now(@section)
-    send_data csvExport, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
+    csv_export = ExportSectionToCsvJob.perform_now(@section)
+    send_data csv_export, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
   end
 
   private
