@@ -9,9 +9,7 @@ class Ability
     can :manage, :all if user.admin?
 
     user.permissions.each do |permission|
-      if permission.subject_id.nil?
-        can permission.action.to_sym, permission.subject_class.constantize
-      else
+      unless permission.subject_id.nil?
         can permission.action.to_sym, permission.subject_class.constantize, id: permission.subject_id
         can permission.action.to_sym, Usage, section: { id: permission.subject_id }
         can permission.action.to_sym, Permission, subject_class: 'Section', subject_id: permission.subject_id
