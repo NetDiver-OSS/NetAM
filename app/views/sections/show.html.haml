@@ -58,17 +58,15 @@
   %div.col-6
     %canvas#donutChart{style: "height:230px; min-height:230px"}
 
-%div.row
-  %div.col-12
-    - if display_network?(@section.network)
-      - IPAddr.new(@section.network).to_range.each_slice(23) do |addresses|
-        %div.btn-group.btn-group-toggle{data: {toggle: "buttons"}}
-          - addresses.each do |address|
-            - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-            %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", href: ip_usage.nil? ? new_section_usage_path(@section.id) : edit_section_usage_path(@section, ip_usage[0])}
-              = address.to_s.split('.')[3].rjust(3, '0')
-              %br
-              %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
+- if display_network?(@section.network)
+  - IPAddr.new(@section.network).to_range.reject.with_index{|_,index| index == 0 || index == IPAddress(@section.network).size - 1}.each_slice(20) do |addresses|
+    %div.d-flex.justify-content-around
+      - addresses.each do |address|
+        - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
+        %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", href: ip_usage.nil? ? new_section_usage_path(@section.id) : edit_section_usage_path(@section, ip_usage[0])}
+          = address.to_s.split('.')[3].rjust(3, '0')
+          %br
+          %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
 
 
 %div.row
