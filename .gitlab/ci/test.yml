@@ -27,13 +27,3 @@ rubocop:test:
   artifacts:
     paths:
       - rubocop-result.json
-
-owasp:test:
-  stage: test
-  image: owasp/dependency-check
-  script:
-    - mkdir owasp
-    - /usr/share/dependency-check/bin/dependency-check.sh --scan . --out owasp --format ALL
-  artifacts:
-    paths:
-      - owasp/

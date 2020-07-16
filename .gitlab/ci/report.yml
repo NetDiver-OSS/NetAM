@@ -6,7 +6,5 @@ sonarqube:report:
   needs:
     - job: "ruby:test"
       artifacts: true
-    - job: "owasp:test"
-      artifacts: true
     - job: "rubocop:test"
       artifacts: true
