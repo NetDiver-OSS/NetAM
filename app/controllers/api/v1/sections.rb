@@ -32,6 +32,17 @@ module API
           Section.where(id: permitted_params[:id]).first!
         end
 
+        desc 'Launch scan for a section'
+        params do
+          requires :id, type: String, desc: 'ID of the section'
+        end
+        post ':id/scan', root: 'section' do
+          @section = Section.find(permitted_params[:id])
+          ScanNetworkWithPingJob.perform_later({id: @section, network: @section.network})
+
+          { status: 'ack' }
+        end
+
         desc 'Return usage for a section'
         params do
           requires :id, type: String, desc: 'ID of the section'
