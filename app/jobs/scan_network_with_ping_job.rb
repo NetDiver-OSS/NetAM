@@ -22,7 +22,7 @@ class ScanNetworkWithPingJob < ApplicationJob
         fqdn: section_usage.filter_map { |entry| entry.fqdn if entry.ip_used.to_s == address.to_s }
       }
 
-      if ['locked', 'dhcp'].include? usage[:state].first
+      if %w[locked dhcp].include? usage[:state].first
         Sidekiq.logger.error("Address #{address} is not able to be process if state is locked or dhcp")
         next
       end
@@ -57,11 +57,8 @@ class ScanNetworkWithPingJob < ApplicationJob
   private
 
   def reverse_dns(address)
-    begin
-      Resolv.new.getname address.to_s
-    rescue Resolv::ResolvError
-      Sidekiq.logger.error "Unable to reverse: #{address}"
-      return nil
-    end
+    Resolv.new.getname address.to_s
+  rescue Resolv::ResolvError
+    Sidekiq.logger.error "Unable to reverse: #{address}"
   end
 end

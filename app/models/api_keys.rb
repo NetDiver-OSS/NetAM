@@ -8,6 +8,7 @@ class APIKeys < ActiveRecord::Base
   end
 
   private
+
   def generate_access_token
     begin
       self.access_token = SecureRandom.hex

@@ -9,7 +9,7 @@ class ScanAddressWithPingJob < ApplicationJob
 
     Sidekiq.logger.info "Starting address scan process: #{args[0][:ip_used]}"
 
-    if ['locked', 'dhcp'].include? args[0][:state]
+    if %w[locked dhcp].include? args[0][:state]
       Sidekiq.logger.error("#{self.class.name} is not able to process locked or dhcp address")
       return
     end
@@ -21,9 +21,9 @@ class ScanAddressWithPingJob < ApplicationJob
     addr_id = Usage.where(id: args[0][:id], ip_used: args[0][:ip_used].to_s, section_id: args[0][:section_id]).first_or_create
 
     if ping
-      addr_id.update_attributes(:state => :actived)
+      addr_id.update_attributes(state: :actived)
     else
-      addr_id.update_attributes(:state => :down)
+      addr_id.update_attributes(state: :down)
     end
   end
 end

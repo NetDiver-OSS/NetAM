@@ -5,15 +5,15 @@ namespace :netam do
     desc 'Manage administrator of NetAM instance'
     task :admins do
       unless User.where(admin: true).empty?
-        warn "You already have administrator !"
+        warn 'You already have administrator !'
         exit 1
       end
 
       puts '== Administrator Creator =='
 
-      print "Email: "
+      print 'Email: '
       email = STDIN.gets.chomp
-      print "Password: "
+      print 'Password: '
       password = STDIN.noecho(&:gets).chomp
 
       @user = User.new(
@@ -25,9 +25,9 @@ namespace :netam do
         }
       )
       if @user.save
-        puts "Creation successful"
+        puts 'Creation successful'
       else
-        warn "Creation failed !"
+        warn 'Creation failed !'
         exit 1
       end
 

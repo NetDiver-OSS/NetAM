@@ -2,8 +2,8 @@ class UsagesController < ApplicationController
   load_resource :section
   load_and_authorize_resource :usage, through: :section
 
-  before_action :get_section
-  before_action :set_usage, only: [:show, :edit, :update, :destroy]
+  before_action :set_section
+  before_action :set_usage, only: %i[show edit update destroy]
 
   # GET /usages
   def index
@@ -11,8 +11,7 @@ class UsagesController < ApplicationController
   end
 
   # GET /usages/1
-  def show
-  end
+  def show; end
 
   # GET /usages/new
   def new
@@ -20,14 +19,13 @@ class UsagesController < ApplicationController
   end
 
   # GET /usages/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /usages/1/scan
   def scan
     @usage = Usage.find(params[:usage_id])
 
-    ScanAddressWithPingJob.perform_later({id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state})
+    ScanAddressWithPingJob.perform_later({ id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state })
 
     redirect_to section_path(@usage.section_id), notice: 'Scan was successfully scheduled.'
   end
@@ -59,9 +57,11 @@ class UsagesController < ApplicationController
   end
 
   private
-  def get_section
+
+  def set_section
     @section = Section.find(params[:section_id])
   end
+
   def set_usage
     @usage = Usage.find(params[:id])
   end
