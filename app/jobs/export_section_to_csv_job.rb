@@ -4,8 +4,9 @@ class ExportSectionToCsvJob < ApplicationJob
 
   def perform(*args)
     database_entries = Usage.joins(:section).where(section_id: args[0]).pluck('sections.id', 'sections.name', :ip_used, :fqdn, :description, :state)
-    attributes = %w{ID Section Address FQDN Description State}
-    mycsv = CSV.generate(headers: true) do |csv|
+    attributes = %w[ID Section Address FQDN Description State]
+
+    CSV.generate(headers: true) do |csv|
       csv << attributes
       database_entries.each do |ip_usage|
         case ip_usage[4]
@@ -21,6 +22,5 @@ class ExportSectionToCsvJob < ApplicationJob
         csv << ip_usage
       end
     end
-    return mycsv
   end
 end

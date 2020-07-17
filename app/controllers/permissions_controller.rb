@@ -1,7 +1,7 @@
 class PermissionsController < ApplicationController
   load_and_authorize_resource
 
-  before_action :set_form_details, only: [:new, :edit]
+  before_action :set_form_details, only: %i[new edit]
 
   # GET /permissions
   def index
@@ -9,8 +9,7 @@ class PermissionsController < ApplicationController
   end
 
   # GET /permissions/1
-  def show
-  end
+  def show; end
 
   # GET /permissions/new
   def new
@@ -18,8 +17,7 @@ class PermissionsController < ApplicationController
   end
 
   # GET /permissions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /permissions
   def create
@@ -30,7 +28,6 @@ class PermissionsController < ApplicationController
     else
       render :new
     end
-
   end
 
   # PATCH/PUT /permissions/1
@@ -41,7 +38,6 @@ class PermissionsController < ApplicationController
       render :edit
     end
   end
-
 
   # DELETE /permissions/1
   def destroy

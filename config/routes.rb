@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   root 'application#index'
 
   devise_for :users, path: '', path_names: {
-      sign_in: 'login',
-      sign_out: 'logout',
-      password: 'secret',
-      confirmation: 'verification',
-      unlock: 'unblock',
-      registration: 'register',
-      sign_up: 'cmon_let_me_in'
-  }, :controllers => { :omniauth_callbacks => "callbacks" }
+    sign_in: 'login',
+    sign_out: 'logout',
+    password: 'secret',
+    confirmation: 'verification',
+    unlock: 'unblock',
+    registration: 'register',
+    sign_up: 'cmon_let_me_in'
+  }, controllers: { omniauth_callbacks: "callbacks" }
 
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
@@ -25,11 +25,11 @@ Rails.application.routes.draw do
   end
 
   resources :permissions, except: [:show]
-  resources :api_keys, only: [:index, :create, :destroy]
+  resources :api_keys, only: %i[index create destroy]
 
   mount API::Base, at: '/'
 
-  authenticate :user, lambda { |u| u.admin? } do
+  authenticate :user, ->(u) { u.admin? } do
     namespace :admin do
       resources :users
     end

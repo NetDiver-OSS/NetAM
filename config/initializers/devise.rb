@@ -261,13 +261,13 @@ Devise.setup do |config|
   # up on your models and hooks.
 
   config.omniauth :ldap,
-                  :host => Rails.configuration.netam[:auth][:ldap][:host],
-                  :port => Rails.configuration.netam[:auth][:ldap][:port],
-                  :encryption => Rails.configuration.netam[:auth][:ldap][:encryption],
-                  :base => Rails.configuration.netam[:auth][:ldap][:base],
-                  :uid => Rails.configuration.netam[:auth][:ldap][:uid],
-                  :bind_dn => Rails.configuration.netam[:auth][:ldap][:bind_dn],
-                  :password => Rails.configuration.netam[:auth][:ldap][:password]
+                  host: Rails.configuration.netam[:auth][:ldap][:host],
+                  port: Rails.configuration.netam[:auth][:ldap][:port],
+                  encryption: Rails.configuration.netam[:auth][:ldap][:encryption],
+                  base: Rails.configuration.netam[:auth][:ldap][:base],
+                  uid: Rails.configuration.netam[:auth][:ldap][:uid],
+                  bind_dn: Rails.configuration.netam[:auth][:ldap][:bind_dn],
+                  password: Rails.configuration.netam[:auth][:ldap][:password]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

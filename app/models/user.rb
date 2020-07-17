@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
-         :omniauthable, :omniauth_providers => [:ldap]
+         :omniauthable, omniauth_providers: [:ldap]
 
   default_scope -> { order(id: :asc) }
   has_many :permissions

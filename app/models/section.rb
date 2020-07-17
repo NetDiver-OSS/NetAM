@@ -7,10 +7,8 @@ class Section < ApplicationRecord
   private
 
   def network_must_be_valid
-    begin
-      IPAddr.new network
-    rescue IPAddr::Error
-      errors.add(:network, "is not valid")
-    end
+    IPAddr.new network
+  rescue IPAddr::Error
+    errors.add(:network, 'is not valid')
   end
 end

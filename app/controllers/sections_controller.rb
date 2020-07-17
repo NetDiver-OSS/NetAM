@@ -20,18 +20,16 @@ class SectionsController < ApplicationController
 
     @ip_free = IPAddress(@section.network).size - @section.usages.where(state: 0..3).count
 
-
     @chart_label = '["Locked", "Up", "Down", "Free", "DHCP"]'.html_safe
     @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
     @chart_color = '["#838383", "#16ab39", "#db2828", "#2185d0", "#9627ba"]'.html_safe
-
   end
 
   # POST /sections/1/scan
   def scan
     @section = Section.find(params[:section_id])
 
-    ScanNetworkWithPingJob.perform_later({id: @section, network: @section.network})
+    ScanNetworkWithPingJob.perform_later({ id: @section, network: @section.network })
 
     redirect_to sections_url, notice: 'Scan was successfully scheduled.'
   end
@@ -42,8 +40,7 @@ class SectionsController < ApplicationController
   end
 
   # GET /sections/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sections
   def create
@@ -64,7 +61,6 @@ class SectionsController < ApplicationController
     else
       render :new
     end
-
   end
 
   # PATCH/PUT /sections/1
@@ -76,7 +72,6 @@ class SectionsController < ApplicationController
       render :edit
     end
   end
-
 
   # DELETE /sections/1
   def destroy
@@ -104,8 +99,8 @@ class SectionsController < ApplicationController
     Sidekiq.remove_schedule(schedule_name) unless Sidekiq.get_schedule(schedule_name).nil?
 
     Sidekiq.set_schedule(
-        schedule_name,
-        {:class => 'ScanNetworkWithPingJob', :every => [section.schedule, first_in: '0s'], :queue => 'default', :args => [{:id => section.id, :network => section.network}]}
+      schedule_name,
+      { class: 'ScanNetworkWithPingJob', every: [section.schedule, first_in: '0s'], queue: 'default', args: [{ id: section.id, network: section.network }] }
     )
   end
 
@@ -113,5 +108,4 @@ class SectionsController < ApplicationController
   def section_params
     params.require(:section).permit(:name, :description, :network, :schedule)
   end
-
 end

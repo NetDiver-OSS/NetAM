@@ -1,4 +1,4 @@
-Rails.application.config.assets.precompile += %w( omniauth_form.css )
+Rails.application.config.assets.precompile += %w[omniauth_form.css]
 
 module OmniAuth
   class Form

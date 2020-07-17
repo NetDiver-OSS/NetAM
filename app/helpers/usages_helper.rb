@@ -1,5 +1,4 @@
 module UsagesHelper
-
   def usage_color(usage)
     case usage
     when 'locked'
