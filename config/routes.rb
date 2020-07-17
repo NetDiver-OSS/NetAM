@@ -28,13 +28,13 @@ Rails.application.routes.draw do
   resources :api_keys, only: [:index, :create, :destroy]
 
   mount API::Base, at: '/'
-  mount GrapeSwaggerRails::Engine => '/docs'
 
   authenticate :user, lambda { |u| u.admin? } do
     namespace :admin do
       resources :users
     end
 
+    mount GrapeSwaggerRails::Engine => '/docs'
     mount Sidekiq::Web => '/sidekiq'
   end
 end

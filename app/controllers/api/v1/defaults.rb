@@ -15,6 +15,11 @@ module API
         end
 
         helpers do
+          def declared_params(options = {})
+            options = { include_parent_namespaces: false }.merge(options)
+            declared(params, options).to_h.symbolize_keys
+          end
+
           def authenticate!
             error!('Unauthorized. Invalid or expired token.', 401) unless current_user
           end
