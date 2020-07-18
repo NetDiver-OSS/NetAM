@@ -29,36 +29,28 @@ class ScanNetworkWithPingJob < ApplicationJob
 
       scanner = {
         ping: Net::Ping::External.new(address.to_s).ping?,
-        reverse: reverse_dns(address)
+        reverse: Netam::Network::Dns.reverse_dns(address)
       }
 
-      current_usage = Usage.where(ip_used: address.to_s, section_id: section[:id]).first_or_create if usage[:state].count.positive?
+      current_usage = Usage.where(ip_used: address.to_s, section_id: section[:id])
 
       if scanner[:ping]
         Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"
 
-        current_usage.update_attributes(state: :actived)
+        current_usage.first_or_create.update_attributes(state: :actived)
 
         unless scanner[:reverse].nil?
           Sidekiq.logger.info "Found PTR for IP #{address}: #{scanner[:reverse]}"
-          current_usage.update_attributes(fqdn: scanner[:reverse])
+          current_usage.first_or_create.update_attributes(fqdn: scanner[:reverse])
         end
 
       else
         if usage[:state].count.positive?
           Sidekiq.logger.info "Known unactive IP: #{address}"
 
-          current_usage.update_attributes(state: :down)
+          current_usage.first_or_create.update_attributes(state: :down)
         end
       end
     end
-  end
-
-  private
-
-  def reverse_dns(address)
-    Resolv.new.getname address.to_s
-  rescue Resolv::ResolvError
-    Sidekiq.logger.error "Unable to reverse: #{address}"
   end
 end
