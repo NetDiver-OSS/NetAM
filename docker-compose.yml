@@ -1,6 +1,31 @@
 version: '3.7'
 
 services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netam
+    restart: always
+    environment:
+      REDIS_HOST: redis
+      DB_HOST: db
+      DB_NAME: netam_development
+    ports:
+      - "3000:3000"
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netam
+    restart: always
+    environment:
+      REDIS_HOST: redis
+      DB_HOST: db
+      DB_NAME: netam_development
+    command: sidekiq
+
   redis:
     image: redis:alpine
     restart: always
