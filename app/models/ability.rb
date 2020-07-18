@@ -8,6 +8,8 @@ class Ability
 
     can :manage, :all if user.admin?
 
+    can %i[index new create], Section
+
     user.permissions.each do |permission|
       next if permission.subject_id.nil?
 
