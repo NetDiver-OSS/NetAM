@@ -1,6 +1,4 @@
 stages:
   - test
   - report
-  - build
   - package
-  - deploy

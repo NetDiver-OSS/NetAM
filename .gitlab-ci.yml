@@ -5,3 +5,4 @@ include:
 
   - local: '.gitlab/ci/test.yml'
   - local: '.gitlab/ci/report.yml'
+  - local: '.gitlab/ci/package.yml'
