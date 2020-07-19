@@ -9,8 +9,10 @@ module Netam
         [] unless @network.ipv6?
 
         @range = []
-        @network.each_host do |i|
-          @range << i
+        if @network.private?
+          @network.each_host { |i| @range << i }
+        else
+          @network.each { |i| @range << i }
         end
 
         @range
