@@ -5,7 +5,7 @@
   %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
   %meta{http: {equiv: "x-ua-compatible"}, content: "ie=edge"}
 
-  %title #{page_title.empty? ? 'NetAM' : "#{page_title} | NetAM"}
+  %title #{page_title.empty? ? 'NetAM' : "#{strip_tags(page_title)} | NetAM"}
 
   = csrf_meta_tags
   = csp_meta_tag
