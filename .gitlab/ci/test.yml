@@ -2,6 +2,7 @@ ruby:test:
   stage: test
   services:
     - postgres:12.2-alpine
+    - redis:alpine
   variables:
     POSTGRES_DB: netam_test
     POSTGRES_USER: admin
