@@ -4,8 +4,8 @@ module API
       extend ActiveSupport::Concern
 
       included do
-        prefix 'api'
-        version 'v1', using: :path
+        prefix 'requests.api'
+        version 'requests.api.v1', using: :path
         default_format :json
         format :json
         formatter :json, Grape::Formatter::ActiveModelSerializers
