@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     sign_up: 'cmon_let_me_in'
   }, controllers: { omniauth_callbacks: "callbacks" }
 
-  post 'install', as: 'install', to: 'application#install', format: false
+  get 'install', as: 'install', to: 'application#install', format: false
+  post 'setup_user', as: 'setup_user', to: 'application#setup_user', format: false
 
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
