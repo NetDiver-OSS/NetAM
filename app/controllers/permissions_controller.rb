@@ -9,7 +9,9 @@ class PermissionsController < ApplicationController
   end
 
   # GET /permissions/1
-  def show; end
+  def show
+    # not used actually
+  end
 
   # GET /permissions/new
   def new
@@ -17,7 +19,9 @@ class PermissionsController < ApplicationController
   end
 
   # GET /permissions/1/edit
-  def edit; end
+  def edit
+    # not used actually
+  end
 
   # POST /permissions
   def create

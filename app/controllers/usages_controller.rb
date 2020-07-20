@@ -11,7 +11,9 @@ class UsagesController < ApplicationController
   end
 
   # GET /usages/1
-  def show; end
+  def show
+    # not used actually
+  end
 
   # GET /usages/new
   def new
@@ -19,7 +21,9 @@ class UsagesController < ApplicationController
   end
 
   # GET /usages/1/edit
-  def edit; end
+  def edit
+    # not used actually
+  end
 
   # POST /usages/1/scan
   def scan
