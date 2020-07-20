@@ -37,18 +37,18 @@ class ScanNetworkWithPingJob < ApplicationJob
       if scanner[:ping]
         Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"
 
-        current_usage.first_or_create.update_attributes(state: :actived)
+        current_usage.first_or_create.update(state: :actived)
 
         unless scanner[:reverse].nil?
           Sidekiq.logger.info "Found PTR for IP #{address}: #{scanner[:reverse]}"
-          current_usage.first_or_create.update_attributes(fqdn: scanner[:reverse])
+          current_usage.first_or_create.update(fqdn: scanner[:reverse])
         end
 
       else
         if usage[:state].count.positive?
           Sidekiq.logger.info "Known unactive IP: #{address}"
 
-          current_usage.first_or_create.update_attributes(state: :down)
+          current_usage.first_or_create.update(state: :down)
         end
       end
     end
