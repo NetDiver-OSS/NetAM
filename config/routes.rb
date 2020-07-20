@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :permissions, except: [:show]
   resources :api_keys, only: %i[index create destroy]
+  resources :install, only: %i[index]
 
   mount API::Base, at: '/'
 
