@@ -9,7 +9,6 @@ module SimpleCovEnv
 
   def start!
     configure_profile
-    configure_job
     configure_formatter
 
     SimpleCov.start
@@ -23,18 +22,6 @@ module SimpleCovEnv
         SimpleCov::Formatter::CoberturaFormatter
       ]
     )
-  end
-
-  def configure_job
-    SimpleCov.configure do
-      if ENV['CI']
-        SimpleCov.at_exit do
-          # In CI environment don't generate formatted reports
-          # Only generate .resultset.json
-          SimpleCov.result
-        end
-      end
-    end
   end
 
   def configure_profile
