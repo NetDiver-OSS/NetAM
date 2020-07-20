@@ -9,21 +9,21 @@ RSpec.describe "Permissions", type: :request do
 
   let(:valid_attributes) do
     {
-        name: 'permission 1',
-        user_id: @admin.id,
-        subject_class: 'Section',
-        subject_id: 1,
-        action: 'manage'
+      name: 'permission 1',
+      user_id: @admin.id,
+      subject_class: 'Section',
+      subject_id: 1,
+      action: 'manage'
     }
   end
 
   let(:invalid_attributes) do
     {
-        name: 'permission err',
-        user_id: @admin.id,
-        subject_class: 'Section',
-        subject_id: 1,
-        action: 'manage'
+      name: 'permission err',
+      user_id: @admin.id,
+      subject_class: 'Section',
+      subject_id: 1,
+      action: 'manage'
     }
   end
 

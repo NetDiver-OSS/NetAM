@@ -8,7 +8,7 @@ RSpec.describe API::V1::Sections, type: :request do
   before(:each) do
     user = User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
 
-    @api_token = APIKeys.create!({user: user}).access_token
+    @api_token = APIKeys.create!({ user: user }).access_token
   end
 
   context 'GET /api/v1/sections' do
