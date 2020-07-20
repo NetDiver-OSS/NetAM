@@ -6,7 +6,7 @@ module Netam
       end
 
       def all_ips
-        [] unless @network.ipv6?
+        return [] if @network.ipv6?
 
         @range = []
         if @network.private?
