@@ -1,4 +1,4 @@
-- page_title "<strong>#{@section.name.upcase}</strong><small>#{@section.network}</small>"
+- page_title "<strong>#{@section.name.upcase}</strong> - <small>#{@section.network}</small>"
 
 - page_action({icon: '<i class="fas fa-edit"></i> Edit', path: edit_section_path(@section)}) if can? :edit, @section
 - page_action({icon: '<i class="fas fa-search"></i> Scan', path: section_scan_path(@section), method: 'post'}) if can? :scan, @section
