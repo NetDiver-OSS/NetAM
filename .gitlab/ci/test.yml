@@ -2,6 +2,7 @@ ruby:test:
   stage: test
   services:
     - postgres:12.2-alpine
+    - redis:alpine
   variables:
     POSTGRES_DB: netam_test
     POSTGRES_USER: admin
@@ -11,6 +12,7 @@ ruby:test:
     - apk add --no-cache build-base bash linux-headers tzdata postgresql-dev yarn npm libc6-compat
     - bundle install
     - rails db:migrate RAILS_ENV=test
+    - rails assets:precompile RAILS_ENV=test
     - rspec --format RspecJunitFormatter --out rspec.xml
   artifacts:
     reports:
