@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     sign_up: 'cmon_let_me_in'
   }, controllers: { omniauth_callbacks: "callbacks" }
 
+  post 'install', as: 'install', to: 'application#install', format: false
+
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
     post 'export', as: 'export', to: 'sections#export', format: false
@@ -26,7 +28,6 @@ Rails.application.routes.draw do
 
   resources :permissions, except: [:show]
   resources :api_keys, only: %i[index create destroy]
-  resources :install, only: %i[index]
 
   mount API::Base, at: '/'
 
