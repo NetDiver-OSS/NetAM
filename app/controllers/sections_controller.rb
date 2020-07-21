@@ -40,7 +40,9 @@ class SectionsController < ApplicationController
   end
 
   # GET /sections/1/edit
-  def edit; end
+  def edit
+    # not used actually
+  end
 
   # POST /sections
   def create
