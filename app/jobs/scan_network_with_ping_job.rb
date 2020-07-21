@@ -16,7 +16,7 @@ class ScanNetworkWithPingJob < ApplicationJob
 
     section_usage = Usage.where(section_id: section[:id]).select(:ip_used, :state, :fqdn)
 
-    Parallel.each(section[:network].to_range, in_processes: 50) do |address|
+    Parallel.each(section[:network].to_range, in_processes: Rails.configuration.netam[:sidekiq][:parallel]) do |address|
       usage = {
         state: section_usage.filter_map { |entry| entry.state if entry.ip_used.to_s == address.to_s },
         fqdn: section_usage.filter_map { |entry| entry.fqdn if entry.ip_used.to_s == address.to_s }

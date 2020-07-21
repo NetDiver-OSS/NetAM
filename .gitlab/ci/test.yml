@@ -8,6 +8,7 @@ ruby:test:
     POSTGRES_USER: admin
     POSTGRES_PASSWORD: password
     POSTGRES_HOST_AUTH_METHOD: trust
+    SIDEKIQ_PARALLEL: 10
   script:
     - apk add --no-cache build-base bash linux-headers tzdata postgresql-dev yarn npm libc6-compat
     - bundle install
