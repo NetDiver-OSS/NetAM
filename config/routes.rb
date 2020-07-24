@@ -15,9 +15,6 @@ Rails.application.routes.draw do
     sign_up: 'cmon_let_me_in'
   }, controllers: { omniauth_callbacks: "callbacks" }
 
-  get 'install', as: 'install', to: 'application#install', format: false
-  post 'setup_user', as: 'setup_user', to: 'application#setup_user', format: false
-
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
     post 'export', as: 'export', to: 'sections#export', format: false
@@ -29,6 +26,13 @@ Rails.application.routes.draw do
 
   resources :permissions, except: [:show]
   resources :api_keys, only: %i[index create destroy]
+
+  if Rails.application.config.setup_mode
+    scope path: 'setup' do
+      get 'install', as: 'install', to: 'setup#install', format: false
+      post 'install', as: 'new_install', to: 'setup#create', format: false
+    end
+  end
 
   mount API::Base, at: '/'
 

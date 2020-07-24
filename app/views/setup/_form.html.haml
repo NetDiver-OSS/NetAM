@@ -1,21 +1,16 @@
-= form_with(url: setup_user_path, method: post, model: user, local: true) do |form|
+= form_with(url: new_install_path, method: 'post', model: user, local: true) do |form|
   %div.card-body
     - if user.errors.any?
       - user.errors.full_messages.each do |message|
         %div.callout.callout-danger
           %p= message
     %div.row
-      %div.col-6
+      %div.col-12
         %div.input-group.mb-3
           %div.input-group-prepend
             %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-envelope
           = form.text_field :email, placeholder: 'Email', class: "form-control #{'bg-dark text-white' if dark_mode?}"
-      %div.col-6
-        %div.form-group
-          %div.custom-control.custom-switch
-            = form.check_box :admin, class: "custom-control-input #{'bg-dark text-white' if dark_mode?}"
-            = form.label :admin, class: 'custom-control-label'
 
     %div.row
       %div.col-6

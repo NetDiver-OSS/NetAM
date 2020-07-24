@@ -1,45 +1,19 @@
 class ApplicationController < ActionController::Base
-  before_action :admin_exist
-  before_action :authenticate_user!, except:[:install]
+  before_action :setup_required
+  before_action :authenticate_user!
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end
 
-  def install
-    render :install
-  end
-
   private
 
-  def admin_exist
-    if User.where(admin: true).empty?
-      setup
-    end
-#
-#    puts '== Administrator Creator =='
-#
-#    print 'Email: '
-#    email = STDIN.gets.chomp
-#    print 'Password: '
-#    password = STDIN.noecho(&:gets).chomp
-#
-#    @user = User.new(
-#        {
-#            email: email,
-#            password: password,
-#            password_confirmation: password,
-#            admin: true
-#        }
-#    )
-#    if @user.save
-#      puts 'Creation successful'
-#    else
-#      warn 'Creation failed !'
-#      exit 1
-#    end
+  def authenticate_user!
+    super unless ['setup'].include?(params[:controller])
+  end
 
-    puts '== Administrator Creator =='
+  def setup_required
+    redirect_to install_path if Rails.application.config.setup_mode && params[:controller] != 'setup'
   end
 end
