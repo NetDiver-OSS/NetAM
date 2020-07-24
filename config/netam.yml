@@ -32,7 +32,7 @@ default: &default
 
   sidekiq:
     threads: <%= ENV.fetch("SIDEKIQ_MAX_THREADS") { 5 } %>
-    parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 50 } %>
+    parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 10 } %>
 
 development:
   <<: *default
