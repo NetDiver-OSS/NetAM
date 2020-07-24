@@ -10,5 +10,5 @@ emails = %w[sebastien@sdeu.fr vincent@fricouv.eu rigonkmalk@gmail.com]
 
 emails.each do |email|
   r = Random.urandom(128)
-  Admin.create!({ email: email, password: r, password_confirmation: r })
+  User.create!({ email: email, password: r, password_confirmation: r })
 end
