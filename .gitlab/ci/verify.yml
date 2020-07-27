@@ -1,0 +1,6 @@
+danger:verify:
+  stage: verify
+  script:
+    - apk add --no-cache git
+    - gem install danger-gitlab danger-rails_best_practices
+    - danger --fail-on-errors=false --verbose
