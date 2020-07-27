@@ -15,6 +15,7 @@ ruby:test:
     - rails db:migrate RAILS_ENV=test
     - rails assets:precompile RAILS_ENV=test
     - rspec --format RspecJunitFormatter --out rspec.xml
+  needs: []
   artifacts:
     reports:
       junit: rspec.xml
@@ -27,6 +28,7 @@ rubocop:test:
     - apk add --no-cache build-base bash linux-headers tzdata postgresql-dev yarn npm libc6-compat
     - bundle install
     - rubocop --format=json --out=rubocop-result.json
+  needs: []
   artifacts:
     paths:
       - rubocop-result.json

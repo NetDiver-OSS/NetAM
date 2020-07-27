@@ -1,4 +1,5 @@
 stages:
+  - verify
   - test
   - report
   - package
