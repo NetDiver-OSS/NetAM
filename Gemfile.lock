@@ -64,12 +64,12 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
-    bcrypt (3.1.13)
-    bcrypt (3.1.13-java)
+    bcrypt (3.1.15)
+    bcrypt (3.1.15-java)
     bindex (0.8.1)
-    bootsnap (1.4.6)
+    bootsnap (1.4.7)
       msgpack (~> 1.0)
-    bootsnap (1.4.6-java)
+    bootsnap (1.4.7-java)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -197,10 +197,7 @@ GEM
       thor
       tilt
     hashie (3.5.7)
-    httparty (0.18.1)
-      mime-types (~> 3.0)
-      multi_xml (>= 0.5.2)
-    i18n (1.8.4)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     json (2.3.1)
@@ -398,10 +395,10 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic_range (2.3.0)
     sentry-raven (3.0.0)
       faraday (>= 1.0)
-    sexp_processor (4.15.0)
-    sidekiq (6.1.0)
+    sidekiq (6.1.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -455,10 +452,11 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (4.2.2)
-      activesupport (>= 4.2)
+    webpacker (5.1.1)
+      activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-driver (0.7.3-java)
@@ -476,7 +474,7 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
-  bootsnap (>= 1.4.2)
+  bootsnap (>= 1.4.7)
   byebug
   cancancan (~> 3.1)
   capybara (>= 2.15)
@@ -507,16 +505,16 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   sentry-raven (~> 3.0)
-  sidekiq (~> 6.1.0)
+  sidekiq (~> 6.1.1)
   sidekiq-scheduler (~> 3.0, >= 3.0.1)
-  simplecov (~> 0.17.1)
+  simplecov (= 0.17.1)
   simplecov-cobertura (~> 1.3, >= 1.3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 4.0)
+  webpacker (~> 5.1.1)
 
 RUBY VERSION
    ruby 2.7.1p83
