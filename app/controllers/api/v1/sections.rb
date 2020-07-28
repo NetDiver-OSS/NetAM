@@ -5,12 +5,13 @@ module API
 
       before do
         authenticate!
+        authorize_route!
       end
 
       resource :sections do
         desc 'Return all sections'
-        get '', root: 'section' do
-          Section.all
+        get '', root: 'section', each_serializer: SectionSerializer do
+          Section.all.filter { |s| can?(:read, s) }
         end
 
         desc 'Create a section'
@@ -21,7 +22,16 @@ module API
           optional :description, type: String
         end
         post '', root: 'section' do
-          Section.create!(declared_params(include_missing: false))
+          section = Section.create!(declared_params(include_missing: false))
+          Permission.create!(
+            {
+              user_id: current_user.id,
+              subject_class: 'Section',
+              subject_id: section.id,
+              action: 'manage'
+            }
+          )
+          section
         end
 
         desc 'Return a section'
@@ -29,7 +39,9 @@ module API
           requires :id, type: String, desc: 'ID of the section'
         end
         get ':id', root: 'section' do
-          Section.where(id: permitted_params[:id]).first!
+          section = Section.where(id: permitted_params[:id]).first!
+          authorize! :read, section
+          section
         end
 
         desc 'Launch scan for a section'
@@ -38,6 +50,7 @@ module API
         end
         post ':id/scan', root: 'section' do
           @section = Section.find(permitted_params[:id])
+          authorize! :scan, @section
           ScanNetworkWithPingJob.perform_later({ id: @section, network: @section.network })
 
           { status: 'ack' }
@@ -48,7 +61,9 @@ module API
           requires :id, type: String, desc: 'ID of the section'
         end
         get ':id/usages', root: 'section' do
-          Section.find(permitted_params[:id]).usages
+          section = Section.find(permitted_params[:id]).usages
+          authorize! :read, section
+          section
         end
 
         desc 'Create a usage for a section'
@@ -60,7 +75,9 @@ module API
           optional :description, type: String
         end
         post ':id/usages', root: 'section' do
-          Section.find(permitted_params[:id]).usages.create!(declared_params(include_missing: false).except(:id))
+          section = Section.find(permitted_params[:id])
+          authorize! :read, section
+          section.usages.create!(declared_params(include_missing: false).except(:id))
         end
       end
     end

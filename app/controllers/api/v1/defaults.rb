@@ -49,6 +49,10 @@ module API
         rescue_from ActiveRecord::RecordInvalid do |e|
           error_response(message: e.message, status: 422)
         end
+
+        rescue_from ::CanCan::AccessDenied do
+          error!('403 Forbidden', 403)
+        end
       end
     end
   end
