@@ -11,7 +11,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
-    @all_ip_used = Usage.where(section_id: params[:id]).pluck(:id, :ip_used, :state)
+    @all_ip_used = IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24 ? Usage.where(section_id: params[:id]).pluck(:id, :ip_used, :state) : []
 
     @ip_locked = @section.usages.where(state: 0).count
     @ip_activated = @section.usages.where(state: 1).count
