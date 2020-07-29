@@ -376,6 +376,7 @@ GEM
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
+    vmstat (2.3.1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.4)
@@ -446,6 +447,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  vmstat (~> 2.3, >= 2.3.1)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.1.1)

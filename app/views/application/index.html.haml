@@ -1,1 +1,41 @@
 - page_title "Homepage"
+
+%div.row
+  %div.col-12.col-sm-6.col-md-3
+    %div.info-box
+      %span.info-box-icon.bg-info.elevation-1
+        %i.fas.fa-microchip
+
+      %div.info-box-content
+        %span.info-box-text CPU
+        %span.info-box-number= @cpus&.length
+
+
+  %div.col-12.col-sm-6.col-md-3
+    %div.info-box.mb-3
+      %span.info-box-icon.bg-danger.elevation-1
+        %i.fas.fa-memory
+
+      %div.info-box-content
+        %span.info-box-text Memory
+        %span.info-box-number #{number_to_human_size(@memory&.active_bytes)} / #{number_to_human_size(@memory&.total_bytes)}
+
+  %div.clearfix.hidden-md-up
+
+  %div.col-12.col-sm-6.col-md-3
+    %div.info-box.mb-3
+      %span.info-box-icon.bg-success.elevation-1
+        %i.fas.fa-hourglass
+
+      %div.info-box-content
+        %span.info-box-text Load Average
+        %span.info-box-number #{number_to_human(@load_average&.one_minute)} / #{number_to_human(@load_average&.five_minutes)} / #{number_to_human(@load_average&.fifteen_minutes)}
+
+  %div.col-12.col-sm-6.col-md-3
+    %div.info-box.mb-3
+      %span.info-box-icon.bg-warning.elevation-1
+        %i.fas.fa-history
+
+      %div.info-box-content
+        %span.info-box-text Boot time
+        %span.info-box-number= distance_of_time_in_words(@boot_time || Time.now, Time.now)

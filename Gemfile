@@ -44,6 +44,7 @@ gem 'grape-swagger-rails', '~> 0.3.1'
 # Error notifier
 gem 'sentry-raven', '~> 3.0'
 
+gem 'vmstat', '~> 2.3', '>= 2.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
