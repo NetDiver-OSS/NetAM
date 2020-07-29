@@ -10,9 +10,6 @@ module Netam
   class Application < Rails::Application
     require_dependency Rails.root.join('lib/netam')
 
-    config.active_job.queue_name_prefix = Rails.env
-    config.active_job.queue_name_delimiter = '.'
-
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
 
