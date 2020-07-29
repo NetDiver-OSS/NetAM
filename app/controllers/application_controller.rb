@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
 
+  def index
+    @cpus = Vmstat.cpu rescue nil
+    @memory = Vmstat.memory rescue nil
+    @load_average = Vmstat.load_average rescue nil
+    @boot_time = Vmstat.boot_time rescue nil
+  end
+
   private
 
   def authenticate_user!
