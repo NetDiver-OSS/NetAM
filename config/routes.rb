@@ -27,6 +27,13 @@ Rails.application.routes.draw do
   resources :permissions, except: [:show]
   resources :api_keys, only: %i[index create destroy]
 
+  if Rails.application.config.setup_mode
+    scope path: 'setup' do
+      get 'install', as: 'install', to: 'setup#install', format: false
+      post 'install', as: 'new_install', to: 'setup#create', format: false
+    end
+  end
+
   mount API::Base, at: '/'
 
   authenticate :user, ->(u) { u.admin? } do
