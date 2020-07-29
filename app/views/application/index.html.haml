@@ -8,7 +8,7 @@
 
       %div.info-box-content
         %span.info-box-text CPU
-        %span.info-box-number= @cpus.length
+        %span.info-box-number= @cpus&.length
 
 
   %div.col-12.col-sm-6.col-md-3
@@ -18,7 +18,7 @@
 
       %div.info-box-content
         %span.info-box-text Memory
-        %span.info-box-number #{number_to_human_size(@memory.active_bytes)} / #{number_to_human_size(@memory.total_bytes)}
+        %span.info-box-number #{number_to_human_size(@memory&.active_bytes)} / #{number_to_human_size(@memory&.total_bytes)}
 
   %div.clearfix.hidden-md-up
 
@@ -29,7 +29,7 @@
 
       %div.info-box-content
         %span.info-box-text Load Average
-        %span.info-box-number #{number_to_human(@load_average.one_minute)} / #{number_to_human(@load_average.five_minutes)} / #{number_to_human(@load_average.fifteen_minutes)}
+        %span.info-box-number #{number_to_human(@load_average&.one_minute)} / #{number_to_human(@load_average&.five_minutes)} / #{number_to_human(@load_average&.fifteen_minutes)}
 
   %div.col-12.col-sm-6.col-md-3
     %div.info-box.mb-3
@@ -38,4 +38,4 @@
 
       %div.info-box-content
         %span.info-box-text Boot time
-        %span.info-box-number= distance_of_time_in_words @boot_time, Time.now
+        %span.info-box-number= distance_of_time_in_words(@boot_time || Time.now, Time.now)

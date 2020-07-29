@@ -1,5 +1,1 @@
-Rails.application.config.setup_mode = begin
-                                        User.all.size.zero?
-                                      rescue StandardError
-                                        false
-                                      end
+Rails.application.config.setup_mode = User.all.size.zero? rescue false

@@ -8,26 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-    @cpus = begin
-              Vmstat.cpu
-            rescue StandardError
-              nil
-            end
-    @memory = begin
-                Vmstat.memory
-              rescue StandardError
-                nil
-              end
-    @load_average = begin
-                      Vmstat.load_average
-                    rescue StandardError
-                      nil
-                    end
-    @boot_time = begin
-                   Vmstat.boot_time
-                 rescue StandardError
-                   nil
-                 end
+    @cpus = Vmstat.cpu rescue nil
+    @memory = Vmstat.memory rescue nil
+    @load_average = Vmstat.load_average rescue nil
+    @boot_time = Vmstat.boot_time rescue nil
   end
 
   private
