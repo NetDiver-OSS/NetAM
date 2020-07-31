@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
     post 'export', as: 'export', to: 'sections#export', format: false
 
+    post 'usages/import', as: 'import', to: 'usages#import', format: false
     resources :usages, format: false do
       post 'scan', as: 'scan', to: 'usages#scan', format: false
     end

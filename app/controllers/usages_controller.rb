@@ -60,6 +60,12 @@ class UsagesController < ApplicationController
     redirect_to section_path(@usage.section_id), notice: 'Usage was successfully destroyed.'
   end
 
+  # GET /usages/import
+  def import
+    Usage.import(@section.id, params[:file])
+    redirect_to section_path(@section)
+  end
+
   private
 
   def set_section
