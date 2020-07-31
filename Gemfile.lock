@@ -342,6 +342,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-cron (1.2.0)
+      fugit (~> 1.1)
+      sidekiq (>= 4.2.1)
     sidekiq-scheduler (3.0.1)
       e2mmap
       redis (>= 3, < 5)
@@ -447,6 +450,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-raven (~> 3.0)
   sidekiq (~> 6.1.1)
+  sidekiq-cron (~> 1.2)
   sidekiq-scheduler (~> 3.0, >= 3.0.1)
   sidekiq-status (~> 1.1)
   simplecov (= 0.17.1)
