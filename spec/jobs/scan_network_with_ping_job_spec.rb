@@ -6,7 +6,7 @@ RSpec.describe ScanNetworkWithPingJob, type: :job do
   end
 
   it "should be nil if usage is locked" do
-    section = Section.create!({ name: 'section', network: '10.0.0.0/24', schedule: '24h' })
+    section = Section.create!({ name: 'section', network: '10.0.0.0/24', schedule: 'every 24h' })
 
     expect(ScanNetworkWithPingJob.perform_now({ id: section, network: section.network })).to be_truthy
   end

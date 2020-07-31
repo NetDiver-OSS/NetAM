@@ -18,7 +18,7 @@ gem 'webpacker', '~> 5.1.1'
 
 # Rails Delayed Jobs
 gem 'sidekiq', '~>6.1.1'
-gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
+gem "sidekiq-cron", "~> 1.2"
 gem "sidekiq-status", "~> 1.1"
 
 gem 'redis', '~> 4.0'

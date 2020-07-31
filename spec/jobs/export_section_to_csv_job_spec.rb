@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ExportSectionToCsvJob, type: :job do
   it "should return csv" do
-    section = Section.create!({ name: 'TU', network: '10.0.0.0/24', schedule: '24h' })
+    section = Section.create!({ name: 'TU', network: '10.0.0.0/24', schedule: 'every 24h' })
     section.usages.create!({ ip_used: '10.0.0.250', fqdn: 'domain.com', state: 'locked' })
     section.usages.create!({ ip_used: '10.0.0.251', fqdn: 'domain.com', state: 'actived' })
     section.usages.create!({ ip_used: '10.0.0.252', fqdn: 'domain.com', state: 'down' })

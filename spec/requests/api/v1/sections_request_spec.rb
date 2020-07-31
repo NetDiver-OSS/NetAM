@@ -23,7 +23,7 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'POST /api/v1/sections' do
     it 'create and returns section' do
-      post("/api/v1/sections?token=#{@api_token}", { name: 'section1', network: '10.0.0.0/24', schedule: '24h' }.to_json, content_type_json)
+      post("/api/v1/sections?token=#{@api_token}", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h' }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)
@@ -33,7 +33,7 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'GET /api/v1/sections/:id' do
     begin
-      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: '24h' })
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h' })
     end
 
     it 'returns a section' do
@@ -41,7 +41,7 @@ RSpec.describe API::V1::Sections, type: :request do
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq({ id: Section.maximum(:id), name: 'hell section', description: nil, network: '10.0.0.0/24', schedule: '24h' }.to_json)
+      expect(last_response.body).to eq({ id: Section.maximum(:id), name: 'hell section', description: nil, network: '10.0.0.0/24', schedule: 'every 24h' }.to_json)
     end
   end
 

@@ -79,7 +79,8 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1
   def destroy
-    Sidekiq.remove_schedule("schedule:#{@section.id}")
+    Sidekiq::Cron::Job.destroy("section:#{@section.id}")
+
     Permission.where(subject_class: 'Section', subject_id: @section.id).delete_all
     @section.destroy
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
@@ -99,14 +100,16 @@ class SectionsController < ApplicationController
   end
 
   def update_scheduler(section)
-    schedule_name = "schedule:#{section.id}"
+    schedule_name = "section:#{section.id}"
 
-    Sidekiq.remove_schedule(schedule_name) unless Sidekiq.get_schedule(schedule_name).nil?
+    Sidekiq::Cron::Job.destroy(schedule_name)
 
-    Sidekiq.set_schedule(
-      schedule_name,
-      { class: 'ScanNetworkWithPingJob', every: section.schedule, queue: 'default', args: [{ id: section.id, network: section.network }] }
-    )
+    Sidekiq::Cron::Job.new(
+      name: schedule_name,
+      class: 'ScanNetworkWithPingJob',
+      cron: Fugit.parse(section.schedule).to_cron_s,
+      args: [{ id: section.id, network: section.network }]
+    ).save
   end
 
   # Only allow a list of trusted parameters through.

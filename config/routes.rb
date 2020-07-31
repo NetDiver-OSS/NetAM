@@ -1,5 +1,5 @@
 require 'sidekiq/web'
-require 'sidekiq-scheduler/web'
+require 'sidekiq/cron/web'
 require 'sidekiq-status/web'
 
 Rails.application.routes.draw do

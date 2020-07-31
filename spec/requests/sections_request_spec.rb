@@ -11,7 +11,7 @@ RSpec.describe "Section", type: :request do
     {
       name: 'section 1',
       network: '10.0.0.0/24',
-      schedule: '24 hours'
+      schedule: 'every 24 hours'
     }
   end
 
@@ -19,7 +19,7 @@ RSpec.describe "Section", type: :request do
     {
       name: 'section err',
       network: 'exemple.com',
-      schedule: '24 hours'
+      schedule: 'every 24 hours'
     }
   end
 
