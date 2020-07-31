@@ -28,7 +28,7 @@ class ScanNetworkWithPingJob < ApplicationJob
       end
 
       scanner = {
-        ping: Net::Ping::External.new(address.to_s).ping?,
+        ping: Net::Ping::External.new(address.to_s, nil, 1).ping?,
         reverse: Netam::Network::Dns.reverse_dns(address)
       }
 
