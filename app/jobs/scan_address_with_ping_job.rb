@@ -14,7 +14,7 @@ class ScanAddressWithPingJob < ApplicationJob
       return
     end
 
-    ping = Net::Ping::External.new(args[0][:ip_used].to_s).ping?
+    ping = Net::Ping::External.new(args[0][:ip_used].to_s, nil, 1).ping?
 
     Sidekiq.logger.info "IP #{args[0][:ip_used]} is #{ping ? 'active' : 'inactive'}"
 
