@@ -1,8 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Dns' do
+RSpec.describe Netam::Network::Dns do
   describe 'reverse_dns' do
     it "should return nil if address is invalid" do
+      expect(Netam::Network::Dns.reverse_dns('')).to be_nil
+      expect(Netam::Network::Dns.reverse_dns('42')).to be_nil
+      expect(Netam::Network::Dns.reverse_dns(42)).to be_nil
       expect(Netam::Network::Dns.reverse_dns('1.2.3.4')).to be_nil
     end
 
