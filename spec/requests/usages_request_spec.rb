@@ -113,4 +113,12 @@ RSpec.describe "Usage", type: :request do
       expect(response).to redirect_to(section_url(@section.id))
     end
   end
+
+  describe "POST /import" do
+    it "should create usage" do
+      expect do
+        post section_import_path(@section.id), params: { file: Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/netam_import_usages.csv") }
+      end.to change(Usage, :count).by(1)
+    end
+  end
 end
