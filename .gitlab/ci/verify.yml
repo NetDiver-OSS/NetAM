@@ -2,5 +2,5 @@ danger:verify:
   stage: verify
   script:
     - apk add --no-cache git
-    - gem install danger-gitlab danger-rails_best_practices
+    - gem install danger-gitlab danger-rails_best_practices danger-rubocop
     - danger --fail-on-errors=false --verbose

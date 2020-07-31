@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Range' do
+RSpec.describe Netam::Network::Range do
   describe '#all_ips' do
     context 'ipv4' do
       context 'private' do

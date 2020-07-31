@@ -31,6 +31,8 @@ module SimpleCovEnv
 
       add_filter 'config/'
       add_filter 'lib/netam.rb'
+      add_filter 'app/controllers/setup_controller.rb'
+      add_filter 'app/controllers/callbacks_controller.rb'
 
       add_group 'Controllers', 'app/controllers'
       add_group 'Helpers', 'app/helpers'
