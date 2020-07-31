@@ -22,7 +22,9 @@
                   %small= section.network
                 %td.project_progress
                   %div.progress.progress-sm
-                    %div{class: "progress-bar #{(section.usages.count * 100 / IPAddress(section.network).size) >= 80 ? 'bg-orange' : 'bg-green' }", role: "progressbar", style:"width: #{section.usages.count * 100 / IPAddress(section.network).size }%" }
+                    %div.progress-bar.bg-green{role: 'progressbar', style: "width: #{(section.usages.where(state: 1).count + section.usages.where(state: 0).count) * 100 / IPAddress(section.network).size }%"}
+                    %div.progress-bar.bg-danger{role: 'progressbar', style: "width: #{section.usages.where(state: 2).count * 100 / IPAddress(section.network).size }%"}
+                    %div.progress-bar.bg-purple{role: 'progressbar', style: "width: #{section.usages.where(state: 3).count * 100 / IPAddress(section.network).size }%"}
                 %td.project-actions.text-right
                   %div.btn-group
                     = link_to '<i class="fas fa-folder"></i> View'.html_safe, section, class: 'btn btn-primary btn-sm'
