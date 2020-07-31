@@ -59,7 +59,9 @@ class SectionsController < ApplicationController
         }
       )
 
-      redirect_to @section, notice: 'Section was successfully created.'
+      job_id = Netam::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)
+
+      redirect_to section_path(@section, scan_id: job_id), notice: 'Section was successfully created.'
     else
       render :new
     end
@@ -103,7 +105,7 @@ class SectionsController < ApplicationController
 
     Sidekiq.set_schedule(
       schedule_name,
-      { class: 'ScanNetworkWithPingJob', every: [section.schedule, first_in: '0s'], queue: 'default', args: [{ id: section.id, network: section.network }] }
+      { class: 'ScanNetworkWithPingJob', every: section.schedule, queue: 'default', args: [{ id: section.id, network: section.network }] }
     )
   end
 
