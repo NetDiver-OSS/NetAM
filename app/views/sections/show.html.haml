@@ -6,6 +6,20 @@
 - page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id)}) if can? :edit, @section
 
 
+- if params[:scan_id]
+  - status = Netam::Scanner.status(params[:scan_id])
+  - unless status.nil?
+    %div.content-header
+      - case status
+      - when :queued
+        = render partial: 'sections/status/notification', locals: { type: 'dark', title: 'Scan Queued', message: '' }
+      - when :working
+        = render partial: 'sections/status/notification', locals: { type: 'info', title: 'Scan in progress', message: '' }
+      - when :complete
+        = render partial: 'sections/status/notification', locals: { type: 'success', title: 'Scan complete', message: '' }
+      -  else
+        = render partial: 'sections/status/notification', locals: { type: 'warning', title: 'Unknown state', message: '' }
+
 %div.row
   %div.col-6
     %div.row
