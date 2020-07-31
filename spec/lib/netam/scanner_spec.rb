@@ -7,7 +7,7 @@ RSpec.describe Netam::Scanner do
         {
           name: 'section 1',
           network: '10.0.0.0/24',
-          schedule: '24 hours'
+          schedule: 'every 24 hours'
         }
       )
 
@@ -19,7 +19,7 @@ RSpec.describe Netam::Scanner do
         {
           name: 'section 1',
           network: '10.0.0.0/24',
-          schedule: '24 hours'
+          schedule: 'every 24 hours'
         }
       )
 
