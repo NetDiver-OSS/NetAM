@@ -29,9 +29,9 @@ class SectionsController < ApplicationController
   def scan
     @section = Section.find(params[:section_id])
 
-    ScanNetworkWithPingJob.perform_later({ id: @section, network: @section.network })
+    job_id = Netam::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)
 
-    redirect_to sections_url, notice: 'Scan was successfully scheduled.'
+    redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
   end
 
   # GET /sections/new
