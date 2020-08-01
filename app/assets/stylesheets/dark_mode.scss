@@ -1,0 +1,15 @@
+div.dataTables_wrapper div.dataTables_length select,
+div.dataTables_wrapper div.dataTables_paginate .page-link,
+div.dataTables_wrapper div.dataTables_filter input {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(52, 58, 64) !important;
+  border-color: rgb(50, 50, 50) !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate .disabled>.page-link {
+  background-color: rgb(50, 50, 50) !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate .active>.page-link {
+  background-color: rgb(80, 80, 80) !important;
+}
