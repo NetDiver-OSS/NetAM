@@ -1,3 +1,14 @@
+/* UI */
+nav.main-header,
+table, th, td,
+.form-control,
+.input-group-text,
+footer.main-footer {
+  border-color: rgb(50, 50, 50) !important;
+}
+
+
+/* DATATABLE */
 div.dataTables_wrapper div.dataTables_length select,
 div.dataTables_wrapper div.dataTables_paginate .page-link,
 div.dataTables_wrapper div.dataTables_filter input {
