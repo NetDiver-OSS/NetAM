@@ -16,13 +16,13 @@
           %table.table.table-responsive.datatable
             %thead
               %tr
-                %th #
+                %th Section
                 - controller.constantize.action_methods.sort.each do |method|
                   %th= method
             %tbody
               - controller.to_s.gsub('sController', '').constantize.all.each do |model|
                 %tr
-                  %th= model.id
+                  %th= model.name
                   - controller.constantize.action_methods.sort.each do |method|
                     %td
                       - if Ability.new(@user).can? method.to_sym, model
