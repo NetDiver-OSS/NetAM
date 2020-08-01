@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Netam
+module NetAM
   class Application < Rails::Application
     require_dependency Rails.root.join('lib/netam')
 

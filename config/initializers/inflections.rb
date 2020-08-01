@@ -16,5 +16,6 @@
 # end
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'NetAM'
   inflect.acronym 'API'
 end

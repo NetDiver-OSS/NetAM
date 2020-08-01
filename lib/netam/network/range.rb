@@ -1,4 +1,4 @@
-module Netam
+module NetAM
   module Network
     class Range
       def initialize(network)

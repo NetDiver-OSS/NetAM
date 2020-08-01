@@ -29,7 +29,7 @@ class ScanNetworkWithPingJob < ApplicationJob
 
       scanner = {
         ping: Net::Ping::External.new(address.to_s, nil, 1).ping?,
-        reverse: Netam::Network::Dns.reverse_dns(address)
+        reverse: NetAM::Network::Dns.reverse_dns(address)
       }
 
       current_usage = Usage.where(ip_used: address.to_s, section_id: section[:id])

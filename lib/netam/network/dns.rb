@@ -1,4 +1,4 @@
-module Netam
+module NetAM
   module Network
     class Dns
       def self.reverse_dns(address)

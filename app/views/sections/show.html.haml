@@ -8,7 +8,7 @@
 
 
 - if params[:scan_id]
-  - status = Netam::Scanner.status(params[:scan_id])
+  - status = NetAM::Scanner.status(params[:scan_id])
   - unless status.nil?
     %div.content-header
       - case status
@@ -76,10 +76,10 @@
 %div.row.m-4
   %div.d-flex.flex-wrap.justify-content-between
     - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
-      - Netam::Network::Range.new(@section.network).all_ips.each do |address|
+      - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
         - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
         %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
-          %small= Netam::Network::Range.clean_display(address)
+          %small= NetAM::Network::Range.clean_display(address)
           %br
           %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
 
