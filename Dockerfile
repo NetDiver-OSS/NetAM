@@ -38,8 +38,9 @@ RUN \
 COPY --from=build /usr/local/bin/gem /usr/local/bin/gem
 COPY --from=build /usr/local/bundle/ /usr/local/bundle/
 COPY --from=build /app/ /app/
+COPY docker/entrypoint.sh /entrypoint.sh
 
 EXPOSE 3000
 
-ENTRYPOINT ["bundle", "exec"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["rails", "server", "-b", "0.0.0.0"]
