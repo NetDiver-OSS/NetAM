@@ -13,10 +13,10 @@ class SectionsController < ApplicationController
   def show
     @all_ip_used = IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24 ? Usage.where(section_id: params[:id]).pluck(:id, :ip_used, :state) : []
 
-    @ip_locked = @section.usages.where(state: 0).count
-    @ip_activated = @section.usages.where(state: 1).count
-    @ip_down = @section.usages.where(state: 2).count
-    @ip_dhcp = @section.usages.where(state: 3).count
+    @ip_locked = @section.usages.locked.count
+    @ip_activated = @section.usages.actived.count
+    @ip_down = @section.usages.down.count
+    @ip_dhcp = @section.usages.dhcp.count
 
     @ip_free = IPAddress(@section.network).size - @section.usages.where(state: 0..3).count
 

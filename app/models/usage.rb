@@ -1,9 +1,9 @@
 require 'csv'
 
 class Usage < ApplicationRecord
-  belongs_to :section
-
   enum state: %i[locked actived down dhcp]
+
+  belongs_to :section
 
   validates :state, :ip_used, presence: true
   validates :ip_used, uniqueness: { scope: :section, message: "should happen once per section" }
