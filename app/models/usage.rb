@@ -12,11 +12,12 @@ class Usage < ApplicationRecord
   # @param [ActionDispatch::HTTP::UploadedFile] file
   def self.import(section_id, file)
     CSV.foreach(file.path, headers: true) do |row|
-      Usage.create!(
+      Usage.create(
         {
           section_id: section_id,
           ip_used: row['ip'],
           fqdn: row['hostname'].presence,
+          description: row['description'].presence,
           state: row['state'].downcase.to_sym
         }
       )
