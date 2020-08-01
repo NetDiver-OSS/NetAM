@@ -5,10 +5,16 @@ require 'yaml'
 module ChangelogHelpers
   Abort = Class.new(StandardError)
   Done = Class.new(StandardError)
+
+  TYPES = %w[added fixed changed deprecated removed security performance other].freeze
+
+  def fail_with(message)
+    raise Abort, message
+  end
 end
 
 class ChangelogOptionParser
-  extend ChangelogHelpers
+  include ChangelogHelpers
 
   Options = Struct.new(
     :type,
@@ -24,7 +30,7 @@ class ChangelogOptionParser
     opt_parser = OptionParser.new do |opts|
       opts.banner = "Usage: #{__FILE__} [options]"
 
-      opts.on("-t", "--type [string]", "Category of the change") do |value|
+      opts.on("-tTYPE", "--type TYPE", "Category of the change, valid options are: #{TYPES.join(', ')}") do |value|
         options.type = value
       end
 
@@ -38,7 +44,7 @@ class ChangelogOptionParser
 
       opts.on('-h', '--help', 'Print help message') do
         puts opts
-        raise ChangelogHelpers::Done
+        raise Done
       end
     end
 
@@ -52,7 +58,7 @@ class ChangelogOptionParser
 end
 
 class ChangelogEntry
-  extend ChangelogHelpers
+  include ChangelogHelpers
 
   attr_reader :options
 
@@ -61,6 +67,9 @@ class ChangelogEntry
   end
 
   def run!
+    assert_title!
+    assert_valid_type!
+
     puts content
 
     File.write(file_path, content)
@@ -87,8 +96,19 @@ class ChangelogEntry
       'issue' => options.issue
     )
   end
-end
 
+  def assert_title!
+    return unless options.title.length.zero?
+
+    fail_with "Provide a title for the changelog"
+  end
+
+  def assert_valid_type!
+    return if TYPES.include? options.type
+
+    fail_with "Provide a valid type for the changelog"
+  end
+end
 
 if $0 == __FILE__
   begin
