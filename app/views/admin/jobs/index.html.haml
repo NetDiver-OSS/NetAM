@@ -1,0 +1,30 @@
+- page_title "Admin Jobs"
+
+
+%section
+  %div{class: "card #{'bg-dark text-white' if dark_mode? }"}
+    %div.card-header
+      %h3.card-title Sections
+    %div.card-body.p-0
+      %table.table.table-striped.projects
+        %thead
+          %tr
+            %th{style: "width: 45%"} Name
+            %th{style: "width: 30%"} Job
+            %th{style: "width: 25%"}
+        %tbody
+          - @admin_jobs.each do |admin_job|
+            %tr
+              %td
+                %a
+                  = admin_job.name
+                  - if admin_job.status == 'enabled'
+                    %span.badge.bg-success Enabled
+                  - else
+                    %span.badge.bg-danger Disabled
+                %br
+                %small= admin_job.cron
+              %td= admin_job.klass
+
+              %td.project-actions.text-right
+                = link_to (admin_job.status == 'enabled')? 'Disable' : 'Enable', admin_toggle_job_path(admin_job.name), class: 'btn btn-secondary btn-sm', method: :post, data: { confirm: 'Are you sure?' }

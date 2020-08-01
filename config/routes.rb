@@ -41,6 +41,10 @@ Rails.application.routes.draw do
   authenticate :user, ->(u) { u.admin? } do
     namespace :admin do
       resources :users
+      scope path: 'jobs' do
+        get '', as: 'jobs', to: 'jobs#index', format: false
+        post ':id/toggle', as: 'toggle_job', to: 'jobs#toggle', format: false
+      end
     end
 
     mount GrapeSwaggerRails::Engine => '/docs'

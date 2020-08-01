@@ -16,8 +16,8 @@
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Admin Center
             %ul.dropdown-menu.border-0.shadow
-              %li
-                = link_to 'Users', admin_users_path, class: 'dropdown-item'
+              %li= link_to 'Users', admin_users_path, class: 'dropdown-item'
+              %li= link_to 'Jobs', admin_jobs_path, class: 'dropdown-item'
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
             %i.fas.fa-user
