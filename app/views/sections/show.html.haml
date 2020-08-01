@@ -2,6 +2,7 @@
 
 - page_action({icon: '<i class="fas fa-edit"></i> Edit', path: edit_section_path(@section)}) if can? :edit, @section
 - page_action({icon: '<i class="fas fa-search"></i> Scan', path: section_scan_path(@section), method: 'post'}) if can? :scan, @section
+- page_action({icon: '<i class="fas fa-ethernet"></i> Get unused IP', path: new_section_usage_path(@section.id, {request_ip: true})}) if can? :edit, @section
 - page_action({icon: '<i class="fas fa-download"></i> Export', path: section_export_path(@section.id), method: 'post'}) if can? :export, @section
 - page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id)}) if can? :edit, @section
 
@@ -77,7 +78,7 @@
     - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
       - Netam::Network::Range.new(@section.network).all_ips.each do |address|
         - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-        %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id) : edit_section_usage_path(@section, ip_usage[0])}
+        %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
           %small= Netam::Network::Range.clean_display(address)
           %br
           %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
