@@ -7,8 +7,6 @@ window.addEventListener('load', function () {
     const parseBoolean = value => (value && value.toString()) === 'true';
     const dark_mode = parseBoolean(Cookies.get(DARK_MODE_COOKIE));
 
-    console.log(dark_mode)
-
     Cookies.set(DARK_MODE_COOKIE, !dark_mode, {expires: 365 * 10});
   });
 })
