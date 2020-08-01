@@ -155,6 +155,10 @@ class ChangelogGenerator
 
     changelog_content = ChangelogUpdater.new(old_content).insert(markdown)
     File.write(CHANGELOG_FILE, changelog_content)
+
+    Dir.each_child(CHANGELOG_SOURCE) do |file|
+      File.delete("#{CHANGELOG_SOURCE}/#{file}") if file.end_with?('.yml')
+    end
   end
 
   private
