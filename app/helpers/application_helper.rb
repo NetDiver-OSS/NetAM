@@ -13,7 +13,6 @@ module ApplicationHelper
 
     if actions.any?
       actions.each do |action|
-        puts action.inspect
         @page_action.push(
           link_to(action[:icon].to_s.html_safe, action[:path], class: 'btn btn-secondary btn-flat', method: action[:method] || 'get')
         )
