@@ -15,15 +15,15 @@
         - if user_signed_in? && current_user.admin?
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Admin Center
-            %ul.dropdown-menu.border-0.shadow
-              %li= link_to 'Users', admin_users_path, class: 'dropdown-item'
-              %li= link_to 'Jobs', admin_jobs_path, class: 'dropdown-item'
+            %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
+              %li= link_to 'Users', admin_users_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
+              %li= link_to 'Jobs', admin_jobs_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
             %i.fas.fa-user
-          %ul.dropdown-menu.border-0.shadow
+          %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
             %li
-              = link_to 'API Token', api_keys_path, class: 'dropdown-item'
+              = link_to 'API Token', api_keys_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
 
         %li.nav-item
           = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
