@@ -1,4 +1,4 @@
-module Netam
+module NetAM
   class Scanner
     # @param [string] job
     def initialize(job)
