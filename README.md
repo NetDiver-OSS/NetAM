@@ -13,11 +13,13 @@ Refer to hackmd pad : [https://hackmd.app.svk.gs/DmYtN5z7SVWwzi2xQGbYSw](https:/
 1. Clone this repository : `git clone https://git.app.svk.gs/development/netam.git`
 2. Startup docker containers : `cd netam && docker-compose up -d`
 3. Perform gems and node module installation : `bundle install && yarn`
-4. Perform database init : `rake db:migrate && rake db:seed`
+4. Perform database init : `rake db:migrate`
 5. Update configuration file (`config/netam.yml`) with your requirements or use environment variables described [here](#configuration)
 6. Start rails server : `rails s --environment=development`
 7. Connect to interface : `http://localhost:3000`
-8. Enjoy ! 
+8. Setup local administrator
+9. Restart rails server
+10. Enjoy ! 
 
 ## Configuration
 
@@ -72,6 +74,11 @@ All application configuration is set into `config/netam.yml`
 
 ### Sidekiq
 
-| name    | environment variable | default value | description                  |
-| ------- | -------------------- | ------------- | ---------------------------- |
-| threads | SIDEKIQ_MAX_THREADS  | 5             | Sidekiq threads number       |
+| name           | environment variable | default value | description                |
+| -------------- | -------------------- | ------------- | -------------------------- |
+| threads        | SIDEKIQ_MAX_THREADS  | 5             | Sidekiq threads number     |
+| concurent jobs | SIDEKIQ_PARALLEL     | 10            | Sidekiq max parallels jobs |
+
+## License
+
+This software is writed under BSD 3-Clause license.
