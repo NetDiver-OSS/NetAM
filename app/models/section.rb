@@ -14,6 +14,8 @@ class Section < ApplicationRecord
 
   def schedule_must_be_cron
     errors.add(:schedule, 'is not cron like') unless Fugit.parse(schedule).class == ::Fugit::Cron
+  rescue StandardError
+    false
   end
 
   def network_must_be_valid
