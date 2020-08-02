@@ -2,7 +2,7 @@
   %div.card-body
     - if user.errors.any?
       - user.errors.full_messages.each do |message|
-        %div.callout.callout-danger
+        %div{class: "callout callout-danger #{'bg-dark text-white' if dark_mode?}"}
           %p= message
     %div.row
       %div.col-12
