@@ -8,7 +8,7 @@
       <p class="login-box-msg">Sign in to start your session</p>
 
       <% if alert %>
-        <div class="callout callout-danger">
+        <div class="callout callout-danger <%= 'bg-dark text-white' if dark_mode? %> ">
           <h5><i class="fas fa-exclamation"></i> Errors:</h5>
           <%= alert %>
         </div>
