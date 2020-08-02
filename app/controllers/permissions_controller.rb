@@ -46,7 +46,7 @@ class PermissionsController < ApplicationController
   # DELETE /permissions/1
   def destroy
     @permission.destroy
-    redirect_to sections_path, notice: 'Section was successfully destroyed.'
+    redirect_to sections_path, notice: 'Permission was successfully destroyed.'
   end
 
   private
