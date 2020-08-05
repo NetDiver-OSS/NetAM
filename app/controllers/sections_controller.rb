@@ -1,5 +1,8 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  before_action :set_permissions, only: [:edit]
+
+  include SectionsHelper
 
   # GET /sections
   def index
@@ -8,6 +11,27 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
+    @all_ip_used = IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24 ? Usage.where(section_id: params[:id]).pluck(:id, :ip_used, :state) : []
+
+    @ip_locked = @section.usages.locked.count
+    @ip_activated = @section.usages.actived.count
+    @ip_down = @section.usages.down.count
+    @ip_dhcp = @section.usages.dhcp.count
+
+    @ip_free = IPAddress(@section.network).size - @section.usages.where(state: 0..3).count
+
+    @chart_label = '["Locked", "Up", "Down", "Free", "DHCP"]'.html_safe
+    @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
+    @chart_color = '["#838383", "#16ab39", "#db2828", "#2185d0", "#9627ba"]'.html_safe
+  end
+
+  # POST /sections/1/scan
+  def scan
+    @section = Section.find(params[:section_id])
+
+    job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)
+
+    redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
   end
 
   # GET /sections/new
@@ -17,6 +41,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/1/edit
   def edit
+    # not used actually
   end
 
   # POST /sections
@@ -24,39 +49,69 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
 
     if @section.save
-      redirect_to @section, notice: 'Section was successfully created.'
+      update_scheduler @section
+      Permission.create!(
+        {
+          user_id: current_user.id,
+          subject_class: 'Section',
+          subject_id: @section.id,
+          action: 'manage'
+        }
+      )
+
+      redirect_to section_path(@section), notice: 'Section was successfully created.'
     else
       render :new
     end
-
   end
 
   # PATCH/PUT /sections/1
   def update
     if @section.update(section_params)
+      update_scheduler @section
       redirect_to @section, notice: 'Section was successfully updated.'
     else
       render :edit
     end
   end
 
-
   # DELETE /sections/1
   def destroy
+    Sidekiq::Cron::Job.destroy("section:#{@section.id}")
+
+    Permission.where(subject_class: 'Section', subject_id: @section.id).delete_all
     @section.destroy
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
 
+  def export
+    @section = Section.find(params[:section_id])
+
+    csv_export = ExportSectionToCsvJob.perform_now(@section)
+    send_data csv_export, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
+  end
+
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_section
-    @section = Section.find(params[:id])
+  def set_permissions
+    @permissions = Permission.where(subject_class: 'Section', subject_id: @section.id)
+  end
+
+  def update_scheduler(section)
+    schedule_name = "section:#{section.id}"
+
+    Sidekiq::Cron::Job.destroy(schedule_name)
+
+    Sidekiq::Cron::Job.new(
+      name: schedule_name,
+      class: 'ScanNetworkWithPingJob',
+      cron: Fugit.parse(section.schedule).to_cron_s,
+      args: [{ id: section.id, network: section.network }]
+    ).save
   end
 
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network)
+    params.require(:section).permit(:name, :description, :network, :schedule)
   end
-
 end

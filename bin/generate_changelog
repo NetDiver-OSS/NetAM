@@ -1,0 +1,185 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'date'
+require 'yaml'
+require 'base64'
+require 'stringio'
+require 'active_support/inflector'
+
+CHANGELOG_SOURCE = 'changelog/unreleased'.freeze
+CHANGELOG_FILE = 'CHANGELOG.md'.freeze
+
+TYPES = %w[added fixed changed deprecated removed security performance other].freeze
+
+class MarkdownGenerator
+  attr_reader :version, :entries
+
+  def initialize(version, entries)
+    @version = version
+    @entries = entries
+  end
+
+  def header
+    "## [#{version}] - #{date}"
+  end
+
+  def to_s
+    markdown = StringIO.new
+    markdown.puts header
+    markdown.puts
+
+    if entries.empty?
+      markdown.puts "- No changes."
+    else
+      markdown.puts formatted_entries
+    end
+
+    markdown.puts
+    markdown.string
+  end
+
+  private
+
+  def date
+    Date.today.strftime("%Y-%m-%d")
+  end
+
+  def entries_grouped_by_type(type)
+    entries.select { |entry| entry['type'] == type }
+  end
+
+  def formatted_entry(entry)
+    line = (entry['title']).to_s
+    line += " !#{entry['merge_request']}" unless entry['merge_request'].nil?
+    line += " ##{entry['issue']}" unless entry['issue'].nil?
+    line += " (#{entry['author']})" unless entry['author'].nil?
+
+    line
+  end
+
+  def formatted_entries
+    result = +''
+
+    TYPES.each do |type|
+      grouped_entries = entries_grouped_by_type(type)
+      changes_count = grouped_entries.size
+
+      next unless changes_count.positive?
+
+      changes = [changes_count, 'change'.pluralize(changes_count)].join("\s")
+      result << "### #{type.capitalize} (#{changes})\n\n"
+
+      grouped_entries.each { |entry| result << "- #{formatted_entry(entry)}\n" }
+      result << "\n"
+    end
+
+    result
+  end
+end
+
+class ChangelogUpdater
+  attr_reader :contents
+
+  def initialize(contents)
+    @contents = contents.lines
+  end
+
+  def insert(markdown)
+    contents.each_with_index do |_, index|
+      contents.insert(index + 2, markdown)
+      break
+    end
+
+    contents.flatten.join
+  end
+end
+
+module ChangelogHelpers
+  Abort = Class.new(StandardError)
+  Done = Class.new(StandardError)
+
+  TYPES = %w[added fixed changed deprecated removed security performance other].freeze
+
+  def fail_with(message)
+    raise Abort, message
+  end
+end
+
+class ChangelogGeneratorOptionParser
+  include ChangelogHelpers
+
+  Options = Struct.new(:version)
+
+  def self.parse(args)
+    options = Options.new
+
+    opt_parser = OptionParser.new do |opts|
+      opts.banner = "Usage: #{__FILE__} [options]"
+
+      opts.on("-vVERSION", "--version VERSION", "Version to append to changelog file") do |value|
+        options.version = value
+      end
+
+      opts.on('-h', '--help', 'Print help message') do
+        puts opts
+        raise Done
+      end
+    end
+
+    opt_parser.parse!(args)
+
+    options
+  end
+end
+
+class ChangelogGenerator
+  include ChangelogHelpers
+
+  attr_reader :options
+
+  def initialize(options)
+    @options = options
+  end
+
+  def run!
+    assert_version!
+
+    entries = []
+
+    Dir.each_child(CHANGELOG_SOURCE) do |file|
+      entries << YAML.safe_load(File.read("#{CHANGELOG_SOURCE}/#{file}")) if file.end_with?('.yml')
+    end
+
+    markdown = MarkdownGenerator.new(options.version, entries).to_s
+    old_content = File.open(CHANGELOG_FILE).read
+
+    changelog_content = ChangelogUpdater.new(old_content).insert(markdown)
+    File.write(CHANGELOG_FILE, changelog_content)
+
+    Dir.each_child(CHANGELOG_SOURCE) do |file|
+      File.delete("#{CHANGELOG_SOURCE}/#{file}") if file.end_with?('.yml')
+    end
+  end
+
+  private
+
+  def assert_version!
+    return unless options.version.nil?
+
+    fail_with "Provide a version for the changelog"
+  end
+end
+
+if $0 == __FILE__
+  begin
+    options = ChangelogGeneratorOptionParser.parse(ARGV)
+    ChangelogGenerator.new(options).run!
+  rescue ChangelogHelpers::Abort => e
+    warn e.message
+    exit 1
+  rescue ChangelogHelpers::Done
+    exit
+  end
+end
+
+# vim: ft=ruby

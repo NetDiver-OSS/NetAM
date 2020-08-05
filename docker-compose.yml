@@ -1,18 +1,49 @@
 version: '3.7'
 
+x-aliases:
+  netam: &netam
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netam/netam
+    environment:
+      SECRET_KEY_BASE: v1jFMms5qurpiYdw
+      DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+      SENTRY_DSN: ''
+      REDIS_HOST: redis
+      DB_HOST: db
+      DB_NAME: netam
+      DB_USER: admin
+      DB_PASS: __CH@NG3_ME__
+
 services:
+  web:
+    <<: *netam
+    restart: always
+    ports:
+      - "3000:3000"
+
+  worker:
+    <<: *netam
+    restart: always
+    command: sidekiq
+
   redis:
     image: redis:alpine
     restart: always
-    ports:
-      - 6379:6379
+    volumes:
+      - redis:/data
 
   db:
     image: postgres:alpine
     restart: always
-    ports:
-      - 5432:5432
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: netam_development
+      POSTGRES_PASSWORD: __CH@NG3_ME__
+      POSTGRES_DB: netam
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+  redis:

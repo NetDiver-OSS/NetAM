@@ -1,30 +1,45 @@
 class UsagesController < ApplicationController
-  before_action :set_usage, only: [:show, :edit, :update, :destroy]
+  load_resource :section
+  load_and_authorize_resource :usage, through: :section
+
+  before_action :set_section
+  before_action :set_usage, only: %i[show edit update destroy]
 
   # GET /usages
   def index
-    @usages = Usage.all
+    @usages = @section.usages
   end
 
   # GET /usages/1
   def show
+    # not used actually
   end
 
   # GET /usages/new
   def new
-    @usage = Usage.new
+    @usage = @section.usages.build
   end
 
   # GET /usages/1/edit
   def edit
+    # not used actually
+  end
+
+  # POST /usages/1/scan
+  def scan
+    @usage = Usage.find(params[:usage_id])
+
+    ScanAddressWithPingJob.perform_later({ id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state })
+
+    redirect_to section_path(@usage.section_id), notice: 'Scan was successfully scheduled.'
   end
 
   # POST /usages
   def create
-    @usage = Usage.new(usage_params)
+    @usage = @section.usages.build(usage_params)
 
     if @usage.save
-      redirect_to @usage, notice: 'Usage was successfully created.'
+      redirect_to section_path(@usage.section_id), notice: 'Usage was successfully created.'
     else
       render :new
     end
@@ -33,7 +48,7 @@ class UsagesController < ApplicationController
   # PATCH/PUT /usages/1
   def update
     if @usage.update(usage_params)
-      redirect_to @usage, notice: 'Usage was successfully updated.'
+      redirect_to section_path(@usage.section_id), notice: 'Usage was successfully updated.'
     else
       render :edit
     end
@@ -42,17 +57,27 @@ class UsagesController < ApplicationController
   # DELETE /usages/1
   def destroy
     @usage.destroy
-    redirect_to usages_url, notice: 'Usage was successfully destroyed.'
+    redirect_to section_path(@usage.section_id), notice: 'Usage was successfully destroyed.'
+  end
+
+  # GET /usages/import
+  def import
+    Usage.import(@section.id, params[:file])
+    redirect_to section_path(@section)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_usage
-      @usage = Usage.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def usage_params
-      params.require(:usage).permit(:ip_used, :section_id)
-    end
+  def set_section
+    @section = Section.find(params[:section_id])
+  end
+
+  def set_usage
+    @usage = Usage.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def usage_params
+    params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id)
+  end
 end

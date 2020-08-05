@@ -4,13 +4,13 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum; this matches the default thread size of Active Record.
 #
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
-min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
+max_threads_count = Rails.configuration.netam[:puma][:max_thread]
+min_threads_count = Rails.configuration.netam[:puma][:min_thread]
 threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        ENV.fetch("PORT") { 3000 }
+port        Rails.configuration.netam[:puma][:port]
 
 # Specifies the `environment` that Puma will run in.
 #
@@ -33,6 +33,17 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 # process behavior so workers use less memory.
 #
 # preload_app!
+
+lowlevel_error_handler do |ex, env|
+  Raven.capture_exception(
+    ex,
+    message: ex.message,
+    extra: { puma: env },
+    transaction: "Puma"
+  )
+  # note the below is just a Rack response
+  [500, {}, ["An error has occurred, and engineers have been informed. Please reload the page. If you continue to have problems, contact support@example.com\n"]]
+end
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart

@@ -1,0 +1,10 @@
+sonarqube:report:
+  stage: report
+  image: sonarsource/sonar-scanner-cli
+  script:
+    - sonar-scanner -Dsonar.host.url=$SONAR_HOST -Dsonar.login=$SONAR_TOKEN
+  needs:
+    - job: "ruby:test"
+      artifacts: true
+    - job: "rubocop:test"
+      artifacts: true

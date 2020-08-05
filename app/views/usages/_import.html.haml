@@ -1,0 +1,26 @@
+= form_with(url: section_import_path(@section), local: true, multipart: true) do |form|
+  %div.card-header
+    %h3.card-title Import usages with CSV
+  %div.card-body
+    %div.row
+      %div.col-6
+        %h5 Requirements
+        %p
+          Massive import usages by csv injections.
+          You must have CSV formated with the following header :
+          %strong hostname,ip,description,state
+        %p
+          State available are :
+          %strong DHCP
+          and
+          %strong LOCKED
+      %div.col-6
+        %div.form-group
+          = form.label :file
+          %div.input-group
+            %div.custom-file
+              = form.file_field :file, accept: 'text/csv', class: "custom-file-input"
+              %label.custom-file-label Choose file
+
+  %div.card-footer
+    = form.submit 'Import', class: 'btn btn-primary float-right'

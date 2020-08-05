@@ -1,0 +1,130 @@
+- page_title "<strong>#{@section.name.upcase}</strong> - <small>#{@section.network}</small>"
+
+- page_action({icon: '<i class="fas fa-edit"></i> Edit', path: edit_section_path(@section)}) if can? :edit, @section
+- page_action({icon: '<i class="fas fa-search"></i> Scan', path: section_scan_path(@section), method: 'post'}) if can? :scan, @section
+- page_action({icon: '<i class="fas fa-ethernet"></i> Get unused IP', path: new_section_usage_path(@section.id, {request_ip: true})}) if can? :edit, @section
+- page_action({icon: '<i class="fas fa-download"></i> Export', path: section_export_path(@section.id), method: 'post'}) if can? :export, @section
+- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id)}) if can? :edit, @section
+
+
+- if params[:scan_id]
+  - status = NetAM::Scanner.status(params[:scan_id])
+  - unless status.nil?
+    %div.content-header
+      - case status
+      - when :queued
+        = render partial: 'sections/status/notification', locals: { type: 'dark', title: 'Scan Queued', message: '' }
+      - when :working
+        = render partial: 'sections/status/notification', locals: { type: 'info', title: 'Scan in progress', message: '' }
+      - when :complete
+        = render partial: 'sections/status/notification', locals: { type: 'success', title: 'Scan complete', message: '' }
+      -  else
+        = render partial: 'sections/status/notification', locals: { type: 'warning', title: 'Unknown state', message: '' }
+
+%div.row
+  %div.col-6
+    %div.row
+      %div.col-6
+        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+          %span.info-box-icon.bg-green
+            %i.fas.fa-lock
+
+          %div.info-box-content
+            %span.info-box-text Locked
+            %span.info-box-number= @ip_locked
+      %div.col-6
+        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+          %span.info-box-icon.bg-green
+            %i.fas.fa-check-circle
+
+          %div.info-box-content
+            %span.info-box-text Activated
+            %span.info-box-number= @ip_activated
+      %div.col-6
+        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+          %span.info-box-icon.bg-red
+            %i.fas.fa-times-circle
+
+          %div.info-box-content
+            %span.info-box-text Down
+            %span.info-box-number= @ip_down
+      %div.col-6
+        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+          %span.info-box-icon.bg-purple
+            %i.fas.fa-random
+
+          %div.info-box-content
+            %span.info-box-text DHCP
+            %span.info-box-number= @ip_dhcp
+    %div.row
+      %div.col-12
+        %div.info-box.bg-gradient-info
+          %span.info-box-icon
+            %i.fas.fa-check
+
+          %div.info-box-content
+            %span.info-box-text Free IP
+            %span.info-box-number= @ip_free
+
+            %div.progress
+              %div.progress-bar{style: "width: #{(@ip_free * 100 / IPAddress(@section.network).size)}%"}
+            %span.progress-description= "#{(@ip_free * 100 / IPAddress(@section.network).size)}%"
+
+  %div.col-6
+    %canvas#donutChart{style: "height:230px; min-height:230px"}
+
+%div.row.m-4
+  %div.d-flex.flex-wrap.justify-content-between
+    - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+      - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
+        - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
+        %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
+          %small= NetAM::Network::Range.clean_display(address)
+          %br
+          %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
+
+%div.row
+  %div.col-12
+    %table.table.table-bordered.table-striped.datatable
+      %thead
+        %tr
+          %th FQDN
+          %th IP Address
+          %th Description
+          %th State
+          %th{style: "width: 20%"}
+      %tbody
+        - @section.usages.order("inet(ip_used) ASC").each do |usage|
+          %tr
+            %td= usage.fqdn
+            %td= usage.ip_used
+            %td= usage.description
+            %td= usage_icon(usage&.state)
+            %td
+              %div.btn-group
+                = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
+                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
+                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section_usage_path(@section, usage), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
+
+:javascript
+    var donutChartCanvas = document.getElementById('donutChart').getContext('2d')
+    var donutData = {
+      labels: #{@chart_label},
+      datasets: [
+        {
+          data: #{@chart_data},
+          backgroundColor: #{@chart_color},
+        }
+      ]
+    }
+    var donutOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })

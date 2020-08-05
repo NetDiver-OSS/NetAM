@@ -10,10 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ *= require @fortawesome/fontawesome-free
+ *= require admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min
+ *= require admin-lte
+ *= require admin-lte/plugins/select2/css/select2.min
  */
 
-.main.container {
-    margin-top: 5em;
-}

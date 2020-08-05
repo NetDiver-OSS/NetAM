@@ -2,13 +2,16 @@
   "name": "netam",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "admin-lte": "^3.0",
+    "js-cookie": "^2.2.1",
     "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0",
+  "version": "1.0.0",
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
   }
