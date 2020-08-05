@@ -15,5 +15,8 @@ docker:package:
     - docker build -t netam/netam:${CI_COMMIT_TAG} --network host .
     - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_TOKEN}
     - docker push netam/netam:${CI_COMMIT_TAG}
+    - docker tag netam/netam:${CI_COMMIT_TAG} netam/netam:latest
+    - docker push netam/netam:${CI_COMMIT_TAG}
+    - docker push netam/netam:latest
   only:
     - tags
