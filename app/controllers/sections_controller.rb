@@ -2,8 +2,6 @@ class SectionsController < ApplicationController
   load_and_authorize_resource
   before_action :set_permissions, only: [:edit]
 
-  include SectionsHelper
-
   # GET /sections
   def index
     @sections = Section.all
