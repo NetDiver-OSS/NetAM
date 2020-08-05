@@ -8,13 +8,11 @@ Refer to hackmd pad : [https://hackmd.app.svk.gs/DmYtN5z7SVWwzi2xQGbYSw](https:/
 
 ### Demo / test
 
-**Require LDAP or Active Directory server**
-
 1. Clone this repository : `git clone https://git.app.svk.gs/development/netam.git`
 2. Startup docker containers : `cd netam && docker-compose up -d redis redis-commander db`
 3. Perform gems and node module installation : `bundle install && yarn`
 4. Perform database init : `rake db:migrate`
-5. Update configuration file (`config/netam.yml`) with your requirements or use environment variables described [here](#configuration)
+5. Update configuration file (`config/netam.yml`) or use environment variables with your requirements or use environment variables described [here](#configuration)
 6. Start rails server : `rails s --environment=development`
 7. Connect to interface : `http://localhost:3000`
 8. Setup local administrator
