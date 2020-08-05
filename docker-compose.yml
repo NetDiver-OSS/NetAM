@@ -8,6 +8,7 @@ x-aliases:
     image: netam/netam
     environment:
       SECRET_KEY_BASE: v1jFMms5qurpiYdw
+      DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
       SENTRY_DSN: ''
       REDIS_HOST: redis
       DB_HOST: db
