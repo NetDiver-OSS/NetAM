@@ -11,7 +11,7 @@ Refer to hackmd pad : [https://hackmd.app.svk.gs/DmYtN5z7SVWwzi2xQGbYSw](https:/
 **Require LDAP or Active Directory server**
 
 1. Clone this repository : `git clone https://git.app.svk.gs/development/netam.git`
-2. Startup docker containers : `cd netam && docker-compose up -d`
+2. Startup docker containers : `cd netam && docker-compose up -d redis redis-commander db`
 3. Perform gems and node module installation : `bundle install && yarn`
 4. Perform database init : `rake db:migrate`
 5. Update configuration file (`config/netam.yml`) with your requirements or use environment variables described [here](#configuration)
@@ -20,6 +20,22 @@ Refer to hackmd pad : [https://hackmd.app.svk.gs/DmYtN5z7SVWwzi2xQGbYSw](https:/
 8. Setup local administrator
 9. Restart rails server
 10. Enjoy ! 
+
+### Production
+
+All NetAM stack is designed to run in docker stack.  
+For performance reasons, we recommend to use separate postgresql database with setting `max_connection` set to more than 1500.  
+This to could increase sidekiq threads and parallels executions.
+
+You'll find a `docker-compose.yml` file in repository root folder.  
+To run NetAM, you must configuration environment variables you need according to [configuration](#configuration).
+and run command :
+
+```bash
+docker-compose pull && docker-compose up -d
+```
+
+By design, application run on port 3000. Application can be accessed by [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
@@ -81,4 +97,4 @@ All application configuration is set into `config/netam.yml`
 
 ## License
 
-This software is writed under BSD 3-Clause license.
+This software is written under BSD 3-Clause license.
