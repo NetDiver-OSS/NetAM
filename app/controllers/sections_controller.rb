@@ -59,9 +59,7 @@ class SectionsController < ApplicationController
         }
       )
 
-      job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)
-
-      redirect_to section_path(@section, scan_id: job_id), notice: 'Section was successfully created.'
+      redirect_to section_path(@section), notice: 'Section was successfully created.'
     else
       render :new
     end
