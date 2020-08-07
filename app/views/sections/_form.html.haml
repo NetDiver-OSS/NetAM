@@ -11,12 +11,14 @@
             %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-pencil-alt
           = form.text_field :name, placeholder: 'My home network', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
       %div.col-4
         %div.input-group.mb-3
           %div.input-group-prepend
             %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-network-wired
           = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
       %div.col-4
         %div.input-group.mb-3
           %div.input-group-prepend

@@ -102,6 +102,8 @@ class SectionsController < ApplicationController
 
     Sidekiq::Cron::Job.destroy(schedule_name)
 
+    return if section.schedule.nil? || section.schedule.empty?
+
     Sidekiq::Cron::Job.new(
       name: schedule_name,
       class: 'ScanNetworkWithPingJob',
