@@ -25,6 +25,7 @@ footer.main-footer,
 .form-control.bg-dark,
 div.dataTables_wrapper div.dataTables_filter input,
 .custom-file .custom-file-label,
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,
 .info-box.bg-dark {
   background-color: rgb(45, 51, 56) !important;
 }
@@ -42,7 +43,8 @@ nav.main-header,
 table, th, td,
 .form-control,
 .input-group-text,
-.custom-file .custom-file-label,
+.custom-file .custom-file-label, .nav-tabs,
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,
 footer.main-footer {
   border-color: rgb(50, 50, 50) !important;
 }

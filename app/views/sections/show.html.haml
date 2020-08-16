@@ -73,38 +73,48 @@
   %div.col-6
     %canvas#donutChart{style: "height:230px; min-height:230px"}
 
-%div.row.m-4
-  %div.d-flex.flex-wrap.justify-content-between
-    - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
-      - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
-        - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-        %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
-          %small= NetAM::Network::Range.clean_display(address)
-          %br
-          %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
+%div.row.mt-4
+  %div.card.card-info.card-outline.card-outline-tabs.w-100
+    %div.card-header.p-0.border-bottom-0
+      %ul.nav.nav-tabs#custom-tabs-three-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tablist'}
+        %li.nav-item
+          %a.nav-link.active#address-matrix-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}} Address Matrix
+        %li.nav-item
+          %a.nav-link#address-table-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}} Address Table
 
-%div.row
-  %div.col-12
-    %table.table.table-bordered.table-striped.datatable
-      %thead
-        %tr
-          %th FQDN
-          %th IP Address
-          %th Description
-          %th State
-          %th{style: "width: 20%"}
-      %tbody
-        - @section.usages.order("inet(ip_used) ASC").each do |usage|
-          %tr
-            %td= usage.fqdn
-            %td= usage.ip_used
-            %td= usage.description
-            %td= usage_icon(usage&.state)
-            %td
-              %div.btn-group
-                = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
-                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
-                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section_usage_path(@section, usage), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
+    %div.card-body{class: "#{'bg-dark text-white' if dark_mode?}"}
+      %div.tab-content#custom-tabs-three-tabContent
+        %div.tab-pane.fade.show.active#address-matrix{role: "tabpanel", aria: {labelledby: "address-matrix-tab"}}
+          %div.d-flex.flex-wrap.justify-content-between
+          - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+            - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
+              - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
+              %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
+                %small= NetAM::Network::Range.clean_display(address)
+                %br
+                %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
+
+        %div.tab-pane.fade#address-table{role: "tabpanel", aria: {labelledby: "address-table-tab"}}
+          %table.table.table-bordered.table-striped.datatable
+            %thead
+              %tr
+                %th FQDN
+                %th IP Address
+                %th Description
+                %th State
+                %th.w-25
+            %tbody
+              - @section.usages.order("inet(ip_used) ASC").each do |usage|
+                %tr
+                  %td= usage.fqdn
+                  %td= usage.ip_used
+                  %td= usage.description
+                  %td= usage_icon(usage&.state)
+                  %td
+                    %div.btn-group
+                      = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
+                      = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
+                      = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section_usage_path(@section, usage), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
 
 :javascript
     var donutChartCanvas = document.getElementById('donutChart').getContext('2d')
