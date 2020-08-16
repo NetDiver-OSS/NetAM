@@ -10,7 +10,7 @@ class ScanAddressWithPingJob < ApplicationJob
     Sidekiq.logger.info "Starting address scan process: #{args[0][:ip_used]}"
 
     if %w[locked dhcp].include? args[0][:state]
-      Sidekiq.logger.error("#{self.class.name} is not able to process locked or dhcp address")
+      Sidekiq.logger.info "#{self.class.name} is not able to process locked or dhcp address"
       return
     end
 
