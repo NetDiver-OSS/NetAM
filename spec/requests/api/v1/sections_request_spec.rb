@@ -6,14 +6,23 @@ RSpec.describe API::V1::Sections, type: :request do
   content_type_json = { 'CONTENT_TYPE' => 'application/json' }
 
   before(:each) do
-    user = User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
+    User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
 
-    @api_token = APIKeys.create!({ user: user }).access_token
+    post oauth_token_path, { 'grant_type' => 'password',
+                             'username' => "admin@netam.local",
+                             'password' => "azertyuiop123" }, headers: content_type_json
+
+    oauth_response = JSON.parse(last_response.body)
+
+    @api_token = "#{oauth_response['token_type']} #{oauth_response['access_token']}"
   end
 
   context 'GET /api/v1/sections' do
     it 'returns an empty array' do
-      get "/api/v1/sections?token=#{@api_token}"
+      header 'Authorization', @api_token
+      get "/api/v1/sections"
+
+      puts last_response.headers.inspect
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
@@ -23,7 +32,8 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'POST /api/v1/sections' do
     it 'create and returns section' do
-      post("/api/v1/sections?token=#{@api_token}", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h' }.to_json, content_type_json)
+      header 'Authorization', @api_token
+      post("/api/v1/sections", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h' }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)
@@ -37,7 +47,8 @@ RSpec.describe API::V1::Sections, type: :request do
     end
 
     it 'returns a section' do
-      get "/api/v1/sections/#{Section.maximum(:id)}?token=#{@api_token}"
+      header 'Authorization', @api_token
+      get "/api/v1/sections/#{Section.maximum(:id)}"
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
@@ -47,7 +58,8 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'GET /api/v1/sections/:id/scan' do
     it 'launch scan for section' do
-      post "/api/v1/sections/#{Section.maximum(:id)}/scan?token=#{@api_token}"
+      header 'Authorization', @api_token
+      post "/api/v1/sections/#{Section.maximum(:id)}/scan"
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)
@@ -57,7 +69,8 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'GET /api/v1/sections/:id/usages' do
     it 'returns usages for section' do
-      get "/api/v1/sections/#{Section.maximum(:id)}/usages?token=#{@api_token}"
+      header 'Authorization', @api_token
+      get "/api/v1/sections/#{Section.maximum(:id)}/usages"
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
@@ -67,7 +80,8 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'POST /api/v1/sections/:id/usages' do
     it 'create usage for section' do
-      post("/api/v1/sections/#{Section.maximum(:id)}/usages?token=#{@api_token}", { ip_used: '10.0.0.250', fqdn: 'domain.com', state: 'locked' }.to_json, content_type_json)
+      header 'Authorization', @api_token
+      post("/api/v1/sections/#{Section.maximum(:id)}/usages", { ip_used: '10.0.0.250', fqdn: 'domain.com', state: 'locked' }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)

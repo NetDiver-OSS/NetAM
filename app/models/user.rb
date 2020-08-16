@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   default_scope -> { order(id: :asc) }
   has_many :permissions
-  has_many :api_keys
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
