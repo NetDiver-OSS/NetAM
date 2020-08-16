@@ -51,8 +51,6 @@ class MarkdownGenerator
   def formatted_entry(entry)
     line = (entry['title']).to_s
     line += " !#{entry['merge_request']}" unless entry['merge_request'].nil?
-    line += " ##{entry['issue']}" unless entry['issue'].nil?
-    line += " (#{entry['author']})" unless entry['author'].nil?
 
     line
   end
