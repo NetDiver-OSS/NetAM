@@ -32,5 +32,7 @@
             %i.fas.fa-user
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
             %li
+              %span{class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"}= current_user.email
+              %div.dropdown-divider
               = link_to '<i class="fas fa-key"></i> API Token'.html_safe, api_keys_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
               = link_to '<i class="fas fa-sign-out-alt"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
