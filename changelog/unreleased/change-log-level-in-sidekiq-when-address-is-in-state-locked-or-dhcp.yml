@@ -1,0 +1,6 @@
+---
+type: fixed
+title: Change log level in sidekiq when address is in state locked or dhcp
+author: sdeu
+merge_request: 141
+issue: 37
