@@ -1,0 +1,5 @@
+= form_with(url: '', method: :get, local: true) do |form|
+  %div.input-group
+    = form.text_field :ip, class: "form-control #{'bg-dark text-white' if dark_mode?}", placeholder: '192.168.1.50/29', value: params[:ip]
+    %span.input-group-append
+      = form.button 'Calculate', class: 'btn btn-info'

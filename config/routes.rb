@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   resources :permissions, except: [:show]
   resources :api_keys, only: %i[index create destroy]
 
+  scope 'utils' do
+    get 'calculator', as: 'calculator', to: 'utils#calculator', format: false
+  end
+
   if Rails.application.config.setup_mode
     scope path: 'setup' do
       get 'install', as: 'install', to: 'setup#install', format: false

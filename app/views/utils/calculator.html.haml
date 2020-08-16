@@ -1,0 +1,47 @@
+- page_title 'IP calculator'
+
+= render 'utils/form'
+
+-if @address
+  %div.card.mt-4
+    %div.card-header
+      %h3.card-title= params[:ip]
+    %div.card-body
+      %div.row
+        %div.col-4
+          %div.input-group
+            %div.input-group-prepend
+              %span.input-group-text Network
+            %input.form-control{disabled: true, type: 'text', value: @address.network}
+        %div.col-4
+          %div.input-group
+            %div.input-group-prepend
+              %span.input-group-text Mask
+            %input.form-control{disabled: true, type: 'text', value: @address.mask}
+        %div.col-4
+          %div.input-group
+            %div.input-group-prepend
+              %span.input-group-text Available IP
+            %input.form-control{disabled: true, type: 'text', value: @address.nb_hosts}
+
+      %div.row.mt-3
+        - unless @address.broadcast.nil?
+          %div.col-4
+            %div.input-group
+              %div.input-group-prepend
+                %span.input-group-text Broadcast
+              %input.form-control{disabled: true, type: 'text', value: @address.broadcast}
+
+        - unless @address.first_address.nil?
+          %div.col-4
+            %div.input-group
+              %div.input-group-prepend
+                %span.input-group-text First IP
+              %input.form-control{disabled: true, type: 'text', value: @address.first_address}
+
+        - unless @address.last_address.nil?
+          %div.col-4
+            %div.input-group
+              %div.input-group-prepend
+                %span.input-group-text Last IP
+              %input.form-control{disabled: true, type: 'text', value: @address.last_address}
