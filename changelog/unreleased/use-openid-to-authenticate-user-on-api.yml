@@ -1,0 +1,4 @@
+---
+type: added
+title: Use OpenID to authenticate user on API
+merge_request: 139
