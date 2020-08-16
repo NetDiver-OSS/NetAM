@@ -20,6 +20,7 @@ class Section < ApplicationRecord
 
   after_destroy do |section|
     Sidekiq::Cron::Job.destroy("section:#{section.id}")
+    Permission.where(subject_class: 'Section', subject_id: section.id).delete_all
   end
 
   def request_unused_ip
