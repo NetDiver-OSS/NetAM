@@ -32,4 +32,7 @@
           = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
   %div.card-footer
+    %div.form-check.float-left.mt-2
+      = form.check_box :run_scan, checked: true, class: 'form-check-input'
+      = form.label :run_scan, 'Run scan after creation', class: 'form-check-label'
     = form.submit nil, class: 'btn btn-primary float-right'
