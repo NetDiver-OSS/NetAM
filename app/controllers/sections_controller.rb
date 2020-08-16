@@ -73,7 +73,6 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1
   def destroy
-    Permission.where(subject_class: 'Section', subject_id: @section.id).delete_all
     @section.destroy
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
