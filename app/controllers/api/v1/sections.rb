@@ -1,10 +1,13 @@
+require 'doorkeeper/grape/helpers'
+
 module API
   module V1
     class Sections < Grape::API
       include API::V1::Defaults
+      helpers Doorkeeper::Grape::Helpers
 
       before do
-        authenticate!
+        doorkeeper_authorize!
         authorize_route!
       end
 

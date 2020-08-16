@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     sign_up: 'cmon_let_me_in'
   }, controllers: { omniauth_callbacks: "callbacks" }
 
+  use_doorkeeper do
+    skip_controllers :applications, :authorized_applications
+  end
+
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
     post 'export', as: 'export', to: 'sections#export', format: false

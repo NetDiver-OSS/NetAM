@@ -27,6 +27,7 @@ gem 'redis-rack-cache'
 # Authentification
 gem 'cancancan', '~> 3.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem "doorkeeper", "~> 5.4"
 gem 'omniauth-ldap', '~> 2.0'
 
 # Jobs dependencies
