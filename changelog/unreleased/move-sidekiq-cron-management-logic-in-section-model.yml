@@ -1,0 +1,4 @@
+---
+type: other
+title: Move sidekiq cron management logic in Section model
+merge_request: 144
