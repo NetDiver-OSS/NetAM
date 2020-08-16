@@ -19,9 +19,7 @@ class ChangelogOptionParser
   Options = Struct.new(
     :type,
     :title,
-    :author,
-    :merge_request,
-    :issue
+    :merge_request
   )
 
   def self.parse(args)
@@ -38,10 +36,6 @@ class ChangelogOptionParser
         options.merge_request = value
       end
 
-      opts.on('-i', '--issue [integer]', Integer, 'Issue ID') do |value|
-        options.issue = value
-      end
-
       opts.on('-h', '--help', 'Print help message') do
         puts opts
         raise Done
@@ -51,7 +45,6 @@ class ChangelogOptionParser
     opt_parser.parse!(args)
 
     options.title = args.join(' ').strip
-    options.author = ENV.fetch('USER') { '' }
 
     options
   end
@@ -91,9 +84,7 @@ class ChangelogEntry
     YAML.dump(
       'type' => options.type,
       'title' => options.title,
-      'author' => options.author,
-      'merge_request' => options.merge_request,
-      'issue' => options.issue
+      'merge_request' => options.merge_request
     )
   end
 

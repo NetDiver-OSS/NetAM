@@ -1,6 +1,4 @@
 ---
 type: changed
 title: Allow section to be unscheduled if input is empty
-author: sdeu
 merge_request: 138
-issue: 36
