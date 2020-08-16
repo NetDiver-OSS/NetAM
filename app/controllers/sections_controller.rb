@@ -56,7 +56,9 @@ class SectionsController < ApplicationController
         }
       )
 
-      redirect_to section_path(@section), notice: 'Section was successfully created.'
+      job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network) if @section.run_scan == '1'
+
+      redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
     else
       render :new
     end
@@ -92,6 +94,6 @@ class SectionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network, :schedule)
+    params.require(:section).permit(:name, :description, :network, :schedule, :run_scan)
   end
 end
