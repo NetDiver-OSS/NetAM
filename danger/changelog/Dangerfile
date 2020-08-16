@@ -1,4 +1,4 @@
-has_changelog_changes = !git.modified_files.grep(/changelog\/unreleased/).empty?
+has_changelog_changes = !git.modified_files.grep(%r{changelog/unreleased}).empty?
 
 # --------------------------------------------------------------------------------------------------------------------
 # You've didn't write any changelog?
