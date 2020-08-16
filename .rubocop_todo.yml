@@ -14,11 +14,6 @@ Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
-# Offense count: 1
-Lint/Loop:
-  Exclude:
-    - 'app/models/api_keys.rb'
-
 # Offense count: 11
 # Configuration parameters: IgnoredMethods.
 Metrics/AbcSize:

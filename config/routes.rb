@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   end
 
   resources :permissions, except: [:show]
-  resources :api_keys, only: %i[index create destroy]
 
   scope 'utils' do
     get 'calculator', as: 'calculator', to: 'utils#calculator', format: false
