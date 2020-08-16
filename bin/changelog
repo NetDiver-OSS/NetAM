@@ -66,6 +66,7 @@ class ChangelogEntry
     puts content
 
     File.write(file_path, content)
+    system("git add #{file_path}")
   end
 
   private
