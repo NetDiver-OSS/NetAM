@@ -1,0 +1,13 @@
+= form_with(url: '', method: :get, local: true) do |form|
+  %div.row
+    %div.form-group.col-6
+      = form.label :ip, 'Network'
+      = form.text_field :ip, class: "form-control #{'bg-dark text-white' if dark_mode?}", placeholder: '192.168.1.50', value: params[:ip]
+
+    %div.form-group.col-6
+      = form.label :subnet, 'Hosts per Subnet'
+      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, {selected: params[:subnet].to_i}, {class: "form-control #{'bg-dark text-white' if dark_mode?}" }
+
+  %div.d-flex.justify-content-center
+    %div.col-4
+      = form.button 'Calculate', class: 'btn btn-block btn-info align-bottom'

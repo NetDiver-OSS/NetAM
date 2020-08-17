@@ -31,6 +31,14 @@ RSpec.describe "Section", type: :request do
     end
   end
 
+  describe "GET /show" do
+    it "renders a successful response" do
+      Section.create! valid_attributes
+      get section_url(Section.maximum(:id))
+      expect(response).to be_successful
+    end
+  end
+
   describe "GET /new" do
     it "renders a successful response" do
       get new_section_url

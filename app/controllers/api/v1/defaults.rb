@@ -10,31 +10,18 @@ module API
         format :json
         formatter :json, Grape::Formatter::ActiveModelSerializers
 
-        params do
-          requires :token, type: String, desc: "Access token."
-        end
-
         helpers do
           def declared_params(options = {})
             options = { include_parent_namespaces: false }.merge(options)
             declared(params, options).to_h.symbolize_keys
           end
 
-          def authenticate!
-            error!('Unauthorized. Invalid or expired token.', 401) unless current_user
+          def permitted_params
+            @permitted_params ||= declared(params, include_missing: false)
           end
 
           def current_user
-            token = ::APIKeys.where(access_token: params[:token]).first
-            if token && !token.expired?
-              @current_user = User.find(token.user_id)
-            else
-              false
-            end
-          end
-
-          def permitted_params
-            @permitted_params ||= declared(params, include_missing: false)
+            User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
           end
 
           def logger

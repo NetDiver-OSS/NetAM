@@ -1,10 +1,13 @@
+require 'doorkeeper/grape/helpers'
+
 module API
   module V1
     class Sections < Grape::API
       include API::V1::Defaults
+      helpers Doorkeeper::Grape::Helpers
 
       before do
-        authenticate!
+        doorkeeper_authorize!
         authorize_route!
       end
 
@@ -78,6 +81,17 @@ module API
           section = Section.find(permitted_params[:id])
           authorize! :read, section
           section.usages.create!(declared_params(include_missing: false).except(:id))
+        end
+
+        desc 'Export section to CSV'
+        params do
+          requires :id, type: String, desc: 'ID of the section'
+        end
+        get ':id/export', root: 'section' do
+          content_type 'text/csv'
+          env['api.format'] = :binary
+          section = Section.find(permitted_params[:id])
+          ExportSectionToCsvJob.perform_now(section)
         end
       end
     end

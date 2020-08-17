@@ -23,7 +23,7 @@ class ScanNetworkWithPingJob < ApplicationJob
       }
 
       if %w[locked dhcp].include? usage[:state].first
-        Sidekiq.logger.error("Address #{address} is not able to be process if state is locked or dhcp")
+        Sidekiq.logger.info "Address #{address} is not able to be process if state is locked or dhcp"
         next
       end
 

@@ -8,14 +8,11 @@ module NetAM
       def all_ips
         return [] if @network.ipv6?
 
-        @range = []
         if @network.private?
-          @network.each_host { |i| @range << i }
+          @network.hosts
         else
-          @network.each { |i| @range << i }
+          @network.to_a
         end
-
-        @range
       end
 
       def self.clean_display(ip)

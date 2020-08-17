@@ -1,8 +1,29 @@
 class Section < ApplicationRecord
   has_many :usages, dependent: :destroy
 
-  validates :name, :network, :schedule, presence: true
+  validates :name, :network, presence: true
   validate :network_must_be_valid, :schedule_must_be_cron
+
+  attr_accessor :run_scan
+
+  after_save do |section|
+    schedule_name = "section:#{section.id}"
+    Sidekiq::Cron::Job.destroy(schedule_name)
+
+    unless section.schedule.nil? || section.schedule.empty?
+      Sidekiq::Cron::Job.new(
+        name: schedule_name,
+        class: 'ScanNetworkWithPingJob',
+        cron: Fugit.parse(section.schedule).to_cron_s,
+        args: [{ id: section.id, network: section.network }]
+      ).save
+    end
+  end
+
+  after_destroy do |section|
+    Sidekiq::Cron::Job.destroy("section:#{section.id}")
+    Permission.where(subject_class: 'Section', subject_id: section.id).delete_all
+  end
 
   def request_unused_ip
     IPAddress(network).hosts.each do |ip|

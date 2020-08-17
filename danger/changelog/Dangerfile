@@ -1,4 +1,6 @@
-changelog.filename = 'CHANGELOG.md'
-changelog.format = :keep_a_changelog
+has_changelog_changes = !git.modified_files.grep(%r{changelog/unreleased}).empty?
 
-# changelog.have_you_updated_changelog?
+# --------------------------------------------------------------------------------------------------------------------
+# You've didn't write any changelog?
+# --------------------------------------------------------------------------------------------------------------------
+warn "There're changes, but no changelog." unless has_changelog_changes

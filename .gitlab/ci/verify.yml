@@ -3,7 +3,5 @@ danger:verify:
   script:
     - apk add --no-cache git
     - gem install danger-gitlab
-    - gem install danger-rails_best_practices
     - gem install rubocop danger-rubocop
-    - gem install danger-changelog
     - danger --fail-on-errors=false --verbose

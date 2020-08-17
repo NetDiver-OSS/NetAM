@@ -10,6 +10,10 @@
       %ul.navbar-nav
         %li.nav-item= link_to 'Home', root_path, class: 'nav-link'
         %li.nav-item= link_to 'Sections', sections_path, class: 'nav-link'
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Utils
+          %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
+            %li= link_to '<i class="fas fa-server"></i> IP Calculator'.html_safe, calculator_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
 
       %ul.order-1.order-md-3.navbar-nav.navbar-no-expand.ml-auto
         - if user_signed_in? && current_user.admin?
@@ -28,5 +32,6 @@
             %i.fas.fa-user
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
             %li
-              = link_to '<i class="fas fa-key"></i> API Token'.html_safe, api_keys_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
+              %span{class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"}= current_user.email unless current_user.nil?
+              %div.dropdown-divider
               = link_to '<i class="fas fa-sign-out-alt"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"

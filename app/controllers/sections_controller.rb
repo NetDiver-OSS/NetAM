@@ -2,8 +2,6 @@ class SectionsController < ApplicationController
   load_and_authorize_resource
   before_action :set_permissions, only: [:edit]
 
-  include SectionsHelper
-
   # GET /sections
   def index
     @sections = Section.all
@@ -49,7 +47,6 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
 
     if @section.save
-      update_scheduler @section
       Permission.create!(
         {
           user_id: current_user.id,
@@ -59,7 +56,9 @@ class SectionsController < ApplicationController
         }
       )
 
-      redirect_to section_path(@section), notice: 'Section was successfully created.'
+      job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network) if @section.run_scan == '1'
+
+      redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
     else
       render :new
     end
@@ -68,7 +67,6 @@ class SectionsController < ApplicationController
   # PATCH/PUT /sections/1
   def update
     if @section.update(section_params)
-      update_scheduler @section
       redirect_to @section, notice: 'Section was successfully updated.'
     else
       render :edit
@@ -77,9 +75,6 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1
   def destroy
-    Sidekiq::Cron::Job.destroy("section:#{@section.id}")
-
-    Permission.where(subject_class: 'Section', subject_id: @section.id).delete_all
     @section.destroy
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
@@ -97,21 +92,8 @@ class SectionsController < ApplicationController
     @permissions = Permission.where(subject_class: 'Section', subject_id: @section.id)
   end
 
-  def update_scheduler(section)
-    schedule_name = "section:#{section.id}"
-
-    Sidekiq::Cron::Job.destroy(schedule_name)
-
-    Sidekiq::Cron::Job.new(
-      name: schedule_name,
-      class: 'ScanNetworkWithPingJob',
-      cron: Fugit.parse(section.schedule).to_cron_s,
-      args: [{ id: section.id, network: section.network }]
-    ).save
-  end
-
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network, :schedule)
+    params.require(:section).permit(:name, :description, :network, :schedule, :run_scan)
   end
 end
