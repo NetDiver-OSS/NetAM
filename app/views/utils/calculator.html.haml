@@ -3,7 +3,7 @@
 = render 'utils/form'
 
 -if @address
-  %div.card.mt-4
+  %div.card.mt-4{class: "#{'bg-dark text-white' if dark_mode?}"}
     %div.card-header
       %h3.card-title= params[:ip]
     %div.card-body
@@ -11,37 +11,37 @@
         %div.col-4
           %div.input-group
             %div.input-group-prepend
-              %span.input-group-text Network
-            %input.form-control{disabled: true, type: 'text', value: @address.network}
+              %span.input-group-text{class: "#{'bg-dark text-white' if dark_mode?}"} Network
+            %input.form-control{class: "#{'bg-dark text-white' if dark_mode?}", disabled: true, type: 'text', value: @address.network}
         %div.col-4
           %div.input-group
             %div.input-group-prepend
-              %span.input-group-text Mask
-            %input.form-control{disabled: true, type: 'text', value: @address.mask}
+              %span.input-group-text{class: "#{'bg-dark text-white' if dark_mode?}"} Mask
+            %input.form-control{class: "#{'bg-dark text-white' if dark_mode?}", disabled: true, type: 'text', value: @address.mask}
         %div.col-4
           %div.input-group
             %div.input-group-prepend
-              %span.input-group-text Available IP
-            %input.form-control{disabled: true, type: 'text', value: @address.nb_hosts}
+              %span.input-group-text{class: "#{'bg-dark text-white' if dark_mode?}"} Available IP
+            %input.form-control{class: "#{'bg-dark text-white' if dark_mode?}", disabled: true, type: 'text', value: @address.nb_hosts}
 
       %div.row.mt-3
         - unless @address.broadcast.nil?
           %div.col-4
             %div.input-group
               %div.input-group-prepend
-                %span.input-group-text Broadcast
-              %input.form-control{disabled: true, type: 'text', value: @address.broadcast}
+                %span.input-group-text{class: "#{'bg-dark text-white' if dark_mode?}"} Broadcast
+              %input.form-control{class: "#{'bg-dark text-white' if dark_mode?}", disabled: true, type: 'text', value: @address.broadcast}
 
         - unless @address.first_address.nil?
           %div.col-4
             %div.input-group
               %div.input-group-prepend
-                %span.input-group-text First IP
-              %input.form-control{disabled: true, type: 'text', value: @address.first_address}
+                %span.input-group-text{class: "#{'bg-dark text-white' if dark_mode?}"} First IP
+              %input.form-control{class: "#{'bg-dark text-white' if dark_mode?}", disabled: true, type: 'text', value: @address.first_address}
 
         - unless @address.last_address.nil?
           %div.col-4
             %div.input-group
               %div.input-group-prepend
-                %span.input-group-text Last IP
-              %input.form-control{disabled: true, type: 'text', value: @address.last_address}
+                %span.input-group-text{class: "#{'bg-dark text-white' if dark_mode?}"} Last IP
+              %input.form-control{class: "#{'bg-dark text-white' if dark_mode?}", disabled: true, type: 'text', value: @address.last_address}
