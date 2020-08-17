@@ -1,4 +1,0 @@
----
-type: fixed
-title: Change log level in sidekiq when address is in state locked or dhcp
-merge_request: 141
