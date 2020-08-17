@@ -82,6 +82,16 @@ module API
           authorize! :read, section
           section.usages.create!(declared_params(include_missing: false).except(:id))
         end
+
+        desc 'Export section to CSV'
+        params do
+          requires :id, type: String, desc: 'ID of the section'
+        end
+        get ':id/export', root: 'section' do
+          section = Section.find(permitted_params[:id])
+          csv_export = ExportSectionToCsvJob.perform_now(@section)
+          send_data csv_export, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
+        end
       end
     end
   end
