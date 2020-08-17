@@ -88,9 +88,10 @@ module API
           requires :id, type: String, desc: 'ID of the section'
         end
         get ':id/export', root: 'section' do
+          content_type 'text/csv'
+          env['api.format'] = :binary
           section = Section.find(permitted_params[:id])
-          csv_export = ExportSectionToCsvJob.perform_now(@section)
-          send_data csv_export, filename: "section_usage_#{@section.id}.csv", type: 'text/csv', disposition: 'inline'
+          ExportSectionToCsvJob.perform_now(section)
         end
       end
     end
