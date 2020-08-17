@@ -78,15 +78,16 @@
     %div.card-header.p-0.border-bottom-0
       %ul.nav.nav-tabs#custom-tabs-three-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tablist'}
         %li.nav-item
-          %a.nav-link.active#address-matrix-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}} Address Matrix
-        %li.nav-item
-          %a.nav-link#address-table-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}} Address Table
+          %a.nav-link.active#address-table-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}} Address Table
+        - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+          %li.nav-item
+            %a.nav-link#address-matrix-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}} Address Matrix
 
     %div.card-body{class: "#{'bg-dark text-white' if dark_mode?}"}
       %div.tab-content#custom-tabs-three-tabContent
-        %div.tab-pane.fade.show.active#address-matrix{role: "tabpanel", aria: {labelledby: "address-matrix-tab"}}
-          %div.d-flex.flex-wrap.justify-content-between
-          - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+        - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+          %div.tab-pane.fade#address-matrix{role: "tabpanel", aria: {labelledby: "address-matrix-tab"}}
+            %div.d-flex.flex-wrap.justify-content-between
             - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
               - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
               %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
@@ -94,7 +95,7 @@
                 %br
                 %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
 
-        %div.tab-pane.fade#address-table{role: "tabpanel", aria: {labelledby: "address-table-tab"}}
+        %div.tab-pane.fade.show.active#address-table{role: "tabpanel", aria: {labelledby: "address-table-tab"}}
           %table.table.table-bordered.table-striped.datatable
             %thead
               %tr
