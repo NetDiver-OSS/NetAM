@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     confirmation: 'verification',
     unlock: 'unblock',
     registration: 'register',
-    sign_up: 'cmon_let_me_in'
+    sign_up: ''
   }, controllers: { omniauth_callbacks: "callbacks" }
 
   use_doorkeeper do
@@ -33,6 +33,15 @@ Rails.application.routes.draw do
   end
 
   resources :permissions, except: %i[index show]
+  namespace :account do
+    resources :two_factor_auths, only: [:index, :create] do
+      collection do
+        delete :destroy
+      end
+    end
+  end
+
+  resources :permissions, except: [:index, :show]
 
   scope 'utils' do
     get 'calculator', as: 'calculator', to: 'utils#calculator', format: false

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :setup_required
-  before_action :authenticate_user!
+  before_action :authenticate_user
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -14,10 +15,16 @@ class ApplicationController < ActionController::Base
     @boot_time = Vmstat.boot_time rescue nil
   end
 
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
+  end
+
   private
 
-  def authenticate_user!
-    super unless ['setup'].include?(params[:controller])
+  def authenticate_user
+    authenticate_user! unless params[:controller] == 'setup'
   end
 
   def setup_required
