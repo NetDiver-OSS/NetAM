@@ -26,23 +26,22 @@
     %div{class: "content-wrapper #{'bg-dark text-white' if dark_mode? }"}
       %div.content-header
 
-        - unless notice.nil?
-          %div.alert.alert-info.alert-dismissible
-            %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-            %h5
-              %i.icon.fas.fa-info
-              Notice
-            = notice
+        %div.container
+          - unless notice.nil?
+            %div.alert.alert-info.alert-dismissible
+              %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
+              %h5
+                %i.icon.fas.fa-info
+                Notice
+              = notice
 
-
-        - unless alert.nil?
-          %div.alert.alert-danger.alert-dismissible
-            %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-            %h5
-              %i.icon.fas.fa-ban
-              Error
-            = alert
-
+          - unless alert.nil?
+            %div.alert.alert-danger.alert-dismissible
+              %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
+              %h5
+                %i.icon.fas.fa-ban
+                Error
+              = alert
 
         %div.container
           %div.row.mb-2
