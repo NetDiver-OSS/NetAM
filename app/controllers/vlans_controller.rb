@@ -1,6 +1,6 @@
 class VlansController < ApplicationController
   load_and_authorize_resource
-  before_action :set_permissions, only: [:edit, :update]
+  before_action :set_permissions, only: %i[edit update]
 
   # GET /vlans
   def index
@@ -9,6 +9,7 @@ class VlansController < ApplicationController
 
   # GET /vlans/1
   def show
+    # not used actually
   end
 
   # GET /vlans/new
@@ -18,6 +19,7 @@ class VlansController < ApplicationController
 
   # GET /vlans/1/edit
   def edit
+    # not used actually
   end
 
   # POST /vlans
@@ -26,12 +28,12 @@ class VlansController < ApplicationController
 
     if @vlan.save
       Permission.create!(
-          {
-              user_id: current_user.id,
-              subject_class: 'Vlan',
-              subject_id: @vlan.id,
-              action: 'manage'
-          }
+        {
+          user_id: current_user.id,
+          subject_class: 'Vlan',
+          subject_id: @vlan.id,
+          action: 'manage'
+        }
       )
 
       redirect_to @vlan, notice: 'Vlan was successfully created.'

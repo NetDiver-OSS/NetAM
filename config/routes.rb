@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :permissions, except: [:index, :show]
+  resources :permissions, except: %i[index show]
 
   scope 'utils' do
     get 'calculator', as: 'calculator', to: 'utils#calculator', format: false

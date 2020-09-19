@@ -52,5 +52,4 @@ RSpec.describe API::V1::Vlans, type: :request do
       expect(last_response.body).to eq({ id: Vlan.maximum(:id), vid: @vid, name: 'vlan 142', description: nil }.to_json)
     end
   end
-
 end
