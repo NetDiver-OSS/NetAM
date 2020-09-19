@@ -22,6 +22,7 @@ module API
           requires :name, type: String
           requires :network, type: String
           requires :schedule, type: String
+          requires :vlan_id, type: Integer
           optional :description, type: String
         end
         post '', root: 'section' do

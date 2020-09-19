@@ -1,0 +1,24 @@
+= form_with(model: vlan, local: true) do |form|
+  %div.card-body
+    - if vlan.errors.any?
+      - vlan.errors.full_messages.each do |message|
+        %div{class: "callout callout-danger #{'bg-dark text-white' if dark_mode?}"}
+          %p= message
+    %div.row
+      %div.col-6
+        %div.form-group
+          = form.label :vid
+          = form.number_field :vid, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+      %div.col-6
+        %div.form-group
+          = form.label :name
+          = form.text_field :name, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
+    %div.row
+      %div.col-12
+        %div.form-group
+          = form.label :description
+          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
+
+  %div.card-footer
+    = form.submit nil, class: 'btn btn-primary float-right'

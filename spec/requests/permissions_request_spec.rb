@@ -27,14 +27,6 @@ RSpec.describe "Permissions", type: :request do
     }
   end
 
-  describe "GET /index" do
-    it "renders a successful response" do
-      Permission.create! valid_attributes
-      get permissions_url
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "renders a successful response" do
       get new_permission_url
@@ -60,7 +52,7 @@ RSpec.describe "Permissions", type: :request do
 
       it "redirects to the created permission" do
         post permissions_url, params: { permission: valid_attributes }
-        expect(response).to redirect_to(sections_url)
+        expect(response).to redirect_to(root_url)
       end
     end
   end
@@ -98,7 +90,7 @@ RSpec.describe "Permissions", type: :request do
     it "redirects to the permissions list" do
       permission = Permission.create! valid_attributes
       delete permission_url(permission)
-      expect(response).to redirect_to(sections_url)
+      expect(response).to redirect_to(root_url)
     end
   end
 end

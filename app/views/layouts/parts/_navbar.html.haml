@@ -8,8 +8,8 @@
 
     %div#navbarCollapse.collapse.navbar-collapse.order-3
       %ul.navbar-nav
-        %li.nav-item= link_to 'Home', root_path, class: 'nav-link'
         %li.nav-item= link_to 'Sections', sections_path, class: 'nav-link'
+        %li.nav-item= link_to 'Vlans', vlans_path, class: 'nav-link'
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Utils
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     skip_controllers :applications, :authorized_applications
   end
 
+  resources :vlans
+
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
     post 'export', as: 'export', to: 'sections#export', format: false
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :permissions, except: [:show]
+  resources :permissions, except: [:index, :show]
 
   scope 'utils' do
     get 'calculator', as: 'calculator', to: 'utils#calculator', format: false
