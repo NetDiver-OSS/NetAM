@@ -11,13 +11,12 @@
         %th{style: "width: 30%"}
     %tbody
       - @vlans.each do |vlan|
-        - if can? :read, vlan
-          %tr
-            %td= vlan.vid
-            %td= vlan.name
-            %td= vlan.description
-            %td.project-actions.text-right
-              %div.btn-group
-                = link_to '<i class="fas fa-folder"></i> View'.html_safe, vlan, class: 'btn btn-primary btn-sm'
-                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_vlan_path(vlan), class: 'btn btn-info btn-sm' if can? :edit, vlan
-                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, vlan, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'} if can? :destroy, vlan
+        %tr
+          %td= vlan.vid
+          %td= vlan.name
+          %td= vlan.description
+          %td.project-actions.text-right
+            %div.btn-group
+              = link_to '<i class="fas fa-folder"></i> View'.html_safe, vlan, class: 'btn btn-primary btn-sm'
+              = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_vlan_path(vlan), class: 'btn btn-info btn-sm' if can? :edit, vlan
+              = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, vlan, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'} if can? :destroy, vlan

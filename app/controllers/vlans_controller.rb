@@ -4,7 +4,7 @@ class VlansController < ApplicationController
 
   # GET /vlans
   def index
-    @vlans = Vlan.all
+    @vlans = Vlan.all.filter { |vlan| can? :read, vlan }
   end
 
   # GET /vlans/1

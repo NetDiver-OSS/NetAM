@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
 
   # GET /sections
   def index
-    @sections = Section.all
+    @sections = Section.all.filter { |section| can? :read, section }
   end
 
   # GET /sections/1
