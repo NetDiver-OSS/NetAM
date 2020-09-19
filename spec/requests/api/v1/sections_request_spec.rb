@@ -14,18 +14,14 @@ RSpec.describe API::V1::Sections, type: :request do
 
     oauth_response = JSON.parse(last_response.body)
 
+    Vlan.create!(name: 'tu', vid: Random.rand(500))
     @api_token = "#{oauth_response['token_type']} #{oauth_response['access_token']}"
-
-    vlan = Vlan.create!(name: 'tu', vid: Random.rand(500))
-    @vlan_id = vlan.id
   end
 
   context 'GET /api/v1/sections' do
     it 'returns an empty array' do
       header 'Authorization', @api_token
       get "/api/v1/sections"
-
-      puts last_response.headers.inspect
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
@@ -36,7 +32,7 @@ RSpec.describe API::V1::Sections, type: :request do
   context 'POST /api/v1/sections' do
     it 'create and returns section' do
       header 'Authorization', @api_token
-      post("/api/v1/sections", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: @vlan_id }.to_json, content_type_json)
+      post("/api/v1/sections", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)
@@ -46,7 +42,7 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'GET /api/v1/sections/:id' do
     it 'returns a section' do
-      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: @vlan_id })
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id })
 
       header 'Authorization', @api_token
       get "/api/v1/sections/#{Section.maximum(:id)}"
@@ -57,8 +53,10 @@ RSpec.describe API::V1::Sections, type: :request do
     end
   end
 
-  context 'GET /api/v1/sections/:id/scan' do
+  context 'POST /api/v1/sections/:id/scan' do
     it 'launch scan for section' do
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id })
+
       header 'Authorization', @api_token
       post "/api/v1/sections/#{Section.maximum(:id)}/scan"
 
@@ -70,6 +68,8 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'GET /api/v1/sections/:id/usages' do
     it 'returns usages for section' do
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id })
+
       header 'Authorization', @api_token
       get "/api/v1/sections/#{Section.maximum(:id)}/usages"
 
@@ -81,6 +81,8 @@ RSpec.describe API::V1::Sections, type: :request do
 
   context 'POST /api/v1/sections/:id/usages' do
     it 'create usage for section' do
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id })
+
       header 'Authorization', @api_token
       post("/api/v1/sections/#{Section.maximum(:id)}/usages", { ip_used: '10.0.0.250', fqdn: 'domain.com', state: 'locked' }.to_json, content_type_json)
 
