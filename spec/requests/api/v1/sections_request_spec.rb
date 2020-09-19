@@ -15,6 +15,9 @@ RSpec.describe API::V1::Sections, type: :request do
     oauth_response = JSON.parse(last_response.body)
 
     @api_token = "#{oauth_response['token_type']} #{oauth_response['access_token']}"
+
+    vlan = Vlan.create!(name: 'tu', vid: Random.rand(500))
+    @vlan_id = vlan.id
   end
 
   context 'GET /api/v1/sections' do
@@ -33,7 +36,7 @@ RSpec.describe API::V1::Sections, type: :request do
   context 'POST /api/v1/sections' do
     it 'create and returns section' do
       header 'Authorization', @api_token
-      post("/api/v1/sections", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: 1 }.to_json, content_type_json)
+      post("/api/v1/sections", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: @vlan_id }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)
@@ -42,11 +45,9 @@ RSpec.describe API::V1::Sections, type: :request do
   end
 
   context 'GET /api/v1/sections/:id' do
-    begin
-      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: 1 })
-    end
-
     it 'returns a section' do
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: @vlan_id })
+
       header 'Authorization', @api_token
       get "/api/v1/sections/#{Section.maximum(:id)}"
 
