@@ -19,12 +19,5 @@ module Account
 
       render :index
     end
-
-    private
-
-    # Only allow a list of trusted parameters through.
-    def permission_params
-      params.require(:permission).permit(:name, :user_id, :subject_class, :subject_id, :action)
-    end
   end
 end
