@@ -13,6 +13,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 # HTML
 gem 'hamlit', '~> 2.11'
+gem 'rqrcode', '~> 1.1', '>= 1.1.2'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.1.1'
 
@@ -27,6 +28,7 @@ gem 'redis-rack-cache'
 # Authentification
 gem 'cancancan', '~> 3.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'devise-two-factor', '~> 3.1'
 gem "doorkeeper", "~> 5.4"
 gem 'omniauth-ldap', '~> 2.0'
 

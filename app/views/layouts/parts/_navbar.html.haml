@@ -32,6 +32,7 @@
             %i.fas.fa-user
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
             %li
-              %span{class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"}= current_user.email unless current_user.nil?
+              = link_to current_user&.email, edit_user_registration_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
+              = link_to 'Two Factor Auth', account_two_factor_auths_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
               %div.dropdown-divider
               = link_to '<i class="fas fa-sign-out-alt"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
