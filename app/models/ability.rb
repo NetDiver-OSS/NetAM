@@ -9,6 +9,7 @@ class Ability
     can :manage, :all if user.admin?
 
     can %i[index new create], Section
+    can %i[index new create], Vlan
 
     user.permissions.each do |permission|
       next if permission.subject_id.nil?

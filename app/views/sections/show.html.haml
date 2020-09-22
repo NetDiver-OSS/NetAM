@@ -73,6 +73,15 @@
   %div.col-6
     %canvas#donutChart{style: "height:230px; min-height:230px"}
 
+  %div.col-12
+    %div.info-box.mt-4
+      %div.info-box-content
+        %span.info-box-text
+          This section is linked to Vlan
+          %strong= @section.vlan.name
+          with Vlan ID
+          %strong= @section.vlan.vid
+
 %div.row.mt-4
   %div.card.card-info.card-outline.card-outline-tabs.w-100
     %div.card-header.p-0.border-bottom-0

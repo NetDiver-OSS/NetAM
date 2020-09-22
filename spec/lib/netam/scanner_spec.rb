@@ -1,13 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe NetAM::Scanner do
+  before(:each) do
+    Vlan.create!(vid: Random.rand(500))
+  end
+
   describe 'run' do
     it 'should raise if job not exist' do
       @section = Section.create!(
         {
           name: 'section 1',
           network: '10.0.0.0/24',
-          schedule: 'every 24 hours'
+          schedule: 'every 24 hours',
+          vlan_id: Vlan.first.id
         }
       )
 
@@ -19,7 +24,8 @@ RSpec.describe NetAM::Scanner do
         {
           name: 'section 1',
           network: '10.0.0.0/24',
-          schedule: 'every 24 hours'
+          schedule: 'every 24 hours',
+          vlan_id: Vlan.first.id
         }
       )
 

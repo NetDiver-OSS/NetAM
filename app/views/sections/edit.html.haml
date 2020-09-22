@@ -3,4 +3,4 @@
     %h3.card-title Editing Section
   = render 'form', section: @section
 
-= render partial: 'permissions/rbac'
+= render 'permissions/rbac', permission: @section, controller: SectionsController

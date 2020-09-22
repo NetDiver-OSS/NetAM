@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Section", type: :request do
   before(:each) do
+    Vlan.create!(vid: Random.rand(500))
     admin = User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
 
     sign_in admin
@@ -11,7 +12,8 @@ RSpec.describe "Section", type: :request do
     {
       name: 'section 1',
       network: '10.0.0.0/24',
-      schedule: 'every 24 hours'
+      schedule: 'every 24 hours',
+      vlan_id: Vlan.first.id
     }
   end
 
@@ -19,7 +21,8 @@ RSpec.describe "Section", type: :request do
     {
       name: 'section err',
       network: 'exemple.com',
-      schedule: 'every 24 hours'
+      schedule: 'every 24 hours',
+      vlan_id: 54_643_521
     }
   end
 

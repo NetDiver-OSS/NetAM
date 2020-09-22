@@ -1,57 +1,58 @@
 !!! 5
 %html{lang: "en"}
-%head
-  %meta{charset: "utf-8"}
-  %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
-  %meta{http: {equiv: "x-ua-compatible"}, content: "ie=edge"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
+    %meta{http: {equiv: "x-ua-compatible"}, content: "ie=edge"}
 
-  %title #{page_title.empty? ? 'NetAM' : "#{strip_tags(page_title)} | NetAM"}
+    %title #{page_title.empty? ? 'NetAM' : "#{strip_tags(page_title)} | NetAM"}
 
-  = csrf_meta_tags
-  = csp_meta_tag
+    = csrf_meta_tags
+    = csp_meta_tag
 
-  = stylesheet_link_tag 'application', media: 'all'
-  = stylesheet_link_tag 'dark_mode', media: 'all' if dark_mode?
-  = javascript_pack_tag 'application'
+    = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'dark_mode', media: 'all' if dark_mode?
+    = javascript_pack_tag 'application'
 
-  %link{href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", rel:"stylesheet"}
+    %link{href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", rel:"stylesheet"}
 
-%body{class:"hold-transition #{devise_controller? ? 'login-page' : 'layout-top-nav'}"}
-- if devise_controller?
-  = yield
-- else
-  %div.wrapper
-    = render partial: 'layouts/parts/navbar'
+  %body{class:"hold-transition #{devise_controller? ? 'login-page' : 'layout-top-nav'}"}
+  - if devise_controller?
+    = yield
+  - else
+    %div.wrapper
+      = render partial: 'layouts/parts/navbar'
 
-    %div{class: "content-wrapper #{'bg-dark text-white' if dark_mode? }"}
-      %div.content-header
+      %div{class: "content-wrapper #{'bg-dark text-white' if dark_mode? }"}
+        %div.content-header
 
-        %div.container
-          - unless notice.nil?
-            %div.alert.alert-info.alert-dismissible
-              %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-              %h5
-                %i.icon.fas.fa-info
-                Notice
-              = notice
+          %div.container
+            - unless notice.nil?
+              %div.alert.alert-info.alert-dismissible
+                %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
+                %h5
+                  %i.icon.fas.fa-info
+                  Notice
+                = notice
 
-          - unless alert.nil?
-            %div.alert.alert-danger.alert-dismissible
-              %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-              %h5
-                %i.icon.fas.fa-ban
-                Error
-              = alert
 
-        %div.container
-          %div.row.mb-2
-            %div.col-6
-              %h1= page_title.html_safe
-            %div.col-6
-              %div.float-right= page_action.html_safe
+            - unless alert.nil?
+              %div.alert.alert-danger.alert-dismissible
+                %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
+                %h5
+                  %i.icon.fas.fa-ban
+                  Error
+                = alert
 
-      %div.content
-        %div.container
-          = yield
+          %div.container
+            %div.row.mb-2
+              %div.col-6
+                %h1= page_title.html_safe
+              %div.col-6
+                %div.float-right= page_action.html_safe
 
-    = render partial: 'layouts/parts/footer'
+        %div.content
+          %div.container
+            = yield
+
+      = render partial: 'layouts/parts/footer'

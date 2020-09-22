@@ -2,22 +2,22 @@
   %div.col-12
     %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
       %div.card-header
-        %h3.card-title Permission for #{@section.name}
+        %h3.card-title Permission for #{permission.name}
 
       %div.card-body
         %table.table.table-responsive.datatable
           %thead
             %tr
               %th #
-              - SectionsController.action_methods.sort.each do |method|
+              - controller.action_methods.sort.each do |method|
                 %th= method
           %tbody
             - User.all.each do |user|
               %tr
                 %th= user.email
-                - SectionsController.action_methods.sort.each do |method|
+                - controller.action_methods.sort.each do |method|
                   %td
-                    - if Ability.new(user).can? method.to_sym, @section
+                    - if Ability.new(user).can? method.to_sym, permission
                       %span.badge.bg-success YES
                     - else
                       %span.badge.bg-danger NO
@@ -28,7 +28,7 @@
           %div.col-6.card-title
             %h3 All Permissions
           %div.col-6
-            = link_to 'Add permission', new_permission_path, class: 'btn bt-sm btn-primary float-right'
+            = link_to 'Add permission', new_permission_path(subject_class: controller.controller_name.singularize.capitalize, subject_id: permission.id), class: 'btn bt-sm btn-primary float-right'
       %div.card-body.p-0
         %table.table.table-condensed
           %thead
