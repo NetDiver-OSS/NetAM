@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :permissions, except: %i[index show]
   namespace :account do
     resources :two_factor_auths, only: [:index, :create] do
       collection do
