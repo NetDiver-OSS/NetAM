@@ -62,6 +62,7 @@ Rails.application.routes.draw do
         get '', as: 'jobs', to: 'jobs#index', format: false
         post ':id/toggle', as: 'toggle_job', to: 'jobs#toggle', format: false
       end
+      resources :backups, only: [:index, :create]
     end
 
     mount GrapeSwaggerRails::Engine => '/docs'
