@@ -24,6 +24,10 @@ module API
             User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
           end
 
+          def is_admin?
+            error!('403 Forbidden', 403) unless current_user.admin?
+          end
+
           def logger
             Rails.logger
           end
