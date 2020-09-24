@@ -8,16 +8,16 @@ module Backup
     def initialize
       @config = YAML.load(ERB.new(File.read(File.join(Rails.root, 'config', 'database.yml'))).result)[Rails.env]
       {
-          'username' => 'PGUSER',
-          'host' => 'PGHOST',
-          'port' => 'PGPORT',
-          'password' => 'PGPASSWORD'
+        'username': 'PGUSER',
+        'host': 'PGHOST',
+        'port': 'PGPORT',
+        'password': 'PGPASSWORD'
       }.each { |opt, arg| ENV[arg] = config[opt].to_s if config[opt] }
     end
 
     def dump
       compress_rd, compress_wr = IO.pipe
-      compress_pid = spawn("gzip -c -1", in: compress_rd, out: ["#{backup_path}/#{dump_file}", 'w', 0600])
+      compress_pid = spawn("gzip -c -1", in: compress_rd, out: ["#{backup_path}/#{dump_file}", 'w', 00600])
       compress_rd.close
 
       dump_pid = Process.spawn('pg_dump', '--clean', '--if-exists', config['database'], out: compress_wr)
@@ -32,6 +32,7 @@ module Backup
     end
 
     private
+
     def dump_file
       @dump_file ||= "#{Time.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql"
     end

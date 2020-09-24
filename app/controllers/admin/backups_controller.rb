@@ -1,6 +1,5 @@
 module Admin
   class BackupsController < ApplicationController
-
     def index
       @backups = Backup::Manager.new.list_backups
     end

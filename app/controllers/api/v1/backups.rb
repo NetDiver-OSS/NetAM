@@ -9,13 +9,13 @@ module API
       before do
         doorkeeper_authorize!
         authorize_route!
-        is_admin?
+        admin?
       end
 
       resource :backups do
         desc 'Return all backups'
         get '', root: 'backup' do
-          render :backups => Backup::Manager.new.list_backups
+          render backups: Backup::Manager.new.list_backups
         end
 
         desc 'Create a backup'
