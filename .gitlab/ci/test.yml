@@ -10,7 +10,7 @@ ruby:test:
     POSTGRES_HOST_AUTH_METHOD: trust
     SIDEKIQ_PARALLEL: 10
   script:
-    - apk add --no-cache build-base bash linux-headers tzdata postgresql-dev yarn npm libc6-compat
+    - apk add --no-cache build-base bash linux-headers tzdata postgresql-dev yarn npm libc6-compat postgresql-client
     - bundle install
     - rails db:migrate RAILS_ENV=test
     - rails db:seed RAILS_ENV=test

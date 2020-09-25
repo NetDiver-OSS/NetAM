@@ -1,0 +1,18 @@
+- page_title "Admin Backups"
+- page_action({icon: '<i class="fas fa-save"></i>', path: admin_backups_path, method: 'post'})
+
+
+%div.card{class: "card #{'bg-dark text-white' if dark_mode?}"}
+  %div.card-header
+    %h3.card-title Backup list
+  %div.card-body.p-0
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th Name
+          %th
+      %tbody
+        - @backups.each do |backup|
+          %tr
+            %td= backup
+            %td

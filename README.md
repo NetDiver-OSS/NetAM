@@ -59,6 +59,12 @@ All application configuration is set into `config/netam.yml`
 | ------ | -------------------- | --------------- | 
 | sentry | SENTRY_DSN           | Sentry full DSN |
 
+### Backup
+
+| name   | environment variable | default value  | description     |
+| ------ | -------------------- | -------------- | --------------- | 
+| path   | BACKUP_PATH          | /backups       | Backup path     |
+
 ### Otp
 
 | name   | environment variable | default value                    | description     |
