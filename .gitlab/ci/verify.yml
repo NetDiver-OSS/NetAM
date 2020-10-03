@@ -4,4 +4,4 @@ danger:verify:
     - apk add --no-cache git
     - gem install danger-gitlab
     - gem install rubocop danger-rubocop
-    - danger --fail-on-errors=false --verbose
+    - danger --verbose
