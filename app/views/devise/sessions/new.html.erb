@@ -31,6 +31,14 @@
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">
+          <%= f.password_field :otp_attempt, placeholder: 'TOTP (if enabled)', class: "form-control" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-fingerprint"></span>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12">
             <%= f.submit "Log in with Email", class: "btn btn-primary btn-block" %>

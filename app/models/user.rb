@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :omniauthable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable,
-         :omniauthable, omniauth_providers: [:ldap]
+         :two_factor_authenticatable, :two_factor_backupable,
+         omniauth_providers: [:ldap], otp_secret_encryption_key: Rails.configuration.netam.dig(:otp, :secret),
+         otp_number_of_backup_codes: 10
 
   default_scope -> { order(id: :asc) }
   has_many :permissions

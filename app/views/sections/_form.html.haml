@@ -5,26 +5,32 @@
         %div{class: "callout callout-danger #{'bg-dark text-white' if dark_mode?}"}
           %p= message
     %div.row
-      %div.col-4
+      %div.col-6
         %div.input-group.mb-3
           %div.input-group-prepend
             %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-pencil-alt
           = form.text_field :name, placeholder: 'My home network', class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
-      %div.col-4
+      %div.col-6
         %div.input-group.mb-3
           %div.input-group-prepend
             %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-network-wired
           = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
-      %div.col-4
+      %div.col-6
+        = form.label :schedule
         %div.input-group.mb-3
           %div.input-group-prepend
             %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-clock
           = form.text_field :schedule, placeholder: 'every 24 hours', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+
+      %div.col-6
+        %div.form-group
+          = form.label :vlan_id
+          = form.select :vlan_id, @vlan_list, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
 
     %div.row
       %div.col-12
@@ -33,6 +39,6 @@
 
   %div.card-footer
     %div.form-check.float-left.mt-2
-      = form.check_box :run_scan, checked: true, class: 'form-check-input'
+      = form.check_box :run_scan, checked: false, class: 'form-check-input'
       = form.label :run_scan, 'Run scan after creation', class: 'form-check-label'
     = form.submit nil, class: 'btn btn-primary float-right'

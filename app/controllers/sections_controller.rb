@@ -1,10 +1,11 @@
 class SectionsController < ApplicationController
   load_and_authorize_resource
   before_action :set_permissions, only: [:edit]
+  before_action :set_vlan, only: %i[new create edit]
 
   # GET /sections
   def index
-    @sections = Section.all
+    @sections = Section.all.filter { |section| can? :read, section }
   end
 
   # GET /sections/1
@@ -92,8 +93,12 @@ class SectionsController < ApplicationController
     @permissions = Permission.where(subject_class: 'Section', subject_id: @section.id)
   end
 
+  def set_vlan
+    @vlan_list = Vlan.all.order(:vid).filter { |vlan| can? :read, vlan }.pluck(:name, :id)
+  end
+
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network, :schedule, :run_scan)
+    params.require(:section).permit(:name, :description, :network, :schedule, :vlan_id, :run_scan)
   end
 end

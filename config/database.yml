@@ -5,7 +5,7 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= Rails.configuration.netam[:db][:pool] %>
   host: <%= Rails.configuration.netam[:db][:host] %>
-  port: <%= Rails.configuration.netam[:db][:porst] %>
+  port: <%= Rails.configuration.netam[:db][:port] %>
   username: <%= Rails.configuration.netam[:db][:username] %>
   password: <%= Rails.configuration.netam[:db][:password] %>
   database: <%= Rails.configuration.netam[:database] %>

@@ -34,6 +34,9 @@ default: &default
     threads: <%= ENV.fetch("SIDEKIQ_MAX_THREADS") { 5 } %>
     parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 10 } %>
 
+  otp:
+    secret: <%= ENV.fetch("OTP_SECRET") { 'ch@ngeMech@ngeMech@ngeMech@ngeMe' } %>
+
 development:
   <<: *default
   database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>

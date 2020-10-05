@@ -10,21 +10,20 @@
         %th{style: "width: 30%"}
     %tbody
       - @sections.each do |section|
-        - if can? :read, section
-          %tr
-            %td
-              %a= section.name
-              %br
-              %small= section.network
-            %td.project_progress
-              %div.progress.progress-sm
-                %div.progress-bar.bg-green{role: 'progressbar', style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / IPAddress(section.network).size }%"} Used
-                %div.progress-bar.bg-danger{role: 'progressbar', style: "width: #{section.usages.down.count * 100 / IPAddress(section.network).size }%"} Down
-                %div.progress-bar.bg-purple{role: 'progressbar', style: "width: #{section.usages.dhcp.count * 100 / IPAddress(section.network).size }%"} Reserved
-            %td.project-actions.text-right
-              %div.btn-group
-                = link_to '<i class="fas fa-folder"></i> View'.html_safe, section, class: 'btn btn-primary btn-sm'
-                = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_scan_path(section), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, section
+        %tr
+          %td
+            %a= section.name
+            %br
+            %small= section.network
+          %td.project_progress
+            %div.progress.progress-sm
+              %div.progress-bar.bg-green{role: 'progressbar', style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / IPAddress(section.network).size }%"} Used
+              %div.progress-bar.bg-danger{role: 'progressbar', style: "width: #{section.usages.down.count * 100 / IPAddress(section.network).size }%"} Down
+              %div.progress-bar.bg-purple{role: 'progressbar', style: "width: #{section.usages.dhcp.count * 100 / IPAddress(section.network).size }%"} Reserved
+          %td.project-actions.text-right
+            %div.btn-group
+              = link_to '<i class="fas fa-folder"></i> View'.html_safe, section, class: 'btn btn-primary btn-sm'
+              = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_scan_path(section), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, section
 
-                = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_path(section), class: 'btn btn-info btn-sm' if can? :edit, section
-                = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'} if can? :destroy, section
+              = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_path(section), class: 'btn btn-info btn-sm' if can? :edit, section
+              = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'} if can? :destroy, section

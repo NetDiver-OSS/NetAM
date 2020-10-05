@@ -2,6 +2,8 @@ module API
   module V1
     class Base < Grape::API
       mount API::V1::Sections
+      mount API::V1::Vlans
+      mount API::V1::Backups
 
       add_swagger_documentation(
         api_version: "v1",

@@ -8,8 +8,8 @@
 
     %div#navbarCollapse.collapse.navbar-collapse.order-3
       %ul.navbar-nav
-        %li.nav-item= link_to 'Home', root_path, class: 'nav-link'
         %li.nav-item= link_to 'Sections', sections_path, class: 'nav-link'
+        %li.nav-item= link_to 'Vlans', vlans_path, class: 'nav-link'
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Utils
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
@@ -22,6 +22,7 @@
             %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
               %li= link_to '<i class="fas fa-users"></i> Users'.html_safe, admin_users_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
               %li= link_to '<i class="fas fa-tools"></i> Jobs'.html_safe, admin_jobs_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
+              %li= link_to '<i class="fas fa-save"></i> Backups'.html_safe, admin_backups_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
 
         %li.nav-item
           = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
@@ -32,6 +33,7 @@
             %i.fas.fa-user
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
             %li
-              %span{class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"}= current_user.email unless current_user.nil?
+              = link_to current_user&.email, edit_user_registration_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
+              = link_to 'Two Factor Auth', account_two_factor_auths_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
               %div.dropdown-divider
               = link_to '<i class="fas fa-sign-out-alt"></i> Logout'.html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"

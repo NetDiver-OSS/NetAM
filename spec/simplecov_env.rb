@@ -31,6 +31,7 @@ module SimpleCovEnv
 
       add_filter 'config/'
       add_filter 'lib/netam.rb'
+      add_filter 'lib/backup.rb'
       add_filter 'app/controllers/setup_controller.rb'
       add_filter 'app/controllers/callbacks_controller.rb'
 
@@ -39,7 +40,7 @@ module SimpleCovEnv
       add_group 'Mailers', 'app/mailers'
       add_group 'Models', 'app/models'
       add_group 'Serializers', 'app/serializers'
-      add_group 'Workers', 'app/jobs'
+      add_group 'Workers', ['app/jobs', 'app/workers']
       add_group 'Libraries', '/lib'
 
       merge_timeout 365.days

@@ -13,12 +13,14 @@ Rails.application.routes.draw do
     confirmation: 'verification',
     unlock: 'unblock',
     registration: 'register',
-    sign_up: 'cmon_let_me_in'
+    sign_up: ''
   }, controllers: { omniauth_callbacks: "callbacks" }
 
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications
   end
+
+  resources :vlans
 
   resources :sections, format: false do
     post 'scan', as: 'scan', to: 'sections#scan', format: false
@@ -30,7 +32,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :permissions, except: [:show]
+  namespace :account do
+    resources :two_factor_auths, only: [:index, :create] do
+      collection do
+        delete :destroy
+      end
+    end
+  end
+
+  resources :permissions, except: [:index, :show]
 
   scope 'utils' do
     get 'calculator', as: 'calculator', to: 'utils#calculator', format: false
@@ -52,6 +62,7 @@ Rails.application.routes.draw do
         get '', as: 'jobs', to: 'jobs#index', format: false
         post ':id/toggle', as: 'toggle_job', to: 'jobs#toggle', format: false
       end
+      resources :backups, only: [:index, :create]
     end
 
     mount GrapeSwaggerRails::Engine => '/docs'
