@@ -15,7 +15,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'hamlit', '~> 2.11'
 gem 'rqrcode', '~> 1.1', '>= 1.1.2'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.2.0'
 
 # Rails Delayed Jobs
 gem 'sidekiq', '~>6.1.1'
