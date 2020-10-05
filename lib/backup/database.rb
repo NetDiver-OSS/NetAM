@@ -12,7 +12,7 @@ module Backup
         'host': 'PGHOST',
         'port': 'PGPORT',
         'password': 'PGPASSWORD'
-      }.each { |opt, arg| ENV[arg] = config[opt].to_s if config[opt] }
+      }.each { |opt, arg| ENV[arg] = config[opt.to_s].to_s if config[opt.to_s] }
     end
 
     def dump
@@ -34,7 +34,7 @@ module Backup
     private
 
     def dump_file
-      @dump_file ||= "#{Time.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql"
+      @dump_file ||= "#{Time.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql.gz"
     end
   end
 end
