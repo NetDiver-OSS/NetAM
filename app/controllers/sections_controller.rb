@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
 
     @chart_label = '["Locked", "Up", "Down", "Free", "DHCP"]'.html_safe
     @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
-    @chart_color = '["#838383", "#16ab39", "#db2828", "#2185d0", "#9627ba"]'.html_safe
+    @chart_color = '["#2185d0", "#16ab39", "#db2828", "#838383", "#9627ba"]'.html_safe
   end
 
   # POST /sections/1/scan
