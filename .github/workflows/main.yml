@@ -1,0 +1,107 @@
+name: Ruby On Rails
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:12.2-alpine
+        env:
+          POSTGRES_DB: netam_test
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: password
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432:5432
+      redis:
+        image: redis:alpine
+        ports:
+          - 6379:6379
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: '2.7.2'
+          bundler-cache: true
+      - name: Run tests
+        run: |
+          bundle exec rails db:migrate
+          bundle exec rails db:seed
+          bundle exec rails assets:precompile
+          bundle exec rake
+        env:
+          RAILS_ENV: test
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@master
+        with:
+          name: code-coverage-report
+          path: coverage
+
+  rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.7
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Cache gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-rubocop-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-rubocop-
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle config set without 'default'
+          bundle install --jobs 4 --retry 3
+      - name: Run RuboCop
+        run: bundle exec rubocop --format=json --out=rubocop-result.json --parallel
+      - name: Archive rubocop results
+        uses: actions/upload-artifact@master
+        with:
+          name: rubocop-report
+          path: rubocop-result.json
+
+
+  sonarCloudTrigger:
+    needs:
+      - test
+      - rubocop
+    name: SonarCloud Trigger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Download code coverage results
+        uses: actions/download-artifact@master
+        with:
+          name: code-coverage-report
+          path: coverage
+      - name: Download rubocop results
+        uses: actions/download-artifact@master
+        with:
+          name: rubocop-report
+          path: rubocop-result.json
+      - name: Clean coverage file
+        run: sed -i 's,/home/runner/work/NetAM/NetAM/,/github/workspace/,g' coverage/.resultset.json
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
