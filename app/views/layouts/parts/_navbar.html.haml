@@ -11,7 +11,7 @@
         %li.nav-item= link_to 'Sections', sections_path, class: 'nav-link'
         %li.nav-item= link_to 'Vlans', vlans_path, class: 'nav-link'
         %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}} Utils
+          %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}= _('Utils')
           %ul{class: "dropdown-menu border-0 shadow #{'bg-dark text-white' if dark_mode?}"}
             %li= link_to '<i class="fas fa-server"></i> IP Calculator'.html_safe, calculator_path, class: "dropdown-item #{'bg-dark text-white' if dark_mode?}"
 
