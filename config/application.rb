@@ -26,6 +26,9 @@ module NetAM
     # Autoload lib/ folder including all subdirectories
     config.eager_load_paths << Rails.root.join('lib')
 
+    config.i18n.enforce_available_locales = false
+    config.i18n.fallbacks = [:en]
+
     config.action_view.field_error_proc = Proc.new do |html_tag, _|
       html_tag.html_safe
     end

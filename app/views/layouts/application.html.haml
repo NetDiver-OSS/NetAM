@@ -1,5 +1,5 @@
 !!! 5
-%html{lang: "en"}
+%html{lang: I18n.locale}
   %head
     %meta{charset: "utf-8"}
     %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
@@ -32,7 +32,7 @@
                   %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
                   %h5
                     %i.icon.fas.fa-info
-                    Notice
+                    = _('Notice')
                   = notice
 
 
@@ -41,7 +41,7 @@
                   %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
                   %h5
                     %i.icon.fas.fa-ban
-                    Error
+                    = _('Error')
                   = alert
 
             %div.container
