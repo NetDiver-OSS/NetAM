@@ -1,13 +1,13 @@
-- page_title "Vlans"
+- page_title _('Vlans')
 - page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_vlan_path})
 
 %section
   %table.table.table-striped.projects.datatable
     %thead
       %tr
-        %th{style: "width: 10%"} Vlan ID
-        %th{style: "width: 20%"} Name
-        %th{style: "width: 40%"} Description
+        %th{style: "width: 10%"}= _('Vlan ID')
+        %th{style: "width: 20%"}= _('Name')
+        %th{style: "width: 40%"}= _('Description')
         %th{style: "width: 30%"}
     %tbody
       - @vlans.each do |vlan|
@@ -17,6 +17,6 @@
           %td= vlan.description
           %td.project-actions.text-right
             %div.btn-group
-              = link_to '<i class="fas fa-folder"></i> View'.html_safe, vlan, class: 'btn btn-primary btn-sm'
-              = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_vlan_path(vlan), class: 'btn btn-info btn-sm' if can? :edit, vlan
-              = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, vlan, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'} if can? :destroy, vlan
+              = link_to fa_icon_with_text('fas fa-folder', _('View')), vlan, class: 'btn btn-primary btn-sm'
+              = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_vlan_path(vlan), class: 'btn btn-info btn-sm' if can? :edit, vlan
+              = link_to fa_icon_with_text('fas fa-trash', _('Delete')), vlan, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')} if can? :destroy, vlan

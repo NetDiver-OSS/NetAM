@@ -2,7 +2,7 @@
   %div.col-12
     %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
       %div.card-header
-        %h3.card-title Permission for #{permission.name}
+        %h3.card-title= _('Permission for %{name}') % { name: permission.name }
 
       %div.card-body
         %table.table.table-responsive.datatable
@@ -18,26 +18,26 @@
                 - controller.action_methods.sort.each do |method|
                   %td
                     - if Ability.new(user).can? method.to_sym, permission
-                      %span.badge.bg-success YES
+                      %span.badge.bg-success= _('YES')
                     - else
-                      %span.badge.bg-danger NO
+                      %span.badge.bg-danger= _('NO')
 
     %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
       %div.card-header
         %div.row
           %div.col-6.card-title
-            %h3 All Permissions
+            %h3= _('All Permissions')
           %div.col-6
-            = link_to 'Add permission', new_permission_path(subject_class: controller.controller_name.singularize.capitalize, subject_id: permission.id), class: 'btn bt-sm btn-primary float-right'
+            = link_to _('Add permission'), new_permission_path(subject_class: controller.controller_name.singularize.capitalize, subject_id: permission.id), class: 'btn bt-sm btn-primary float-right'
       %div.card-body.p-0
         %table.table.table-condensed
           %thead
             %tr
               %th{style: "width: 10px"} #
-              %th User Email
-              %th Subject
-              %th Subject ID
-              %th Action
+              %th= _('User Email')
+              %th= _('Subject')
+              %th= _('Subject ID')
+              %th= _('Action')
               %th{style: "width: 15%"}
           %tbody
             - @permissions.each do |permission|
@@ -48,7 +48,7 @@
                 %td= permission.subject_id
                 %td= permission.action
                 %td
-                  = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_permission_path(permission), class: 'btn btn-info btn-sm'
-                  = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, permission_path(permission), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: 'Are you sure?'}
+                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_permission_path(permission), class: 'btn btn-info btn-sm'
+                  = link_to fa_icon_with_text('fas fa-trash', _('Delete')), permission_path(permission), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')}
 
 

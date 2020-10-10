@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 13:46+0200\n"
-"PO-Revision-Date: 2020-10-10 13:46+0200\n"
+"POT-Creation-Date: 2020-10-15 11:49+0200\n"
+"PO-Revision-Date: 2020-10-15 11:49+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -18,31 +18,277 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+msgid "ACTIVED"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Activated"
+msgstr ""
+
+msgid "Add Permission"
+msgstr ""
+
+msgid "Add permission"
+msgstr ""
+
+msgid "Address Matrix"
+msgstr ""
+
+msgid "Address Table"
+msgstr ""
+
+msgid "Admin Backups"
+msgstr ""
+
 msgid "Admin Center"
+msgstr ""
+
+msgid "Admin Jobs"
+msgstr ""
+
+msgid "All Permissions"
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Available IP"
+msgstr ""
+
+msgid "Backup list"
 msgstr ""
 
 msgid "Backups"
 msgstr ""
 
+msgid "Boot time"
+msgstr ""
+
+msgid "Broadcast"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "Calculate"
+msgstr ""
+
+msgid "Choose file"
+msgstr ""
+
+msgid "DHCP"
+msgstr ""
+
+msgid "DOWN"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Down"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Editing Permission"
+msgstr ""
+
+msgid "Editing Section"
+msgstr ""
+
+msgid "Editing Usage"
+msgstr ""
+
+msgid "Editing User"
+msgstr ""
+
+msgid "Editing Vlan"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
 msgid "Error"
+msgstr ""
+
+msgid "FQDN"
+msgstr ""
+
+msgid "First IP"
+msgstr ""
+
+msgid "Free IP"
+msgstr ""
+
+msgid "Homepage"
+msgstr ""
+
+msgid "IP Address"
 msgstr ""
 
 msgid "IP Calculator"
 msgstr ""
 
+msgid "IP calculator"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import usages with CSV"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
 msgid "Jobs"
+msgstr ""
+
+msgid "LOCKED"
+msgstr ""
+
+msgid "Last IP"
+msgstr ""
+
+msgid "Load Average"
+msgstr ""
+
+msgid "Locked"
 msgstr ""
 
 msgid "Logout"
 msgstr ""
 
+msgid "Mask"
+msgstr ""
+
+msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
+
+msgid "My home network"
+msgstr ""
+
+msgid "NO"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "New Section"
+msgstr ""
+
+msgid "New Usage"
+msgstr ""
+
+msgid "New User"
+msgstr ""
+
+msgid "New Vlan"
+msgstr ""
+
 msgid "Notice"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password confirmation"
+msgstr ""
+
+msgid "Permission for %{name}"
+msgstr ""
+
+msgid "Recovery codes"
+msgstr ""
+
+msgid "Requirements"
+msgstr ""
+
+msgid "Reserved"
+msgstr ""
+
+msgid "Scan"
+msgstr ""
+
+msgid "Scan Queued"
+msgstr ""
+
+msgid "Scan complete"
+msgstr ""
+
+msgid "Scan in progress"
+msgstr ""
+
+msgid "Section"
 msgstr ""
 
 msgid "Sections"
 msgstr ""
 
+msgid "Sections linked to %{name} (#%{vid})"
+msgstr ""
+
+msgid "Setup"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "State available are :"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Subject ID"
+msgstr ""
+
+msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
+msgstr ""
+
 msgid "Two Factor Auth"
+msgstr ""
+
+msgid "Two Factor Authentication"
+msgstr ""
+
+msgid "Two Factor Authentication Manager"
+msgstr ""
+
+msgid "Unknown state"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "User Email"
 msgstr ""
 
 msgid "Users"
@@ -51,5 +297,20 @@ msgstr ""
 msgid "Utils"
 msgstr ""
 
+msgid "View"
+msgstr ""
+
+msgid "Vlan ID"
+msgstr ""
+
 msgid "Vlans"
+msgstr ""
+
+msgid "YES"
+msgstr ""
+
+msgid "Youhou !"
+msgstr ""
+
+msgid "every 24 hours"
 msgstr ""
