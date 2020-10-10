@@ -9,6 +9,10 @@ class Section < ApplicationRecord
 
   attr_accessor :run_scan
 
+  has_settings do |s|
+    s.key :notification
+  end
+
   after_save do |section|
     schedule_name = "section:#{section.id}"
     Sidekiq::Cron::Job.destroy(schedule_name)
