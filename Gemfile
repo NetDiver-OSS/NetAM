@@ -56,7 +56,7 @@ group :development, :test do
 
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem "rspec-rails", "~> 4.0"
-  gem 'simplecov', '= 0.17.1'
+  gem 'simplecov', '= 0.19.0'
   gem 'simplecov-cobertura', '~> 1.3', '>= 1.3.1'
 
   gem 'rubocop', '~> 0.88.0'
