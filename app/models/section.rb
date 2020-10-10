@@ -13,7 +13,7 @@ class Section < ApplicationRecord
     schedule_name = "section:#{section.id}"
     Sidekiq::Cron::Job.destroy(schedule_name)
 
-    unless section.schedule.nil? || section.schedule.empty?
+    unless section.schedule?
       Sidekiq::Cron::Job.new(
         name: schedule_name,
         class: 'ScanNetworkWithPingJob',
