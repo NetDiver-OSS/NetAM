@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   namespace :account do
     resources :two_factor_auths, only: [:index, :create] do
       collection do
+        post :validate
         delete :destroy
       end
     end
