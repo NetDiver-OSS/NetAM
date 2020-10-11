@@ -1,7 +1,0 @@
-danger:verify:
-  stage: .pre
-  script:
-    - apk add --no-cache git
-    - gem install danger-gitlab
-    - gem install rubocop danger-rubocop
-    - danger --verbose
