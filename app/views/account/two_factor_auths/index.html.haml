@@ -1,3 +1,5 @@
+= render 'validate_topt' if current_user.otp_pending?
+
 %div.row
   %div.col-6
     %div.card{class: "#{'bg-dark text-white' if dark_mode?}"}
@@ -5,10 +7,9 @@
         %h3.card-title Two Factor Authentication
       %div.card-body.text-center
         - if current_user.otp_required_for_login
-          - uri = current_user.otp_provisioning_uri("NetAM:#{current_user.email}", issuer: 'NetAM')
-          = RQRCode::QRCode.new(uri).as_svg(standalone: true, module_size: 5).html_safe
+          = @qrcode.html_safe
           %div.text-center
-            = current_user.otp_secret
+            Secret: #{current_user.otp_secret}
 
   %div.col-6
     %div.card{class: "#{'bg-dark text-white' if dark_mode?}"}
