@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-15 11:49+0200\n"
-"PO-Revision-Date: 2020-10-15 12:13\n"
+"PO-Revision-Date: 2020-10-15 13:09\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -33,19 +33,19 @@ msgid "Add permission"
 msgstr "Ajouter une Permission"
 
 msgid "Address Matrix"
-msgstr ""
+msgstr "Matrice d'adresses"
 
 msgid "Address Table"
-msgstr ""
+msgstr "Table d'adresses"
 
 msgid "Admin Backups"
-msgstr ""
+msgstr "Sauvegardes de l'administrateur"
 
 msgid "Admin Center"
 msgstr "Centre d'administration"
 
 msgid "Admin Jobs"
-msgstr ""
+msgstr "Administration des tâches"
 
 msgid "All Permissions"
 msgstr "Toutes les permissions"
@@ -63,16 +63,16 @@ msgid "Backups"
 msgstr "Sauvegardes"
 
 msgid "Boot time"
-msgstr ""
+msgstr "Dernier redémarrage"
 
 msgid "Broadcast"
-msgstr ""
+msgstr "Diffusion"
 
 msgid "CPU"
 msgstr "CPU"
 
 msgid "Calculate"
-msgstr ""
+msgstr "Calculer"
 
 msgid "Choose file"
 msgstr "Choisir un fichier"
@@ -132,7 +132,7 @@ msgid "FQDN"
 msgstr "FQDN"
 
 msgid "First IP"
-msgstr ""
+msgstr "Première IP"
 
 msgid "Free IP"
 msgstr "IP libre"
@@ -156,22 +156,22 @@ msgid "Import usages with CSV"
 msgstr "Importer les utilisations au format CSV"
 
 msgid "Job"
-msgstr ""
+msgstr "Tâche"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Tâches"
 
 msgid "LOCKED"
 msgstr "VERROUILLÉ"
 
 msgid "Last IP"
-msgstr ""
+msgstr "Dernière IP"
 
 msgid "Load Average"
 msgstr "Charge moyenne"
 
 msgid "Locked"
-msgstr ""
+msgstr "Verrouillé"
 
 msgid "Logout"
 msgstr "Déconnecter"
@@ -180,7 +180,7 @@ msgid "Mask"
 msgstr "Masque"
 
 msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
-msgstr ""
+msgstr "Utilisations massives d'importation par injections csv. Vous devez avoir un format CSV avec l'en-tête suivant :"
 
 msgid "Memory"
 msgstr "Mémoire"
@@ -189,128 +189,128 @@ msgid "My home network"
 msgstr "Mon réseau personnel"
 
 msgid "NO"
-msgstr ""
+msgstr "NON"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "Network"
-msgstr ""
+msgstr "Réseau"
 
 msgid "New Section"
-msgstr ""
+msgstr "Nouvelle Section"
 
 msgid "New Usage"
-msgstr ""
+msgstr "Nouvelle Utilisation"
 
 msgid "New User"
-msgstr ""
+msgstr "Nouvel Utilisateur"
 
 msgid "New Vlan"
-msgstr ""
+msgstr "Nouveaux Vlan"
 
 msgid "Notice"
-msgstr ""
+msgstr "Notification"
 
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 msgid "Password confirmation"
-msgstr ""
+msgstr "Confirmation du mot de passe"
 
 msgid "Permission for %{name}"
-msgstr ""
+msgstr "Permission pour %{name}"
 
 msgid "Recovery codes"
-msgstr ""
+msgstr "Code de récupération"
 
 msgid "Requirements"
-msgstr ""
+msgstr "Prérequis"
 
 msgid "Reserved"
-msgstr ""
+msgstr "Réservée"
 
 msgid "Scan"
-msgstr ""
+msgstr "Scanner"
 
 msgid "Scan Queued"
-msgstr ""
+msgstr "Scan en attente"
 
 msgid "Scan complete"
-msgstr ""
+msgstr "Scan terminé"
 
 msgid "Scan in progress"
-msgstr ""
+msgstr "Scan en cours"
 
 msgid "Section"
-msgstr ""
+msgstr "Section"
 
 msgid "Sections"
-msgstr ""
+msgstr "Sections"
 
 msgid "Sections linked to %{name} (#%{vid})"
-msgstr ""
+msgstr "Sections liées à %{name} (#%{vid})"
 
 msgid "Setup"
-msgstr ""
+msgstr "Configuration"
 
 msgid "State"
-msgstr ""
+msgstr "État"
 
 msgid "State available are :"
-msgstr ""
+msgstr "L'État disponible est :"
 
 msgid "Subject"
-msgstr ""
+msgstr "Sujet"
 
 msgid "Subject ID"
-msgstr ""
+msgstr "ID du sujet"
 
 msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr ""
+msgstr "Cette section est liée au Vlan %{name} avec l'ID Vlan : %{vid}"
 
 msgid "Two Factor Auth"
-msgstr ""
+msgstr "Authentification à deux facteurs"
 
 msgid "Two Factor Authentication"
-msgstr ""
+msgstr "Authentification à deux facteurs"
 
 msgid "Two Factor Authentication Manager"
-msgstr ""
+msgstr "Gestionnaire d'authentification à deux facteurs"
 
 msgid "Unknown state"
-msgstr ""
+msgstr "État inconnu"
 
 msgid "Usage"
-msgstr ""
+msgstr "Utilisation"
 
 msgid "Used"
-msgstr ""
+msgstr "Utilisé"
 
 msgid "User Email"
-msgstr ""
+msgstr "E-mail de l'utilisateur"
 
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 msgid "Utils"
 msgstr "Outils"
 
 msgid "View"
-msgstr ""
+msgstr "Vue"
 
 msgid "Vlan ID"
-msgstr ""
+msgstr "ID du Vlan"
 
 msgid "Vlans"
-msgstr ""
+msgstr "Vlans"
 
 msgid "YES"
-msgstr ""
+msgstr "OUI"
 
 msgid "Youhou !"
-msgstr ""
+msgstr "Youhou !"
 
 msgid "every 24 hours"
-msgstr ""
+msgstr "toutes les 24 heures"
 
