@@ -43,7 +43,7 @@
             - @permissions.each do |permission|
               %tr
                 %td= permission.id
-                %td= permission.user.email
+                %td= permission.user_email
                 %td= permission.subject_class
                 %td= permission.subject_id
                 %td= permission.action

@@ -16,7 +16,7 @@ module Admin
         flash[:notice] = 'Successfully created User.'
         redirect_to admin_users_path
       else
-        render action: 'new'
+        render :new
       end
     end
 
@@ -33,7 +33,7 @@ module Admin
         flash[:notice] = 'Successfully updated User.'
         redirect_to admin_users_path
       else
-        render action: 'edit'
+        render :edit
       end
     end
 
