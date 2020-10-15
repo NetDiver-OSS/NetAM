@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsagesHelper, type: :helper do
   describe '#usage_color' do
     it "should return green if usage is locked" do
-      expect(helper.usage_color('locked')).to eq('green')
+      expect(helper.usage_color('locked')).to eq('blue')
     end
     it "should return green if usage is actived" do
       expect(helper.usage_color('actived')).to eq('green')
@@ -15,7 +15,7 @@ RSpec.describe UsagesHelper, type: :helper do
       expect(helper.usage_color('dhcp')).to eq('purple')
     end
     it "should return grey by default" do
-      expect(helper.usage_color('qdsgqsdgdsq')).to eq('grey')
+      expect(helper.usage_color('invalid_state')).to eq('gray')
     end
   end
 
