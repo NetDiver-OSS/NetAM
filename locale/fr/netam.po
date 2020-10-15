@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-15 11:49+0200\n"
-"PO-Revision-Date: 2020-10-15 09:55\n"
+"PO-Revision-Date: 2020-10-15 12:13\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -18,19 +18,19 @@ msgstr ""
 "X-Crowdin-File-ID: 8\n"
 
 msgid "ACTIVED"
-msgstr ""
+msgstr "ACTIF"
 
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 msgid "Activated"
-msgstr ""
+msgstr "Activé"
 
 msgid "Add Permission"
-msgstr ""
+msgstr "Ajouter une Permission"
 
 msgid "Add permission"
-msgstr ""
+msgstr "Ajouter une Permission"
 
 msgid "Address Matrix"
 msgstr ""
@@ -42,25 +42,25 @@ msgid "Admin Backups"
 msgstr ""
 
 msgid "Admin Center"
-msgstr ""
+msgstr "Centre d'administration"
 
 msgid "Admin Jobs"
 msgstr ""
 
 msgid "All Permissions"
-msgstr ""
+msgstr "Toutes les permissions"
 
 msgid "Are you sure?"
-msgstr ""
+msgstr "Êtes-vous sûr?"
 
 msgid "Available IP"
-msgstr ""
+msgstr "IP disponible"
 
 msgid "Backup list"
-msgstr ""
+msgstr "Liste des sauvegardes"
 
 msgid "Backups"
-msgstr ""
+msgstr "Sauvegardes"
 
 msgid "Boot time"
 msgstr ""
@@ -69,76 +69,76 @@ msgid "Broadcast"
 msgstr ""
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "Calculate"
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "Choisir un fichier"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DOWN"
-msgstr ""
+msgstr "ÉTEINT"
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "Disable"
-msgstr ""
+msgstr "Désactiver"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Désactivé"
 
 msgid "Down"
-msgstr ""
+msgstr "Éteint"
 
 msgid "Edit"
-msgstr ""
+msgstr "Editer"
 
 msgid "Editing Permission"
-msgstr ""
+msgstr "Éditer les permissions"
 
 msgid "Editing Section"
-msgstr ""
+msgstr "Éditer la section"
 
 msgid "Editing Usage"
-msgstr ""
+msgstr "Editer l'utilisation"
 
 msgid "Editing User"
-msgstr ""
+msgstr "Éditer l'utilisateur"
 
 msgid "Editing Vlan"
-msgstr ""
+msgstr "Éditer Vlan"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activé"
 
 msgid "Error"
-msgstr ""
+msgstr "Erreur"
 
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 msgid "First IP"
 msgstr ""
 
 msgid "Free IP"
-msgstr ""
+msgstr "IP libre"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Page d'accueil"
 
 msgid "IP Address"
 msgstr "Adresse IP"
@@ -150,10 +150,10 @@ msgid "IP calculator"
 msgstr "Calculateur d'IP"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Import usages with CSV"
-msgstr ""
+msgstr "Importer les utilisations au format CSV"
 
 msgid "Job"
 msgstr ""
@@ -162,31 +162,31 @@ msgid "Jobs"
 msgstr ""
 
 msgid "LOCKED"
-msgstr ""
+msgstr "VERROUILLÉ"
 
 msgid "Last IP"
 msgstr ""
 
 msgid "Load Average"
-msgstr ""
+msgstr "Charge moyenne"
 
 msgid "Locked"
 msgstr ""
 
 msgid "Logout"
-msgstr ""
+msgstr "Déconnecter"
 
 msgid "Mask"
-msgstr ""
+msgstr "Masque"
 
 msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
 msgstr ""
 
 msgid "Memory"
-msgstr ""
+msgstr "Mémoire"
 
 msgid "My home network"
-msgstr ""
+msgstr "Mon réseau personnel"
 
 msgid "NO"
 msgstr ""
