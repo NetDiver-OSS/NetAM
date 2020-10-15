@@ -37,6 +37,9 @@ default: &default
   otp:
     secret: <%= ENV.fetch("OTP_SECRET") { 'ch@ngeMech@ngeMech@ngeMech@ngeMe' } %>
 
+  notification:
+    slack_webhook: <%= ENV.fetch("SLACK_WEBHOOK") { nil } %>
+
 development:
   <<: *default
   database: <%= ENV.fetch("DB_NAME") { 'netam_development' } %>
