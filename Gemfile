@@ -68,7 +68,7 @@ group :development, :test do
   gem 'simplecov-cobertura', '~> 1.3', '>= 1.3.1'
 
   gem 'rubocop', '~> 0.88.0'
-  gem 'rubocop-performance', '~> 1.7'
+  gem 'rubocop-performance', '~> 1.8'
   gem 'rubocop-rspec', '~> 1.42'
 end
 
