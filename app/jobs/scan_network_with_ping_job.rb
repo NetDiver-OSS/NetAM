@@ -56,5 +56,12 @@ class ScanNetworkWithPingJob < ApplicationJob
     end
 
     Usage.upsert_all(section_to_update, unique_by: %i[identifier]) unless section_to_update.empty?
+
+    Notifications::SendService.call(
+      {
+        section: section,
+        message: 'Scan finished !'
+      }
+    ) if Section.find(section[:id]).settings(:notification).on_run
   end
 end

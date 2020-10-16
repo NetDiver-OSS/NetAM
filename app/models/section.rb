@@ -7,13 +7,17 @@ class Section < ApplicationRecord
 
   delegate :vid, :name, to: :vlan, prefix: true
 
-  attr_accessor :run_scan
+  attr_accessor :run_scan, :notification_run_scan
+
+  has_settings do |s|
+    s.key :notification, defaults: { on_run: false }
+  end
 
   after_save do |section|
     schedule_name = "section:#{section.id}"
     Sidekiq::Cron::Job.destroy(schedule_name)
 
-    unless section.schedule?
+    unless section.schedule.nil? || section.schedule.empty?
       Sidekiq::Cron::Job.new(
         name: schedule_name,
         class: 'ScanNetworkWithPingJob',
