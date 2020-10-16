@@ -9,6 +9,8 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=sqale_index)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
 
+[![Crowdin](https://badges.crowdin.net/netam/localized.svg)](https://crowdin.com/project/netam)
+
 ## Reference
 
 Refer to hackmd pad : [https://hackmd.app.svk.gs/DmYtN5z7SVWwzi2xQGbYSw](https://hackmd.app.svk.gs/DmYtN5z7SVWwzi2xQGbYSw)
