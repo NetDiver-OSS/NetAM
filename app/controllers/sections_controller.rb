@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
 
     @chart_label = '["Locked", "Up", "Down", "Free", "DHCP"]'.html_safe
     @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
-    @chart_color = '["#838383", "#16ab39", "#db2828", "#2185d0", "#9627ba"]'.html_safe
+    @chart_color = '["#2185d0", "#16ab39", "#db2828", "#838383", "#9627ba"]'.html_safe
   end
 
   # POST /sections/1/scan
@@ -58,6 +58,7 @@ class SectionsController < ApplicationController
       )
 
       job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network) if @section.run_scan == '1'
+      @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
 
       redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
     else
@@ -68,6 +69,7 @@ class SectionsController < ApplicationController
   # PATCH/PUT /sections/1
   def update
     if @section.update(section_params)
+      @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
       redirect_to @section, notice: 'Section was successfully updated.'
     else
       render :edit
@@ -99,6 +101,6 @@ class SectionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network, :schedule, :vlan_id, :run_scan)
+    params.require(:section).permit(:name, :description, :network, :schedule, :vlan_id, :run_scan, :notification_run_scan)
   end
 end

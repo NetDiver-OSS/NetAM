@@ -1,4 +1,6 @@
 - page_title "User: #{@user.email}"
+
+
 %div.row
   %div.col-md-3
     %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
@@ -16,7 +18,7 @@
           %table.table.table-responsive.datatable
             %thead
               %tr
-                %th Section
+                %th= _('Section')
                 - controller.constantize.action_methods.sort.each do |method|
                   %th= method
             %tbody
@@ -26,6 +28,6 @@
                   - controller.constantize.action_methods.sort.each do |method|
                     %td
                       - if Ability.new(@user).can? method.to_sym, model
-                        %span.badge.bg-success YES
+                        %span.badge.bg-success= _('YES')
                       - else
-                        %span.badge.bg-danger NO
+                        %span.badge.bg-danger= _('NO')

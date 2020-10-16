@@ -1,17 +1,20 @@
+= render 'validate_topt' if current_user.otp_pending?
+
 %div.row
   %div.col-6
     %div.card{class: "#{'bg-dark text-white' if dark_mode?}"}
       %div.card-header
-        %h3.card-title Two Factor Authentication
+        %h3.card-title= _('Two Factor Authentication')
       %div.card-body.text-center
         - if current_user.otp_required_for_login
-          - uri = current_user.otp_provisioning_uri("NetAM:#{current_user.email}", issuer: 'NetAM')
-          = RQRCode::QRCode.new(uri).as_svg(standalone: true, module_size: 5).html_safe
+          = @qrcode.html_safe
+          %div.text-center
+            = _('Secret: %{otp_secret}') % { otp_secret: current_user.otp_secret }
 
   %div.col-6
     %div.card{class: "#{'bg-dark text-white' if dark_mode?}"}
       %div.card-header
-        %h3.card-title Two Factor Authentication Manager
+        %h3.card-title= _('Two Factor Authentication Manager')
       %div.card-body.text-center
         - if current_user.otp_required_for_login
           = link_to 'Disable TOTP', account_two_factor_auths_path, method: :delete, class: 'btn btn-block btn-outline-danger'
@@ -22,6 +25,6 @@
     %div.col-12
       %div.card{class: "#{'bg-dark text-white' if dark_mode?}"}
         %div.card-header
-          %h3.card-title Recovery codes
+          %h3.card-title= _('Recovery codes')
         %div.card-body
           = render 'recovery_code', codes: @codes

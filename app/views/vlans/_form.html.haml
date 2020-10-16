@@ -18,7 +18,7 @@
       %div.col-12
         %div.form-group
           = form.label :description
-          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
+          = form.text_area :description, placeholder: _('Description'), class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

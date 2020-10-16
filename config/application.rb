@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module NetAM
   class Application < Rails::Application
     require_dependency Rails.root.join('lib/netam')
+    require_dependency Rails.root.join('lib/netam/translation')
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
@@ -25,6 +26,9 @@ module NetAM
 
     # Autoload lib/ folder including all subdirectories
     config.eager_load_paths << Rails.root.join('lib')
+
+    config.i18n.enforce_available_locales = false
+    config.i18n.fallbacks = FastGettext.default_locale
 
     config.action_view.field_error_proc = Proc.new do |html_tag, _|
       html_tag.html_safe

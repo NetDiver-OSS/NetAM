@@ -10,7 +10,7 @@
           %div.input-group-prepend
             %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-envelope
-          = form.text_field :email, placeholder: 'Email', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :email, placeholder: _('Email'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
     %div.row
       %div.col-6
@@ -18,14 +18,14 @@
           %div.input-group-prepend
             %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-key
-          = form.password_field :password, placeholder: 'Password', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.password_field :password, placeholder: _('Password'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
       %div.col-6
         %div.input-group.mb-3
           %div.input-group-prepend
             %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-key
-          = form.password_field :password_confirmation, placeholder: 'Password confirmation', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

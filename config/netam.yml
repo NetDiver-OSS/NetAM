@@ -19,7 +19,7 @@ default: &default
     db: <%= ENV.fetch("REDIS_DB") { 0 } %>
 
   db:
-    pool: <%= ENV.fetch("DB_MAX_THREADS") { 5 } %>
+    pool: <%= ENV.fetch("DB_MAX_THREADS") { 50 } %>
     host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
     port: <%= ENV.fetch("DB_PORT") { 5432 } %>
     username: <%= ENV.fetch("DB_USER") { 'admin' } %>
@@ -32,10 +32,13 @@ default: &default
 
   sidekiq:
     threads: <%= ENV.fetch("SIDEKIQ_MAX_THREADS") { 5 } %>
-    parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 10 } %>
+    parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 20 } %>
 
   otp:
     secret: <%= ENV.fetch("OTP_SECRET") { 'ch@ngeMech@ngeMech@ngeMech@ngeMe' } %>
+
+  notification:
+    slack_webhook: <%= ENV.fetch("SLACK_WEBHOOK") { nil } %>
 
 development:
   <<: *default

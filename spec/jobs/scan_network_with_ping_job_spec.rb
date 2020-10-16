@@ -10,6 +10,6 @@ RSpec.describe ScanNetworkWithPingJob, type: :job do
 
     section = Section.create!({ name: 'section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id })
 
-    expect(ScanNetworkWithPingJob.perform_now({ id: section, network: section.network })).to be_truthy
+    expect { ScanNetworkWithPingJob.perform_now({ id: section.id, network: section.network }) }.not_to raise_error
   end
 end
