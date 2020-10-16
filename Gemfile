@@ -27,8 +27,8 @@ gem 'ruby_parser', '~> 3.15', require: false
 
 # Rails Delayed Jobs
 gem 'sidekiq', '= 6.1.2'
-gem "sidekiq-cron", "~> 1.2"
-gem "sidekiq-status", "~> 1.1"
+gem "sidekiq-cron", "= 1.2"
+gem "sidekiq-status", "= 1.1.4"
 
 gem 'redis', '~> 4.0'
 gem 'redis-rack-cache'

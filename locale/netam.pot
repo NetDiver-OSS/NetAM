@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 11:49+0200\n"
-"PO-Revision-Date: 2020-10-15 11:49+0200\n"
+"POT-Creation-Date: 2020-10-16 23:45+0200\n"
+"PO-Revision-Date: 2020-10-16 23:45+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -141,6 +141,9 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
+msgid "Hosts per Subnet"
+msgstr ""
+
 msgid "IP Address"
 msgstr ""
 
@@ -166,6 +169,9 @@ msgid "LOCKED"
 msgstr ""
 
 msgid "Last IP"
+msgstr ""
+
+msgid "Last scan time: %{timestamp}"
 msgstr ""
 
 msgid "Load Average"
@@ -213,6 +219,9 @@ msgstr ""
 msgid "Notice"
 msgstr ""
 
+msgid "OTP code"
+msgstr ""
+
 msgid "Password"
 msgstr ""
 
@@ -220,6 +229,9 @@ msgid "Password confirmation"
 msgstr ""
 
 msgid "Permission for %{name}"
+msgstr ""
+
+msgid "Please validate TOTP code !"
 msgstr ""
 
 msgid "Recovery codes"
@@ -241,6 +253,9 @@ msgid "Scan complete"
 msgstr ""
 
 msgid "Scan in progress"
+msgstr ""
+
+msgid "Secret: %{otp_secret}"
 msgstr ""
 
 msgid "Section"
@@ -295,6 +310,9 @@ msgid "Users"
 msgstr ""
 
 msgid "Utils"
+msgstr ""
+
+msgid "Validate"
 msgstr ""
 
 msgid "View"
