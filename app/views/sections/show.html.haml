@@ -102,7 +102,7 @@
                 %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
 
         %div.tab-pane.fade.show.active#address-table{role: "tabpanel", aria: {labelledby: "address-table-tab"}}
-          %table.table.table-bordered.table-striped.datatable
+          %table.table.table-bordered.table-striped
             %thead
               %tr
                 %th= _('FQDN')
@@ -116,7 +116,7 @@
                   %td= usage.fqdn
                   %td= usage.ip_used
                   %td= usage.description
-                  %td= usage_icon(usage&.state)
+                  %td #{usage&.state.capitalize} #{usage_icon(usage&.state)}
                   %td
                     %div.btn-group
                       = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
