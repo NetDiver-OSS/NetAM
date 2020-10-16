@@ -114,6 +114,12 @@ All application configuration is set into `config/netam.yml`
 | threads        | SIDEKIQ_MAX_THREADS  | 5             | Sidekiq threads number     |
 | concurent jobs | SIDEKIQ_PARALLEL     | 10            | Sidekiq max parallels jobs |
 
+### Notifications
+
+| name           | environment variable | description       |
+| -------------- | -------------------- | ----------------- |
+| slack webhook  | SLACK_WEBHOOK        | Slack webhook URL |
+
 ## API
 
 ### Get Token

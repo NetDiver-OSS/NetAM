@@ -37,6 +37,12 @@
         %div.form-group
           = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
+    %div.row
+      %div.col-6
+        %div.form-check.mt-2
+          = form.check_box :notification_run_scan, checked: section.settings(:notification).on_run, class: 'form-check-input'
+          = form.label :notification_run_scan, 'Run notification on run_scan', class: 'form-check-label'
+
   %div.card-footer
     %div.form-check.float-left.mt-2
       = form.check_box :run_scan, checked: false, class: 'form-check-input'

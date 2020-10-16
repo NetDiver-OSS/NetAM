@@ -37,11 +37,12 @@ module SimpleCovEnv
 
       add_group 'Controllers', 'app/controllers'
       add_group 'Helpers', 'app/helpers'
+      add_group 'Libraries', '/lib'
       add_group 'Mailers', 'app/mailers'
       add_group 'Models', 'app/models'
       add_group 'Serializers', 'app/serializers'
+      add_group 'Services', 'app/services'
       add_group 'Workers', ['app/jobs', 'app/workers']
-      add_group 'Libraries', '/lib'
 
       merge_timeout 365.days
     end
