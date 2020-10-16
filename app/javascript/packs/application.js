@@ -16,3 +16,7 @@ import 'admin-lte/plugins/chart.js/Chart.min'
 import './dark_mode'
 import './datatable'
 import './select'
+
+jQuery(document).ready(function() {
+  $('#totp_to_valid').modal('show')
+});

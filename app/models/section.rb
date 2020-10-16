@@ -5,7 +5,13 @@ class Section < ApplicationRecord
   validates :name, :network, presence: true
   validate :network_must_be_valid, :schedule_must_be_cron
 
-  attr_accessor :run_scan
+  delegate :vid, :name, to: :vlan, prefix: true
+
+  attr_accessor :run_scan, :notification_run_scan
+
+  has_settings do |s|
+    s.key :notification, defaults: { on_run: false }
+  end
 
   after_save do |section|
     schedule_name = "section:#{section.id}"

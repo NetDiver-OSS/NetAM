@@ -22,4 +22,8 @@ class User < ApplicationRecord
   def self.generate_random_password
     Devise.friendly_token(256)
   end
+
+  def otp_pending?
+    !otp_secret.nil? && otp_required_for_login != true
+  end
 end

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_gettext_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :setup_required
   before_action :authenticate_user

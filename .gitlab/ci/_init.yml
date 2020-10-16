@@ -1,4 +1,0 @@
-stages:
-  - test
-  - report
-  - package

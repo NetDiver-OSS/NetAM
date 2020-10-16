@@ -1,4 +1,4 @@
 %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
   %div.card-header
-    %h3.card-title Setup
+    %h3.card-title= _('Setup')
   = render 'form', user: @user
