@@ -79,6 +79,14 @@
         %span.info-box-text
           = _('This section is linked to Vlan %{name} with Vlan ID: %{vid}') % { name: @section.vlan_name, vid: @section.vlan_vid }
 
+  - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
+  - unless last_scan == 0
+    %div.col-12
+      %div.info-box.mt-4{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+        %div.info-box-content
+          %span.info-box-text
+            = _('Last scan time: %{timestamp}') % { timestamp: Time.at(last_scan) }
+
 %div.row.mt-4
   %div.card.card-info.card-outline.card-outline-tabs.w-100
     %div.card-header.p-0.border-bottom-0
