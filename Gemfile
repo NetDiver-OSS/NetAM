@@ -5,8 +5,8 @@ ruby '2.7.2'
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
-gem 'puma', '~> 4.1'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+gem 'puma', '= 5.0.2'
+gem 'rails', '= 6.0.3.4'
 
 # Database
 gem 'ledermann-rails-settings', '~> 2.5'
@@ -26,7 +26,7 @@ gem 'rails-i18n', '~> 6.0'
 gem 'ruby_parser', '~> 3.15', require: false
 
 # Rails Delayed Jobs
-gem 'sidekiq', '~>6.1.1'
+gem 'sidekiq', '= 6.1.2'
 gem "sidekiq-cron", "~> 1.2"
 gem "sidekiq-status", "~> 1.1"
 
@@ -64,20 +64,20 @@ group :development, :test do
 
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem "rspec-rails", "~> 4.0"
-  gem 'simplecov', '= 0.17.1'
+  gem 'simplecov', '= 0.19.0'
   gem 'simplecov-cobertura', '~> 1.3', '>= 1.3.1'
 
-  gem 'rubocop', '~> 0.88.0'
+  gem 'rubocop', '= 0.93.1'
   gem 'rubocop-performance', '~> 1.7'
   gem 'rubocop-rspec', '~> 1.42'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'better_errors', '~> 2.7', '>= 2.7.1'
+  gem 'better_errors', '= 2.8.3'
   gem 'binding_of_caller', '~> 0.8.0'
 
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '= 3.2.1'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
