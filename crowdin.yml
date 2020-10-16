@@ -1,0 +1,3 @@
+files:
+  - source: /locale/netam.pot
+    translation: /locale/%two_letters_code%/netam.po

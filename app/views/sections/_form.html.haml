@@ -10,7 +10,7 @@
           %div.input-group-prepend
             %span{class: "input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-pencil-alt
-          = form.text_field :name, placeholder: 'My home network', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :name, placeholder: _('My home network'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
       %div.col-6
         %div.input-group.mb-3
@@ -25,7 +25,7 @@
           %div.input-group-prepend
             %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
               %i.fas.fa-clock
-          = form.text_field :schedule, placeholder: 'every 24 hours', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :schedule, placeholder: _('every 24 hours'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
 
       %div.col-6
         %div.form-group
@@ -35,7 +35,7 @@
     %div.row
       %div.col-12
         %div.form-group
-          = form.text_area :description, placeholder: 'Description', class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
+          = form.text_area :description, placeholder: _('Description'), class: "form-control #{'bg-dark text-white' if dark_mode?}", rows: "5"
 
     %div.row
       %div.col-6

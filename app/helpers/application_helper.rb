@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def fa_icon_with_text(icon_class, text)
+    "<i class=\"#{icon_class}\"></i> #{text}".html_safe
+  end
+
   def page_title(*titles)
     @page_title ||= []
 

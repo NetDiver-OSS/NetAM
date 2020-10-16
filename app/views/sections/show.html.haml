@@ -13,13 +13,13 @@
     %div.content-header
       - case status
       - when :queued
-        = render partial: 'sections/status/notification', locals: { type: 'dark', title: 'Scan Queued', message: '' }
+        = render partial: 'sections/status/notification', locals: { type: 'dark', title: _('Scan Queued'), message: '' }
       - when :working
-        = render partial: 'sections/status/notification', locals: { type: 'info', title: 'Scan in progress', message: '' }
+        = render partial: 'sections/status/notification', locals: { type: 'info', title: _('Scan in progress'), message: '' }
       - when :complete
-        = render partial: 'sections/status/notification', locals: { type: 'success', title: 'Scan complete', message: '' }
+        = render partial: 'sections/status/notification', locals: { type: 'success', title: _('Scan complete'), message: '' }
       -  else
-        = render partial: 'sections/status/notification', locals: { type: 'warning', title: 'Unknown state', message: '' }
+        = render partial: 'sections/status/notification', locals: { type: 'warning', title: _('Unknown state'), message: '' }
 
 %div.row
   %div.col-6
@@ -30,7 +30,7 @@
             %i.fas.fa-lock
 
           %div.info-box-content
-            %span.info-box-text Locked
+            %span.info-box-text= _('Locked')
             %span.info-box-number= @ip_locked
       %div.col-6
         %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
@@ -38,7 +38,7 @@
             %i.fas.fa-check-circle
 
           %div.info-box-content
-            %span.info-box-text Activated
+            %span.info-box-text= _('Activated')
             %span.info-box-number= @ip_activated
       %div.col-6
         %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
@@ -46,7 +46,7 @@
             %i.fas.fa-times-circle
 
           %div.info-box-content
-            %span.info-box-text Down
+            %span.info-box-text= _('Down')
             %span.info-box-number= @ip_down
       %div.col-6
         %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
@@ -54,7 +54,7 @@
             %i.fas.fa-random
 
           %div.info-box-content
-            %span.info-box-text DHCP
+            %span.info-box-text= _('DHCP')
             %span.info-box-number= @ip_dhcp
     %div.row
       %div.col-12
@@ -63,7 +63,7 @@
             %i.fas.fa-check
 
           %div.info-box-content
-            %span.info-box-text Free IP
+            %span.info-box-text= _('Free IP')
             %span.info-box-number= @ip_free
 
             %div.progress
@@ -77,20 +77,17 @@
     %div.info-box.mt-4{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
       %div.info-box-content
         %span.info-box-text
-          This section is linked to Vlan
-          %strong= @section.vlan_name
-          with Vlan ID
-          %strong= @section.vlan_vid
+          = _('This section is linked to Vlan %{name} with Vlan ID: %{vid}') % { name: @section.vlan_name, vid: @section.vlan_vid }
 
 %div.row.mt-4
   %div.card.card-info.card-outline.card-outline-tabs.w-100
     %div.card-header.p-0.border-bottom-0
       %ul.nav.nav-tabs#custom-tabs-three-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tablist'}
         %li.nav-item
-          %a.nav-link.active#address-table-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}} Address Table
+          %a.nav-link.active#address-table-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}}= _('Address Table')
         - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
           %li.nav-item
-            %a.nav-link#address-matrix-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}} Address Matrix
+            %a.nav-link#address-matrix-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}}= _('Address Matrix')
 
     %div.card-body{class: "#{'bg-dark text-white' if dark_mode?}"}
       %div.tab-content#custom-tabs-three-tabContent
@@ -108,10 +105,10 @@
           %table.table.table-bordered.table-striped.datatable
             %thead
               %tr
-                %th FQDN
-                %th IP Address
-                %th Description
-                %th State
+                %th= _('FQDN')
+                %th= _('IP Address')
+                %th= _('Description')
+                %th= _('State')
                 %th.w-25
             %tbody
               - @section.usages.order("inet(ip_used) ASC").each do |usage|
@@ -122,9 +119,9 @@
                   %td= usage_icon(usage&.state)
                   %td
                     %div.btn-group
-                      = link_to '<i class="fas fa-search"></i> Scan'.html_safe, section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
-                      = link_to '<i class="fas fa-pencil-alt"></i> Edit'.html_safe, edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
-                      = link_to '<i class="fas fa-trash"></i> Delete'.html_safe, section_usage_path(@section, usage), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
+                      = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
+                      = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
+                      = link_to fa_icon_with_text('fas fa-trash', _('Delete')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
 
 :javascript
     var donutChartCanvas = document.getElementById('donutChart').getContext('2d')
