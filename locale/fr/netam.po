@@ -1,0 +1,316 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: netam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-15 11:49+0200\n"
+"PO-Revision-Date: 2020-10-16 09:45\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: netam\n"
+"X-Crowdin-Project-ID: 424166\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /dev/locale/netam.pot\n"
+"X-Crowdin-File-ID: 12\n"
+
+msgid "ACTIVED"
+msgstr "ACTIF"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Activated"
+msgstr "Activé"
+
+msgid "Add Permission"
+msgstr "Ajouter une Permission"
+
+msgid "Add permission"
+msgstr "Ajouter une Permission"
+
+msgid "Address Matrix"
+msgstr "Matrice d'adresses"
+
+msgid "Address Table"
+msgstr "Table d'adresses"
+
+msgid "Admin Backups"
+msgstr "Sauvegardes de l'administrateur"
+
+msgid "Admin Center"
+msgstr "Centre d'administration"
+
+msgid "Admin Jobs"
+msgstr "Administration des tâches"
+
+msgid "All Permissions"
+msgstr "Toutes les permissions"
+
+msgid "Are you sure?"
+msgstr "Êtes-vous sûr?"
+
+msgid "Available IP"
+msgstr "IP disponible"
+
+msgid "Backup list"
+msgstr "Liste des sauvegardes"
+
+msgid "Backups"
+msgstr "Sauvegardes"
+
+msgid "Boot time"
+msgstr "Dernier redémarrage"
+
+msgid "Broadcast"
+msgstr "Diffusion"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "Calculate"
+msgstr "Calculer"
+
+msgid "Choose file"
+msgstr "Choisir un fichier"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DOWN"
+msgstr "ÉTEINT"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Disable"
+msgstr "Désactiver"
+
+msgid "Disabled"
+msgstr "Désactivé"
+
+msgid "Down"
+msgstr "Éteint"
+
+msgid "Edit"
+msgstr "Editer"
+
+msgid "Editing Permission"
+msgstr "Éditer les permissions"
+
+msgid "Editing Section"
+msgstr "Éditer la section"
+
+msgid "Editing Usage"
+msgstr "Editer l'utilisation"
+
+msgid "Editing User"
+msgstr "Éditer l'utilisateur"
+
+msgid "Editing Vlan"
+msgstr "Éditer Vlan"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Enable"
+msgstr "Activer"
+
+msgid "Enabled"
+msgstr "Activé"
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "FQDN"
+msgstr "FQDN"
+
+msgid "First IP"
+msgstr "Première IP"
+
+msgid "Free IP"
+msgstr "IP libre"
+
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+msgid "IP Address"
+msgstr "Adresse IP"
+
+msgid "IP Calculator"
+msgstr "Calculateur d'IP"
+
+msgid "IP calculator"
+msgstr "Calculateur d'IP"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Import usages with CSV"
+msgstr "Importer les utilisations au format CSV"
+
+msgid "Job"
+msgstr "Tâche"
+
+msgid "Jobs"
+msgstr "Tâches"
+
+msgid "LOCKED"
+msgstr "VERROUILLÉ"
+
+msgid "Last IP"
+msgstr "Dernière IP"
+
+msgid "Load Average"
+msgstr "Charge moyenne"
+
+msgid "Locked"
+msgstr "Verrouillé"
+
+msgid "Logout"
+msgstr "Déconnecter"
+
+msgid "Mask"
+msgstr "Masque"
+
+msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
+msgstr "Utilisations massives d'importation par injections csv. Vous devez avoir un format CSV avec l'en-tête suivant :"
+
+msgid "Memory"
+msgstr "Mémoire"
+
+msgid "My home network"
+msgstr "Mon réseau personnel"
+
+msgid "NO"
+msgstr "NON"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Network"
+msgstr "Réseau"
+
+msgid "New Section"
+msgstr "Nouvelle Section"
+
+msgid "New Usage"
+msgstr "Nouvelle Utilisation"
+
+msgid "New User"
+msgstr "Nouvel Utilisateur"
+
+msgid "New Vlan"
+msgstr "Nouveaux Vlan"
+
+msgid "Notice"
+msgstr "Notification"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Password confirmation"
+msgstr "Confirmation du mot de passe"
+
+msgid "Permission for %{name}"
+msgstr "Permission pour %{name}"
+
+msgid "Recovery codes"
+msgstr "Code de récupération"
+
+msgid "Requirements"
+msgstr "Prérequis"
+
+msgid "Reserved"
+msgstr "Réservée"
+
+msgid "Scan"
+msgstr "Scanner"
+
+msgid "Scan Queued"
+msgstr "Scan en attente"
+
+msgid "Scan complete"
+msgstr "Scan terminé"
+
+msgid "Scan in progress"
+msgstr "Scan en cours"
+
+msgid "Section"
+msgstr "Section"
+
+msgid "Sections"
+msgstr "Sections"
+
+msgid "Sections linked to %{name} (#%{vid})"
+msgstr "Sections liées à %{name} (#%{vid})"
+
+msgid "Setup"
+msgstr "Configuration"
+
+msgid "State"
+msgstr "État"
+
+msgid "State available are :"
+msgstr "L'État disponible est :"
+
+msgid "Subject"
+msgstr "Sujet"
+
+msgid "Subject ID"
+msgstr "ID du sujet"
+
+msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
+msgstr "Cette section est liée au Vlan %{name} avec l'ID Vlan : %{vid}"
+
+msgid "Two Factor Auth"
+msgstr "Authentification à deux facteurs"
+
+msgid "Two Factor Authentication"
+msgstr "Authentification à deux facteurs"
+
+msgid "Two Factor Authentication Manager"
+msgstr "Gestionnaire d'authentification à deux facteurs"
+
+msgid "Unknown state"
+msgstr "État inconnu"
+
+msgid "Usage"
+msgstr "Utilisation"
+
+msgid "Used"
+msgstr "Utilisé"
+
+msgid "User Email"
+msgstr "E-mail de l'utilisateur"
+
+msgid "Users"
+msgstr "Utilisateurs"
+
+msgid "Utils"
+msgstr "Outils"
+
+msgid "View"
+msgstr "Vue"
+
+msgid "Vlan ID"
+msgstr "ID du Vlan"
+
+msgid "Vlans"
+msgstr "Vlans"
+
+msgid "YES"
+msgstr "OUI"
+
+msgid "Youhou !"
+msgstr "Youhou !"
+
+msgid "every 24 hours"
+msgstr "toutes les 24 heures"
+
