@@ -27,14 +27,6 @@ RSpec.describe "Usage", type: :request do
     }
   end
 
-  describe "GET /index" do
-    it "renders a successful response" do
-      Usage.create! valid_attributes
-      get section_usages_url(section_id: @section.id)
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "renders a successful response" do
       get new_section_usage_url(section_id: @section.id)
