@@ -1,6 +1,7 @@
 class Section < ApplicationRecord
   has_many :usages, dependent: :destroy
   belongs_to :vlan
+  belongs_to :worker, optional: true
 
   validates_associated :usages
   validates :name, :network, :vlan, presence: true
@@ -21,7 +22,7 @@ class Section < ApplicationRecord
     unless section.schedule.nil? || section.schedule.empty?
       Sidekiq::Cron::Job.new(
         name: schedule_name,
-        class: 'ScanNetworkWithPingJob',
+        class: 'ScanNetworkWithPingWorker',
         cron: Fugit.parse(section.schedule).to_cron_s,
         args: [{ id: section.id, network: section.network }]
       ).save

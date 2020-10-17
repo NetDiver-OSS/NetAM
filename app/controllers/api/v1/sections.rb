@@ -57,7 +57,7 @@ module API
         post ':id/scan', root: 'section' do
           @section = Section.find(permitted_params[:id])
           authorize! :scan, @section
-          ScanNetworkWithPingJob.perform_later({ id: @section, network: @section.network })
+          ScanNetworkWithPingWorker.perform_async({ id: @section, network: @section.network })
 
           { status: 'ack' }
         end

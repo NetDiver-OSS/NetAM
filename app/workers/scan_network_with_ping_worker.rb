@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 require 'net/ping'
 require 'resolv'
 
-class ScanNetworkWithPingJob < ApplicationJob
-  queue_as :default
+class ScanNetworkWithPingWorker
+  include Sidekiq::Worker
+  include Sidekiq::Status::Worker
+  include StatusExpiration
 
   def perform(*args)
     raise 'Job can only process 1 network at the time' if args.count > 1
@@ -44,12 +48,10 @@ class ScanNetworkWithPingJob < ApplicationJob
           current_usage.merge!({ fqdn: scanner[:reverse] })
         end
 
-      else
-        if usage[:state].count.positive?
-          Sidekiq.logger.info "Known unactive IP: #{address}"
+      elsif usage[:state].count.positive?
+        Sidekiq.logger.info "Known unactive IP: #{address}"
 
-          current_usage.merge!({ state: :down })
-        end
+        current_usage.merge!({ state: :down })
       end
 
       section_to_update << current_usage if current_usage.length > 3
@@ -65,11 +67,6 @@ class ScanNetworkWithPingJob < ApplicationJob
       Usage.upsert_all(full_section, unique_by: %i[identifier]) unless full_section.empty?
     end
 
-    Notifications::SendService.call(
-      {
-        section: section,
-        message: 'Scan finished !'
-      }
-    ) if Section.find(section[:id]).settings(:notification).on_run
+    Notifications::SendService.call({ section: section, message: 'Scan finished !' }) if Section.find(section[:id]).settings(:notification).on_run
   end
 end

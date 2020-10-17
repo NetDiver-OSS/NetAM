@@ -64,7 +64,10 @@ Rails.application.routes.draw do
     authenticate :user, ->(u) { u.admin? } do
       namespace :admin do
         resources :backups, only: [:index, :create]
+        resources :workers, except: [:show]
         resources :users
+
+        resources :sidekiq, only: [:index]
 
         resources :jobs, only: [:index] do
           member do

@@ -29,8 +29,8 @@ RSpec.describe NetAM::Scanner do
         }
       )
 
-      expect(NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)).to be_a(String)
-      expect(NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)).to match(/[a-z0-9]/)
+      expect(NetAM::Scanner.new('ScanNetworkWithPingWorker').run(@section.id, @section.network)).to be_a(String)
+      expect(NetAM::Scanner.new('ScanNetworkWithPingWorker').run(@section.id, @section.network)).to match(/[a-z0-9]/)
     end
   end
 

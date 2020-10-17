@@ -1,0 +1,17 @@
+- page_title _('Workers')
+- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_admin_worker_path})
+
+%div.row.d-flex.align-items-stretch
+  - @workers.each do |worker|
+    %div.col-12.col-sm-6.col-md-6.d-flex.align-items-stretch
+      %div.card.w-100{class: dark_mode_class}
+        %div.card-header.text-muted.border-bottom-0 #{worker.uuid}
+        %div.card-body.pt-0
+          %div.row
+            %div.col-7
+              %h2.lead
+                %b= worker.name
+        %div.card-footer
+          %div.text-right
+            = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'
+            = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')}

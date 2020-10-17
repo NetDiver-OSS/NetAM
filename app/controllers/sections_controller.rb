@@ -28,7 +28,7 @@ class SectionsController < ApplicationController
   def scan
     @section = Section.find(params[:section_id])
 
-    job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network)
+    job_id = NetAM::Scanner.new('ScanNetworkWithPingWorker').run(@section.id, @section.network)
 
     redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
   end
@@ -57,7 +57,7 @@ class SectionsController < ApplicationController
         }
       )
 
-      job_id = NetAM::Scanner.new('ScanNetworkWithPingJob').run(@section.id, @section.network) if @section.run_scan == '1'
+      job_id = NetAM::Scanner.new('ScanNetworkWithPingWorker').run(@section.id, @section.network) if @section.run_scan == '1'
       @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
 
       redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'

@@ -18,7 +18,7 @@ describe "Job", type: :request do
     before do
       Sidekiq::Cron::Job.new(
         name: "unit_test",
-        class: 'ScanNetworkWithPingJob',
+        class: 'ScanNetworkWithPingWorker',
         cron: Fugit.parse('every day').to_cron_s
       ).save
     end
