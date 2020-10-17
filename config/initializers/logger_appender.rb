@@ -19,3 +19,13 @@ if ENV['ELASTICSEARCH_ENABLED'].present?
     url: ENV['ELASTICSEARCH_URL']
   )
 end
+
+if ENV['LOGSTASH_ENABLED'].present?
+  SemanticLogger.add_appender(
+    logger: LogStashLogger.new(
+      type: :tcp,
+      host: ENV['LOGSTASH_HOST'],
+      port: ENV['LOGSTASH_PORT']
+    )
+  )
+end
