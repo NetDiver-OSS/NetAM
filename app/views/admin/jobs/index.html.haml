@@ -2,7 +2,7 @@
 
 
 %section
-  %div{class: "card #{'bg-dark text-white' if dark_mode? }"}
+  %div.card{class: dark_mode_class}
     %div.card-header
       %h3.card-title= _('Sections')
     %div.card-body.p-0

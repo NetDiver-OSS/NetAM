@@ -29,4 +29,8 @@ module ApplicationHelper
   def dark_mode?
     cookies['dark_mode'] == 'true'
   end
+
+  def dark_mode_class
+    dark_mode? ? 'bg-dark text-white' : ''
+  end
 end

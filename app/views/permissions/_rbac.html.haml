@@ -1,6 +1,6 @@
 %div.row
   %div.col-12
-    %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+    %div.card{class: dark_mode_class}
       %div.card-header
         %h3.card-title= _('Permission for %{name}') % { name: permission.name }
 
@@ -22,7 +22,7 @@
                     - else
                       %span.badge.bg-danger= _('NO')
 
-    %div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+    %div.card{class: dark_mode_class}
       %div.card-header
         %div.row
           %div.col-6.card-title

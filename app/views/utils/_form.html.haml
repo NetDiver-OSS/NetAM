@@ -2,11 +2,11 @@
   %div.row
     %div.form-group.col-6
       = form.label :ip, _('Network')
-      = form.text_field :ip, class: "form-control #{'bg-dark text-white' if dark_mode?}", placeholder: '192.168.1.50', value: params[:ip]
+      = form.text_field :ip, class: "form-control #{dark_mode_class}", placeholder: '192.168.1.50', value: params[:ip]
 
     %div.form-group.col-6
       = form.label :subnet, _('Hosts per Subnet')
-      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, {selected: params[:subnet].to_i}, {class: "form-control #{'bg-dark text-white' if dark_mode?}" }
+      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, {selected: params[:subnet].to_i}, {class: "form-control #{dark_mode_class}" }
 
   %div.d-flex.justify-content-center
     %div.col-4

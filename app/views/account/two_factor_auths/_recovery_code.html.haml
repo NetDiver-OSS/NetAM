@@ -1,5 +1,5 @@
 %div.row
   - codes.each do |code|
-    %div.info-box.col-3{class: "#{'bg-dark text-white' if dark_mode?}"}
+    %div.info-box.col-3{class: dark_mode_class}
       %div.info-box-content
         %span.info-box-text.text-center.text-muted= code

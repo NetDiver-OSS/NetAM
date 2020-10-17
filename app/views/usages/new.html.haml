@@ -1,7 +1,7 @@
 - page_title _('New Usage')
 
-%div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+%div.card{class: dark_mode_class}
   = render 'form', usage: @usage
 
-%div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+%div.card{class: dark_mode_class}
   = render 'import', usage: @usage

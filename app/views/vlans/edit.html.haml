@@ -1,6 +1,6 @@
 - page_title _('Editing Vlan')
 
-%div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+%div.card{class: dark_mode_class}
   = render 'form', vlan: @vlan
 
 = render 'permissions/rbac', permission: @vlan, controller: VlansController
