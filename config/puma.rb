@@ -45,5 +45,10 @@ lowlevel_error_handler do |ex, env|
   [500, {}, ["An error has occurred, and engineers have been informed. Please reload the page. If you continue to have problems, contact support@example.com\n"]]
 end
 
+on_worker_boot do
+  # Re-open appenders after forking the process
+  SemanticLogger.reopen
+end
+
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
