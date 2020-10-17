@@ -10,10 +10,31 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-    @cpus = Vmstat.cpu rescue nil
-    @memory = Vmstat.memory rescue nil
-    @load_average = Vmstat.load_average rescue nil
-    @boot_time = Vmstat.boot_time rescue nil
+    @master_node = {
+      cpu: Vmstat.cpu,
+      memory: Vmstat.memory,
+      load_average: Vmstat.load_average,
+      boot_time: Vmstat.boot_time
+    }
+
+    @sidekiq_queues = Sidekiq::Queue.all.map do |queue|
+      {
+        name: queue.name,
+        backlog: queue.size,
+        latency: queue.latency.to_i
+      }
+    end
+
+    @sidekiq_processes = Sidekiq::ProcessSet.new(false).map do |process|
+      {
+        hostname: process['hostname'],
+        started_at: Time.at(process['started_at']),
+        concurrency: process['concurrency'],
+        busy: process['busy'],
+        queues: process['queues'],
+        beat: Time.at(process['beat'])
+      }
+    end
   end
 
   protected

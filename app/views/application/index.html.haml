@@ -1,5 +1,6 @@
 - page_title _('Homepage')
 
+%h3= _('NetAM control node')
 %div.row
   %div.col-12.col-sm-6.col-md-3
     %div.info-box{class: dark_mode_class}
@@ -8,8 +9,7 @@
 
       %div.info-box-content
         %span.info-box-text= _('CPU')
-        %span.info-box-number= @cpus&.length
-
+        %span.info-box-number= @master_node[:cpu].length
 
   %div.col-12.col-sm-6.col-md-3
     %div.info-box{class: dark_mode_class}
@@ -18,7 +18,7 @@
 
       %div.info-box-content
         %span.info-box-text= _('Memory')
-        %span.info-box-number #{number_to_human_size(@memory&.active_bytes)} / #{number_to_human_size(@memory&.total_bytes)}
+        %span.info-box-number #{number_to_human_size(@master_node[:memory].active_bytes)} / #{number_to_human_size(@master_node[:memory].total_bytes)}
 
   %div.clearfix.hidden-md-up
 
@@ -29,7 +29,7 @@
 
       %div.info-box-content
         %span.info-box-text= _('Load Average')
-        %span.info-box-number #{number_to_human(@load_average&.one_minute)} / #{number_to_human(@load_average&.five_minutes)} / #{number_to_human(@load_average&.fifteen_minutes)}
+        %span.info-box-number #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
 
   %div.col-12.col-sm-6.col-md-3
     %div.info-box{class: dark_mode_class}
@@ -38,4 +38,57 @@
 
       %div.info-box-content
         %span.info-box-text= _('Boot time')
-        %span.info-box-number= distance_of_time_in_words(@boot_time || Time.now, Time.now)
+        %span.info-box-number= distance_of_time_in_words(@master_node[:boot_time], Time.now)
+
+%h3= _('NetAM agent node')
+%div.row
+  %div.col-12
+    %div.card{class: dark_mode_class}
+      %div.card-header
+        %h3.card-title= _('Queues')
+
+      %div.card-body.table-responsive.p-0{style: "height: 200px;"}
+        %table.table.dataTable
+          %thead
+            %tr
+              %th= _('Name')
+              %th= _('Backlog')
+              %th= _('Latency')
+
+          %tbody
+            - @sidekiq_queues.each do |queue|
+              %tr
+                %td= queue[:name]
+                %td= queue[:backlog]
+                %td= queue[:latency]
+
+%div.row.d-flex.align-items-stretch
+  - @sidekiq_processes.each do |process|
+    %div.col-12.col-sm-6.col-md-4.d-flex.align-items-stretch
+      %div{class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100"}
+        %div.card-body
+          %div.row
+            %div.col-12
+              %h2.lead.text-center
+                %b= process[:hostname]
+              %ul.ml-4.mb-0.fa-ul.text-muted
+                %li.small
+                  %span.fa-li
+                    %i.fas.fa-lg.fa-calendar-alt
+                  = process[:started_at]
+                %li.small
+                  %span.fa-li
+                    %i.fas.fa-lg.fa-code-branch
+                  = process[:concurrency]
+                %li.small
+                  %span.fa-li
+                    %i.fas.fa-lg.fa-minus-circle
+                  = process[:busy]
+                %li.small
+                  %span.fa-li
+                    %i.fas.fa-lg.fa-stream
+                  = process[:queues].join(' | ')
+                %li.small
+                  %span.fa-li
+                    %i.fas.fa-lg.fa-heartbeat
+                  = distance_of_time_in_words(process[:beat], Time.now)
