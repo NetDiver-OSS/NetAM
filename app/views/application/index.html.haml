@@ -64,7 +64,7 @@
 
 %div.row.d-flex.align-items-stretch
   - @sidekiq_processes.each do |process|
-    %div.col-12.col-sm-6.col-md-4.d-flex.align-items-stretch
+    %div.col-12.col-sm-6.col-md-6.d-flex.align-items-stretch
       %div{class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100"}
         %div.card-body
           %div.row

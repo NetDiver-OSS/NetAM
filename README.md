@@ -122,6 +122,21 @@ All application configuration is set into `config/netam.yml`
 | -------------- | -------------------- | ----------------- |
 | slack webhook  | SLACK_WEBHOOK        | Slack webhook URL |
 
+### Logging
+
+| name                  | environment variable  | description                   |
+| --------------------- | --------------------- | ----------------------------- |
+| enable syslog         | SYSLOG_ENABLED        | Enable Syslog appender        |
+| syslog URL            | SYSLOG_URL            | Syslog endpoint               |
+| enable splunk         | SPLUNK_ENABLED        | Enable Splunk appender        |
+| splunk URL            | SPLUNK_URL            | Splunk endpoint               |
+| splunk TOKEN          | SPLUNK_TOKEN          | Splunk token                  |
+| enable elasticsearch  | ELASTICSEARCH_ENABLED | Enable elasticsearch appender |
+| elasticsearch URL     | ELASTICSEARCH_URL     | elasticsearch endpoint        |
+| enable logstash       | LOGSTASH_ENABLED      | Enable logstash appender      |
+| logstash HOST         | LOGSTASH_HOST         | logstash endpoint             |
+| logstash PORT         | LOGSTASH_PORT         | logstash port                 |
+
 ## API
 
 ### Get Token
