@@ -122,6 +122,13 @@ All application configuration is set into `config/netam.yml`
 | -------------- | -------------------- | ----------------- |
 | slack webhook  | SLACK_WEBHOOK        | Slack webhook URL |
 
+### Logging
+
+| name           | environment variable | description            |
+| -------------- | -------------------- | ---------------------- |
+| enable syslog  | SYSLOG_ENABLED       | Enable Syslog appender |
+| syslog URL     | SYSLOG_URL           | Syslog endpoint        |
+
 ## API
 
 ### Get Token
