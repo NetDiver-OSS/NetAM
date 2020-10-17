@@ -124,13 +124,15 @@ All application configuration is set into `config/netam.yml`
 
 ### Logging
 
-| name           | environment variable | description            |
-| -------------- | -------------------- | ---------------------- |
-| enable syslog  | SYSLOG_ENABLED       | Enable Syslog appender |
-| syslog URL     | SYSLOG_URL           | Syslog endpoint        |
-| enable splunk  | SPLUNK_ENABLED       | Enable Splunk appender |
-| splunk URL     | SPLUNK_URL           | Splunk endpoint        |
-| splunk TOKEN   | SPLUNK_TOKEN         | Splunk token           |
+| name                  | environment variable  | description                   |
+| --------------------- | --------------------- | ----------------------------- |
+| enable syslog         | SYSLOG_ENABLED        | Enable Syslog appender        |
+| syslog URL            | SYSLOG_URL            | Syslog endpoint               |
+| enable splunk         | SPLUNK_ENABLED        | Enable Splunk appender        |
+| splunk URL            | SPLUNK_URL            | Splunk endpoint               |
+| splunk TOKEN          | SPLUNK_TOKEN          | Splunk token                  |
+| enable elasticsearch  | ELASTICSEARCH_ENABLED | Enable elasticsearch appender |
+| elasticsearch URL     | ELASTICSEARCH_URL     | elasticsearch endpoint        |
 
 ## API
 

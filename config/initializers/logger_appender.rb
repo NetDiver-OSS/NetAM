@@ -12,3 +12,10 @@ if ENV['SPLUNK_ENABLED'].present?
     token: ENV['SPLUNK_TOKEN']
   )
 end
+
+if ENV['ELASTICSEARCH_ENABLED'].present?
+  SemanticLogger.add_appender(
+    appender: :elasticsearch,
+    url: ENV['ELASTICSEARCH_URL']
+  )
+end
