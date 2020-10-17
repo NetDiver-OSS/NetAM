@@ -1,4 +1,4 @@
 - page_title _('New Vlan')
 
-%div{class: "card #{'bg-dark text-white' if dark_mode?}"}
+%div.card{class: dark_mode_class}
   = render 'form', vlan: @vlan

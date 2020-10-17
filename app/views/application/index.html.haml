@@ -2,7 +2,7 @@
 
 %div.row
   %div.col-12.col-sm-6.col-md-3
-    %div{class: "info-box #{'bg-dark text-white' if dark_mode? }"}
+    %div.info-box{class: dark_mode_class}
       %span.info-box-icon.bg-info.elevation-1
         %i.fas.fa-microchip
 
@@ -12,7 +12,7 @@
 
 
   %div.col-12.col-sm-6.col-md-3
-    %div{class: "info-box #{'bg-dark text-white' if dark_mode? }"}
+    %div.info-box{class: dark_mode_class}
       %span.info-box-icon.bg-danger.elevation-1
         %i.fas.fa-memory
 
@@ -23,7 +23,7 @@
   %div.clearfix.hidden-md-up
 
   %div.col-12.col-sm-6.col-md-3
-    %div{class: "info-box #{'bg-dark text-white' if dark_mode? }"}
+    %div.info-box{class: dark_mode_class}
       %span.info-box-icon.bg-success.elevation-1
         %i.fas.fa-hourglass
 
@@ -32,7 +32,7 @@
         %span.info-box-number #{number_to_human(@load_average&.one_minute)} / #{number_to_human(@load_average&.five_minutes)} / #{number_to_human(@load_average&.fifteen_minutes)}
 
   %div.col-12.col-sm-6.col-md-3
-    %div{class: "info-box #{'bg-dark text-white' if dark_mode? }"}
+    %div.info-box{class: dark_mode_class}
       %span.info-box-icon.bg-warning.elevation-1
         %i.fas.fa-history
 

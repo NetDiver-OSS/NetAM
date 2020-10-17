@@ -2,30 +2,30 @@
   %div.card-body
     - if user.errors.any?
       - user.errors.full_messages.each do |message|
-        %div{class: "callout callout-danger #{'bg-dark text-white' if dark_mode?}"}
+        %div.callout.callout-danger{class: dark_mode_class}
           %p= message
     %div.row
       %div.col-12
         %div.input-group.mb-3
           %div.input-group-prepend
-            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+            %span.input-group-text{class: dark_mode_class}
               %i.fas.fa-envelope
-          = form.text_field :email, placeholder: _('Email'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :email, placeholder: _('Email'), class: "form-control #{dark_mode_class}"
 
     %div.row
       %div.col-6
         %div.input-group.mb-3
           %div.input-group-prepend
-            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+            %span.input-group-text{class: dark_mode_class}
               %i.fas.fa-key
-          = form.password_field :password, placeholder: _('Password'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.password_field :password, placeholder: _('Password'), class: "form-control #{dark_mode_class}"
 
       %div.col-6
         %div.input-group.mb-3
           %div.input-group-prepend
-            %span{class:"input-group-text #{'bg-dark text-white' if dark_mode?}"}
+            %span.input-group-text{class: dark_mode_class}
               %i.fas.fa-key
-          = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{dark_mode_class}"
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

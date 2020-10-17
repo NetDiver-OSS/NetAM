@@ -25,7 +25,7 @@
   %div.col-6
     %div.row
       %div.col-6
-        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+        %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-blue
             %i.fas.fa-lock
 
@@ -33,7 +33,7 @@
             %span.info-box-text= _('Locked')
             %span.info-box-number= @ip_locked
       %div.col-6
-        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+        %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-green
             %i.fas.fa-check-circle
 
@@ -41,7 +41,7 @@
             %span.info-box-text= _('Activated')
             %span.info-box-number= @ip_activated
       %div.col-6
-        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+        %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-red
             %i.fas.fa-times-circle
 
@@ -49,7 +49,7 @@
             %span.info-box-text= _('Down')
             %span.info-box-number= @ip_down
       %div.col-6
-        %div{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+        %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-purple
             %i.fas.fa-random
 
@@ -74,7 +74,7 @@
     %canvas#donutChart{style: "height:230px; min-height:230px"}
 
   %div.col-12
-    %div.info-box.mt-4{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+    %div.info-box.mt-4{class: dark_mode_class}
       %div.info-box-content
         %span.info-box-text
           = _('This section is linked to Vlan %{name} with Vlan ID: %{vid}') % { name: @section.vlan_name, vid: @section.vlan_vid }
@@ -82,7 +82,7 @@
   - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
   - unless last_scan == 0
     %div.col-12
-      %div.info-box.mt-4{class: "info-box #{'bg-dark text-white' if dark_mode?}"}
+      %div.info-box.mt-4{class: dark_mode_class}
         %div.info-box-content
           %span.info-box-text
             = _('Last scan time: %{timestamp}') % { timestamp: Time.at(last_scan) }
@@ -90,21 +90,21 @@
 %div.row.mt-4
   %div.card.card-info.card-outline.card-outline-tabs.w-100
     %div.card-header.p-0.border-bottom-0
-      %ul.nav.nav-tabs#custom-tabs-three-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tablist'}
+      %ul.nav.nav-tabs#custom-tabs-three-tab{class: dark_mode_class, role: 'tablist'}
         %li.nav-item
-          %a.nav-link.active#address-table-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}}= _('Address Table')
+          %a.nav-link.active#address-table-tab{class: dark_mode_class, role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}}= _('Address Table')
         - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
           %li.nav-item
-            %a.nav-link#address-matrix-tab{class: "#{'bg-dark text-white' if dark_mode?}", role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}}= _('Address Matrix')
+            %a.nav-link#address-matrix-tab{class: dark_mode_class, role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}}= _('Address Matrix')
 
-    %div.card-body{class: "#{'bg-dark text-white' if dark_mode?}"}
+    %div.card-body{class: dark_mode_class}
       %div.tab-content#custom-tabs-three-tabContent
         - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
           %div.tab-pane.fade#address-matrix{role: "tabpanel", aria: {labelledby: "address-matrix-tab"}}
             %div.d-flex.flex-wrap.justify-content-between
             - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
               - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-              %a{class: "btn btn-flat text-center #{'text-white' if dark_mode?}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
+              %a.btn.btn-flat.text-center{class: dark_mode_class, style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
                 %small= NetAM::Network::Range.clean_display(address)
                 %br
                 %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}

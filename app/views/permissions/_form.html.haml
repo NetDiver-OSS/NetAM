@@ -4,30 +4,30 @@
   %div.card-body
     - if permission.errors.any?
       - permission.errors.full_messages.each do |message|
-        %div{class: "callout callout-danger #{'bg-dark text-white' if dark_mode?}"}
+        %div.callout.callout-danger{class: dark_mode_class}
           %p= message
     %div.row
       %div.col-6
         %div.form-group
           = form.label :user_id
-          = form.select :user_id, @users, {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+          = form.select :user_id, @users, {}, {class: "form-control #{dark_mode_class}"}
       %div.col-6
         %div.form-group
           = form.label :name
-          = form.text_field :name, class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :name, class: "form-control #{dark_mode_class}"
     %div.row
       %div.col-4
         %div.form-group
           = form.label :subject_class
-          = form.text_field :subject_class, readonly: 'disabled', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :subject_class, readonly: 'disabled', class: "form-control #{dark_mode_class}"
       %div.col-4
         %div.form-group
           = form.label :subject_id
-          = form.text_field :subject_id, readonly: 'disabled', class: "form-control #{'bg-dark text-white' if dark_mode?}"
+          = form.text_field :subject_id, readonly: 'disabled', class: "form-control #{dark_mode_class}"
       %div.col-4
         %div.form-group
           = form.label :action
-          = form.select :action, [:read, :manage], {}, {class: "form-control #{'bg-dark text-white' if dark_mode?}"}
+          = form.select :action, [:read, :manage], {}, {class: "form-control #{dark_mode_class}"}
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'
