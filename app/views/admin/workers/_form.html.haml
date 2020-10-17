@@ -12,6 +12,10 @@
             %span.input-group-text{class: dark_mode_class}= _('Name')
           = form.text_field :name, class: "form-control #{dark_mode_class}"
 
+      %div.col-12
+        %div.form-group
+          %label Multiple
+          = form.select :sections, @sections, { selected: @worker.sections.pluck(:id) }, { multiple: true, class: "duallistbox form-control #{dark_mode_class}" }
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

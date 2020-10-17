@@ -1,6 +1,7 @@
 module Admin
   class WorkersController < ApplicationController
     load_and_authorize_resource
+    before_action :set_sections, only: [:create, :update, :new, :edit]
 
     # GET /workers
     def index
@@ -31,6 +32,9 @@ module Admin
     # PATCH/PUT /workers/1
     def update
       if @worker.update(worker_params)
+        section_selected = params.dig(:worker, :sections) || []
+        @worker.sections = section_selected.reject(&:empty?).map { |section| Section.find(section.to_i) }
+
         redirect_to admin_workers_path, notice: _('Worker was successfully updated.')
       else
         render :edit
@@ -45,8 +49,12 @@ module Admin
 
     private
 
+    def set_sections
+      @sections = Section.all.pluck(:name, :id)
+    end
+
     def worker_params
-      params.require(:worker).permit(:name)
+      params.require(:worker).permit(:name, :sections)
     end
   end
 end
