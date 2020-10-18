@@ -1,3 +1,6 @@
+SemanticLogger.add_appender(io: $stdout, level: :info)
+SemanticLogger.add_appender(io: $stderr, level: :error)
+
 if ENV['SYSLOG_ENABLED'].present?
   Rails.configuration.semantic_logger.add_appender(
     appender: :syslog,
