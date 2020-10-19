@@ -28,7 +28,7 @@ module Notifications
               title: @notification[:message],
               facts: [
                 {
-                  name: @notification[:section][:network],
+                  name: @notification[:section][:network].to_s,
                   value: @notification[:section][:id]
                 }
               ]
