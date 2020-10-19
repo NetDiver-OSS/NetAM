@@ -1,0 +1,4 @@
+---
+type: fixed
+title: setup max-retry on backup worker
+merge_request: 66
