@@ -6,7 +6,7 @@ module Notifications
       end
 
       def call
-        Faraday.post Rails.configuration.netam.dig(:notification, :msteams_webhook), payload.to_json
+        Faraday.post Rails.configuration.netam.dig(:notification, :msteams_webhook), payload.to_json, "Content-Type" => "application/json"
       end
 
       private
@@ -15,21 +15,21 @@ module Notifications
         {
           "@type": "MessageCard",
           "@context": "http://schema.org/extensions",
-          "summary": "NetAM Notif",
+          summary: "NetAM Notif",
           "themeColor": "118811",
-          "title": "Notification from NetAM",
-          "sections": [
+          title: "Notification from NetAM",
+          sections: [
             {
               "activityTitle": "",
               "activitySubtitle": "",
               "activityText": ""
             },
             {
-              "title": "#{@notification[:message]}",
-              "facts": [
+              title: @notification[:message],
+              facts: [
                 {
-                  "name": "#{@notification[:section][:network]}",
-                  "value": "#{@notification[:section][:id]}"
+                  name: @notification[:section][:network],
+                  value: @notification[:section][:id]
                 }
               ]
             }
