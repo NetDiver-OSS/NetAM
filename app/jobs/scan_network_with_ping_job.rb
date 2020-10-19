@@ -55,7 +55,15 @@ class ScanNetworkWithPingJob < ApplicationJob
       section_to_update << current_usage if current_usage.length > 3
     end
 
-    Usage.upsert_all(section_to_update, unique_by: %i[identifier]) unless section_to_update.empty?
+    # Fix error "All objects being inserted must have the same keys"
+    # Need rework...
+    unless section_to_update.empty?
+      lite_section = section_to_update.dup.keep_if { |h| h.length == 4 }
+      full_section = section_to_update.dup.keep_if { |h| h.length == 5 }
+
+      Usage.upsert_all(lite_section, unique_by: %i[identifier]) unless lite_section.empty?
+      Usage.upsert_all(full_section, unique_by: %i[identifier]) unless full_section.empty?
+    end
 
     Notifications::SendService.call(
       {
