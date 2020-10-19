@@ -1,0 +1,4 @@
+---
+type: fixed
+title: add postgresql-client to docker image
+merge_request: 65

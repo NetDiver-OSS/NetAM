@@ -31,7 +31,7 @@ ENV \
   RAILS_LOG_TO_STDOUT=true
 
 RUN \
-  apk add --no-cache nodejs libpq ca-certificates tzdata xz-libs &&\
+  apk add --no-cache nodejs libpq ca-certificates tzdata xz-libs postgresql-client &&\
   rm -rf /var/cache/apk/* &&\
   mkdir -p /app
 
