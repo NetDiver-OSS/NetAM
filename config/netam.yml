@@ -39,6 +39,7 @@ default: &default
 
   notification:
     slack_webhook: <%= ENV.fetch("SLACK_WEBHOOK") { nil } %>
+    msteams_webhook: <%= ENV.fetch("MSTEAMS_WEBHOOK") { nil } %>
 
 development:
   <<: *default
