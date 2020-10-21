@@ -6,6 +6,7 @@ module Notifications
 
     def call
       Notifications::Slack::SendService.call(@notification_object) if Rails.configuration.netam.dig(:notification, :slack_webhook).present?
+      Notifications::Msteams::SendService.call(@notification_object) if Rails.configuration.netam.dig(:notification, :msteams_webhook).present?
     end
   end
 end
