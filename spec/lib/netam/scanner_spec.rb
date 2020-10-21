@@ -10,7 +10,7 @@ RSpec.describe NetAM::Scanner do
       @section = Section.create!(
         {
           name: 'section 1',
-          network: '10.0.0.0/24',
+          network: '8.8.8.0/24',
           schedule: 'every 24 hours',
           vlan_id: Vlan.first.id
         }
@@ -23,7 +23,7 @@ RSpec.describe NetAM::Scanner do
       @section = Section.create!(
         {
           name: 'section 1',
-          network: '10.0.0.0/24',
+          network: '8.8.8.0/24',
           schedule: 'every 24 hours',
           vlan_id: Vlan.first.id
         }
