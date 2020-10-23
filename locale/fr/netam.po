@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-16 23:45+0200\n"
-"PO-Revision-Date: 2020-10-16 22:02\n"
+"PO-Revision-Date: 2020-10-23 08:29\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -141,7 +141,7 @@ msgid "Homepage"
 msgstr "Page d'accueil"
 
 msgid "Hosts per Subnet"
-msgstr "Hôtes par sous-réseau"
+msgstr ""
 
 msgid "IP Address"
 msgstr "Adresse IP"
@@ -171,7 +171,7 @@ msgid "Last IP"
 msgstr "Dernière IP"
 
 msgid "Last scan time: %{timestamp}"
-msgstr "Dernière analyse : %{timestamp}"
+msgstr ""
 
 msgid "Load Average"
 msgstr "Charge moyenne"
@@ -219,7 +219,7 @@ msgid "Notice"
 msgstr "Notification"
 
 msgid "OTP code"
-msgstr "Code OTP"
+msgstr ""
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -231,7 +231,7 @@ msgid "Permission for %{name}"
 msgstr "Permission pour %{name}"
 
 msgid "Please validate TOTP code !"
-msgstr "Veuillez valider le code TOTP !"
+msgstr ""
 
 msgid "Recovery codes"
 msgstr "Code de récupération"
@@ -255,7 +255,7 @@ msgid "Scan in progress"
 msgstr "Scan en cours"
 
 msgid "Secret: %{otp_secret}"
-msgstr "Secret : %{otp_secret}"
+msgstr ""
 
 msgid "Section"
 msgstr "Section"
@@ -312,7 +312,7 @@ msgid "Utils"
 msgstr "Outils"
 
 msgid "Validate"
-msgstr "Valider"
+msgstr ""
 
 msgid "View"
 msgstr "Voir"
