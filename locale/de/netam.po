@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-28 10:21+0100\n"
-"PO-Revision-Date: 2020-10-28 09:43\n"
+"PO-Revision-Date: 2020-10-28 20:53\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -57,7 +57,7 @@ msgid "Available IP"
 msgstr ""
 
 msgid "Backlog"
-msgstr ""
+msgstr "Offene Anfragen"
 
 msgid "Backup list"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "Error"
 msgstr ""
 
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 msgid "First IP"
 msgstr ""
@@ -177,7 +177,7 @@ msgid "Last scan time: %{timestamp}"
 msgstr ""
 
 msgid "Latency"
-msgstr ""
+msgstr "Latenz"
 
 msgid "Load Average"
 msgstr ""
@@ -207,13 +207,13 @@ msgid "Name"
 msgstr ""
 
 msgid "NetAM agent node"
-msgstr ""
+msgstr "NetAM Agentenknoten"
 
 msgid "NetAM control node"
-msgstr ""
+msgstr "NetAM Steuerknoten"
 
 msgid "Network"
-msgstr ""
+msgstr "Netzwerk"
 
 msgid "New Section"
 msgstr ""
