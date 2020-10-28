@@ -129,7 +129,7 @@
                     %div.btn-group
                       = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
                       = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
-                      = link_to fa_icon_with_text('fas fa-trash', _('Delete')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
+                      = link_to fa_icon_with_text('fas fa-trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
 
 :javascript
     var donutChartCanvas = document.getElementById('donutChart').getContext('2d')

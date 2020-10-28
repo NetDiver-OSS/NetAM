@@ -7,6 +7,8 @@
 
     %title #{page_title.empty? ? 'NetAM' : "#{strip_tags(page_title)} | NetAM"}
 
+    = render :partial => 'layouts/icons'
+
     = csrf_meta_tags
     = csp_meta_tag
 
