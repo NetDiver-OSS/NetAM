@@ -27,4 +27,4 @@
               %td= admin_job.klass
 
               %td.project-actions.text-right
-                = link_to (admin_job.status == 'enabled')? _('Disable') : _('Enable'), admin_toggle_job_path(admin_job.name), class: 'btn btn-secondary btn-sm', method: :post, data: { confirm: _('Are you sure?') }
+                = link_to (admin_job.status == 'enabled')? _('Disable') : _('Enable'), toggle_admin_job_path(admin_job.name), class: 'btn btn-secondary btn-sm', method: :post, data: { confirm: _('Are you sure?') }
