@@ -36,6 +36,7 @@ module SimpleCovEnv
       add_filter 'app/jobs/application_job.rb'
       add_filter 'app/controllers/setup_controller.rb'
       add_filter 'app/controllers/callbacks_controller.rb'
+      add_filter 'app/services/notifications/mail/send_service.rb'
 
       add_group 'Controllers', 'app/controllers'
       add_group 'Helpers', 'app/helpers'
