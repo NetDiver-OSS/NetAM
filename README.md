@@ -122,6 +122,20 @@ All application configuration is set into `config/netam.yml`
 | -------------- | -------------------- | ----------------- |
 | slack webhook  | SLACK_WEBHOOK        | Slack webhook URL |
 
+### Mail
+
+| environment variable | description       |
+| -------------------- | ----------------- |
+| MAIL_HOST            | SMTP Host         |
+| MAIL_POST            | SMTP Port         |
+| MAIL_USER            | SMTP User         |
+| MAIL_PASS            | SMTP Password     |
+| MAIL_AUTH_TYPE       | SMTP Auth Method  |
+| MAIL_HELO            | SMTP HELO         |
+| MAIL_SSL_ENABLE      | SMTP SSL enabling |
+| MAIL_FROM            | From field        |
+| MAIL_TO              | Receivers         |
+
 ### Logging
 
 | name                  | environment variable  | description                   |
