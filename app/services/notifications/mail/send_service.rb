@@ -9,7 +9,7 @@ module Notifications
       message_content += "MIME-Version: 1.0\n"
       message_content += "Content-Type: text/html\n"
       message_content += "Subject: [NetAM] Scan finished\n"
-      message_body = "New scan finished on NetAM <br/>"
+      message_body = "#{@notification[:message]} <br/>"
       message_body += "Section: #{@notification[:section][:network].to_s} (#{@notification[:section][:id]})<br/><br/>"
 
       auth_type = Rails.configuration.netam.dig(:notification, :mail, :type).present? ? Rails.configuration.netam.dig(:notification, :mail, :type).to_sym : nil
