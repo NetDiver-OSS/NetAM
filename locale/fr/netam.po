@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 23:45+0200\n"
-"PO-Revision-Date: 2020-10-16 22:02\n"
+"POT-Creation-Date: 2020-10-28 10:21+0100\n"
+"PO-Revision-Date: 2020-10-28 10:29\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -55,6 +55,9 @@ msgstr "Êtes-vous sûr?"
 
 msgid "Available IP"
 msgstr "IP disponible"
+
+msgid "Backlog"
+msgstr "Demandes en attente"
 
 msgid "Backup list"
 msgstr "Liste des sauvegardes"
@@ -173,6 +176,9 @@ msgstr "Dernière IP"
 msgid "Last scan time: %{timestamp}"
 msgstr "Dernière analyse : %{timestamp}"
 
+msgid "Latency"
+msgstr "Latence"
+
 msgid "Load Average"
 msgstr "Charge moyenne"
 
@@ -199,6 +205,12 @@ msgstr "NON"
 
 msgid "Name"
 msgstr "Nom"
+
+msgid "NetAM agent node"
+msgstr "Noeud d'agent NetAM"
+
+msgid "NetAM control node"
+msgstr "Noeud de contrôle NetAM"
 
 msgid "Network"
 msgstr "Réseau"
@@ -233,8 +245,14 @@ msgstr "Permission pour %{name}"
 msgid "Please validate TOTP code !"
 msgstr "Veuillez valider le code TOTP !"
 
+msgid "Queues"
+msgstr "File d'attente"
+
 msgid "Recovery codes"
 msgstr "Code de récupération"
+
+msgid "Release"
+msgstr "Oublier"
 
 msgid "Requirements"
 msgstr "Prérequis"
