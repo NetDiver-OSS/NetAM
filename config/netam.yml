@@ -47,6 +47,7 @@ default: &default
       pass: <%= ENV.fetch("MAIL_PASS") { nil } %>
       type: <%= ENV.fetch("MAIL_AUTH_TYPE") { nil } %>
       helo: <%= ENV.fetch("MAIL_HELO") { nil } %>
+      ssl:  <%= ENV.fetch("MAIL_SSL_ENABLE") { nil } %>
       from: <%= ENV.fetch("MAIL_FROM") { 'NetAM <no-reply@example.loc>' } %>
       to:
         - <%= ENV.fetch("MAIL_TO") { 'netam@example.loc' } %>
