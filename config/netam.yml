@@ -40,6 +40,17 @@ default: &default
   notification:
     slack_webhook: <%= ENV.fetch("SLACK_WEBHOOK") { nil } %>
     msteams_webhook: <%= ENV.fetch("MSTEAMS_WEBHOOK") { nil } %>
+    mail:
+      host: <%= ENV.fetch("MAIL_HOST") { nil } %>
+      port: <%= ENV.fetch("MAIL_POST") { nil } %>
+      user: <%= ENV.fetch("MAIL_USER") { nil } %>
+      pass: <%= ENV.fetch("MAIL_PASS") { nil } %>
+      type: <%= ENV.fetch("MAIL_AUTH_TYPE") { nil } %>
+      helo: <%= ENV.fetch("MAIL_HELO") { nil } %>
+      ssl:  <%= ENV.fetch("MAIL_SSL_ENABLE") { nil } %>
+      from: <%= ENV.fetch("MAIL_FROM") { 'NetAM <no-reply@example.loc>' } %>
+      to:
+        - <%= ENV.fetch("MAIL_TO") { 'netam@example.loc' } %>
 
 development:
   <<: *default
