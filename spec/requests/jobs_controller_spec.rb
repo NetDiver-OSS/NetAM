@@ -26,7 +26,7 @@ describe "Job", type: :request do
     it "should disable job when is enabled" do
       Sidekiq::Cron::Job.find('unit_test').enable!
 
-      post admin_toggle_job_url('unit_test')
+      post toggle_admin_job_url('unit_test')
 
       expect(Sidekiq::Cron::Job.find('unit_test').status).to eq('disabled')
       expect(response).to redirect_to(admin_jobs_url)
@@ -35,7 +35,7 @@ describe "Job", type: :request do
     it "should enable job when is disabled" do
       Sidekiq::Cron::Job.find('unit_test').disable!
 
-      post admin_toggle_job_url('unit_test')
+      post toggle_admin_job_url('unit_test')
 
       expect(Sidekiq::Cron::Job.find('unit_test').status).to eq('enabled')
       expect(response).to redirect_to(admin_jobs_url)
