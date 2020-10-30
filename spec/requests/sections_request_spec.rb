@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Section", type: :request do
   before(:each) do
-    Vlan.create!(vid: Random.rand(500))
+    Vlan.create!(name: 'tu', vid: Random.rand(500))
     admin = User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
 
     sign_in admin

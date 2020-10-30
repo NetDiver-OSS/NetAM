@@ -3,5 +3,5 @@ class Permission < ApplicationRecord
 
   delegate :email, to: :user, prefix: true
 
-  validates :subject_class, :subject_id, presence: true
+  validates :subject_class, :subject_id, :user, presence: true
 end
