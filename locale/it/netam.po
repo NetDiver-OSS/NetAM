@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-28 10:21+0100\n"
-"PO-Revision-Date: 2020-10-28 09:43\n"
+"PO-Revision-Date: 2020-10-28 21:59\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -18,335 +18,335 @@ msgstr ""
 "X-Crowdin-File-ID: 12\n"
 
 msgid "ACTIVED"
-msgstr ""
+msgstr "ATTIVATO"
 
 msgid "Action"
-msgstr ""
+msgstr "Azione"
 
 msgid "Activated"
-msgstr ""
+msgstr "Attivato"
 
 msgid "Add Permission"
-msgstr ""
+msgstr "Aggiungi Permesso"
 
 msgid "Add permission"
-msgstr ""
+msgstr "Aggiungi permesso"
 
 msgid "Address Matrix"
-msgstr ""
+msgstr "Matrice Di Indirizzo"
 
 msgid "Address Table"
-msgstr ""
+msgstr "Tabella Indirizzi"
 
 msgid "Admin Backups"
-msgstr ""
+msgstr "Backup Amministratore"
 
 msgid "Admin Center"
-msgstr ""
+msgstr "Centro Amministratore"
 
 msgid "Admin Jobs"
-msgstr ""
+msgstr "Processi Amministratori"
 
 msgid "All Permissions"
-msgstr ""
+msgstr "Tutti I Permessi"
 
 msgid "Are you sure?"
-msgstr ""
+msgstr "Sei sicuro?"
 
 msgid "Available IP"
-msgstr ""
+msgstr "IP Disponibile"
 
 msgid "Backlog"
-msgstr ""
+msgstr "Arretrati"
 
 msgid "Backup list"
-msgstr ""
+msgstr "Lista backup"
 
 msgid "Backups"
-msgstr ""
+msgstr "Backup"
 
 msgid "Boot time"
-msgstr ""
+msgstr "Tempo di avvio"
 
 msgid "Broadcast"
-msgstr ""
+msgstr "Diffusione"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "Calculate"
-msgstr ""
+msgstr "Calcola"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Scegli file"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DOWN"
-msgstr ""
+msgstr "SCARICA"
 
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 msgid "Disable"
-msgstr ""
+msgstr "Disabilita"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Disabilitato"
 
 msgid "Down"
-msgstr ""
+msgstr "Giù"
 
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 msgid "Editing Permission"
-msgstr ""
+msgstr "Modifica Del Permesso"
 
 msgid "Editing Section"
-msgstr ""
+msgstr "Modifica Sezione"
 
 msgid "Editing Usage"
-msgstr ""
+msgstr "Modifica Utilizzo"
 
 msgid "Editing User"
-msgstr ""
+msgstr "Modificare Utente"
 
 msgid "Editing Vlan"
-msgstr ""
+msgstr "Modificare Vlan"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 msgid "Error"
-msgstr ""
+msgstr "Errore"
 
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 msgid "First IP"
-msgstr ""
+msgstr "Primo IP"
 
 msgid "Free IP"
-msgstr ""
+msgstr "IP Libero"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Pagina iniziale"
 
 msgid "Hosts per Subnet"
-msgstr ""
+msgstr "Host per sottorete"
 
 msgid "IP Address"
-msgstr ""
+msgstr "Indirizzo IP"
 
 msgid "IP Calculator"
-msgstr ""
+msgstr "Calcolatrice IP"
 
 msgid "IP calculator"
-msgstr ""
+msgstr "calcolatrice IP"
 
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 msgid "Import usages with CSV"
-msgstr ""
+msgstr "Importa usi con CSV"
 
 msgid "Job"
-msgstr ""
+msgstr "Lavoro"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Lavori"
 
 msgid "LOCKED"
-msgstr ""
+msgstr "BLOCCATO"
 
 msgid "Last IP"
-msgstr ""
+msgstr "Ultimo IP"
 
 msgid "Last scan time: %{timestamp}"
-msgstr ""
+msgstr "Ultimo tempo di scansione: %{timestamp}"
 
 msgid "Latency"
-msgstr ""
+msgstr "Latenza"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Media Carico"
 
 msgid "Locked"
-msgstr ""
+msgstr "Bloccato"
 
 msgid "Logout"
-msgstr ""
+msgstr "Disconnettiti"
 
 msgid "Mask"
-msgstr ""
+msgstr "Maschera"
 
 msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
-msgstr ""
+msgstr "Massicci utilizzi di importazione mediante iniezioni di CSV. Devi avere CSV formattato con la seguente intestazione:"
 
 msgid "Memory"
-msgstr ""
+msgstr "Memoria"
 
 msgid "My home network"
-msgstr ""
+msgstr "La mia rete personale"
 
 msgid "NO"
-msgstr ""
+msgstr "NO"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "NetAM agent node"
-msgstr ""
+msgstr "Nodo agente NetAM"
 
 msgid "NetAM control node"
-msgstr ""
+msgstr "Nodo di controllo NetAM"
 
 msgid "Network"
-msgstr ""
+msgstr "Rete"
 
 msgid "New Section"
-msgstr ""
+msgstr "Nuova Sezione"
 
 msgid "New Usage"
-msgstr ""
+msgstr "Nuovo Utilizzo"
 
 msgid "New User"
-msgstr ""
+msgstr "Nuovo Utente"
 
 msgid "New Vlan"
-msgstr ""
+msgstr "Nuovo Vlan"
 
 msgid "Notice"
-msgstr ""
+msgstr "Nota"
 
 msgid "OTP code"
-msgstr ""
+msgstr "Codice OTP"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Password confirmation"
-msgstr ""
+msgstr "Conferma password"
 
 msgid "Permission for %{name}"
-msgstr ""
+msgstr "Permesso per %{name}"
 
 msgid "Please validate TOTP code !"
-msgstr ""
+msgstr "Si prega di convalidare il codice TOTP !"
 
 msgid "Queues"
-msgstr ""
+msgstr "Code"
 
 msgid "Recovery codes"
-msgstr ""
+msgstr "Codici di recupero"
 
 msgid "Release"
-msgstr ""
+msgstr "Dimenticare"
 
 msgid "Requirements"
-msgstr ""
+msgstr "Requisiti"
 
 msgid "Reserved"
-msgstr ""
+msgstr "Riservato"
 
 msgid "Scan"
-msgstr ""
+msgstr "Scansione"
 
 msgid "Scan Queued"
-msgstr ""
+msgstr "Scansione In Coda"
 
 msgid "Scan complete"
-msgstr ""
+msgstr "Scansione completata"
 
 msgid "Scan in progress"
-msgstr ""
+msgstr "Scansione in corso"
 
 msgid "Secret: %{otp_secret}"
-msgstr ""
+msgstr "Segreto: %{otp_secret}"
 
 msgid "Section"
-msgstr ""
+msgstr "Sezione"
 
 msgid "Sections"
-msgstr ""
+msgstr "Sezioni"
 
 msgid "Sections linked to %{name} (#%{vid})"
-msgstr ""
+msgstr "Sezioni collegate a %{name} (#%{vid})"
 
 msgid "Setup"
-msgstr ""
+msgstr "Configurazione"
 
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 msgid "State available are :"
-msgstr ""
+msgstr "Lo stato disponibile è:"
 
 msgid "Subject"
-msgstr ""
+msgstr "Oggetto"
 
 msgid "Subject ID"
-msgstr ""
+msgstr "ID Oggetto"
 
 msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr ""
+msgstr "Questa sezione è collegata a Vlan %{name} con ID Vlan: %{vid}"
 
 msgid "Two Factor Auth"
-msgstr ""
+msgstr "Autenticazione A Due Fattori"
 
 msgid "Two Factor Authentication"
-msgstr ""
+msgstr "Autenticazione A Due Fattori"
 
 msgid "Two Factor Authentication Manager"
-msgstr ""
+msgstr "Gestore Autenticazione A Due Fattori"
 
 msgid "Unknown state"
-msgstr ""
+msgstr "Stato sconosciuto"
 
 msgid "Usage"
-msgstr ""
+msgstr "Utilizzo"
 
 msgid "Used"
-msgstr ""
+msgstr "Usato"
 
 msgid "User Email"
-msgstr ""
+msgstr "Email Utente"
 
 msgid "Users"
-msgstr ""
+msgstr "Utenti"
 
 msgid "Utils"
-msgstr ""
+msgstr "Utensili"
 
 msgid "Validate"
-msgstr ""
+msgstr "Validate"
 
 msgid "View"
-msgstr ""
+msgstr "Visualizza"
 
 msgid "Vlan ID"
-msgstr ""
+msgstr "ID Vlan"
 
 msgid "Vlans"
-msgstr ""
+msgstr "Vlans"
 
 msgid "YES"
-msgstr ""
+msgstr "SÌ"
 
 msgid "Youhou !"
-msgstr ""
+msgstr "Youhou !"
 
 msgid "every 24 hours"
-msgstr ""
+msgstr "ogni 24 ore"
 
