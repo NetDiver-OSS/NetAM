@@ -1,10 +1,10 @@
-# Contributing to Hugo
+# Contributing to NetAM
 
 We welcome contributions to NetAM of any kind including documentation, tutorials,
 blog posts, bug reports, issues, feature requests, feature implementations, pull requests,
 answering questions on the forum, helping to manage issues, etc.
 
-*Note that this repository only contains the actual source code of Hugo.
+*Note that this repository only contains the actual source code of NetAM.
 For **only** documentation-related pull requests / issues please refer to the [NetAM documentation](https://github.com/NetAM-OSC/documentation) repository.*
 
 *Changes to the codebase **and** related documentation, e.g. for a new feature, should still use a single pull request.*
