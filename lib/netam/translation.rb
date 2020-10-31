@@ -6,7 +6,9 @@ module NetAM
 
     AVAILABLE_LOCALE = {
       en: 'English',
-      fr: 'Français'
+      fr: 'Français',
+      de: 'Deutsch',
+      it: 'Italiano'
     }.freeze
   end
 end
