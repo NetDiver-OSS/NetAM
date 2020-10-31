@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe NetAM::Scanner do
   before(:each) do
-    Vlan.create!(vid: Random.rand(500))
+    Vlan.create!(name: 'tu', vid: Random.rand(500))
   end
 
   describe 'run' do

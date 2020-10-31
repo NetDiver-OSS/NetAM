@@ -1,6 +1,8 @@
 class Vlan < ApplicationRecord
   has_many :sections
 
+  validates_associated :sections
+  validates :vid, :name, presence: true
   validates :vid, numericality: true
   validates :vid, uniqueness: true
 

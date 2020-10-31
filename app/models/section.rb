@@ -2,7 +2,8 @@ class Section < ApplicationRecord
   has_many :usages, dependent: :destroy
   belongs_to :vlan
 
-  validates :name, :network, presence: true
+  validates_associated :usages
+  validates :name, :network, :vlan, presence: true
   validate :network_must_be_valid, :schedule_must_be_cron
 
   delegate :vid, :name, to: :vlan, prefix: true

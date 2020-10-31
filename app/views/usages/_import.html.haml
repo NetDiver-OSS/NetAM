@@ -1,4 +1,4 @@
-= form_with(url: section_import_path(@section), local: true, multipart: true) do |form|
+= form_with(url: import_section_usages_path(@section), local: true, multipart: true) do |form|
   %div.card-header
     %h3.card-title= _('Import usages with CSV')
   %div.card-body
