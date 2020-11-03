@@ -18,17 +18,17 @@ For **only** documentation-related pull requests / issues please refer to the [N
 
 ## Reporting Issues
 
-You could report any issues into project GitHub issue tracker
+You can report any issues into project GitHub issue tracker
 
 - [NetAM Issues](https://github.com/NetaM-OSC/NetAM/issues)
 - [NetAM Documentation Issues](https://github.com/NetaM-OSC/documentation/issues)
 
 ## Code Contribution
 
-You could contribute to code to implement new feature, existing features enhancement, optimizations, etc…
+You can contribute to the code to implement new features, existing features enhancement, optimizations, etc…
 
-The project is axed to be as much as possible user friendly, when you propose contribution think to keep
-interface and usage as much as possible simple for a non expert user.
+The project is axed to be as much user friendly as possible, when you propose contribution think to keep
+interface and usage as simple as possible simple for a non expert user.
 
 ## Submitting Patches
 
@@ -37,11 +37,11 @@ If you are interested in helping with the project, we will help you with your co
 
 ### Code Contribution Guidelines
 
-Because we want to create the best and usefull possible product for our users, we have a set of guidelines which ensure that all contributions are acceptable.
+Because we want to create the best and most usefull possible product for our users, we have a set of guidelines which ensure that all contributions are acceptable.
 
 To make the contribution process as seamless as possible, we ask for the following:
 
-* Go ahead and fork the project and make your changes.  We encourage pull requests to allow for review and discussion of code changes.
+* Go ahead, fork the project and make your changes.  We encourage pull requests to allow review and discussion about code changes.
 * When you’re ready to create a pull request, be sure to:
     * Have test cases for the new code. If you have questions about how to do this, please ask in your pull request.
     * Add documentation if you are adding new features or changing functionality.
@@ -52,7 +52,7 @@ To make the contribution process as seamless as possible, we ask for the followi
 
 We encourage you to use your commit definitions.
 
-We are based on [Angular contribution guide](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-coding-rules) for the essentiels of commit keys :
+We are based on [Angular contribution guide](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-coding-rules) for the essentials of commit keys :
 
 ```text
 - build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
@@ -66,15 +66,15 @@ We are based on [Angular contribution guide](https://github.com/angular/angular/
 - test: Adding missing tests or correcting existing tests
 - updt: Update one part of same file
 - enc: Update multiples parts of same file
-- chore: Massive update from multiples files
+- chore: Massive update for multiples files
 - add: Simple file adding
 ```
 
 ### Write Changelog
 
-For each pull request you would submit, you must add an unrealeased changelog for will be computed at the release to create a update Changelog file.
+For each pull request you would submit, you must add an unrealeased changelog which will be computed during the release to create an updated Changelog file.
 
-A binary exist in repository to easily create unreleased changelog file. To create this file you must launch following command :
+A binary exists in repository to easily create unreleased changelog file. To create this file you must launch following command :
 
 ```bash
 ./bin/changelog -t <type> -m <PR id> "your message"
