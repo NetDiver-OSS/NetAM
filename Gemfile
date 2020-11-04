@@ -50,7 +50,7 @@ gem 'grape', '~> 1.4'
 gem 'grape-active_model_serializers', '~> 1.5', '>= 1.5.2'
 gem "grape-cancan", "~> 0.0.3"
 gem 'grape_on_rails_routes', '~> 0.3.2'
-gem 'grape-swagger', '~> 1.2'
+gem 'grape-swagger', '~> 1.3'
 gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
