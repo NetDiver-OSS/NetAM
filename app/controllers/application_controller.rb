@@ -39,6 +39,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def after_sign_in_path_for(resource)
+    cookies[:token] = {
+      value: Doorkeeper::AccessToken.create!(resource_owner_id: current_user.id, expires_in: 24.hours).plaintext_token,
+      expires: 24.hours.from_now
+    }
+
+    stored_location_for(resource) || root_path
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
   end
