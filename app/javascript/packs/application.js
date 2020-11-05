@@ -5,9 +5,10 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("turbolinks").start()
 require("channels")
 
-require("bootstrap")
+import "bootstrap"
 
 import '@fortawesome/fontawesome-free/js/all.min'
 import 'admin-lte/dist/js/adminlte.min'
