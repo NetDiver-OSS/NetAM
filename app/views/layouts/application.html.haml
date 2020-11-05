@@ -46,12 +46,7 @@
                     = _('Error')
                   = alert
 
-            %div.container
-              %div.row.mb-2
-                %div.col-6
-                  %h1= page_title.html_safe
-                %div.col-6
-                  %div.float-right= page_action.html_safe
+            = render partial: 'layouts/parts/actions'
 
           %div.content
             %div.container
