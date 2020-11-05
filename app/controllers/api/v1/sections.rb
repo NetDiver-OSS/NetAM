@@ -6,6 +6,8 @@ module API
       include API::V1::Defaults
       helpers Doorkeeper::Grape::Helpers
 
+      REQUIRES_ID = 'ID of the section'.freeze
+
       before do
         doorkeeper_authorize!
         authorize_route!
@@ -40,7 +42,7 @@ module API
 
         desc 'Return a section'
         params do
-          requires :id, type: String, desc: 'ID of the section'
+          requires :id, type: String, desc: REQUIRES_ID
         end
         get ':id', root: 'section' do
           section = Section.where(id: permitted_params[:id]).first!
@@ -50,7 +52,7 @@ module API
 
         desc 'Launch scan for a section'
         params do
-          requires :id, type: String, desc: 'ID of the section'
+          requires :id, type: String, desc: REQUIRES_ID
         end
         post ':id/scan', root: 'section' do
           @section = Section.find(permitted_params[:id])
@@ -62,7 +64,7 @@ module API
 
         desc 'Return usage for a section'
         params do
-          requires :id, type: String, desc: 'ID of the section'
+          requires :id, type: String, desc: REQUIRES_ID
         end
         get ':id/usages', root: 'section' do
           section = Section.find(permitted_params[:id]).usages
@@ -72,7 +74,7 @@ module API
 
         desc 'Create a usage for a section'
         params do
-          requires :id, type: String, desc: 'ID of the section'
+          requires :id, type: String, desc: REQUIRES_ID
           requires :ip_used, type: String
           requires :fqdn, type: String
           requires :state, type: String
@@ -97,7 +99,7 @@ module API
 
         desc 'Export section to CSV'
         params do
-          requires :id, type: String, desc: 'ID of the section'
+          requires :id, type: String, desc: REQUIRES_ID
         end
         get ':id/export', root: 'section' do
           content_type 'text/csv'
