@@ -4,29 +4,29 @@
 
 ### Added (5 changes)
 
-- Add MSTeams notifications !67
-- add favicons !74
-- display workers status in homepage !53
-- add mail notifications !84
-- add customn log appenders !54
+- Add MSTeams notifications #67
+- add favicons #74
+- display workers status in homepage #53
+- add mail notifications #84
+- add customn log appenders #54
 
 ### Changed (1 change)
 
-- Rename Delete IP Button !81
+- Rename Delete IP Button #81
 
 ### Other (1 change)
 
-- simplify dark mode class switcher !52
+- simplify dark mode class switcher #52
 
 
 ## [1.3.1] - 2020-10-19
 
 ### Fixed (4 changes)
 
-- split upsert with FQDN to avoid error on import !68
-- update identifier field for usages !64
-- add postgresql-client to docker image !65
-- setup max-retry on backup worker !66
+- split upsert with FQDN to avoid error on import #68
+- update identifier field for usages #64
+- add postgresql-client to docker image #65
+- setup max-retry on backup worker #66
 
 
 ## [1.3.0] - 2020-10-17
@@ -34,19 +34,19 @@
 ### Added (5 changes)
 
 - Display OTP secret on account page !185
-- add filter on usage state in section page !43
-- display last datetime scan on section !44
-- add i18n !24
-- add Slack notification after scan !26
+- add filter on usage state in section page #43
+- display last datetime scan on section #44
+- add i18n #24
+- add Slack notification after scan #26
 
 ### Fixed (1 change)
 
-- update color scheme for section view !16
+- update color scheme for section view #16
 
 ### Changed (2 changes)
 
 - upgrade ruby to v2.7.2 !184
-- confirm OTP code before require it for login !22
+- confirm OTP code before require it for login #22
 
 ### Performance (1 change)
 
