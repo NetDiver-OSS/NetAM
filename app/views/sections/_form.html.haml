@@ -20,7 +20,7 @@
           = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{dark_mode_class}"
 
       %div.col-6
-        = form.label :schedule
+        = form.label _('Schedule')
         %div.input-group.mb-3
           %div.input-group-prepend
             %span.input-group-text{class: dark_mode_class}
@@ -41,10 +41,10 @@
       %div.col-6
         %div.form-check.mt-2
           = form.check_box :notification_run_scan, checked: section.settings(:notification).on_run, class: 'form-check-input'
-          = form.label :notification_run_scan, 'Run notification on run_scan', class: 'form-check-label'
+          = form.label :notification_run_scan, _('Run notification on run_scan'), class: 'form-check-label'
 
   %div.card-footer
     %div.form-check.float-left.mt-2
       = form.check_box :run_scan, checked: false, class: 'form-check-input'
-      = form.label :run_scan, 'Run scan after creation', class: 'form-check-label'
-    = form.submit nil, class: 'btn btn-primary float-right'
+      = form.label :run_scan, _('Run scan after creation'), class: 'form-check-label'
+    = form.submit _('Apply'), class: 'btn btn-primary float-right'

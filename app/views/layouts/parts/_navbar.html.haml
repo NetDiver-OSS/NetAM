@@ -29,6 +29,15 @@
           = link_to '<i class="fas fa-sun"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' if dark_mode?
 
         %li.nav-item.dropdown
+          %a.nav-link{href: "#", data: {toggle: "dropdown"}}
+            %i.flag-icon{class: "flag-icon-#{I18n.locale}"}
+          %div.dropdown-menu.dropdown-menu-right.p-0{class: dark_mode_class}
+            - NetAM::Translation::AVAILABLE_LOCALE.each do |code, name|
+              %a.dropdown-item{class: dark_mode_class, href: url_for({locale: code})}
+                %i.flag-icon.mr-2{class: "flag-icon-#{code}"}
+                = _(name)
+
+        %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
             %i.fas.fa-user
           %ul.dropdown-menu.border-0.shadow{class: dark_mode_class}

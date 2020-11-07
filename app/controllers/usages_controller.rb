@@ -31,7 +31,7 @@ class UsagesController < ApplicationController
 
     ScanAddressWithPingJob.perform_later({ id: @usage.id, ip_used: @usage.ip_used, section_id: @usage.section_id, state: @usage.state })
 
-    redirect_to section_path(@usage.section_id), notice: 'Scan was successfully scheduled.'
+    redirect_to section_path(@usage.section_id), notice: _('Scan was successfully scheduled.')
   end
 
   # POST /usages
@@ -39,7 +39,7 @@ class UsagesController < ApplicationController
     @usage = @section.usages.build(usage_params)
 
     if @usage.save
-      redirect_to section_path(@usage.section_id), notice: 'Usage was successfully created.'
+      redirect_to section_path(@usage.section_id), notice: _('Usage was successfully created.')
     else
       render :new
     end
@@ -48,7 +48,7 @@ class UsagesController < ApplicationController
   # PATCH/PUT /usages/1
   def update
     if @usage.update(usage_params)
-      redirect_to section_path(@usage.section_id), notice: 'Usage was successfully updated.'
+      redirect_to section_path(@usage.section_id), notice: _('Usage was successfully updated.')
     else
       render :edit
     end
@@ -57,7 +57,7 @@ class UsagesController < ApplicationController
   # DELETE /usages/1
   def destroy
     @usage.destroy
-    redirect_to section_path(@usage.section_id), notice: 'Usage was successfully destroyed.'
+    redirect_to section_path(@usage.section_id), notice: _('Usage was successfully destroyed.')
   end
 
   # GET /usages/import

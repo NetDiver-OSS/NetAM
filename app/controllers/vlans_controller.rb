@@ -36,7 +36,7 @@ class VlansController < ApplicationController
         }
       )
 
-      redirect_to @vlan, notice: 'Vlan was successfully created.'
+      redirect_to @vlan, notice: _('Vlan was successfully created.')
     else
       render :new
     end
@@ -45,7 +45,7 @@ class VlansController < ApplicationController
   # PATCH/PUT /vlans/1
   def update
     if @vlan.update(vlan_params)
-      redirect_to @vlan, notice: 'Vlan was successfully updated.'
+      redirect_to @vlan, notice: _('Vlan was successfully updated.')
     else
       render :edit
     end
@@ -54,7 +54,7 @@ class VlansController < ApplicationController
   # DELETE /vlans/1
   def destroy
     @vlan.destroy
-    redirect_to vlans_url, notice: 'Vlan was successfully destroyed.'
+    redirect_to vlans_url, notice: _('Vlan was successfully destroyed.')
   end
 
   private
