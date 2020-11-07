@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 10:21+0100\n"
-"PO-Revision-Date: 2020-10-28 10:21+0100\n"
+"POT-Creation-Date: 2020-11-07 17:59+0100\n"
+"PO-Revision-Date: 2020-11-07 17:59+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -96,6 +96,9 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
+msgid "Disable TOTP"
+msgstr ""
+
 msgid "Disabled"
 msgstr ""
 
@@ -124,6 +127,9 @@ msgid "Email"
 msgstr ""
 
 msgid "Enable"
+msgstr ""
+
+msgid "Enable TOTP"
 msgstr ""
 
 msgid "Enabled"
@@ -243,6 +249,15 @@ msgstr ""
 msgid "Permission for %{name}"
 msgstr ""
 
+msgid "Permission was successfully created."
+msgstr ""
+
+msgid "Permission was successfully destroyed."
+msgstr ""
+
+msgid "Permission was successfully updated."
+msgstr ""
+
 msgid "Please validate TOTP code !"
 msgstr ""
 
@@ -261,6 +276,9 @@ msgstr ""
 msgid "Reserved"
 msgstr ""
 
+msgid "Run notification on run_scan"
+msgstr ""
+
 msgid "Scan"
 msgstr ""
 
@@ -271,6 +289,12 @@ msgid "Scan complete"
 msgstr ""
 
 msgid "Scan in progress"
+msgstr ""
+
+msgid "Scan was successfully scheduled."
+msgstr ""
+
+msgid "Schedule"
 msgstr ""
 
 msgid "Secret: %{otp_secret}"
@@ -318,6 +342,15 @@ msgstr ""
 msgid "Usage"
 msgstr ""
 
+msgid "Usage was successfully created."
+msgstr ""
+
+msgid "Usage was successfully destroyed."
+msgstr ""
+
+msgid "Usage was successfully updated."
+msgstr ""
+
 msgid "Used"
 msgstr ""
 
@@ -337,6 +370,15 @@ msgid "View"
 msgstr ""
 
 msgid "Vlan ID"
+msgstr ""
+
+msgid "Vlan was successfully created."
+msgstr ""
+
+msgid "Vlan was successfully destroyed."
+msgstr ""
+
+msgid "Vlan was successfully updated."
 msgstr ""
 
 msgid "Vlans"

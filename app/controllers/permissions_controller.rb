@@ -18,7 +18,7 @@ class PermissionsController < ApplicationController
     @permission = Permission.new(permission_params)
 
     if @permission.save
-      redirect_to root_path, notice: 'Permission was successfully created.'
+      redirect_to root_path, notice: _('Permission was successfully created.')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class PermissionsController < ApplicationController
   # PATCH/PUT /permissions/1
   def update
     if @permission.update(permission_params)
-      redirect_to root_path, notice: 'Permission was successfully updated.'
+      redirect_to root_path, notice: _('Permission was successfully updated.')
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class PermissionsController < ApplicationController
   # DELETE /permissions/1
   def destroy
     @permission.destroy
-    redirect_to root_path, notice: 'Permission was successfully destroyed.'
+    redirect_to root_path, notice: _('Permission was successfully destroyed.')
   end
 
   private

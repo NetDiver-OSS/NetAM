@@ -11,13 +11,13 @@
           = form.number_field :vid, class: "form-control #{dark_mode_class}"
       %div.col-6
         %div.form-group
-          = form.label :name
+          = form.label _('Name')
           = form.text_field :name, class: "form-control #{dark_mode_class}"
 
     %div.row
       %div.col-12
         %div.form-group
-          = form.label :description
+          = form.label _('Description')
           = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
 
   %div.card-footer
