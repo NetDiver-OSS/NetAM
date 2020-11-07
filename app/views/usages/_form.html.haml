@@ -8,22 +8,22 @@
     %div.row
       %div.col-4
         %div.form-group
-          = form.label :fqdn
+          = form.label _('FQDN')
           = form.text_field :fqdn, class: "form-control #{dark_mode_class}"
       %div.col-4
         %div.form-group
-          = form.label :ip_used
+          = form.label ('IP used')
           = form.text_field :ip_used, class: "form-control #{dark_mode_class}"
       %div.col-4
         %div.form-group
-          = form.label :state
-          = form.select :state, [:locked, :actived, :down, :dhcp], {}, {class: "form-control #{dark_mode_class}"}
+          = form.label _('State')
+          = form.select :state, [_('Locked'), _('Actived'), _('Down'), _('DHCP')], {}, {class: "form-control #{dark_mode_class}"}
 
     %div.row
       %div.col-12
         %div.form-group
-          = form.label :description
+          = form.label _('Description')
           = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
 
   %div.card-footer
-    = form.submit nil, class: 'btn btn-primary float-right'
+    = form.submit _('Apply'), class: 'btn btn-primary float-right'

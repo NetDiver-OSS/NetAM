@@ -46,5 +46,5 @@
   %div.card-footer
     %div.form-check.float-left.mt-2
       = form.check_box :run_scan, checked: false, class: 'form-check-input'
-      = form.label :run_scan, 'Run scan after creation', class: 'form-check-label'
-    = form.submit nil, class: 'btn btn-primary float-right'
+      = form.label :run_scan, _('Run scan after creation'), class: 'form-check-label'
+    = form.submit _('Apply'), class: 'btn btn-primary float-right'

@@ -1,30 +1,29 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the netam package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: netam 1.0.0\n"
+"Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-07 18:43+0100\n"
-"PO-Revision-Date: 2020-11-07 18:43+0100\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2020-10-28 10:21+0100\n"
+"PO-Revision-Date: 2020-10-28 09:43\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: netam\n"
+"X-Crowdin-Project-ID: 424166\n"
+"X-Crowdin-Language: es-ES\n"
+"X-Crowdin-File: /dev/locale/netam.pot\n"
+"X-Crowdin-File-ID: 12\n"
+
+msgid "ACTIVED"
+msgstr ""
 
 msgid "Action"
 msgstr ""
 
 msgid "Activated"
-msgstr ""
-
-msgid "Actived"
 msgstr ""
 
 msgid "Add Permission"
@@ -49,9 +48,6 @@ msgid "Admin Jobs"
 msgstr ""
 
 msgid "All Permissions"
-msgstr ""
-
-msgid "Apply"
 msgstr ""
 
 msgid "Are you sure?"
@@ -87,6 +83,9 @@ msgstr ""
 msgid "DHCP"
 msgstr ""
 
+msgid "DOWN"
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 
@@ -94,9 +93,6 @@ msgid "Description"
 msgstr ""
 
 msgid "Disable"
-msgstr ""
-
-msgid "Disable TOTP"
 msgstr ""
 
 msgid "Disabled"
@@ -129,16 +125,10 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-msgid "Enable TOTP"
-msgstr ""
-
 msgid "Enabled"
 msgstr ""
 
 msgid "Error"
-msgstr ""
-
-msgid "Export"
 msgstr ""
 
 msgid "FQDN"
@@ -175,6 +165,9 @@ msgid "Job"
 msgstr ""
 
 msgid "Jobs"
+msgstr ""
+
+msgid "LOCKED"
 msgstr ""
 
 msgid "Last IP"
@@ -249,15 +242,6 @@ msgstr ""
 msgid "Permission for %{name}"
 msgstr ""
 
-msgid "Permission was successfully created."
-msgstr ""
-
-msgid "Permission was successfully destroyed."
-msgstr ""
-
-msgid "Permission was successfully updated."
-msgstr ""
-
 msgid "Please validate TOTP code !"
 msgstr ""
 
@@ -276,12 +260,6 @@ msgstr ""
 msgid "Reserved"
 msgstr ""
 
-msgid "Run notification on run_scan"
-msgstr ""
-
-msgid "Run scan after creation"
-msgstr ""
-
 msgid "Scan"
 msgstr ""
 
@@ -292,12 +270,6 @@ msgid "Scan complete"
 msgstr ""
 
 msgid "Scan in progress"
-msgstr ""
-
-msgid "Scan was successfully scheduled."
-msgstr ""
-
-msgid "Schedule"
 msgstr ""
 
 msgid "Secret: %{otp_secret}"
@@ -345,15 +317,6 @@ msgstr ""
 msgid "Usage"
 msgstr ""
 
-msgid "Usage was successfully created."
-msgstr ""
-
-msgid "Usage was successfully destroyed."
-msgstr ""
-
-msgid "Usage was successfully updated."
-msgstr ""
-
 msgid "Used"
 msgstr ""
 
@@ -375,15 +338,6 @@ msgstr ""
 msgid "Vlan ID"
 msgstr ""
 
-msgid "Vlan was successfully created."
-msgstr ""
-
-msgid "Vlan was successfully destroyed."
-msgstr ""
-
-msgid "Vlan was successfully updated."
-msgstr ""
-
 msgid "Vlans"
 msgstr ""
 
@@ -395,3 +349,4 @@ msgstr ""
 
 msgid "every 24 hours"
 msgstr ""
+
