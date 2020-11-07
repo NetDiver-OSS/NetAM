@@ -28,19 +28,22 @@
           = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
           = link_to '<i class="fas fa-sun"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' if dark_mode?
 
-
-        %li.class.nav-item.dropdown
-          %a.class.nav-link{href: "#", data: {toggle: "dropdown"}}
-          %i.class.flag-icon.flag-icon-us
-        %div.dropdown-menu.dropdown-menu-right.p-0
-          %a.dropdown-item.active{href: "#"}
-            %i.flag-icon.flag-icon-us.mr-2= 'English'
-          %a.dropdown-item{href: "#"}
-            %i.flag-icon.flag-icon-fr.mr-2= 'Français'
-          %a.dropdown-item{href: "#"}
-            %i.flag-icon.flag-icon-de.mr-2= 'Deutsch'
-          %a.dropdown-item{href: "#"}
-            %i.flag-icon.flag-icon-it.mr-2= 'Italiano'
+        %li.nav-item.dropdown
+          %a.nav-link{href: "#", data: {toggle: "dropdown"}}
+            %i.flag-icon.flag-icon-us
+          %div.dropdown-menu.dropdown-menu-right.p-0
+            %a.dropdown-item.active{href: "?locale=en"}
+              %i.flag-icon.flag-icon-us.mr-2
+              = 'English'
+            %a.dropdown-item{href: "?locale=fr"}
+              %i.flag-icon.flag-icon-fr.mr-2
+              = 'Français'
+            %a.dropdown-item{href: "?locale=de"}
+              %i.flag-icon.flag-icon-de.mr-2
+              = 'Deutsch'
+            %a.dropdown-item{href: "?locale=it"}
+              %i.flag-icon.flag-icon-it.mr-2
+              = 'Italiano'
 
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
