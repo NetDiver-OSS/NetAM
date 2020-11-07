@@ -91,4 +91,16 @@ RSpec.describe API::V1::Sections, type: :request do
       expect(last_response.body).to eq({ id: Usage.maximum(:id), ip_used: '10.0.0.250', fqdn: 'domain.com', description: nil, state: 'locked' }.to_json)
     end
   end
+
+  context 'POST /api/v1/sections/:id/request_ip' do
+    it 'create usage for section' do
+      Section.create!({ name: 'hell section', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id })
+
+      header 'Authorization', @api_token
+      post("/api/v1/sections/#{Section.maximum(:id)}/request_ip", {}, content_type_json)
+
+      expect(last_response.status).to eq(201)
+      expect(last_response.body).to eq({ id: Usage.maximum(:id), ip_used: '10.0.0.1', fqdn: nil, description: nil, state: 'actived' }.to_json)
+    end
+  end
 end

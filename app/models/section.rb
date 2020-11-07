@@ -33,7 +33,7 @@ class Section < ApplicationRecord
     Permission.where(subject_class: 'Section', subject_id: section.id).delete_all
   end
 
-  def request_unused_ip
+  def unused_ip
     IPAddress(network).hosts.each do |ip|
       return ip.to_s if usages.where(ip_used: ip.to_s).empty?
     end

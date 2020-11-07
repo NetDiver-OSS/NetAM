@@ -1,5 +1,4 @@
 = form_with(model: [@section, usage], local: true) do |form|
-  - usage[:ip_used] = @section.request_unused_ip if params[:request_ip] == 'true'
   - usage[:ip_used] = params[:ip] unless params[:ip].nil?
   %div.card-body
     - if usage.errors.any?

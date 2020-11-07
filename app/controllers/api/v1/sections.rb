@@ -84,6 +84,17 @@ module API
           section.usages.create!(declared_params(include_missing: false).except(:id))
         end
 
+        desc 'Request free IP in section'
+        params do
+          requires :id, type: String, desc: 'ID of the section'
+        end
+        post ':id/request_ip', root: 'section' do
+          section = Section.find(permitted_params[:id])
+          authorize! :read, section
+
+          section.usages.create!(ip_used: section.unused_ip)
+        end
+
         desc 'Export section to CSV'
         params do
           requires :id, type: String, desc: 'ID of the section'

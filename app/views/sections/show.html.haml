@@ -2,7 +2,6 @@
 
 - page_action({icon: '<i class="fas fa-edit"></i> Edit', path: edit_section_path(@section)}) if can? :edit, @section
 - page_action({icon: '<i class="fas fa-search"></i> Scan', path: section_scan_path(@section), method: 'post'}) if can? :scan, @section
-- page_action({icon: '<i class="fas fa-ethernet"></i> Get unused IP', path: new_section_usage_path(@section.id, {request_ip: true})}) if can? :edit, @section
 - page_action({icon: '<i class="fas fa-download"></i> Export', path: section_export_path(@section.id), method: 'post'}) if can? :export, @section
 - page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id)}) if can? :edit, @section
 
@@ -73,15 +72,15 @@
   %div.col-6
     %canvas#donutChart{style: "height:230px; min-height:230px"}
 
-  %div.col-12
+  - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
+  %div{class: last_scan == 0 ? 'col-12' : 'col-6' }
     %div.info-box.mt-4{class: dark_mode_class}
       %div.info-box-content
         %span.info-box-text
           = _('This section is linked to Vlan %{name} with Vlan ID: %{vid}') % { name: @section.vlan_name, vid: @section.vlan_vid }
 
-  - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
   - unless last_scan == 0
-    %div.col-12
+    %div.col-6
       %div.info-box.mt-4{class: dark_mode_class}
         %div.info-box-content
           %span.info-box-text
