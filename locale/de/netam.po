@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 10:21+0100\n"
-"PO-Revision-Date: 2020-10-28 21:59\n"
+"POT-Creation-Date: 2020-11-07 18:43+0100\n"
+"PO-Revision-Date: 2020-11-07 18:12\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -17,14 +17,14 @@ msgstr ""
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
 
-msgid "ACTIVED"
-msgstr "AKTIVIERT"
-
 msgid "Action"
 msgstr "Aktion"
 
 msgid "Activated"
 msgstr "Aktiviert"
+
+msgid "Actived"
+msgstr ""
 
 msgid "Add Permission"
 msgstr "Berechtigung Hinzufügen"
@@ -49,6 +49,9 @@ msgstr "Verwaltungsaufgaben"
 
 msgid "All Permissions"
 msgstr "Alle Berechtigungen"
+
+msgid "Apply"
+msgstr ""
 
 msgid "Are you sure?"
 msgstr "Bist du sicher?"
@@ -83,9 +86,6 @@ msgstr "Datei auswählen"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DOWN"
-msgstr "DOWN"
-
 msgid "Delete"
 msgstr "Löschen"
 
@@ -94,6 +94,9 @@ msgstr "Beschreibung"
 
 msgid "Disable"
 msgstr "Deaktivieren"
+
+msgid "Disable TOTP"
+msgstr ""
 
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -125,11 +128,17 @@ msgstr "E-Mail"
 msgid "Enable"
 msgstr "Aktivieren"
 
+msgid "Enable TOTP"
+msgstr ""
+
 msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Error"
 msgstr "Fehler"
+
+msgid "Export"
+msgstr ""
 
 msgid "FQDN"
 msgstr "FQDN"
@@ -166,9 +175,6 @@ msgstr "Aufgabe"
 
 msgid "Jobs"
 msgstr "Aufgaben"
-
-msgid "LOCKED"
-msgstr "LOKKIERT"
 
 msgid "Last IP"
 msgstr "Letzte IP"
@@ -242,6 +248,15 @@ msgstr "Passwortbestätigung"
 msgid "Permission for %{name}"
 msgstr "Berechtigung für %{name}"
 
+msgid "Permission was successfully created."
+msgstr ""
+
+msgid "Permission was successfully destroyed."
+msgstr ""
+
+msgid "Permission was successfully updated."
+msgstr ""
+
 msgid "Please validate TOTP code !"
 msgstr "Bitte validieren Sie den TOTP-Code!"
 
@@ -260,6 +275,12 @@ msgstr "Voraussetzung"
 msgid "Reserved"
 msgstr "Reserviert"
 
+msgid "Run notification on run_scan"
+msgstr ""
+
+msgid "Run scan after creation"
+msgstr ""
+
 msgid "Scan"
 msgstr "Scannen"
 
@@ -271,6 +292,12 @@ msgstr "Scannen abgeschlossen"
 
 msgid "Scan in progress"
 msgstr "Scan läuft"
+
+msgid "Scan was successfully scheduled."
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
 
 msgid "Secret: %{otp_secret}"
 msgstr "Geheim: %{otp_secret}"
@@ -317,6 +344,15 @@ msgstr "Unbekannter Status"
 msgid "Usage"
 msgstr "Verwenden"
 
+msgid "Usage was successfully created."
+msgstr ""
+
+msgid "Usage was successfully destroyed."
+msgstr ""
+
+msgid "Usage was successfully updated."
+msgstr ""
+
 msgid "Used"
 msgstr "Benutzt"
 
@@ -337,6 +373,15 @@ msgstr "Sehen"
 
 msgid "Vlan ID"
 msgstr "Vlan ID"
+
+msgid "Vlan was successfully created."
+msgstr ""
+
+msgid "Vlan was successfully destroyed."
+msgstr ""
+
+msgid "Vlan was successfully updated."
+msgstr ""
 
 msgid "Vlans"
 msgstr "Vlans"
