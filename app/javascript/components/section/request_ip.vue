@@ -51,6 +51,9 @@ export default {
     },
     usageEditURL() {
       return '/sections/' + this.section_id + '/usages/' + this.message.id + '/edit'
+    },
+    darkModeClass() {
+      return Cookies.get('dark_mode') === "true" ? "bg-dark text-white" : ""
     }
   }
 }
@@ -69,7 +72,7 @@ export default {
 
     <div class="modal" tabindex="-1">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" :class="darkModeClass">
           <div class="modal-header">
             <h5 class="modal-title">IP address Request</h5>
           </div>
