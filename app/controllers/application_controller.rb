@@ -50,6 +50,6 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_required
-    redirect_to install_path if Rails.application.config.setup_mode && params[:controller] != 'setup'
+    redirect_to setup_install_path if Rails.application.config.setup_mode && params[:controller] != 'setup'
   end
 end

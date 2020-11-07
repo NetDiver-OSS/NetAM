@@ -1,4 +1,4 @@
-= form_with(url: new_install_path, method: 'post', model: user, local: true) do |form|
+= form_with(url: setup_create_path, method: 'post', model: user, local: true) do |form|
   %div.card-body
     - if user.errors.any?
       - user.errors.full_messages.each do |message|
