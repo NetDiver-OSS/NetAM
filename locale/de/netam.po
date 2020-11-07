@@ -1,0 +1,352 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: netam\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-28 10:21+0100\n"
+"PO-Revision-Date: 2020-10-28 21:59\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: netam\n"
+"X-Crowdin-Project-ID: 424166\n"
+"X-Crowdin-Language: de\n"
+"X-Crowdin-File: /dev/locale/netam.pot\n"
+"X-Crowdin-File-ID: 12\n"
+
+msgid "ACTIVED"
+msgstr "AKTIVIERT"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Activated"
+msgstr "Aktiviert"
+
+msgid "Add Permission"
+msgstr "Berechtigung Hinzufügen"
+
+msgid "Add permission"
+msgstr "Berechtigung hinzufügen"
+
+msgid "Address Matrix"
+msgstr "Adressmatrix"
+
+msgid "Address Table"
+msgstr "Adresstabelle"
+
+msgid "Admin Backups"
+msgstr "Administrator-Backups"
+
+msgid "Admin Center"
+msgstr "Verwaltungszentrum"
+
+msgid "Admin Jobs"
+msgstr "Verwaltungsaufgaben"
+
+msgid "All Permissions"
+msgstr "Alle Berechtigungen"
+
+msgid "Are you sure?"
+msgstr "Bist du sicher?"
+
+msgid "Available IP"
+msgstr "Verfügbare IP"
+
+msgid "Backlog"
+msgstr "Offene Anfragen"
+
+msgid "Backup list"
+msgstr "Liste der Backups"
+
+msgid "Backups"
+msgstr "Backups"
+
+msgid "Boot time"
+msgstr "Startzeit"
+
+msgid "Broadcast"
+msgstr "Diffusion"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "Calculate"
+msgstr "Berechnen"
+
+msgid "Choose file"
+msgstr "Datei auswählen"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DOWN"
+msgstr "DOWN"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Disable"
+msgstr "Deaktivieren"
+
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+msgid "Down"
+msgstr "Down"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Editing Permission"
+msgstr "Berechtigung bearbeiten"
+
+msgid "Editing Section"
+msgstr "Abschnitt bearbeiten"
+
+msgid "Editing Usage"
+msgstr "Verwendung bearbeiten"
+
+msgid "Editing User"
+msgstr "Benutzer bearbeiten"
+
+msgid "Editing Vlan"
+msgstr "Vlan bearbeiten"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Enabled"
+msgstr "Aktiviert"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "FQDN"
+msgstr "FQDN"
+
+msgid "First IP"
+msgstr "Erste IP"
+
+msgid "Free IP"
+msgstr "Freie IP"
+
+msgid "Homepage"
+msgstr "Homepage"
+
+msgid "Hosts per Subnet"
+msgstr "Hosts pro Subnetz"
+
+msgid "IP Address"
+msgstr "IP-Adresse"
+
+msgid "IP Calculator"
+msgstr "IP-Rechner"
+
+msgid "IP calculator"
+msgstr "IP-rechner"
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid "Import usages with CSV"
+msgstr "Importiere Verwendungen mit CSV"
+
+msgid "Job"
+msgstr "Aufgabe"
+
+msgid "Jobs"
+msgstr "Aufgaben"
+
+msgid "LOCKED"
+msgstr "LOKKIERT"
+
+msgid "Last IP"
+msgstr "Letzte IP"
+
+msgid "Last scan time: %{timestamp}"
+msgstr "Letzte Scan-Zeit: %{timestamp}"
+
+msgid "Latency"
+msgstr "Latenz"
+
+msgid "Load Average"
+msgstr "Durchschnittslast"
+
+msgid "Locked"
+msgstr "Gesperrt"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Mask"
+msgstr "Maske"
+
+msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
+msgstr "Massive Verwendung des Imports durch CSV-Injektionen. Sie müssen ein CSV-Format mit dem folgenden Header haben:"
+
+msgid "Memory"
+msgstr "Erinnerung"
+
+msgid "My home network"
+msgstr "Mein persönliches Netzwerk"
+
+msgid "NO"
+msgstr "NEIN"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "NetAM agent node"
+msgstr "NetAM Agentenknoten"
+
+msgid "NetAM control node"
+msgstr "NetAM Steuerknoten"
+
+msgid "Network"
+msgstr "Netzwerk"
+
+msgid "New Section"
+msgstr "Neuer Abschnitt"
+
+msgid "New Usage"
+msgstr "Neue Verwendung"
+
+msgid "New User"
+msgstr "Neuer Benutzer"
+
+msgid "New Vlan"
+msgstr "Neuer Vlan"
+
+msgid "Notice"
+msgstr "Beachten"
+
+msgid "OTP code"
+msgstr "OTP Code"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password confirmation"
+msgstr "Passwortbestätigung"
+
+msgid "Permission for %{name}"
+msgstr "Berechtigung für %{name}"
+
+msgid "Please validate TOTP code !"
+msgstr "Bitte validieren Sie den TOTP-Code!"
+
+msgid "Queues"
+msgstr "Warteschlangen"
+
+msgid "Recovery codes"
+msgstr "Wiederherstellungscodes"
+
+msgid "Release"
+msgstr "Vergessen"
+
+msgid "Requirements"
+msgstr "Voraussetzung"
+
+msgid "Reserved"
+msgstr "Reserviert"
+
+msgid "Scan"
+msgstr "Scannen"
+
+msgid "Scan Queued"
+msgstr "Scan in Warteschlange"
+
+msgid "Scan complete"
+msgstr "Scannen abgeschlossen"
+
+msgid "Scan in progress"
+msgstr "Scan läuft"
+
+msgid "Secret: %{otp_secret}"
+msgstr "Geheim: %{otp_secret}"
+
+msgid "Section"
+msgstr "Abschnitt"
+
+msgid "Sections"
+msgstr "Abschnitte"
+
+msgid "Sections linked to %{name} (#%{vid})"
+msgstr "Mit %{name} verknüpfte Abschnitte (#%{vid})"
+
+msgid "Setup"
+msgstr "Konfigurieren"
+
+msgid "State"
+msgstr "Zustand"
+
+msgid "State available are :"
+msgstr "Der verfügbare Status ist:"
+
+msgid "Subject"
+msgstr "Gegenstand"
+
+msgid "Subject ID"
+msgstr "Gegenstand ID"
+
+msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
+msgstr "Dieser Abschnitt ist mit dem Vlan %{name} mit der Vlan-ID verknüpft: %{vid}"
+
+msgid "Two Factor Auth"
+msgstr "Zwei-Faktor-Auth"
+
+msgid "Two Factor Authentication"
+msgstr "Zwei-Faktor-Authentifizierung"
+
+msgid "Two Factor Authentication Manager"
+msgstr "Zwei-Faktor-Authentifizierungs-Manager"
+
+msgid "Unknown state"
+msgstr "Unbekannter Status"
+
+msgid "Usage"
+msgstr "Verwenden"
+
+msgid "Used"
+msgstr "Benutzt"
+
+msgid "User Email"
+msgstr "Benutzer-E-Mail"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "Utils"
+msgstr "Werkzeuge"
+
+msgid "Validate"
+msgstr "Bestätigen"
+
+msgid "View"
+msgstr "Sehen"
+
+msgid "Vlan ID"
+msgstr "Vlan ID"
+
+msgid "Vlans"
+msgstr "Vlans"
+
+msgid "YES"
+msgstr "JA"
+
+msgid "Youhou !"
+msgstr "Youhou !"
+
+msgid "every 24 hours"
+msgstr "alle 24 Stunden"
+
