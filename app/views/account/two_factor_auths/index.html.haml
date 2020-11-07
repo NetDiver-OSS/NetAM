@@ -17,9 +17,9 @@
         %h3.card-title= _('Two Factor Authentication Manager')
       %div.card-body.text-center
         - if current_user.otp_required_for_login
-          = link_to 'Disable TOTP', account_two_factor_auths_path, method: :delete, class: 'btn btn-block btn-outline-danger'
+          = link_to _('Disable TOTP'), account_two_factor_auths_path, method: :delete, class: 'btn btn-block btn-outline-danger'
         - else
-          = link_to 'Enable TOTP', account_two_factor_auths_path, method: :post, class: 'btn btn-block btn-outline-info'
+          = link_to _('Enable TOTP'), account_two_factor_auths_path, method: :post, class: 'btn btn-block btn-outline-info'
 
   - unless @codes.nil?
     %div.col-12
