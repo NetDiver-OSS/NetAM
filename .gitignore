@@ -40,3 +40,7 @@ coverage/
 .scannerwork/
 owasp/
 rubocop-result.json
+
+# Translation
+locale/*/netam.edit.po
+locale/*/netam.po.time_stamp
