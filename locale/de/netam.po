@@ -2,8 +2,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-07 18:43+0100\n"
-"PO-Revision-Date: 2020-11-07 18:12\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -16,6 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
+"PO-Revision-Date: 2020-11-13 13:06\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -83,6 +82,9 @@ msgstr "Berechnen"
 msgid "Choose file"
 msgstr "Datei auswählen"
 
+msgid "Close"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -106,6 +108,9 @@ msgstr "Down"
 
 msgid "Edit"
 msgstr "Bearbeiten"
+
+msgid "Edit Address details"
+msgstr ""
 
 msgid "Editing Permission"
 msgstr "Berechtigung bearbeiten"
@@ -149,6 +154,9 @@ msgstr "Erste IP"
 msgid "Free IP"
 msgstr "Freie IP"
 
+msgid "Get unused IP"
+msgstr ""
+
 msgid "Homepage"
 msgstr "Homepage"
 
@@ -160,6 +168,9 @@ msgstr "IP-Adresse"
 
 msgid "IP Calculator"
 msgstr "IP-Rechner"
+
+msgid "IP address Request"
+msgstr ""
 
 msgid "IP calculator"
 msgstr "IP-rechner"
@@ -187,6 +198,9 @@ msgstr "Latenz"
 
 msgid "Load Average"
 msgstr "Durchschnittslast"
+
+msgid "Loading"
+msgstr ""
 
 msgid "Locked"
 msgstr "Gesperrt"
@@ -391,6 +405,9 @@ msgstr "JA"
 
 msgid "Youhou !"
 msgstr "Youhou !"
+
+msgid "Your address IP is"
+msgstr ""
 
 msgid "every 24 hours"
 msgstr "alle 24 Stunden"
