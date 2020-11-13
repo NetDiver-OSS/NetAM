@@ -17,7 +17,7 @@ class SectionsController < ApplicationController
     @ip_down = @section.usages.down.count
     @ip_dhcp = @section.usages.dhcp.count
 
-    @ip_free = IPAddress(@section.network).size - @section.usages.where(state: 0..3).count
+    @ip_free = NetAM::Network::Range.new(@section.network).free_ips - @section.usages.where(state: 0..3).count
 
     @chart_label = "[\"#{_('Locked')}\", \"#{_('Activated')}\", \"#{_('Down')}\", \"#{_('Free IP')}\", \"#{_('DHCP')}\"]".html_safe
     @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
