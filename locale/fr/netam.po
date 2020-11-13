@@ -14,15 +14,12 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 17:27\n"
+"PO-Revision-Date: 2020-11-13 21:56\n"
 
 msgid "Action"
 msgstr "Action"
 
 msgid "Activated"
-msgstr "Activé"
-
-msgid "Actived"
 msgstr "Activé"
 
 msgid "Add Permission"
