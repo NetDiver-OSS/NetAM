@@ -12,9 +12,9 @@ RSpec.describe ExportSectionToCsvJob, type: :job do
 
     expect(ExportSectionToCsvJob.perform_now(section.id)).to eq(
       """ID,Section,Address,FQDN,Description,State
-#{section.id},TU,10.0.0.250,domain.com,,Reserved
-#{section.id},TU,10.0.0.251,domain.com,,Active
-#{section.id},TU,10.0.0.252,domain.com,,Inactive
+#{section.id},TU,10.0.0.250,domain.com,,LOCKED
+#{section.id},TU,10.0.0.251,domain.com,,ACTIVED
+#{section.id},TU,10.0.0.252,domain.com,,DOWN
 #{section.id},TU,10.0.0.253,domain.com,,DHCP
 """
     )
