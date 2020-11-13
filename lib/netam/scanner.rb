@@ -9,9 +9,8 @@ module NetAM
     # @param [string] network
     def run(id, network)
       queue = ::Section.find(id).worker.nil? ? "default" : "node:#{::Section.find(id).worker.uuid}"
-      job_id = @job.set(queue: queue).perform_async({ id: id, network: network })
 
-      job_id
+      @job.set(queue: queue).perform_async({ id: id, network: network })
     end
 
     # @param [string] id
