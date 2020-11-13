@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 16:19\n"
+"PO-Revision-Date: 2020-11-13 17:17\n"
 
 msgid "Action"
 msgstr "Action"
@@ -148,6 +148,9 @@ msgstr "Exporter"
 msgid "FQDN"
 msgstr "FQDN"
 
+msgid "File"
+msgstr ""
+
 msgid "First IP"
 msgstr "Première IP"
 
@@ -174,6 +177,9 @@ msgstr "Demande d'adresse IP"
 
 msgid "IP calculator"
 msgstr "Calculateur d'IP"
+
+msgid "IP used"
+msgstr ""
 
 msgid "Import"
 msgstr "Importer"
@@ -212,7 +218,7 @@ msgid "Mask"
 msgstr "Masque"
 
 msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
-msgstr "Utilisations massives d'importation par injections csv. Vous devez avoir un format CSV avec l'en-tête suivant :"
+msgstr "Import en masse par fichiers CSV. Vous devez avoir un format CSV avec l'en-tête suivante :"
 
 msgid "Memory"
 msgstr "Mémoire"
@@ -246,6 +252,9 @@ msgstr "Nouvel Utilisateur"
 
 msgid "New Vlan"
 msgstr "Nouveau Vlan"
+
+msgid "No free address API available !"
+msgstr ""
 
 msgid "Notice"
 msgstr "Remarque"
