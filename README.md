@@ -11,6 +11,13 @@
 
 [![Crowdin](https://badges.crowdin.net/netam/localized.svg)](https://crowdin.com/project/netam)
 
+## Indroduction
+
+NetAM (a.k.a. Network Address Manager) is a network address management tool.  
+Software usage is designed to be easy to use and keep only most important informations of your network ranges.
+
+Core product is developed in ruby on rails and is fully designed to run in Docker containers.
+
 ## RoadMap
 
 ### Version 2.0.0
