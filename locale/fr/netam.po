@@ -2,8 +2,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 10:21+0100\n"
-"PO-Revision-Date: 2020-10-28 21:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -16,14 +14,15 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-
-msgid "ACTIVED"
-msgstr "ACTIF"
+"PO-Revision-Date: 2020-11-13 17:27\n"
 
 msgid "Action"
 msgstr "Action"
 
 msgid "Activated"
+msgstr "Activé"
+
+msgid "Actived"
 msgstr "Activé"
 
 msgid "Add Permission"
@@ -49,6 +48,9 @@ msgstr "Administration des tâches"
 
 msgid "All Permissions"
 msgstr "Toutes les permissions"
+
+msgid "Apply"
+msgstr "Appliquer"
 
 msgid "Are you sure?"
 msgstr "Êtes-vous sûr?"
@@ -80,11 +82,11 @@ msgstr "Calculer"
 msgid "Choose file"
 msgstr "Choisir un fichier"
 
+msgid "Close"
+msgstr "Fermer"
+
 msgid "DHCP"
 msgstr "DHCP"
-
-msgid "DOWN"
-msgstr "ÉTEINT"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -95,14 +97,20 @@ msgstr "Description"
 msgid "Disable"
 msgstr "Désactiver"
 
+msgid "Disable TOTP"
+msgstr "Désactiver le TOTP"
+
 msgid "Disabled"
 msgstr "Désactivé"
 
 msgid "Down"
-msgstr "Éteint"
+msgstr "Inactif"
 
 msgid "Edit"
 msgstr "Editer"
+
+msgid "Edit Address details"
+msgstr "Modifier les détails de l'adresse"
 
 msgid "Editing Permission"
 msgstr "Éditer les permissions"
@@ -125,20 +133,32 @@ msgstr "E-mail"
 msgid "Enable"
 msgstr "Activer"
 
+msgid "Enable TOTP"
+msgstr "Activer le TOTP"
+
 msgid "Enabled"
 msgstr "Activé"
 
 msgid "Error"
 msgstr "Erreur"
 
+msgid "Export"
+msgstr "Exporter"
+
 msgid "FQDN"
 msgstr "FQDN"
+
+msgid "File"
+msgstr "Fichier"
 
 msgid "First IP"
 msgstr "Première IP"
 
 msgid "Free IP"
 msgstr "IP libre"
+
+msgid "Get unused IP"
+msgstr "Obtenir une IP"
 
 msgid "Homepage"
 msgstr "Page d'accueil"
@@ -152,8 +172,14 @@ msgstr "Adresse IP"
 msgid "IP Calculator"
 msgstr "Calculateur d'IP"
 
+msgid "IP address Request"
+msgstr "Demande d'adresse IP"
+
 msgid "IP calculator"
 msgstr "Calculateur d'IP"
+
+msgid "IP used"
+msgstr "IP utilisée"
 
 msgid "Import"
 msgstr "Importer"
@@ -167,9 +193,6 @@ msgstr "Tâche"
 msgid "Jobs"
 msgstr "Tâches"
 
-msgid "LOCKED"
-msgstr "VERROUILLÉ"
-
 msgid "Last IP"
 msgstr "Dernière IP"
 
@@ -182,6 +205,9 @@ msgstr "Latence"
 msgid "Load Average"
 msgstr "Charge moyenne"
 
+msgid "Loading"
+msgstr "Chargement"
+
 msgid "Locked"
 msgstr "Verrouillé"
 
@@ -192,7 +218,7 @@ msgid "Mask"
 msgstr "Masque"
 
 msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
-msgstr "Utilisations massives d'importation par injections csv. Vous devez avoir un format CSV avec l'en-tête suivant :"
+msgstr "Import en masse par fichiers CSV. Vous devez avoir un format CSV avec l'en-tête suivante :"
 
 msgid "Memory"
 msgstr "Mémoire"
@@ -227,6 +253,9 @@ msgstr "Nouvel Utilisateur"
 msgid "New Vlan"
 msgstr "Nouveau Vlan"
 
+msgid "No free address IP available !"
+msgstr "Aucune adresse IP disponible !"
+
 msgid "Notice"
 msgstr "Remarque"
 
@@ -242,6 +271,15 @@ msgstr "Confirmation du mot de passe"
 msgid "Permission for %{name}"
 msgstr "Permission pour %{name}"
 
+msgid "Permission was successfully created."
+msgstr "Autorisation créée avec succès."
+
+msgid "Permission was successfully destroyed."
+msgstr "La permission a été supprimée avec succès."
+
+msgid "Permission was successfully updated."
+msgstr "La permission a bien été mise à jour."
+
 msgid "Please validate TOTP code !"
 msgstr "Veuillez valider le code TOTP !"
 
@@ -252,13 +290,19 @@ msgid "Recovery codes"
 msgstr "Code de récupération"
 
 msgid "Release"
-msgstr "Oublier"
+msgstr "Libérer"
 
 msgid "Requirements"
 msgstr "Prérequis"
 
 msgid "Reserved"
 msgstr "Réservée"
+
+msgid "Run notification on run_scan"
+msgstr "Notifier lors d'un scan"
+
+msgid "Run scan after creation"
+msgstr "Exécuter le scan après création"
 
 msgid "Scan"
 msgstr "Scanner"
@@ -271,6 +315,12 @@ msgstr "Scan terminé"
 
 msgid "Scan in progress"
 msgstr "Scan en cours"
+
+msgid "Scan was successfully scheduled."
+msgstr "Le scan a été planifié avec succès."
+
+msgid "Schedule"
+msgstr "Planifier"
 
 msgid "Secret: %{otp_secret}"
 msgstr "Secret : %{otp_secret}"
@@ -317,6 +367,15 @@ msgstr "État inconnu"
 msgid "Usage"
 msgstr "Utilisation"
 
+msgid "Usage was successfully created."
+msgstr "L’utilisation a été créée avec succès."
+
+msgid "Usage was successfully destroyed."
+msgstr "L'utilisation a été supprimée avec succès."
+
+msgid "Usage was successfully updated."
+msgstr "L'utilisation a été mise à jour avec succès."
+
 msgid "Used"
 msgstr "Utilisé"
 
@@ -338,6 +397,15 @@ msgstr "Voir"
 msgid "Vlan ID"
 msgstr "ID du Vlan"
 
+msgid "Vlan was successfully created."
+msgstr "Le Vlan a bien été créé."
+
+msgid "Vlan was successfully destroyed."
+msgstr "Vlan a été supprimé avec succès."
+
+msgid "Vlan was successfully updated."
+msgstr "Vlan a été mis à jour avec succès."
+
 msgid "Vlans"
 msgstr "Vlans"
 
@@ -346,6 +414,9 @@ msgstr "OUI"
 
 msgid "Youhou !"
 msgstr "Youhou !"
+
+msgid "Your address IP is"
+msgstr "Votre adresse IP est"
 
 msgid "every 24 hours"
 msgstr "toutes les 24 heures"

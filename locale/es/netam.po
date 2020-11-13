@@ -2,8 +2,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 10:21+0100\n"
-"PO-Revision-Date: 2020-10-28 09:43\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -16,14 +14,15 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-
-msgid "ACTIVED"
-msgstr ""
+"PO-Revision-Date: 2020-11-13 17:26\n"
 
 msgid "Action"
 msgstr ""
 
 msgid "Activated"
+msgstr ""
+
+msgid "Actived"
 msgstr ""
 
 msgid "Add Permission"
@@ -48,6 +47,9 @@ msgid "Admin Jobs"
 msgstr ""
 
 msgid "All Permissions"
+msgstr ""
+
+msgid "Apply"
 msgstr ""
 
 msgid "Are you sure?"
@@ -80,10 +82,10 @@ msgstr ""
 msgid "Choose file"
 msgstr ""
 
-msgid "DHCP"
+msgid "Close"
 msgstr ""
 
-msgid "DOWN"
+msgid "DHCP"
 msgstr ""
 
 msgid "Delete"
@@ -95,6 +97,9 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
+msgid "Disable TOTP"
+msgstr ""
+
 msgid "Disabled"
 msgstr ""
 
@@ -102,6 +107,9 @@ msgid "Down"
 msgstr ""
 
 msgid "Edit"
+msgstr ""
+
+msgid "Edit Address details"
 msgstr ""
 
 msgid "Editing Permission"
@@ -125,19 +133,31 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
+msgid "Enable TOTP"
+msgstr ""
+
 msgid "Enabled"
 msgstr ""
 
 msgid "Error"
 msgstr ""
 
+msgid "Export"
+msgstr ""
+
 msgid "FQDN"
+msgstr ""
+
+msgid "File"
 msgstr ""
 
 msgid "First IP"
 msgstr ""
 
 msgid "Free IP"
+msgstr ""
+
+msgid "Get unused IP"
 msgstr ""
 
 msgid "Homepage"
@@ -152,7 +172,13 @@ msgstr ""
 msgid "IP Calculator"
 msgstr ""
 
+msgid "IP address Request"
+msgstr ""
+
 msgid "IP calculator"
+msgstr ""
+
+msgid "IP used"
 msgstr ""
 
 msgid "Import"
@@ -167,9 +193,6 @@ msgstr ""
 msgid "Jobs"
 msgstr ""
 
-msgid "LOCKED"
-msgstr ""
-
 msgid "Last IP"
 msgstr ""
 
@@ -180,6 +203,9 @@ msgid "Latency"
 msgstr ""
 
 msgid "Load Average"
+msgstr ""
+
+msgid "Loading"
 msgstr ""
 
 msgid "Locked"
@@ -227,6 +253,9 @@ msgstr ""
 msgid "New Vlan"
 msgstr ""
 
+msgid "No free address IP available !"
+msgstr ""
+
 msgid "Notice"
 msgstr ""
 
@@ -240,6 +269,15 @@ msgid "Password confirmation"
 msgstr ""
 
 msgid "Permission for %{name}"
+msgstr ""
+
+msgid "Permission was successfully created."
+msgstr ""
+
+msgid "Permission was successfully destroyed."
+msgstr ""
+
+msgid "Permission was successfully updated."
 msgstr ""
 
 msgid "Please validate TOTP code !"
@@ -260,6 +298,12 @@ msgstr ""
 msgid "Reserved"
 msgstr ""
 
+msgid "Run notification on run_scan"
+msgstr ""
+
+msgid "Run scan after creation"
+msgstr ""
+
 msgid "Scan"
 msgstr ""
 
@@ -270,6 +314,12 @@ msgid "Scan complete"
 msgstr ""
 
 msgid "Scan in progress"
+msgstr ""
+
+msgid "Scan was successfully scheduled."
+msgstr ""
+
+msgid "Schedule"
 msgstr ""
 
 msgid "Secret: %{otp_secret}"
@@ -317,6 +367,15 @@ msgstr ""
 msgid "Usage"
 msgstr ""
 
+msgid "Usage was successfully created."
+msgstr ""
+
+msgid "Usage was successfully destroyed."
+msgstr ""
+
+msgid "Usage was successfully updated."
+msgstr ""
+
 msgid "Used"
 msgstr ""
 
@@ -338,6 +397,15 @@ msgstr ""
 msgid "Vlan ID"
 msgstr ""
 
+msgid "Vlan was successfully created."
+msgstr ""
+
+msgid "Vlan was successfully destroyed."
+msgstr ""
+
+msgid "Vlan was successfully updated."
+msgstr ""
+
 msgid "Vlans"
 msgstr ""
 
@@ -345,6 +413,9 @@ msgid "YES"
 msgstr ""
 
 msgid "Youhou !"
+msgstr ""
+
+msgid "Your address IP is"
 msgstr ""
 
 msgid "every 24 hours"
