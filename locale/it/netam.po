@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 13:06\n"
+"PO-Revision-Date: 2020-11-13 17:17\n"
 
 msgid "Action"
 msgstr "Azione"
@@ -148,6 +148,9 @@ msgstr ""
 msgid "FQDN"
 msgstr "FQDN"
 
+msgid "File"
+msgstr ""
+
 msgid "First IP"
 msgstr "Primo IP"
 
@@ -174,6 +177,9 @@ msgstr ""
 
 msgid "IP calculator"
 msgstr "calcolatrice IP"
+
+msgid "IP used"
+msgstr ""
 
 msgid "Import"
 msgstr "Importa"
@@ -246,6 +252,9 @@ msgstr "Nuovo Utente"
 
 msgid "New Vlan"
 msgstr "Nuovo Vlan"
+
+msgid "No free address API available !"
+msgstr ""
 
 msgid "Notice"
 msgstr "Nota"
