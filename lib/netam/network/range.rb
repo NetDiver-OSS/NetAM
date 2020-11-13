@@ -15,6 +15,10 @@ module NetAM
         end
       end
 
+      def free_ips
+        @network.ipv4? && @network.private? ? @network.size - 2 : @network.size
+      end
+
       def self.clean_display(ip)
         address = ip.to_s.split('.')
         if ip.prefix < 16

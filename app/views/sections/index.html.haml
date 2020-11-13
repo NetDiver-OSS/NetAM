@@ -17,9 +17,9 @@
             %small= section.network
           %td.project_progress
             %div.progress.progress-sm
-              %div.progress-bar.bg-green{role: 'progressbar', style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / IPAddress(section.network).size }%"}= _('Used')
-              %div.progress-bar.bg-danger{role: 'progressbar', style: "width: #{section.usages.down.count * 100 / IPAddress(section.network).size }%"}= _('Down')
-              %div.progress-bar.bg-purple{role: 'progressbar', style: "width: #{section.usages.dhcp.count * 100 / IPAddress(section.network).size }%"}= _('Reserved')
+              %div.progress-bar.bg-green{role: 'progressbar', style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / NetAM::Network::Range.new(section.network).free_ips }%"}= _('Used')
+              %div.progress-bar.bg-danger{role: 'progressbar', style: "width: #{section.usages.down.count * 100 / NetAM::Network::Range.new(section.network).free_ips }%"}= _('Down')
+              %div.progress-bar.bg-purple{role: 'progressbar', style: "width: #{section.usages.dhcp.count * 100 / NetAM::Network::Range.new(section.network).free_ips }%"}= _('Reserved')
           %td.project-actions.text-right
             %div.btn-group
               = link_to fa_icon_with_text('fas fa-folder', _('View')), section, class: 'btn btn-primary btn-sm'

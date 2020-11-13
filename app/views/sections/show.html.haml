@@ -30,7 +30,7 @@
 
           %div.info-box-content
             %span.info-box-text= _('Locked')
-            %span.info-box-number= @ip_locked
+            %span.info-box-number= number_with_delimiter @ip_locked
       %div.col-6
         %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-green
@@ -38,7 +38,7 @@
 
           %div.info-box-content
             %span.info-box-text= _('Activated')
-            %span.info-box-number= @ip_activated
+            %span.info-box-number= number_with_delimiter @ip_activated
       %div.col-6
         %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-red
@@ -46,7 +46,7 @@
 
           %div.info-box-content
             %span.info-box-text= _('Down')
-            %span.info-box-number= @ip_down
+            %span.info-box-number= number_with_delimiter @ip_down
       %div.col-6
         %div.info-box{class: dark_mode_class}
           %span.info-box-icon.bg-purple
@@ -54,7 +54,7 @@
 
           %div.info-box-content
             %span.info-box-text= _('DHCP')
-            %span.info-box-number= @ip_dhcp
+            %span.info-box-number= number_with_delimiter @ip_dhcp
     %div.row
       %div.col-12
         %div.info-box.bg-gradient-info
@@ -63,7 +63,7 @@
 
           %div.info-box-content
             %span.info-box-text= _('Free IP')
-            %span.info-box-number= @ip_free
+            %span.info-box-number= number_with_delimiter @ip_free
 
             %div.progress
               %div.progress-bar{style: "width: #{(@ip_free * 100 / IPAddress(@section.network).size)}%"}
