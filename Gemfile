@@ -44,7 +44,7 @@ gem 'omniauth-ldap', '~> 2.0'
 # Jobs dependencies
 gem 'ipaddress', '~> 0.8.3'
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
-gem 'parallel', '~> 1.19', '>= 1.19.1'
+gem 'parallel', '~> 1.20'
 
 # API
 gem 'grape', '~> 1.4'
