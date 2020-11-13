@@ -1,7 +1,7 @@
 module Notifications
   module Msteams
     class SendService < BaseService
-      def initialize(notification)
+      def initialize(notification) # rubocop:disable Lint/MissingSuper
         @notification = notification
       end
 

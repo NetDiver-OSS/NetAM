@@ -83,7 +83,7 @@ class ChangelogUpdater
   end
 
   def insert(markdown)
-    contents.each_with_index do |_, index|
+    contents.each_with_index do |_, index| # rubocop:disable Lint/UnreachableLoop
       contents.insert(index + 2, markdown)
       break
     end
