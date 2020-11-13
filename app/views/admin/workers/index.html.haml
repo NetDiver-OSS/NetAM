@@ -5,19 +5,33 @@
   = _('Worker "default" is not listed here. This worker manages all NetAM internal tasks as the backup.')
 
 
-%div.row.d-flex.align-items-stretch
-  - @workers.each do |worker|
-    %div.col-12.col-sm-6.col-md-6.d-flex.align-items-stretch
-      %div.card.w-100{class: dark_mode_class}
-        %div.card-header.text-muted.border-bottom-0= worker.name
-        %div.card-body.pt-0
-          %div.row
-            %div.col-12
-              %p
-                #{_('To launch worker')}:
-                %br
-                %b sidekiq -q "node:#{worker.uuid}"
-        %div.card-footer
-          %div.text-right
-            = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'
-            = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')}
+%div.row
+  %div.col-12
+    %div.card{class: dark_mode_class}
+      %div.card-header
+        %h3.card-title= _('Workers')
+
+  %div.card-body.table-responsive
+    %table.table.table-striped.projects.datatable
+      %thead
+        %tr
+          %th= _('Worker name')
+          %th= _('Queues')
+          %th= _('Affected sections')
+          %th= _('Connected')
+          %th.text-center
+            = _('Actions')
+      %tbody
+        - @workers.each do |worker|
+          %tr
+            %td= worker.name
+            %td= worker.uuid
+            %td
+              %ul
+                - worker.sections.pluck(:name).each do |name|
+                  %li= name
+            %td= Sidekiq::ProcessSet.new(false).filter {|a| a['queues'].include? "node:#{worker.uuid}" }.size.zero? ? 'No' : 'Yes'
+            %td.project-actions.text-center
+              %div.btn-group
+                = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'
+                = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')}
