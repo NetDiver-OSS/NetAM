@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 17:26\n"
+"PO-Revision-Date: 2020-11-13 17:27\n"
 
 msgid "Action"
 msgstr "Action"
@@ -254,7 +254,7 @@ msgid "New Vlan"
 msgstr "Nouveau Vlan"
 
 msgid "No free address IP available !"
-msgstr ""
+msgstr "Aucune adresse IP disponible !"
 
 msgid "Notice"
 msgstr "Remarque"
