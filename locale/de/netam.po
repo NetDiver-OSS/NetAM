@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 21:56\n"
+"PO-Revision-Date: 2020-11-13 22:53\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -55,8 +55,8 @@ msgstr "Bist du sicher?"
 msgid "Available IP"
 msgstr "Verfügbare IP"
 
-msgid "Backlog"
-msgstr "Offene Anfragen"
+msgid "Background jobs"
+msgstr ""
 
 msgid "Backup list"
 msgstr "Liste der Backups"
@@ -70,6 +70,9 @@ msgstr "Startzeit"
 msgid "Broadcast"
 msgstr "Diffusion"
 
+msgid "Busy jobs"
+msgstr ""
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -80,6 +83,9 @@ msgid "Choose file"
 msgstr "Datei auswählen"
 
 msgid "Close"
+msgstr ""
+
+msgid "Concurrency jobs"
 msgstr ""
 
 msgid "DHCP"
@@ -124,6 +130,9 @@ msgstr "Benutzer bearbeiten"
 msgid "Editing Vlan"
 msgstr "Vlan bearbeiten"
 
+msgid "Editing Worker"
+msgstr ""
+
 msgid "Email"
 msgstr "E-Mail"
 
@@ -157,8 +166,14 @@ msgstr "Freie IP"
 msgid "Get unused IP"
 msgstr ""
 
+msgid "Heartbeat"
+msgstr ""
+
 msgid "Homepage"
 msgstr "Homepage"
+
+msgid "Hostname"
+msgstr ""
 
 msgid "Hosts per Subnet"
 msgstr "Hosts pro Subnetz"
@@ -195,9 +210,6 @@ msgstr "Letzte IP"
 
 msgid "Last scan time: %{timestamp}"
 msgstr "Letzte Scan-Zeit: %{timestamp}"
-
-msgid "Latency"
-msgstr "Latenz"
 
 msgid "Load Average"
 msgstr "Durchschnittslast"
@@ -249,6 +261,9 @@ msgstr "Neuer Benutzer"
 
 msgid "New Vlan"
 msgstr "Neuer Vlan"
+
+msgid "New Worker"
+msgstr ""
 
 msgid "No free address IP available !"
 msgstr ""
@@ -334,6 +349,12 @@ msgstr "Mit %{name} verknüpfte Abschnitte (#%{vid})"
 msgid "Setup"
 msgstr "Konfigurieren"
 
+msgid "Sidekiq"
+msgstr ""
+
+msgid "Started from"
+msgstr ""
+
 msgid "State"
 msgstr "Zustand"
 
@@ -348,6 +369,9 @@ msgstr "Gegenstand ID"
 
 msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
 msgstr "Dieser Abschnitt ist mit dem Vlan %{name} mit der Vlan-ID verknüpft: %{vid}"
+
+msgid "To launch worker"
+msgstr ""
 
 msgid "Two Factor Auth"
 msgstr "Zwei-Faktor-Auth"
@@ -405,6 +429,24 @@ msgstr ""
 
 msgid "Vlans"
 msgstr "Vlans"
+
+msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
+msgstr ""
+
+msgid "Worker name"
+msgstr ""
+
+msgid "Worker was successfully created."
+msgstr ""
+
+msgid "Worker was successfully destroyed."
+msgstr ""
+
+msgid "Worker was successfully updated."
+msgstr ""
+
+msgid "Workers"
+msgstr ""
 
 msgid "YES"
 msgstr "JA"
