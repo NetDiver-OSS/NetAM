@@ -4,22 +4,22 @@ class ExportSectionToCsvJob < ApplicationJob
 
   def perform(*args)
     database_entries = Usage.joins(:section).where(section_id: args[0]).pluck('sections.id', 'sections.name', :ip_used, :fqdn, :description, :state)
-    attributes = %w[ID Section Address FQDN Description State]
+    attributes = %w[id section ip hostname description state]
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
       database_entries.each do |ip_usage|
         ip_usage[5] = case ip_usage[5]
                       when 'locked'
-                        'Reserved'
+                        'LOCKED'
                       when 'actived'
-                        'Active'
+                        'ACTIVED'
                       when 'down'
-                        'Inactive'
+                        'DOWN'
                       when 'dhcp'
                         'DHCP'
                       else
-                        'Unknown'
+                        'UNKNOWN'
                       end
         csv << ip_usage
       end
