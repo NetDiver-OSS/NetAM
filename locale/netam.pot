@@ -22,9 +22,6 @@ msgstr ""
 msgid "Activated"
 msgstr ""
 
-msgid "Actived"
-msgstr ""
-
 msgid "Add Permission"
 msgstr ""
 

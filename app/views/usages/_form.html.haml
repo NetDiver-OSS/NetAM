@@ -17,7 +17,7 @@
       %div.col-4
         %div.form-group
           = form.label _('State')
-          = form.select :state, [_('Locked'), _('Actived'), _('Down'), _('DHCP')], {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :state, %i[locked actived down dhcp], {}, {class: "form-control #{dark_mode_class}"}
 
     %div.row
       %div.col-12
