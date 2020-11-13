@@ -1,6 +1,10 @@
 - page_title _('Workers')
 - page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_admin_worker_path})
 
+%div.alert.alert-info
+  = _('Worker "default" is not listed here. This worker manages all NetAM internal tasks as the backup.')
+
+
 %div.row.d-flex.align-items-stretch
   - @workers.each do |worker|
     %div.col-12.col-sm-6.col-md-6.d-flex.align-items-stretch

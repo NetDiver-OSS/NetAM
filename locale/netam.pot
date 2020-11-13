@@ -421,6 +421,9 @@ msgstr ""
 msgid "Vlans"
 msgstr ""
 
+msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
+msgstr ""
+
 msgid "Worker was successfully created."
 msgstr ""
 
