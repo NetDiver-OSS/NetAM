@@ -148,6 +148,9 @@ msgstr ""
 msgid "FQDN"
 msgstr ""
 
+msgid "File"
+msgstr ""
+
 msgid "First IP"
 msgstr ""
 
@@ -173,6 +176,9 @@ msgid "IP address Request"
 msgstr ""
 
 msgid "IP calculator"
+msgstr ""
+
+msgid "IP used"
 msgstr ""
 
 msgid "Import"
@@ -245,6 +251,9 @@ msgid "New User"
 msgstr ""
 
 msgid "New Vlan"
+msgstr ""
+
+msgid "No free address API available !"
 msgstr ""
 
 msgid "Notice"
