@@ -12,9 +12,9 @@ namespace :netam do
       puts '== Administrator Creator =='
 
       print 'Email: '
-      email = STDIN.gets.chomp
+      email = $stdin.gets.chomp
       print 'Password: '
-      password = STDIN.noecho(&:gets).chomp
+      password = $stdin.noecho(&:gets).chomp
 
       @user = User.new(
         {

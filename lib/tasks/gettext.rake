@@ -23,7 +23,7 @@ namespace :gettext do
 
     # Remove timestamps from the pot file
     pot_content = File.read pot_file
-    pot_content.gsub!(/^"POT?\-(?:Creation|Revision)\-Date\:.*\n/, '')
+    pot_content.gsub!(/^"POT?-(?:Creation|Revision)-Date:.*\n/, '')
     File.write pot_file, pot_content
   end
 end

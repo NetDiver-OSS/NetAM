@@ -1,7 +1,7 @@
 module Notifications
   module Mail
     class SendService < BaseService
-      def initialize(notification)
+      def initialize(notification) # rubocop:disable Lint/MissingSuper
         @notification = notification
       end
 
@@ -27,7 +27,7 @@ module Notifications
 
         Rails.configuration.netam.dig(:notification, :mail, :to).each do |mail_to|
           message_content << "To: #{mail_to}\n"
-          message = message_content + "\n" + message_body
+          message = "#{message_content}\n#{message_body}"
           begin
             smtp.send_message message, Rails.configuration.netam.dig(:notification, :mail, :from), mail_to
           rescue StandardError => e

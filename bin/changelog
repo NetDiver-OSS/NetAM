@@ -78,7 +78,7 @@ class ChangelogEntry
       @options.title.downcase.gsub(/[^\w-]/, '-')
     )
 
-    base_path[0..90] + '.yml'
+    "#{base_path[0..90]}.yml"
   end
 
   def content

@@ -1,6 +1,6 @@
 module Notifications
   class SendService < BaseService
-    def initialize(notification_object)
+    def initialize(notification_object) # rubocop:disable Lint/MissingSuper
       @notification_object = notification_object
     end
 
