@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 21:56\n"
+"PO-Revision-Date: 2020-11-13 22:53\n"
 
 msgid "Action"
 msgstr ""
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Available IP"
 msgstr ""
 
-msgid "Backlog"
+msgid "Background jobs"
 msgstr ""
 
 msgid "Backup list"
@@ -70,6 +70,9 @@ msgstr ""
 msgid "Broadcast"
 msgstr ""
 
+msgid "Busy jobs"
+msgstr ""
+
 msgid "CPU"
 msgstr ""
 
@@ -80,6 +83,9 @@ msgid "Choose file"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "Concurrency jobs"
 msgstr ""
 
 msgid "DHCP"
@@ -124,6 +130,9 @@ msgstr ""
 msgid "Editing Vlan"
 msgstr ""
 
+msgid "Editing Worker"
+msgstr ""
+
 msgid "Email"
 msgstr ""
 
@@ -157,7 +166,13 @@ msgstr ""
 msgid "Get unused IP"
 msgstr ""
 
+msgid "Heartbeat"
+msgstr ""
+
 msgid "Homepage"
+msgstr ""
+
+msgid "Hostname"
 msgstr ""
 
 msgid "Hosts per Subnet"
@@ -194,9 +209,6 @@ msgid "Last IP"
 msgstr ""
 
 msgid "Last scan time: %{timestamp}"
-msgstr ""
-
-msgid "Latency"
 msgstr ""
 
 msgid "Load Average"
@@ -248,6 +260,9 @@ msgid "New User"
 msgstr ""
 
 msgid "New Vlan"
+msgstr ""
+
+msgid "New Worker"
 msgstr ""
 
 msgid "No free address IP available !"
@@ -334,6 +349,12 @@ msgstr ""
 msgid "Setup"
 msgstr ""
 
+msgid "Sidekiq"
+msgstr ""
+
+msgid "Started from"
+msgstr ""
+
 msgid "State"
 msgstr ""
 
@@ -347,6 +368,9 @@ msgid "Subject ID"
 msgstr ""
 
 msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
+msgstr ""
+
+msgid "To launch worker"
 msgstr ""
 
 msgid "Two Factor Auth"
@@ -404,6 +428,24 @@ msgid "Vlan was successfully updated."
 msgstr ""
 
 msgid "Vlans"
+msgstr ""
+
+msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
+msgstr ""
+
+msgid "Worker name"
+msgstr ""
+
+msgid "Worker was successfully created."
+msgstr ""
+
+msgid "Worker was successfully destroyed."
+msgstr ""
+
+msgid "Worker was successfully updated."
+msgstr ""
+
+msgid "Workers"
 msgstr ""
 
 msgid "YES"
