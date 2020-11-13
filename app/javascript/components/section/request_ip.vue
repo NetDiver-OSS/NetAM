@@ -54,6 +54,16 @@ export default {
     },
     darkModeClass() {
       return Cookies.get('dark_mode') === "true" ? "bg-dark text-white" : ""
+    },
+    fields() {
+      return {
+        close: __('Close'),
+        edit_address_details: __('Edit Address details'),
+        get_unused_ip: __('Get unused IP'),
+        ip_address_request: __('IP address Request'),
+        ip_display_message: __('Your address IP is'),
+        loading: __('Loading')
+      }
     }
   }
 }
@@ -62,27 +72,27 @@ export default {
 <template>
   <fragment>
     <button v-if="!loading" class="btn btn-flat" :class="btnClass" @click="requestIP">
-      <i class="fas fa-ethernet"></i> Get unused IP
+      <i class="fas fa-ethernet"></i> {{ fields.get_unused_ip }}
     </button>
 
     <button v-if="loading" class="btn btn-flat" :class="btnClass" disabled>
       <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-      Loading...
+      {{ fields.loading }}...
     </button>
 
     <div class="modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content" :class="darkModeClass">
           <div class="modal-header">
-            <h5 class="modal-title">IP address Request</h5>
+            <h5 class="modal-title">{{ fields.ip_address_request }}</h5>
           </div>
           <div class="modal-body">
-            <p v-if="!error">Your address IP is: <b>{{ this.message.ip_used }}</b></p>
+            <p v-if="!error">{{ fields.ip_display_message }}: <b>{{ this.message.ip_used }}</b></p>
             <p v-else>{{ this.message }}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <a class="btn btn-primary" :href="usageEditURL">Edit Address details</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ fields.close }}</button>
+            <a class="btn btn-primary" :href="usageEditURL">{{ fields.edit_address_details }}</a>
           </div>
         </div>
       </div>

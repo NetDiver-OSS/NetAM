@@ -8,8 +8,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: netam 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-07 18:43+0100\n"
-"PO-Revision-Date: 2020-11-07 18:43+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -84,6 +82,9 @@ msgstr ""
 msgid "Choose file"
 msgstr ""
 
+msgid "Close"
+msgstr ""
+
 msgid "DHCP"
 msgstr ""
 
@@ -106,6 +107,9 @@ msgid "Down"
 msgstr ""
 
 msgid "Edit"
+msgstr ""
+
+msgid "Edit Address details"
 msgstr ""
 
 msgid "Editing Permission"
@@ -150,6 +154,9 @@ msgstr ""
 msgid "Free IP"
 msgstr ""
 
+msgid "Get unused IP"
+msgstr ""
+
 msgid "Homepage"
 msgstr ""
 
@@ -160,6 +167,9 @@ msgid "IP Address"
 msgstr ""
 
 msgid "IP Calculator"
+msgstr ""
+
+msgid "IP address Request"
 msgstr ""
 
 msgid "IP calculator"
@@ -187,6 +197,9 @@ msgid "Latency"
 msgstr ""
 
 msgid "Load Average"
+msgstr ""
+
+msgid "Loading"
 msgstr ""
 
 msgid "Locked"
@@ -391,6 +404,9 @@ msgid "YES"
 msgstr ""
 
 msgid "Youhou !"
+msgstr ""
+
+msgid "Your address IP is"
 msgstr ""
 
 msgid "every 24 hours"

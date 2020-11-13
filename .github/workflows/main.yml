@@ -37,6 +37,7 @@ jobs:
         run: |
           bundle exec rails db:migrate
           bundle exec rails db:seed
+          bundle exec rake gettext:po_to_json
           bundle exec rails assets:precompile
           bundle exec rake
         env:

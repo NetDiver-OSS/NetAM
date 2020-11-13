@@ -17,6 +17,7 @@ COPY . /app
 RUN \
   bundle config set without 'development test' &&\
   bundle install --jobs $(nproc) --retry 5 &&\
+  bin/rake gettext:po_to_json &&\
   bin/rails assets:precompile
 
 
