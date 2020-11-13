@@ -98,7 +98,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: rubocop-report
-          path: rubocop-result.json
+          path: rubocop-report
       - name: Clean coverage file
         run: sed -i 's,/home/runner/work/NetAM/NetAM/,/github/workspace/,g' coverage/.resultset.json
       - name: SonarCloud Scan
