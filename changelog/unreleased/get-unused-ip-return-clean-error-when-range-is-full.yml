@@ -1,0 +1,4 @@
+---
+type: fixed
+title: get unused ip return clean error when range is full
+merge_request: 113
