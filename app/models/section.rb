@@ -37,6 +37,8 @@ class Section < ApplicationRecord
     IPAddress(network).hosts.each do |ip|
       return ip.to_s if usages.where(ip_used: ip.to_s).empty?
     end
+
+    nil
   end
 
   private

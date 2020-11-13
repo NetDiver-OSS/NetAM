@@ -37,7 +37,7 @@ export default {
         })
         .catch((error) => {
           this.error = true
-          this.message = error
+          this.message = error.response.data.error
         })
         .finally(() => {
           this.loading = false
@@ -92,7 +92,7 @@ export default {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ fields.close }}</button>
-            <a class="btn btn-primary" :href="usageEditURL">{{ fields.edit_address_details }}</a>
+            <a v-if="!this.error" class="btn btn-primary" :href="usageEditURL">{{ fields.edit_address_details }}</a>
           </div>
         </div>
       </div>

@@ -94,7 +94,13 @@ module API
           section = Section.find(permitted_params[:id])
           authorize! :read, section
 
-          section.usages.create!(ip_used: section.unused_ip)
+          requested_ip = section.unused_ip
+          if requested_ip.nil?
+            status 422
+            { error: _('No free address API available !') }
+          else
+            section.usages.create!(ip_used: requested_ip)
+          end
         end
 
         desc 'Export section to CSV'
