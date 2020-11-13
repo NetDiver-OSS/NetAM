@@ -97,7 +97,7 @@ module API
           requested_ip = section.unused_ip
           if requested_ip.nil?
             status 422
-            { error: _('No free address API available !') }
+            { error: _('No free address IP available !') }
           else
             section.usages.create!(ip_used: requested_ip)
           end

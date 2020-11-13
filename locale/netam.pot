@@ -253,7 +253,7 @@ msgstr ""
 msgid "New Vlan"
 msgstr ""
 
-msgid "No free address API available !"
+msgid "No free address IP available !"
 msgstr ""
 
 msgid "Notice"
