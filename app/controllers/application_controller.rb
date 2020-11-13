@@ -17,16 +17,9 @@ class ApplicationController < ActionController::Base
       boot_time: Vmstat.boot_time
     }
 
-    @sidekiq_queues = Sidekiq::Queue.all.map do |queue|
-      {
-        name: queue.name,
-        backlog: queue.size,
-        latency: queue.latency.to_i
-      }
-    end
-
     @sidekiq_processes = Sidekiq::ProcessSet.new(false).map do |process|
       {
+        worker: Worker.find_by_uuid(process['queues'].first.gsub('node:', ''))&.name,
         hostname: process['hostname'],
         started_at: Time.at(process['started_at']),
         concurrency: process['concurrency'],

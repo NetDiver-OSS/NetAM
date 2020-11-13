@@ -49,6 +49,22 @@ RSpec.describe "Section", type: :request do
     end
   end
 
+  describe "POST /scan" do
+    it "renders a successful response" do
+      Section.create! valid_attributes
+      post section_scan_url(Section.maximum(:id))
+      expect(response.code).to eq("302")
+    end
+  end
+
+  describe "POST /export" do
+    it "renders a successful response" do
+      Section.create! valid_attributes
+      post section_export_url(Section.maximum(:id))
+      expect(response).to be_successful
+    end
+  end
+
   describe "GET /edit" do
     it "render a successful response" do
       pepite = Section.create! valid_attributes
@@ -88,7 +104,12 @@ RSpec.describe "Section", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) do
-        skip("Add a hash of attributes valid for your model")
+        {
+          name: 'section 42',
+          network: '8.8.8.0/24',
+          schedule: '',
+          vlan_id: Vlan.first.id
+        }
       end
 
       it "updates the requested section" do

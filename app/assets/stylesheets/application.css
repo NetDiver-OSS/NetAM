@@ -12,6 +12,7 @@
  *
  *= require @fortawesome/fontawesome-free
  *= require admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min
+ *= require admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css
  *= require admin-lte/plugins/flag-icon-css/css/flag-icon.min
  *= require admin-lte
  *= require admin-lte/plugins/select2/css/select2.min

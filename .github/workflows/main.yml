@@ -70,18 +70,12 @@ jobs:
           bundle config set without 'default'
           bundle install --jobs 4 --retry 3
       - name: Run RuboCop
-        run: bundle exec rubocop --format=json --out=rubocop-result.json --parallel
-      - name: Archive rubocop results
-        uses: actions/upload-artifact@master
-        with:
-          name: rubocop-report
-          path: rubocop-result.json
+        run: bundle exec rubocop --parallel
 
 
   sonarCloudTrigger:
     needs:
       - test
-      - rubocop
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
     steps:
@@ -94,11 +88,6 @@ jobs:
         with:
           name: code-coverage-report
           path: coverage
-      - name: Download rubocop results
-        uses: actions/download-artifact@master
-        with:
-          name: rubocop-report
-          path: rubocop-report
       - name: Clean coverage file
         run: sed -i 's,/home/runner/work/NetAM/NetAM/,/github/workspace/,g' coverage/.resultset.json
       - name: SonarCloud Scan

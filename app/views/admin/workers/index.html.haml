@@ -1,0 +1,38 @@
+- page_title _('Workers')
+- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_admin_worker_path})
+
+%div.alert.alert-info
+  = _('Worker "default" is not listed here. This worker manages all NetAM internal tasks as the backup.')
+
+
+%div.row
+  %div.col-12
+    %div.card{class: dark_mode_class}
+      %div.card-header
+        %h3.card-title= _('Workers')
+
+  %div.card-body.table-responsive
+    %table.table.table-striped.projects.datatable
+      %thead
+        %tr
+          %th= _('Worker name')
+          %th= _('Queues')
+          %th= _('Affected sections')
+          %th= _('Connected')
+          %th.text-center
+            = _('Actions')
+      %tbody
+        - @workers.each do |worker|
+          %tr
+            %td= worker.name
+            %td= worker.uuid
+            %td
+              %ul
+                - worker.sections.pluck(:name).each do |name|
+                  %li= name
+            %td.text-center
+              = Sidekiq::ProcessSet.new(false).filter {|a| a['queues'].include? "node:#{worker.uuid}" }.size.zero? ? '<i class="fas fa-times-circle"></i>'.html_safe : '<i class="fas fa-check-circle"></i>'.html_safe
+            %td.project-actions.text-center
+              %div.btn-group
+                = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'
+                = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')}

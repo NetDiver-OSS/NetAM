@@ -21,8 +21,11 @@
             %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}= _('Admin Center')
             %ul.dropdown-menu.border-0.shadow{class: dark_mode_class}
               %li= link_to fa_icon_with_text('fas fa-users', _('Users')), admin_users_path, class: "dropdown-item #{dark_mode_class}"
-              %li= link_to fa_icon_with_text('fas fa-tools', _('Jobs')), admin_jobs_path, class: "dropdown-item #{dark_mode_class}"
               %li= link_to fa_icon_with_text('fas fa-save', _('Backups')), admin_backups_path, class: "dropdown-item #{dark_mode_class}"
+              %div.dropdown-divider
+              %li= link_to fa_icon_with_text('fas fa-tools', _('Jobs')), admin_jobs_path, class: "dropdown-item #{dark_mode_class}"
+              %li= link_to fa_icon_with_text('fas fa-server', _('Workers')), admin_workers_path, class: "dropdown-item #{dark_mode_class}"
+              %li= link_to fa_icon_with_text('fas fa-stream', _('Sidekiq')), admin_sidekiq_index_path, class: "dropdown-item #{dark_mode_class}"
 
         %li.nav-item
           = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?

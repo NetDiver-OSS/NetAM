@@ -1,0 +1,21 @@
+= form_with(model: [:admin, worker], local: true) do |form|
+  %div.card-body
+    - if worker.errors.any?
+      - worker.errors.full_messages.each do |message|
+        %div.callout.callout-danger{class: dark_mode_class}
+          %p= message
+
+    %div.row
+      %div.col-12
+        %div.input-group.mb-3
+          %div.input-group-prepend
+            %span.input-group-text{class: dark_mode_class}= _('Name')
+          = form.text_field :name, class: "form-control #{dark_mode_class}"
+
+      %div.col-12
+        %div.form-group
+          %label= _('Section')
+          = form.select :sections, @sections, { selected: @worker.sections.pluck(:id) }, { multiple: true, class: "duallistbox form-control #{dark_mode_class}" }
+
+  %div.card-footer
+    = form.submit nil, class: 'btn btn-primary float-right'

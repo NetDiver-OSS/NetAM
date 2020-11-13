@@ -45,50 +45,27 @@
   %div.col-12
     %div.card{class: dark_mode_class}
       %div.card-header
-        %h3.card-title= _('Queues')
+        %h3.card-title= _('Workers')
 
-      %div.card-body.table-responsive.p-0{style: "height: 200px;"}
-        %table.table.dataTable
+      %div.card-body.table-responsive
+        %table.table.table-striped.projects.datatable
           %thead
             %tr
-              %th= _('Name')
-              %th= _('Backlog')
-              %th= _('Latency')
+              %th= _('Worker name')
+              %th= _('Hostname')
+              %th= _('Concurrency jobs')
+              %th= _('Busy jobs')
+              %th= _('Queues')
+              %th= _('Started from')
+              %th= _('Heartbeat')
 
           %tbody
-            - @sidekiq_queues.each do |queue|
+            - @sidekiq_processes.each do |process|
               %tr
-                %td= queue[:name]
-                %td= queue[:backlog]
-                %td= queue[:latency]
-
-%div.row.d-flex.align-items-stretch
-  - @sidekiq_processes.each do |process|
-    %div.col-12.col-sm-6.col-md-6.d-flex.align-items-stretch
-      %div{class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100"}
-        %div.card-body
-          %div.row
-            %div.col-12
-              %h2.lead.text-center
-                %b= process[:hostname]
-              %ul.ml-4.mb-0.fa-ul.text-muted
-                %li.small
-                  %span.fa-li
-                    %i.fas.fa-lg.fa-calendar-alt
-                  = process[:started_at]
-                %li.small
-                  %span.fa-li
-                    %i.fas.fa-lg.fa-code-branch
-                  = process[:concurrency]
-                %li.small
-                  %span.fa-li
-                    %i.fas.fa-lg.fa-minus-circle
-                  = process[:busy]
-                %li.small
-                  %span.fa-li
-                    %i.fas.fa-lg.fa-stream
-                  = process[:queues].join(' | ')
-                %li.small
-                  %span.fa-li
-                    %i.fas.fa-lg.fa-heartbeat
-                  = distance_of_time_in_words(process[:beat], Time.now)
+                %td= process[:worker]
+                %td= process[:hostname]
+                %td= process[:concurrency]
+                %td= process[:busy]
+                %td= process[:queues].join(' | ')
+                %td= distance_of_time_in_words(process[:started_at], Time.now)
+                %td= distance_of_time_in_words(process[:beat], Time.now)
