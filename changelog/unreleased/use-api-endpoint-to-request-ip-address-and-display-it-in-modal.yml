@@ -1,4 +1,0 @@
----
-type: changed
-title: use API endpoint to request IP address and display it in modal
-merge_request: 95
