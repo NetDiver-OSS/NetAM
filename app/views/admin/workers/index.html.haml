@@ -5,12 +5,14 @@
   - @workers.each do |worker|
     %div.col-12.col-sm-6.col-md-6.d-flex.align-items-stretch
       %div.card.w-100{class: dark_mode_class}
-        %div.card-header.text-muted.border-bottom-0 #{worker.uuid}
+        %div.card-header.text-muted.border-bottom-0= worker.name
         %div.card-body.pt-0
           %div.row
-            %div.col-7
-              %h2.lead
-                %b= worker.name
+            %div.col-12
+              %p
+                #{_('To launch worker')}:
+                %br
+                %b sidekiq -q "node:#{worker.uuid}"
         %div.card-footer
           %div.text-right
             = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'

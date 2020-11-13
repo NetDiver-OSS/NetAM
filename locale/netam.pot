@@ -55,6 +55,9 @@ msgstr ""
 msgid "Available IP"
 msgstr ""
 
+msgid "Background jobs"
+msgstr ""
+
 msgid "Backlog"
 msgstr ""
 
@@ -122,6 +125,9 @@ msgid "Editing User"
 msgstr ""
 
 msgid "Editing Vlan"
+msgstr ""
+
+msgid "Editing Worker"
 msgstr ""
 
 msgid "Email"
@@ -250,6 +256,9 @@ msgstr ""
 msgid "New Vlan"
 msgstr ""
 
+msgid "New Worker"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr ""
 
@@ -334,6 +343,9 @@ msgstr ""
 msgid "Setup"
 msgstr ""
 
+msgid "Sidekiq"
+msgstr ""
+
 msgid "State"
 msgstr ""
 
@@ -347,6 +359,9 @@ msgid "Subject ID"
 msgstr ""
 
 msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
+msgstr ""
+
+msgid "To launch worker"
 msgstr ""
 
 msgid "Two Factor Auth"
@@ -404,6 +419,18 @@ msgid "Vlan was successfully updated."
 msgstr ""
 
 msgid "Vlans"
+msgstr ""
+
+msgid "Worker was successfully created."
+msgstr ""
+
+msgid "Worker was successfully destroyed."
+msgstr ""
+
+msgid "Worker was successfully updated."
+msgstr ""
+
+msgid "Workers"
 msgstr ""
 
 msgid "YES"

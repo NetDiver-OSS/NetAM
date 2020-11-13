@@ -14,7 +14,7 @@
 
       %div.col-12
         %div.form-group
-          %label Multiple
+          %label= _('Section')
           = form.select :sections, @sections, { selected: @worker.sections.pluck(:id) }, { multiple: true, class: "duallistbox form-control #{dark_mode_class}" }
 
   %div.card-footer
