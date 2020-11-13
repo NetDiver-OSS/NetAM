@@ -22,6 +22,9 @@ module Admin
     def create
       @worker = Worker.new(worker_params)
 
+      section_selected = params.dig(:worker, :sections) || []
+      @worker.sections = section_selected.reject(&:empty?).map { |section| Section.find(section.to_i) }
+
       if @worker.save
         redirect_to admin_workers_path, notice: _('Worker was successfully created.')
       else
