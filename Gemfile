@@ -79,6 +79,8 @@ group :development, :test do
   gem 'simplecov', '= 0.17.0'
   gem 'simplecov-cobertura', '~> 1.3', '>= 1.3.1'
 
+  gem 'factory_bot_rails', '~> 6.1'
+
   gem 'rubocop', '1.3.0'
   gem 'rubocop-performance', '~> 1.7'
   gem 'rubocop-rails', '~> 2.8'

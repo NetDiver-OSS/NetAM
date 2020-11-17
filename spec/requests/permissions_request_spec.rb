@@ -3,16 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe 'Permissions', type: :request do
-  before(:each) do
-    @admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
+  let(:admin) { create :user, :admin }
 
-    sign_in @admin
+  before(:each) do
+    sign_in admin
   end
 
   let(:valid_attributes) do
     {
       name: 'permission 1',
-      user_id: @admin.id,
+      user_id: admin.id,
       subject_class: 'Section',
       subject_id: 1,
       action: 'manage'
@@ -22,7 +22,7 @@ RSpec.describe 'Permissions', type: :request do
   let(:invalid_attributes) do
     {
       name: 'permission err',
-      user_id: @admin.id,
+      user_id: admin.id,
       subject_class: 'Section',
       subject_id: 1,
       action: 'manage'

@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe '/workers', type: :request do
-  before(:each) do
-    @admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
+  let(:admin) { create :user, :admin }
 
-    sign_in @admin
+  before(:each) do
+    sign_in admin
   end
 
   let(:valid_attributes) do
