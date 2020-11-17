@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Vlan < ApplicationRecord
-  has_many :sections
+  has_many :sections, dependent: :destroy
 
   validates_associated :sections
   validates :vid, :name, presence: true

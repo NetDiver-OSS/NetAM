@@ -10,7 +10,7 @@ class User < ApplicationRecord
          otp_number_of_backup_codes: 10
 
   default_scope -> { order(id: :asc) }
-  has_many :permissions
+  has_many :permissions, dependent: :destroy
 
   validates_associated :permissions
 
