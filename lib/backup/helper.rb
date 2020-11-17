@@ -3,11 +3,7 @@
 module Backup
   module Helper
     def backup_path
-      @backup_path ||= if ENV['BACKUP_PATH'].present?
-                         ENV['BACKUP_PATH']
-                       else
-                         '/backups'
-                       end
+      @backup_path ||= ENV['BACKUP_PATH'].presence || '/backups'
     end
   end
 end
