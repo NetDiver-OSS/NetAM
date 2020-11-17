@@ -320,7 +320,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.2)
+    redis (4.2.3)
     redis-rack-cache (2.2.1)
       rack-cache (>= 1.10, < 2)
       redis-store (>= 1.6, < 2)
@@ -512,7 +512,7 @@ DEPENDENCIES
   rails (= 6.0.3.4)
   rails-i18n (~> 6.0)
   rails_semantic_logger (= 4.4.4)
-  redis (~> 4.0)
+  redis (~> 4.2)
   redis-rack-cache
   rqrcode (~> 1.1, >= 1.1.2)
   rspec-rails (~> 4.0)
