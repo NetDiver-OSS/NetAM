@@ -32,7 +32,7 @@ module NetAM
     config.i18n.enforce_available_locales = false
     config.i18n.fallbacks = FastGettext.default_locale
 
-    config.action_view.field_error_proc = Proc.new do |html_tag, _|
+    config.action_view.field_error_proc = proc do |html_tag, _|
       html_tag.html_safe # rubocop:disable Rails/OutputSafety
     end
   end
