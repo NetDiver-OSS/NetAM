@@ -49,7 +49,7 @@ gem 'net-ping', '~> 2.0', '>= 2.0.6'
 gem 'parallel', '~> 1.20'
 
 # API
-gem 'grape', '~> 1.4'
+gem 'grape', '~> 1.5'
 gem 'grape-active_model_serializers', '~> 1.5', '>= 1.5.2'
 gem 'grape-cancan', '~> 0.0.3'
 gem 'grape_on_rails_routes', '~> 0.3.2'
