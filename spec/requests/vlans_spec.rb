@@ -7,21 +7,21 @@ RSpec.describe '/vlans', type: :request do
     sign_in admin
   end
 
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     {
       name: 'test',
       description: 'this is a test',
       vid: 42
     }
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       name: 'not test',
       description: 'this is not a test',
       vid: 'not a ID'
     }
-  }
+  end
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -57,9 +57,9 @@ RSpec.describe '/vlans', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Vlan' do
-        expect {
+        expect do
           post vlans_url, params: { vlan: valid_attributes }
-        }.to change(Vlan, :count).by(1)
+        end.to change(Vlan, :count).by(1)
       end
 
       it 'redirects to the created vlan' do
@@ -70,9 +70,9 @@ RSpec.describe '/vlans', type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new Vlan' do
-        expect {
+        expect do
           post vlans_url, params: { vlan: invalid_attributes }
-        }.to change(Vlan, :count).by(0)
+        end.to change(Vlan, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -84,9 +84,9 @@ RSpec.describe '/vlans', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) {
+      let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
-      }
+      end
 
       it 'updates the requested vlan' do
         vlan = Vlan.create! valid_attributes
@@ -115,9 +115,9 @@ RSpec.describe '/vlans', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested vlan' do
       vlan = Vlan.create! valid_attributes
-      expect {
+      expect do
         delete vlan_url(vlan)
-      }.to change(Vlan, :count).by(-1)
+      end.to change(Vlan, :count).by(-1)
     end
 
     it 'redirects to the vlans list' do
