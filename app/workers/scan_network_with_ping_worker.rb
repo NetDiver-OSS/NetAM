@@ -8,6 +8,8 @@ class ScanNetworkWithPingWorker
   include Sidekiq::Status::Worker
   include StatusExpiration
 
+  SKIPPED_STATE = %w[locked dhcp].freeze
+
   def perform(*args)
     raise 'Job can only process 1 network at the time' if args.count > 1
 
@@ -27,7 +29,7 @@ class ScanNetworkWithPingWorker
         fqdn: @section_usage.filter_map { |entry| entry.fqdn if entry.ip_used.to_s == address.to_s }
       }
 
-      if %w[locked dhcp].include? usage[:state].first
+      if SKIPPED_STATE.include? usage[:state].first
         Sidekiq.logger.info "Address #{address} is not able to be process if state is locked or dhcp"
         next
       end
