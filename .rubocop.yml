@@ -5,7 +5,7 @@ require:
 inherit_from: .rubocop_todo.yml
 
 Style/SymbolArray:
-  Enabled: false
+  Enabled: true
 
 Style/StringLiterals:
   Enabled: true

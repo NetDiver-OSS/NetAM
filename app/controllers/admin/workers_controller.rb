@@ -3,7 +3,7 @@
 module Admin
   class WorkersController < ApplicationController
     load_and_authorize_resource
-    before_action :set_sections, only: [:create, :update, :new, :edit]
+    before_action :set_sections, only: %i[create update new edit]
 
     # GET /workers
     def index
