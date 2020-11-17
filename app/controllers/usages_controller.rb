@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsagesController < ApplicationController
   load_resource :section
   load_and_authorize_resource :usage, through: :section

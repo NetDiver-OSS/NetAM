@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddVlanRefToSections < ActiveRecord::Migration[6.0]
   def change
     add_reference :sections, :vlan, default: 1, foreign_key: true

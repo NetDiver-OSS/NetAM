@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BackupDatabaseWorker
   include Sidekiq::Worker
   sidekiq_options retry: 3

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseService
   private_class_method :new
 

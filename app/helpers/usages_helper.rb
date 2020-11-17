@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsagesHelper
   def usage_color(usage)
     case usage

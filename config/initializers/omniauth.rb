@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.config.assets.precompile += %w[omniauth_form.css]
 
 module OmniAuth

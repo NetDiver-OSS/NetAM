@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'gettext_i18n_rails/tasks'
 
 namespace :gettext do

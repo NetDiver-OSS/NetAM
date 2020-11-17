@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeUsagesStatusDefaultValue < ActiveRecord::Migration[6.0]
   def change
     execute <<-SQL

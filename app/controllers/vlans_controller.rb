@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VlansController < ApplicationController
   load_and_authorize_resource
   before_action :set_permissions, only: %i[edit update]

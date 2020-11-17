@@ -10,3 +10,7 @@ Style/SymbolArray:
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always

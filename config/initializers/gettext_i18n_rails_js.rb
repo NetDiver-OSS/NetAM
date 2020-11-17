@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GettextI18nRailsJs
   module Parser
     module Javascript

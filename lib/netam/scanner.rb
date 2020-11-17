@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NetAM
   class Scanner
     # @param [string] job

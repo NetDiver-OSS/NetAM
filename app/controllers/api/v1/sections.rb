@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'doorkeeper/grape/helpers'
 
 module API
@@ -6,7 +8,7 @@ module API
       include API::V1::Defaults
       helpers Doorkeeper::Grape::Helpers
 
-      REQUIRES_ID = 'ID of the section'.freeze
+      REQUIRES_ID = 'ID of the section'
 
       before do
         doorkeeper_authorize!

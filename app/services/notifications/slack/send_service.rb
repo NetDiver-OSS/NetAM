@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   module Slack
     class SendService < BaseService

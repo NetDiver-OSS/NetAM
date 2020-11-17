@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Rails.env.test?
   %w[sebastien@sdeu.fr vincent@fricouv.eu rigonkmalk@gmail.com].each do |email|
     r = Random.urandom(128)

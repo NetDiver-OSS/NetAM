@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Section < ApplicationRecord
   has_many :usages, dependent: :destroy
   belongs_to :vlan
