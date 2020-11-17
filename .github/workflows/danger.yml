@@ -10,14 +10,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '1000000'
       - name: Set up Ruby
         uses: ruby/setup-ruby@master
         with:
           ruby-version: '2.7.2'
       - name: Run Danger
         run: |
-          gem install danger-gitlab
-          gem install rubocop danger-rubocop
+          gem install danger rubocop danger-rubocop
           danger --verbose
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
