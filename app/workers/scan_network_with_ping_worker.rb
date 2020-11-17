@@ -39,19 +39,19 @@ class ScanNetworkWithPingWorker
       if scanner[:ping]
         Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"
 
-        current_usage.merge!({ state: :actived })
+        current_usage[:state] = :actived
 
-        scanner.merge!({ reverse: NetAM::Network::Dns.reverse_dns(address) })
+        scanner[:reverse] = NetAM::Network::Dns.reverse_dns(address)
 
         unless scanner[:reverse].nil?
           Sidekiq.logger.info "Found PTR for IP #{address}: #{scanner[:reverse]}"
-          current_usage.merge!({ fqdn: scanner[:reverse] })
+          current_usage[:fqdn] = scanner[:reverse]
         end
 
       elsif usage[:state].count.positive?
         Sidekiq.logger.info "Known unactive IP: #{address}"
 
-        current_usage.merge!({ state: :down })
+        current_usage[:state] = :down
       end
 
       section_to_update << current_usage if current_usage.length > 3
