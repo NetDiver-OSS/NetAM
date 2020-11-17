@@ -3,7 +3,7 @@ require 'csv'
 class Usage < ApplicationRecord
   after_initialize :init
 
-  enum state: %i[locked actived down dhcp]
+  enum state: { locked: 0, actived: 1, down: 2, dhcp: 3 }
 
   belongs_to :section
 
