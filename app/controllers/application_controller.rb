@@ -21,11 +21,11 @@ class ApplicationController < ActionController::Base
       {
         worker: Worker.find_by(uuid: process['queues'].first.gsub('node:', ''))&.name,
         hostname: process['hostname'],
-        started_at: Time.at(process['started_at']),
+        started_at: Time.zone.at(process['started_at']),
         concurrency: process['concurrency'],
         busy: process['busy'],
         queues: process['queues'],
-        beat: Time.at(process['beat'])
+        beat: Time.zone.at(process['beat'])
       }
     end
   end

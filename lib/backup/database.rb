@@ -34,7 +34,7 @@ module Backup
     private
 
     def dump_file
-      @dump_file ||= "#{Time.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql.gz"
+      @dump_file ||= "#{Time.zone.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql.gz"
     end
   end
 end
