@@ -18,7 +18,7 @@ module GettextI18nRailsJs
           scan_file = tmp_file.path
         end
 
-        puts "Run JavaScript analyser on: #{scan_file}"
+        logger.info "Run JavaScript analyser on: #{scan_file}"
 
         ::File.open(scan_file) do |f|
           f.each_line.each_with_index.collect do |line, idx|
