@@ -110,7 +110,7 @@ RSpec.describe "Usage", type: :request do
   describe "POST /import" do
     it "should create usage" do
       expect do
-        post import_section_usages_path(@section.id), params: { file: Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/netam_import_usages.csv") }
+        post import_section_usages_path(@section.id), params: { file: Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/netam_import_usages.csv')) }
       end.to change(Usage, :count).by(1)
     end
   end

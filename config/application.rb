@@ -12,7 +12,7 @@ module NetAM
     require_dependency Rails.root.join('lib/netam/translation')
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
-    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.autoload_paths += Dir[Rails.root.join('app/api/*')]
 
     # Load custom configuration file
     config.netam = config_for(:netam)
@@ -21,8 +21,8 @@ module NetAM
     config.active_job.queue_adapter = :sidekiq
 
     config.assets.enabled = true
-    config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.paths << "#{Rails.root}/app/assets/stylesheets"
+    config.assets.paths << Rails.root.join('app/assets/fonts')
+    config.assets.paths << Rails.root.join('app/assets/stylesheets')
 
     # Autoload lib/ folder including all subdirectories
     config.eager_load_paths << Rails.root.join('lib')

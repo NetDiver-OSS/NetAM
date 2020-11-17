@@ -6,7 +6,7 @@ module Backup
     attr_reader :config
 
     def initialize
-      @config = YAML.load(ERB.new(File.read(File.join(Rails.root, 'config', 'database.yml'))).result)[Rails.env]
+      @config = YAML.load(ERB.new(File.read(Rails.root.join('config/database.yml'))).result)[Rails.env]
       {
         'username': 'PGUSER',
         'host': 'PGHOST',
