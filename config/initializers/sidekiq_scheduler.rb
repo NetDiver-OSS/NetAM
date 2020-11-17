@@ -3,6 +3,8 @@ Sidekiq.configure_server do |config|
     cron_settings = {}
 
     Section.all.each do |section|
+      next if section.schedule.blank?
+
       cron_settings.merge!(
         {
           "section:#{section.id}": {
@@ -11,7 +13,7 @@ Sidekiq.configure_server do |config|
             args: [{ id: section.id, network: section.network }]
           }
         }
-      ) if section.schedule.present?
+      )
     end
 
     Sidekiq::Cron::Job.load_from_hash cron_settings
