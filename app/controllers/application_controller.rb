@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_gettext_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -19,13 +21,13 @@ class ApplicationController < ActionController::Base
 
     @sidekiq_processes = Sidekiq::ProcessSet.new(false).map do |process|
       {
-        worker: Worker.find_by_uuid(process['queues'].first.gsub('node:', ''))&.name,
+        worker: Worker.find_by(uuid: process['queues'].first.gsub('node:', ''))&.name,
         hostname: process['hostname'],
-        started_at: Time.at(process['started_at']),
+        started_at: Time.zone.at(process['started_at']),
         concurrency: process['concurrency'],
         busy: process['busy'],
         queues: process['queues'],
-        beat: Time.at(process['beat'])
+        beat: Time.zone.at(process['beat'])
       }
     end
   end

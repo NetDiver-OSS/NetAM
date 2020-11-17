@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 Sidekiq.configure_server do |config|
   config.on(:startup) do
     cron_settings = {}
 
     Section.all.each do |section|
+      next if section.schedule.blank?
+
       cron_settings.merge!(
         {
           "section:#{section.id}": {
@@ -11,7 +15,7 @@ Sidekiq.configure_server do |config|
             args: [{ id: section.id, network: section.network }]
           }
         }
-      ) unless section.schedule.nil? || section.schedule.empty?
+      )
     end
 
     Sidekiq::Cron::Job.load_from_hash cron_settings

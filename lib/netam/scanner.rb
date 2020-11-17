@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NetAM
   class Scanner
     # @param [string] job
@@ -8,7 +10,7 @@ module NetAM
     # @param [int] id
     # @param [string] network
     def run(id, network)
-      queue = ::Section.find(id).worker.nil? ? "default" : "node:#{::Section.find(id).worker.uuid}"
+      queue = ::Section.find(id).worker.nil? ? 'default' : "node:#{::Section.find(id).worker.uuid}"
 
       @job.set(queue: queue).perform_async({ id: id, network: network })
     end

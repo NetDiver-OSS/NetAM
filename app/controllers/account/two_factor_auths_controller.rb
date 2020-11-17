@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Account
   class TwoFactorAuthsController < ApplicationController
     # GET /
@@ -47,7 +49,6 @@ module Account
 
     def generate_totp_qrcode
       uri = current_user.otp_provisioning_uri("NetAM:#{current_user.email}", issuer: 'NetAM')
-      pp uri
       @qrcode = RQRCode::QRCode.new(uri).as_svg(standalone: true, module_size: 5)
     end
   end

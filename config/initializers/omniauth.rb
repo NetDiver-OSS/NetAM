@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.config.assets.precompile += %w[omniauth_form.css]
 
 module OmniAuth
@@ -6,7 +8,7 @@ module OmniAuth
 
     def css
       h = ActionController::Base.helpers
-      h.stylesheet_link_tag("omniauth_form", media: "all")
+      h.stylesheet_link_tag('omniauth_form', media: 'all')
     end
   end
 end

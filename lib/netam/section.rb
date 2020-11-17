@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NetAM
   class Section
     def self.get_last_scan(section_id)

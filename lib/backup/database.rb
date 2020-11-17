@@ -6,7 +6,7 @@ module Backup
     attr_reader :config
 
     def initialize
-      @config = YAML.load(ERB.new(File.read(File.join(Rails.root, 'config', 'database.yml'))).result)[Rails.env]
+      @config = YAML.load(ERB.new(File.read(Rails.root.join('config/database.yml'))).result)[Rails.env] # rubocop:disable Security/YAMLLoad
       {
         'username': 'PGUSER',
         'host': 'PGHOST',
@@ -17,7 +17,7 @@ module Backup
 
     def dump
       compress_rd, compress_wr = IO.pipe
-      compress_pid = spawn("gzip -c -1", in: compress_rd, out: ["#{backup_path}/#{dump_file}", 'w', 00600])
+      compress_pid = spawn('gzip -c -1', in: compress_rd, out: ["#{backup_path}/#{dump_file}", 'w', 0o0600])
       compress_rd.close
 
       dump_pid = Process.spawn('pg_dump', '--clean', '--if-exists', config['database'], out: compress_wr)
@@ -34,7 +34,7 @@ module Backup
     private
 
     def dump_file
-      @dump_file ||= "#{Time.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql.gz"
+      @dump_file ||= "#{Time.zone.now.strftime('%s_%Y_%m_%d')}_#{NetAM::VERSION}.sql.gz"
     end
   end
 end

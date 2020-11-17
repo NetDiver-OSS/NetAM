@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 SemanticLogger.add_appender(io: $stdout, level: :info)
 SemanticLogger.add_appender(io: $stderr, level: :error)
 

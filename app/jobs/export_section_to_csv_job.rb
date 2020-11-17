@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 class ExportSectionToCsvJob < ApplicationJob
   queue_as :default

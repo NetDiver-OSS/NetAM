@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Section < ApplicationRecord
   has_many :usages, dependent: :destroy
   belongs_to :vlan
@@ -19,7 +21,7 @@ class Section < ApplicationRecord
     schedule_name = "section:#{section.id}"
     Sidekiq::Cron::Job.destroy(schedule_name)
 
-    unless section.schedule.nil? || section.schedule.empty?
+    if section.schedule.present?
       Sidekiq::Cron::Job.new(
         name: schedule_name,
         class: 'ScanNetworkWithPingWorker',

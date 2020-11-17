@@ -8,6 +8,8 @@ class ScanNetworkWithPingWorker
   include Sidekiq::Status::Worker
   include StatusExpiration
 
+  SKIPPED_STATE = %w[locked dhcp].freeze
+
   def perform(*args)
     raise 'Job can only process 1 network at the time' if args.count > 1
 
@@ -27,7 +29,7 @@ class ScanNetworkWithPingWorker
         fqdn: @section_usage.filter_map { |entry| entry.fqdn if entry.ip_used.to_s == address.to_s }
       }
 
-      if %w[locked dhcp].include? usage[:state].first
+      if SKIPPED_STATE.include? usage[:state].first
         Sidekiq.logger.info "Address #{address} is not able to be process if state is locked or dhcp"
         next
       end
@@ -39,19 +41,19 @@ class ScanNetworkWithPingWorker
       if scanner[:ping]
         Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"
 
-        current_usage.merge!({ state: :actived })
+        current_usage[:state] = :actived
 
-        scanner.merge!({ reverse: NetAM::Network::Dns.reverse_dns(address) })
+        scanner[:reverse] = NetAM::Network::Dns.reverse_dns(address)
 
         unless scanner[:reverse].nil?
           Sidekiq.logger.info "Found PTR for IP #{address}: #{scanner[:reverse]}"
-          current_usage.merge!({ fqdn: scanner[:reverse] })
+          current_usage[:fqdn] = scanner[:reverse]
         end
 
       elsif usage[:state].count.positive?
         Sidekiq.logger.info "Known unactive IP: #{address}"
 
-        current_usage.merge!({ state: :down })
+        current_usage[:state] = :down
       end
 
       section_to_update << current_usage if current_usage.length > 3

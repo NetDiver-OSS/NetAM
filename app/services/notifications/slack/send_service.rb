@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   module Slack
     class SendService < BaseService
@@ -15,16 +17,16 @@ module Notifications
         {
           blocks: [
             {
-              type: "section",
+              type: 'section',
               text: {
-                type: "mrkdwn",
+                type: 'mrkdwn',
                 text: @notification[:message]
               }
             },
             {
-              type: "section",
+              type: 'section',
               text: {
-                type: "mrkdwn",
+                type: 'mrkdwn',
                 text: "*Section ID:* #{@notification[:section][:id]}\n*Section Network:* #{@notification[:section][:network]}"
               }
             }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   class SendService < BaseService
     def initialize(notification_object) # rubocop:disable Lint/MissingSuper

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sidekiq/web'
 require 'sidekiq/cron/web'
 require 'sidekiq-status/web'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
       unlock: 'unblock',
       registration: 'register',
       sign_up: ''
-    }, controllers: { omniauth_callbacks: "callbacks" }
+    }, controllers: { omniauth_callbacks: 'callbacks' }
 
     use_doorkeeper do
       skip_controllers :applications, :authorized_applications
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
     resources :vlans
 
     namespace :account do
-      resources :two_factor_auths, only: [:index, :create] do
+      resources :two_factor_auths, only: %i[index create] do
         collection do
           post :validate
           delete :destroy
@@ -46,7 +48,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :permissions, except: [:index, :show]
+    resources :permissions, except: %i[index show]
 
     namespace :utils do
       get :calculator
@@ -63,7 +65,7 @@ Rails.application.routes.draw do
 
     authenticate :user, ->(u) { u.admin? } do
       namespace :admin do
-        resources :backups, only: [:index, :create]
+        resources :backups, only: %i[index create]
         resources :workers, except: [:show]
         resources :users
 

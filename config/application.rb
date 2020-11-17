@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -12,7 +14,7 @@ module NetAM
     require_dependency Rails.root.join('lib/netam/translation')
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
-    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.autoload_paths += Dir[Rails.root.join('app/api/*')]
 
     # Load custom configuration file
     config.netam = config_for(:netam)
@@ -21,8 +23,8 @@ module NetAM
     config.active_job.queue_adapter = :sidekiq
 
     config.assets.enabled = true
-    config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.paths << "#{Rails.root}/app/assets/stylesheets"
+    config.assets.paths << Rails.root.join('app/assets/fonts')
+    config.assets.paths << Rails.root.join('app/assets/stylesheets')
 
     # Autoload lib/ folder including all subdirectories
     config.eager_load_paths << Rails.root.join('lib')
@@ -30,8 +32,8 @@ module NetAM
     config.i18n.enforce_available_locales = false
     config.i18n.fallbacks = FastGettext.default_locale
 
-    config.action_view.field_error_proc = Proc.new do |html_tag, _|
-      html_tag.html_safe
+    config.action_view.field_error_proc = proc do |html_tag, _|
+      html_tag.html_safe # rubocop:disable Rails/OutputSafety
     end
   end
 end

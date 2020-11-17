@@ -1,6 +1,12 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
+  def fa_icon(icon_class)
+    tag(:i, class: icon_class)
+  end
+
   def fa_icon_with_text(icon_class, text)
-    "<i class=\"#{icon_class}\"></i> #{text}".html_safe
+    sanitize "#{fa_icon(icon_class)} #{text}"
   end
 
   def page_title(*titles)
@@ -18,12 +24,12 @@ module ApplicationHelper
     if actions.any?
       actions.each do |action|
         @page_action.push(
-          link_to(action[:icon].to_s.html_safe, action[:path], class: 'btn btn-secondary btn-flat', method: action[:method] || 'get')
+          link_to(sanitize(action[:icon]), action[:path], class: 'btn btn-secondary btn-flat', method: action[:method] || 'get')
         )
       end
     end
 
-    @page_action.join(' ').html_safe
+    @page_action.join(' ')
   end
 
   def dark_mode?

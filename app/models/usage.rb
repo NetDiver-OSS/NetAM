@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 class Usage < ApplicationRecord
   after_initialize :init
 
-  enum state: %i[locked actived down dhcp]
+  enum state: { locked: 0, actived: 1, down: 2, dhcp: 3 }
 
   belongs_to :section
 
   validates :section, presence: true
   validates :state, :ip_used, :identifier, presence: true
-  validates :ip_used, uniqueness: { scope: :section, message: "should happen once per section" }
+  validates :ip_used, uniqueness: { scope: :section, message: 'should happen once per section' }
 
   def init
     self.identifier = "#{id}_#{ip_used}"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SetupController < ApplicationController
   before_action :setup_finished
 

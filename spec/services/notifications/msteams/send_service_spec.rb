@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Notifications::Msteams::SendService do
@@ -12,7 +14,7 @@ describe Notifications::Msteams::SendService do
   end
 
   it 'should send notification when MSTeams is enabled' do
-    Rails.configuration.netam[:notification][:msteams_webhook] = "https://outlook.office.com/webhook/XXXX/XXXX/XXXX/XXXX"
+    Rails.configuration.netam[:notification][:msteams_webhook] = 'https://outlook.office.com/webhook/XXXX/XXXX/XXXX/XXXX'
     expect { Notifications::Msteams::SendService.call(notification_object) }.not_to raise_error
     expect { Notifications::SendService.call(notification_object) }.not_to raise_error
   end
