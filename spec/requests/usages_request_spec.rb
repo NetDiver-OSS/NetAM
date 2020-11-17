@@ -6,10 +6,6 @@ RSpec.describe 'Usage', type: :request do
   let(:admin) { create :user, :admin }
   let(:section) { create :section }
 
-  before(:each) do
-    sign_in admin
-  end
-
   let(:valid_attributes) do
     {
       section_id: section.id,
@@ -26,6 +22,10 @@ RSpec.describe 'Usage', type: :request do
       fqdn: 'domain.com',
       state: 'locked'
     }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /new' do

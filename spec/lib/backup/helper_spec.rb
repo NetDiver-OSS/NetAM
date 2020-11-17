@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Backup::Helper do
-  include Backup::Helper
+  include described_class
 
   it 'should return default value if env is null' do
     ENV.delete('BACKUP_PATH')

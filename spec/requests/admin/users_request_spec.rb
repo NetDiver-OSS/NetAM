@@ -5,10 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   let(:admin) { create :user, :admin }
 
-  before(:each) do
-    sign_in admin
-  end
-
   let(:valid_attributes) do
     {
       email: 'mymail@me.com',
@@ -23,6 +19,10 @@ RSpec.describe 'Users', type: :request do
       password: '123456789012',
       password_confirmation: '567890123456'
     }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /index' do

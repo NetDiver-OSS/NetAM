@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Backups', type: :request do
   let(:admin) { create :user, :admin }
 
-  before(:each) do
+  before do
     sign_in admin
   end
 

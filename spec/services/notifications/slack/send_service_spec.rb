@@ -15,13 +15,13 @@ describe Notifications::Slack::SendService do
 
   it 'should send notification when Slack is enabled' do
     Rails.configuration.netam[:notification][:slack_webhook] = 'https://hooks.slack.com/services/XXXX/XXXX/XXXX'
-    expect { Notifications::Slack::SendService.call(notification_object) }.not_to raise_error
+    expect { described_class.call(notification_object) }.not_to raise_error
     expect { Notifications::SendService.call(notification_object) }.not_to raise_error
   end
 
   it 'should failed when Slack is disabled' do
     Rails.configuration.netam[:notification][:slack_webhook] = nil
-    expect { Notifications::Slack::SendService.call(notification_object) }.to raise_error
+    expect { described_class.call(notification_object) }.to raise_error(StandardError)
     expect(Notifications::SendService.call(notification_object)).to be_nil
   end
 end

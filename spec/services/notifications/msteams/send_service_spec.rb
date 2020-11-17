@@ -15,13 +15,13 @@ describe Notifications::Msteams::SendService do
 
   it 'should send notification when MSTeams is enabled' do
     Rails.configuration.netam[:notification][:msteams_webhook] = 'https://outlook.office.com/webhook/XXXX/XXXX/XXXX/XXXX'
-    expect { Notifications::Msteams::SendService.call(notification_object) }.not_to raise_error
+    expect { described_class.call(notification_object) }.not_to raise_error
     expect { Notifications::SendService.call(notification_object) }.not_to raise_error
   end
 
   it 'should failed when MSTeams is disabled' do
     Rails.configuration.netam[:notification][:msteams_webhook] = nil
-    expect { Notifications::Msteams::SendService.call(notification_object) }.to raise_error
+    expect { described_class.call(notification_object) }.to raise_error(StandardError)
     expect(Notifications::SendService.call(notification_object)).to be_nil
   end
 end

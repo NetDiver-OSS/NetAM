@@ -5,16 +5,16 @@ require 'rails_helper'
 RSpec.describe '/workers', type: :request do
   let(:admin) { create :user, :admin }
 
-  before(:each) do
-    sign_in admin
-  end
-
   let(:valid_attributes) do
     { name: 'worker1' }
   end
 
   let(:new_attributes) do
     { name: 'worker42' }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /index' do

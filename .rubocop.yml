@@ -18,3 +18,9 @@ Style/FrozenStringLiteralComment:
 
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
+
+# rubocop-rspec
+RSpec/FilePath:
+  CustomTransform:
+    NetAM: netam
+

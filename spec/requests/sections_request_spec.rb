@@ -6,10 +6,6 @@ RSpec.describe 'Section', type: :request do
   let(:admin) { create :user, :admin }
   let(:vlan) { create :vlan }
 
-  before(:each) do
-    sign_in admin
-  end
-
   let(:valid_attributes) do
     {
       name: 'section 1',
@@ -26,6 +22,10 @@ RSpec.describe 'Section', type: :request do
       schedule: 'every 24 hours',
       vlan_id: 54_643_521
     }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /index' do

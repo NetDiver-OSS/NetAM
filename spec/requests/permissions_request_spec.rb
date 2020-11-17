@@ -5,10 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Permissions', type: :request do
   let(:admin) { create :user, :admin }
 
-  before(:each) do
-    sign_in admin
-  end
-
   let(:valid_attributes) do
     {
       name: 'permission 1',
@@ -27,6 +23,10 @@ RSpec.describe 'Permissions', type: :request do
       subject_id: 1,
       action: 'manage'
     }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /new' do
