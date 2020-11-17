@@ -19,7 +19,7 @@ class SectionsController < ApplicationController
 
     @ip_free = NetAM::Network::Range.new(@section.network).free_ips - @section.usages.where(state: 0..3).count
 
-    @chart_label = "[\"#{_('Locked')}\", \"#{_('Activated')}\", \"#{_('Down')}\", \"#{_('Free IP')}\", \"#{_('DHCP')}\"]".html_safe
+    @chart_label = "[\"#{_('Locked')}\", \"#{_('Activated')}\", \"#{_('Down')}\", \"#{_('Free IP')}\", \"#{_('DHCP')}\"]".html_safe # rubocop:disable Rails/OutputSafety
     @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
     @chart_color = '["#2185d0", "#16ab39", "#db2828", "#838383", "#9627ba"]'.html_safe
   end
