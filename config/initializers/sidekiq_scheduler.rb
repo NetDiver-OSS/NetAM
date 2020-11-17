@@ -11,7 +11,7 @@ Sidekiq.configure_server do |config|
             args: [{ id: section.id, network: section.network }]
           }
         }
-      ) unless section.schedule.nil? || section.schedule.empty?
+      ) if section.schedule.present?
     end
 
     Sidekiq::Cron::Job.load_from_hash cron_settings
