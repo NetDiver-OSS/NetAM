@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
     @sidekiq_processes = Sidekiq::ProcessSet.new(false).map do |process|
       {
-        worker: Worker.find_by_uuid(process['queues'].first.gsub('node:', ''))&.name,
+        worker: Worker.find_by(uuid: process['queues'].first.gsub('node:', ''))&.name,
         hostname: process['hostname'],
         started_at: Time.at(process['started_at']),
         concurrency: process['concurrency'],

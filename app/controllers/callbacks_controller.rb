@@ -5,7 +5,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
     ldap_return = request.env["omniauth.auth"]["extra"]["raw_info"]
     email = ldap_return.mail.first.to_s
 
-    if (@user = User.find_by_email(email))
+    if (@user = User.find_by(email: email))
       sign_in_and_redirect @user
     else
       @user = User.create(
