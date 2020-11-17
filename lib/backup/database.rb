@@ -17,7 +17,7 @@ module Backup
 
     def dump
       compress_rd, compress_wr = IO.pipe
-      compress_pid = spawn('gzip -c -1', in: compress_rd, out: ["#{backup_path}/#{dump_file}", 'w', 00600])
+      compress_pid = spawn('gzip -c -1', in: compress_rd, out: ["#{backup_path}/#{dump_file}", 'w', 0o0600])
       compress_rd.close
 
       dump_pid = Process.spawn('pg_dump', '--clean', '--if-exists', config['database'], out: compress_wr)
