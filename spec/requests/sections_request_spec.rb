@@ -3,19 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe 'Section', type: :request do
-  before(:each) do
-    Vlan.create!(name: 'tu', vid: Random.rand(500))
-    admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
-
-    sign_in admin
-  end
+  let(:admin) { create :user, :admin }
+  let(:vlan) { create :vlan }
 
   let(:valid_attributes) do
     {
       name: 'section 1',
       network: '10.0.0.0/24',
       schedule: 'every 24 hours',
-      vlan_id: Vlan.first.id
+      vlan_id: vlan.id
     }
   end
 
@@ -26,6 +22,10 @@ RSpec.describe 'Section', type: :request do
       schedule: 'every 24 hours',
       vlan_id: 54_643_521
     }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /index' do
@@ -110,7 +110,7 @@ RSpec.describe 'Section', type: :request do
           name: 'section 42',
           network: '8.8.8.0/24',
           schedule: '',
-          vlan_id: Vlan.first.id
+          vlan_id: vlan.id
         }
       end
 

@@ -1,5 +1,6 @@
 require:
   - rubocop-rails
+  - rubocop-rspec
   - rubocop-performance
 
 inherit_from: .rubocop_todo.yml
@@ -17,3 +18,9 @@ Style/FrozenStringLiteralComment:
 
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
+
+# rubocop-rspec
+RSpec/FilePath:
+  CustomTransform:
+    NetAM: netam
+

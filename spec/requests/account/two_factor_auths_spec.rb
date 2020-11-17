@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'TwoFactorAuth', type: :request do
-  before(:each) do
-    @admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
+  let(:admin) { create :user, :admin }
 
-    sign_in @admin
+  before do
+    sign_in admin
   end
 
   describe 'POST /' do
@@ -19,7 +19,7 @@ RSpec.describe 'TwoFactorAuth', type: :request do
   describe 'POST /validate' do
     it 'enable 2FA' do
       post account_two_factor_auths_url
-      post validate_account_two_factor_auths_url, params: { otp_attempt: @admin.current_otp }
+      post validate_account_two_factor_auths_url, params: { otp_attempt: admin.current_otp }
 
       expect(response).to redirect_to(account_two_factor_auths_url)
     end

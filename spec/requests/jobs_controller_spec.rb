@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe 'Job', type: :request do
-  before(:each) do
-    admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
+  let(:admin) { create :user, :admin }
 
+  before do
     sign_in admin
   end
 

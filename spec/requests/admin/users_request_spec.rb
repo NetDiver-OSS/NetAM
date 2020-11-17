@@ -3,11 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  before(:each) do
-    admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
-
-    sign_in admin
-  end
+  let(:admin) { create :user, :admin }
 
   let(:valid_attributes) do
     {
@@ -23,6 +19,10 @@ RSpec.describe 'Users', type: :request do
       password: '123456789012',
       password_confirmation: '567890123456'
     }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /index' do

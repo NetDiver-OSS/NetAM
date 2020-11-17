@@ -3,11 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe '/workers', type: :request do
-  before(:each) do
-    @admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
-
-    sign_in @admin
-  end
+  let(:admin) { create :user, :admin }
 
   let(:valid_attributes) do
     { name: 'worker1' }
@@ -15,6 +11,10 @@ RSpec.describe '/workers', type: :request do
 
   let(:new_attributes) do
     { name: 'worker42' }
+  end
+
+  before do
+    sign_in admin
   end
 
   describe 'GET /index' do
