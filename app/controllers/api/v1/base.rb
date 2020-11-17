@@ -6,9 +6,9 @@ module API
       mount API::V1::Backups
 
       add_swagger_documentation(
-        api_version: "v1",
+        api_version: 'v1',
         hide_documentation_path: true,
-        mount_path: "/v1/swagger_doc",
+        mount_path: '/v1/swagger_doc',
         hide_format: true
       )
     end

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       unlock: 'unblock',
       registration: 'register',
       sign_up: ''
-    }, controllers: { omniauth_callbacks: "callbacks" }
+    }, controllers: { omniauth_callbacks: 'callbacks' }
 
     use_doorkeeper do
       skip_controllers :applications, :authorized_applications

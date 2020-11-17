@@ -9,7 +9,7 @@ class Usage < ApplicationRecord
 
   validates :section, presence: true
   validates :state, :ip_used, :identifier, presence: true
-  validates :ip_used, uniqueness: { scope: :section, message: "should happen once per section" }
+  validates :ip_used, uniqueness: { scope: :section, message: 'should happen once per section' }
 
   def init
     self.identifier = "#{id}_#{ip_used}"

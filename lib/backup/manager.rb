@@ -5,7 +5,7 @@ module Backup
     include Backup::Helper
 
     def list_backups
-      Dir.glob("#{backup_path}/*").map { |backup| backup.gsub("#{backup_path}/", "") }
+      Dir.glob("#{backup_path}/*").map { |backup| backup.gsub("#{backup_path}/", '') }
     end
   end
 end

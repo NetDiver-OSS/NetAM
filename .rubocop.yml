@@ -6,3 +6,7 @@ inherit_from: .rubocop_todo.yml
 
 Style/SymbolArray:
   Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe 'Users', type: :request do
   before(:each) do
-    admin = User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
+    admin = User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
 
     sign_in admin
   end
@@ -23,45 +23,45 @@ RSpec.describe "Users", type: :request do
     }
   end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       User.create! valid_attributes
       get admin_users_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_admin_user_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "render a successful response" do
+  describe 'GET /edit' do
+    it 'render a successful response' do
       user = User.create! valid_attributes
       get edit_admin_user_url(user)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new User" do
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new User' do
         expect do
           post admin_users_url, params: { user: valid_attributes }
         end.to change(User, :count).by(1)
       end
 
-      it "redirects to the created user" do
+      it 'redirects to the created user' do
         post admin_users_url, params: { user: valid_attributes }
         expect(response).to redirect_to(admin_users_url)
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new User" do
+    context 'with invalid parameters' do
+      it 'does not create a new User' do
         expect do
           post admin_users_url, params: { user: invalid_attributes }
         end.to change(User, :count).by(0)
@@ -74,8 +74,8 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
       let(:new_attributes) do
         {
           email: 'mymail@me.com',
@@ -84,13 +84,13 @@ RSpec.describe "Users", type: :request do
         }
       end
 
-      it "updates the requested user" do
+      it 'updates the requested user' do
         user = User.create! valid_attributes
         patch admin_user_url(user), params: { user: new_attributes }
         user.reload
       end
 
-      it "redirects to the user" do
+      it 'redirects to the user' do
         user = User.create! valid_attributes
         patch admin_user_url(user), params: { user: new_attributes }
         user.reload
@@ -99,15 +99,15 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested user" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested user' do
       user = User.create! valid_attributes
       expect do
         delete admin_user_url(user)
       end.to change(User, :count).by(-1)
     end
 
-    it "redirects to the users list" do
+    it 'redirects to the users list' do
       user = User.create! valid_attributes
       delete admin_user_url(user)
       expect(response).to redirect_to(admin_users_url)

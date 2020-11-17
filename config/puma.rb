@@ -14,10 +14,10 @@ port        Rails.configuration.netam[:puma][:port]
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+environment ENV.fetch('RAILS_ENV') { 'development' }
 
 # Specifies the `pidfile` that Puma will use.
-pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
+pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
@@ -39,7 +39,7 @@ lowlevel_error_handler do |ex, env|
     ex,
     message: ex.message,
     extra: { puma: env },
-    transaction: "Puma"
+    transaction: 'Puma'
   )
 
   [500, {}, ["An error has occurred, and engineers have been informed. Please reload the page. If you continue to have problems, contact support@example.com\n"]]

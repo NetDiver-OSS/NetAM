@@ -35,7 +35,7 @@ RSpec.describe NetAM::Scanner do
   end
 
   describe 'status' do
-    it "should return nil if job_id not exist" do
+    it 'should return nil if job_id not exist' do
       expect(NetAM::Scanner.status('')).to be_nil
       expect(NetAM::Scanner.status(42)).to be_nil
       expect(NetAM::Scanner.status('42')).to be_nil

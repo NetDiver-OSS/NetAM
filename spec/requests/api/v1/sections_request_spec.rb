@@ -6,11 +6,11 @@ RSpec.describe API::V1::Sections, type: :request do
   content_type_json = { 'CONTENT_TYPE' => 'application/json' }
 
   before(:each) do
-    User.create!(email: "admin@netam.local", password: "azertyuiop123", admin: true)
+    User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
 
     post oauth_token_path, { 'grant_type' => 'password',
-                             'username' => "admin@netam.local",
-                             'password' => "azertyuiop123" }, headers: content_type_json
+                             'username' => 'admin@netam.local',
+                             'password' => 'azertyuiop123' }, headers: content_type_json
 
     oauth_response = JSON.parse(last_response.body)
 
@@ -21,7 +21,7 @@ RSpec.describe API::V1::Sections, type: :request do
   context 'GET /api/v1/sections' do
     it 'returns an empty array' do
       header 'Authorization', @api_token
-      get "/api/v1/sections"
+      get '/api/v1/sections'
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
@@ -32,7 +32,7 @@ RSpec.describe API::V1::Sections, type: :request do
   context 'POST /api/v1/sections' do
     it 'create and returns section' do
       header 'Authorization', @api_token
-      post("/api/v1/sections", { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id }.to_json, content_type_json)
+      post('/api/v1/sections', { name: 'section1', network: '10.0.0.0/24', schedule: 'every 24h', vlan_id: Vlan.first.id }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)

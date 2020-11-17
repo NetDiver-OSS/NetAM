@@ -27,8 +27,8 @@ gem 'ruby_parser', '~> 3.15', require: false
 
 # Rails Delayed Jobs
 gem 'sidekiq', '= 6.1.2'
-gem "sidekiq-cron", "= 1.2"
-gem "sidekiq-status", "= 1.1.4"
+gem 'sidekiq-cron', '= 1.2'
+gem 'sidekiq-status', '= 1.1.4'
 
 gem 'redis', '~> 4.0'
 gem 'redis-rack-cache'
@@ -38,7 +38,7 @@ gem 'cancancan', '~> 3.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 gem 'devise-two-factor', '~> 3.1'
-gem "doorkeeper", "~> 5.4"
+gem 'doorkeeper', '~> 5.4'
 gem 'omniauth-ldap', '~> 2.0'
 
 # Jobs dependencies
@@ -49,7 +49,7 @@ gem 'parallel', '~> 1.20'
 # API
 gem 'grape', '~> 1.4'
 gem 'grape-active_model_serializers', '~> 1.5', '>= 1.5.2'
-gem "grape-cancan", "~> 0.0.3"
+gem 'grape-cancan', '~> 0.0.3'
 gem 'grape_on_rails_routes', '~> 0.3.2'
 gem 'grape-swagger', '~> 1.3'
 gem 'grape-swagger-rails', '~> 0.3.1'
@@ -72,7 +72,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   gem 'rspec_junit_formatter', '~> 0.4.1'
-  gem "rspec-rails", "~> 4.0"
+  gem 'rspec-rails', '~> 4.0'
   # Don't upgrade simplecov due to bug in sonarcloud !
   gem 'simplecov', '= 0.17.0'
   gem 'simplecov-cobertura', '~> 1.3', '>= 1.3.1'

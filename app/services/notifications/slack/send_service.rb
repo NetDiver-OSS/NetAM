@@ -15,16 +15,16 @@ module Notifications
         {
           blocks: [
             {
-              type: "section",
+              type: 'section',
               text: {
-                type: "mrkdwn",
+                type: 'mrkdwn',
                 text: @notification[:message]
               }
             },
             {
-              type: "section",
+              type: 'section',
               text: {
-                type: "mrkdwn",
+                type: 'mrkdwn',
                 text: "*Section ID:* #{@notification[:section][:id]}\n*Section Network:* #{@notification[:section][:network]}"
               }
             }

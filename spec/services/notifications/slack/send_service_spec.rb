@@ -12,7 +12,7 @@ describe Notifications::Slack::SendService do
   end
 
   it 'should send notification when Slack is enabled' do
-    Rails.configuration.netam[:notification][:slack_webhook] = "https://hooks.slack.com/services/XXXX/XXXX/XXXX"
+    Rails.configuration.netam[:notification][:slack_webhook] = 'https://hooks.slack.com/services/XXXX/XXXX/XXXX'
     expect { Notifications::Slack::SendService.call(notification_object) }.not_to raise_error
     expect { Notifications::SendService.call(notification_object) }.not_to raise_error
   end

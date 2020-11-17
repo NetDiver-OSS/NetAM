@@ -2,7 +2,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
   skip_before_action :verify_authenticity_token
 
   def ldap
-    ldap_return = request.env["omniauth.auth"]["extra"]["raw_info"]
+    ldap_return = request.env['omniauth.auth']['extra']['raw_info']
     email = ldap_return.mail.first.to_s
 
     if (@user = User.find_by(email: email))
