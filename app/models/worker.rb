@@ -3,5 +3,8 @@
 class Worker < ApplicationRecord
   has_many :sections, dependent: :nullify
 
-  validates :name, presence: true
+  validates_associated :sections
+  validates :id, :name, presence: true
+  validates :id, numericality: true
+  validates :vid, uniqueness: true
 end
