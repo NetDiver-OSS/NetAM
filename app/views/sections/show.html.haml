@@ -36,7 +36,7 @@
           = _('Affected worker')
         %span.info-box-number
           - unless @section.worker.nil?
-            = '%{name}' % { name: @section.worker_name }
+            = @section.worker_name
           - else
             = _('No worker assigned')
 
@@ -47,7 +47,7 @@
           %span.info-box-text
             = _('Last scan time :')
           %span.info-box-number
-            = '%{timestamp}' % { timestamp: Time.at(last_scan) }
+            = Time.at(last_scan)
 
   %div.col-6
     %div.row
