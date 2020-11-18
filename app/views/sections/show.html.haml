@@ -26,14 +26,14 @@
     %div.info-box.mt-4{class: dark_mode_class}
       %div.info-box-content
         %span.info-box-text
-          = _('Section VLAN :')
+          = _('Section VLAN')
         %span.info-box-number
-          = '%{name} (VID : %{vid})' % { name: @section.vlan_name, vid: @section.vlan_vid }
+          = '%{name} (VID %{vid})' % { name: @section.vlan_name, vid: @section.vlan_vid }
   %div{class: last_scan == 0 ? 'col-6' : 'col-4' }
     %div.info-box.mt-4{class: dark_mode_class}
       %div.info-box-content
         %spam.info-box-text
-          = _('Affected worker :')
+          = _('Affected worker')
         %span.info-box-number
           - unless @section.worker.nil?
             = '%{name}' % { name: @section.worker_name }
