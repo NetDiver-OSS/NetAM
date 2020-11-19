@@ -14,13 +14,13 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-19 21:06\n"
+"PO-Revision-Date: 2020-11-19 21:10\n"
 
 msgid "Action"
 msgstr "Action"
 
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "Activated"
 msgstr "Activé"
@@ -47,10 +47,10 @@ msgid "Admin Jobs"
 msgstr "Administration des tâches"
 
 msgid "Affected sections"
-msgstr ""
+msgstr "Sections affectées"
 
 msgid "Affected worker"
-msgstr ""
+msgstr "Agent affecté"
 
 msgid "All Permissions"
 msgstr "Toutes les permissions"
@@ -80,7 +80,7 @@ msgid "Broadcast"
 msgstr "Diffusion"
 
 msgid "Busy jobs"
-msgstr ""
+msgstr "Tâches en cours"
 
 msgid "CPU"
 msgstr "CPU"
@@ -98,7 +98,7 @@ msgid "Concurrency jobs"
 msgstr ""
 
 msgid "Connected"
-msgstr ""
+msgstr "Connecté"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -179,13 +179,13 @@ msgid "Get unused IP"
 msgstr "Obtenir une IP"
 
 msgid "Heartbeat"
-msgstr ""
+msgstr "Dernier contact"
 
 msgid "Homepage"
 msgstr "Page d'accueil"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Hôte"
 
 msgid "Hosts per Subnet"
 msgstr "Hôtes par sous-réseau"
@@ -221,7 +221,7 @@ msgid "Last IP"
 msgstr "Dernière IP"
 
 msgid "Last scan time :"
-msgstr ""
+msgstr "Date de dernière analyse :"
 
 msgid "Load Average"
 msgstr "Charge moyenne"
@@ -281,7 +281,7 @@ msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
 
 msgid "No worker assigned"
-msgstr ""
+msgstr "Aucun agent assigné"
 
 msgid "Notice"
 msgstr "Remarque"
@@ -356,7 +356,7 @@ msgid "Section"
 msgstr "Section"
 
 msgid "Section VLAN"
-msgstr ""
+msgstr "Section VLAN"
 
 msgid "Sections"
 msgstr "Sections"
@@ -371,7 +371,7 @@ msgid "Sidekiq"
 msgstr "Sidekiq"
 
 msgid "Started from"
-msgstr ""
+msgstr "Démarré depuis"
 
 msgid "State"
 msgstr "État"
@@ -443,7 +443,7 @@ msgid "Vlans"
 msgstr "Vlans"
 
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
-msgstr ""
+msgstr "L'Agent \"default\" n'est pas listé ici. Cet Agent gère toutes les tâches internes de NetAM comme sauvegarde."
 
 msgid "Worker name"
 msgstr "Nom Agent"
