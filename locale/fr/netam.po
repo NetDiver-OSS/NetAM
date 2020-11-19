@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-19 21:10\n"
+"PO-Revision-Date: 2020-11-19 22:07\n"
 
 msgid "Action"
 msgstr "Action"
@@ -95,7 +95,7 @@ msgid "Close"
 msgstr "Fermer"
 
 msgid "Concurrency jobs"
-msgstr ""
+msgstr "Tâches Concurrentes"
 
 msgid "Connected"
 msgstr "Connecté"
