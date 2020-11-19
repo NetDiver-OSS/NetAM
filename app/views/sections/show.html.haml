@@ -21,6 +21,34 @@
         = render partial: 'sections/status/notification', locals: { type: 'warning', title: _('Unknown state'), message: '' }
 
 %div.row
+  - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
+  %div{class: last_scan == 0 ? 'col-6' : 'col-4' }
+    %div.info-box.mt-4{class: dark_mode_class}
+      %div.info-box-content
+        %span.info-box-text
+          = _('Section VLAN')
+        %span.info-box-number
+          = '%{name} (VID %{vid})' % { name: @section.vlan_name, vid: @section.vlan_vid }
+  %div{class: last_scan == 0 ? 'col-6' : 'col-4' }
+    %div.info-box.mt-4{class: dark_mode_class}
+      %div.info-box-content
+        %spam.info-box-text
+          = _('Affected worker')
+        %span.info-box-number
+          - unless @section.worker.nil?
+            = @section.worker_name
+          - else
+            = _('No worker assigned')
+
+  - unless last_scan == 0
+    %div.col-4
+      %div.info-box.mt-4{class: dark_mode_class}
+        %div.info-box-content
+          %span.info-box-text
+            = _('Last scan time :')
+          %span.info-box-number
+            = Time.at(last_scan)
+
   %div.col-6
     %div.row
       %div.col-6
@@ -71,20 +99,6 @@
 
   %div.col-6
     %canvas#donutChart{style: "height:230px; min-height:230px"}
-
-  - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
-  %div{class: last_scan == 0 ? 'col-12' : 'col-6' }
-    %div.info-box.mt-4{class: dark_mode_class}
-      %div.info-box-content
-        %span.info-box-text
-          = _('This section is linked to Vlan %{name} with Vlan ID: %{vid}') % { name: @section.vlan_name, vid: @section.vlan_vid }
-
-  - unless last_scan == 0
-    %div.col-6
-      %div.info-box.mt-4{class: dark_mode_class}
-        %div.info-box-content
-          %span.info-box-text
-            = _('Last scan time: %{timestamp}') % { timestamp: Time.at(last_scan) }
 
 %div.row.mt-4
   %div.card.card-info.card-outline.card-outline-tabs.w-100

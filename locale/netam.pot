@@ -19,6 +19,9 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
+msgid "Actions"
+msgstr ""
+
 msgid "Activated"
 msgstr ""
 
@@ -41,6 +44,12 @@ msgid "Admin Center"
 msgstr ""
 
 msgid "Admin Jobs"
+msgstr ""
+
+msgid "Affected sections"
+msgstr ""
+
+msgid "Affected worker"
 msgstr ""
 
 msgid "All Permissions"
@@ -86,6 +95,9 @@ msgid "Close"
 msgstr ""
 
 msgid "Concurrency jobs"
+msgstr ""
+
+msgid "Connected"
 msgstr ""
 
 msgid "DHCP"
@@ -208,7 +220,7 @@ msgstr ""
 msgid "Last IP"
 msgstr ""
 
-msgid "Last scan time: %{timestamp}"
+msgid "Last scan time :"
 msgstr ""
 
 msgid "Load Average"
@@ -266,6 +278,9 @@ msgid "New Worker"
 msgstr ""
 
 msgid "No free address IP available !"
+msgstr ""
+
+msgid "No worker assigned"
 msgstr ""
 
 msgid "Notice"
@@ -340,6 +355,9 @@ msgstr ""
 msgid "Section"
 msgstr ""
 
+msgid "Section VLAN"
+msgstr ""
+
 msgid "Sections"
 msgstr ""
 
@@ -365,12 +383,6 @@ msgid "Subject"
 msgstr ""
 
 msgid "Subject ID"
-msgstr ""
-
-msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr ""
-
-msgid "To launch worker"
 msgstr ""
 
 msgid "Two Factor Auth"

@@ -10,6 +10,7 @@ class Section < ApplicationRecord
   validate :network_must_be_valid, :schedule_must_be_cron
 
   delegate :vid, :name, to: :vlan, prefix: true
+  delegate :name, to: :worker, prefix: true, allow_nil: true
 
   attr_accessor :run_scan, :notification_run_scan
 
