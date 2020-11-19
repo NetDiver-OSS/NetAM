@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-19 21:06\n"
+"PO-Revision-Date: 2020-11-19 22:07\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -47,10 +47,10 @@ msgid "Admin Jobs"
 msgstr "Verwaltungsaufgaben"
 
 msgid "Affected sections"
-msgstr ""
+msgstr "Betroffene Abschnitte"
 
 msgid "Affected worker"
-msgstr ""
+msgstr "Betroffener Agent"
 
 msgid "All Permissions"
 msgstr "Alle Berechtigungen"
@@ -65,7 +65,7 @@ msgid "Available IP"
 msgstr "Verfügbare IP"
 
 msgid "Background jobs"
-msgstr ""
+msgstr "Wesentliche Aufgaben"
 
 msgid "Backup list"
 msgstr "Liste der Backups"
@@ -80,7 +80,7 @@ msgid "Broadcast"
 msgstr "Diffusion"
 
 msgid "Busy jobs"
-msgstr ""
+msgstr "Beschäftigte Jobs"
 
 msgid "CPU"
 msgstr "CPU"
@@ -95,7 +95,7 @@ msgid "Close"
 msgstr "Schließen"
 
 msgid "Concurrency jobs"
-msgstr ""
+msgstr "Parallelitätsjobs"
 
 msgid "Connected"
 msgstr "In Verbindung gebracht"
@@ -125,7 +125,7 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 msgid "Edit Address details"
-msgstr ""
+msgstr "Adressdetails bearbeiten"
 
 msgid "Editing Permission"
 msgstr "Berechtigung bearbeiten"
@@ -176,16 +176,16 @@ msgid "Free IP"
 msgstr "Freie IP"
 
 msgid "Get unused IP"
-msgstr ""
+msgstr "Erhalten Sie eine IP"
 
 msgid "Heartbeat"
-msgstr ""
+msgstr "Dernier Kontakt"
 
 msgid "Homepage"
 msgstr "Homepage"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Gastgeber"
 
 msgid "Hosts per Subnet"
 msgstr "Hosts pro Subnetz"
@@ -197,13 +197,13 @@ msgid "IP Calculator"
 msgstr "IP-Rechner"
 
 msgid "IP address Request"
-msgstr ""
+msgstr "IP-Adressanfrage"
 
 msgid "IP calculator"
 msgstr "IP-rechner"
 
 msgid "IP used"
-msgstr ""
+msgstr "IP verwendet"
 
 msgid "Import"
 msgstr "Importieren"
@@ -221,13 +221,13 @@ msgid "Last IP"
 msgstr "Letzte IP"
 
 msgid "Last scan time :"
-msgstr ""
+msgstr "Datum der letzten Analyse :"
 
 msgid "Load Average"
 msgstr "Durchschnittslast"
 
 msgid "Loading"
-msgstr ""
+msgstr "Wird geladen"
 
 msgid "Locked"
 msgstr "Gesperrt"
@@ -299,13 +299,13 @@ msgid "Permission for %{name}"
 msgstr "Berechtigung für %{name}"
 
 msgid "Permission was successfully created."
-msgstr ""
+msgstr "Autorisierung erfolgreich erstellt."
 
 msgid "Permission was successfully destroyed."
-msgstr ""
+msgstr "Anwendung wurde erfolgreich gelöscht."
 
 msgid "Permission was successfully updated."
-msgstr ""
+msgstr "Autorisierung erfolgreich erstellt."
 
 msgid "Please validate TOTP code !"
 msgstr "Bitte validieren Sie den TOTP-Code!"
@@ -326,10 +326,10 @@ msgid "Reserved"
 msgstr "Reserviert"
 
 msgid "Run notification on run_scan"
-msgstr ""
+msgstr "Während eines Scans benachrichtigen"
 
 msgid "Run scan after creation"
-msgstr ""
+msgstr "Führen Sie den Scan nach der Erstellung aus"
 
 msgid "Scan"
 msgstr "Scannen"
@@ -344,10 +344,10 @@ msgid "Scan in progress"
 msgstr "Scan läuft"
 
 msgid "Scan was successfully scheduled."
-msgstr ""
+msgstr "Der Scan wurde erfolgreich geplant."
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planen"
 
 msgid "Secret: %{otp_secret}"
 msgstr "Geheim: %{otp_secret}"
