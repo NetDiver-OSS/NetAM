@@ -5,11 +5,10 @@ class LoadMacAddressTableWorker
 
   def perform(file_name = 'oui.txt')
     response = Faraday.get "http://standards-oui.ieee.org/oui/#{file_name}"
-    if response.status == 200
-      Sidekiq.logger.debug("Writing downloaded content to file as temporary file #{file_name}")
-      output_file = File.new(Rails.root.join("tmp/#{file_name}"), 'w')
-      output_file.syswrite(response.body)
-    end
     raise StandardError, 'Unable to download MAC Address database file' unless response.status == 200
+
+    Sidekiq.logger.debug("Writing downloaded content to file as temporary file #{file_name}")
+    output_file = File.new(Rails.root.join("tmp/#{file_name}"), 'w')
+    output_file.syswrite(response.body)
   end
 end
