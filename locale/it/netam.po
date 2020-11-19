@@ -14,13 +14,13 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-19 21:06\n"
+"PO-Revision-Date: 2020-11-19 22:07\n"
 
 msgid "Action"
 msgstr "Azione"
 
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 msgid "Activated"
 msgstr "Attivato"
@@ -47,16 +47,16 @@ msgid "Admin Jobs"
 msgstr "Processi Amministratori"
 
 msgid "Affected sections"
-msgstr ""
+msgstr "Sezioni interessate"
 
 msgid "Affected worker"
-msgstr ""
+msgstr "Agente interessato"
 
 msgid "All Permissions"
 msgstr "Tutti I Permessi"
 
 msgid "Apply"
-msgstr ""
+msgstr "Applicare"
 
 msgid "Are you sure?"
 msgstr "Sei sicuro?"
@@ -65,7 +65,7 @@ msgid "Available IP"
 msgstr "IP Disponibile"
 
 msgid "Background jobs"
-msgstr ""
+msgstr "Compiti sostanziali"
 
 msgid "Backup list"
 msgstr "Lista backup"
@@ -80,7 +80,7 @@ msgid "Broadcast"
 msgstr "Diffusione"
 
 msgid "Busy jobs"
-msgstr ""
+msgstr "Lavori impegnativi"
 
 msgid "CPU"
 msgstr "CPU"
@@ -92,13 +92,13 @@ msgid "Choose file"
 msgstr "Scegli file"
 
 msgid "Close"
-msgstr ""
+msgstr "Chiudere"
 
 msgid "Concurrency jobs"
-msgstr ""
+msgstr "Processi di concorrenza"
 
 msgid "Connected"
-msgstr ""
+msgstr "Collegato"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -113,7 +113,7 @@ msgid "Disable"
 msgstr "Disabilita"
 
 msgid "Disable TOTP"
-msgstr ""
+msgstr "Disabilita TOTP"
 
 msgid "Disabled"
 msgstr "Disabilitato"
@@ -125,7 +125,7 @@ msgid "Edit"
 msgstr "Modifica"
 
 msgid "Edit Address details"
-msgstr ""
+msgstr "Modifica i dettagli dell'indirizzo"
 
 msgid "Editing Permission"
 msgstr "Modifica Del Permesso"
@@ -143,7 +143,7 @@ msgid "Editing Vlan"
 msgstr "Modificare Vlan"
 
 msgid "Editing Worker"
-msgstr ""
+msgstr "Modifica agente"
 
 msgid "Email"
 msgstr "Email"
@@ -152,7 +152,7 @@ msgid "Enable"
 msgstr "Abilita"
 
 msgid "Enable TOTP"
-msgstr ""
+msgstr "Disabilita TOTP"
 
 msgid "Enabled"
 msgstr "Abilitato"
@@ -161,13 +161,13 @@ msgid "Error"
 msgstr "Errore"
 
 msgid "Export"
-msgstr ""
+msgstr "Esportare"
 
 msgid "FQDN"
 msgstr "FQDN"
 
 msgid "File"
-msgstr ""
+msgstr "File"
 
 msgid "First IP"
 msgstr "Primo IP"
@@ -176,16 +176,16 @@ msgid "Free IP"
 msgstr "IP Libero"
 
 msgid "Get unused IP"
-msgstr ""
+msgstr "Ottieni un IP"
 
 msgid "Heartbeat"
-msgstr ""
+msgstr "Ultimo contatto"
 
 msgid "Homepage"
 msgstr "Pagina iniziale"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Nome host"
 
 msgid "Hosts per Subnet"
 msgstr "Host per sottorete"
@@ -197,13 +197,13 @@ msgid "IP Calculator"
 msgstr "Calcolatrice IP"
 
 msgid "IP address Request"
-msgstr ""
+msgstr "Richiesta indirizzo IP"
 
 msgid "IP calculator"
 msgstr "calcolatrice IP"
 
 msgid "IP used"
-msgstr ""
+msgstr "IP utilizzato"
 
 msgid "Import"
 msgstr "Importa"
@@ -221,13 +221,13 @@ msgid "Last IP"
 msgstr "Ultimo IP"
 
 msgid "Last scan time :"
-msgstr ""
+msgstr "Data dell'ultima analisi :"
 
 msgid "Load Average"
 msgstr "Media Carico"
 
 msgid "Loading"
-msgstr ""
+msgstr "Caricamento"
 
 msgid "Locked"
 msgstr "Bloccato"
@@ -275,13 +275,13 @@ msgid "New Vlan"
 msgstr "Nuovo Vlan"
 
 msgid "New Worker"
-msgstr ""
+msgstr "Nuovo agente"
 
 msgid "No free address IP available !"
-msgstr ""
+msgstr "Nessun indirizzo IP disponibile!"
 
 msgid "No worker assigned"
-msgstr ""
+msgstr "Nessun agente assegnato"
 
 msgid "Notice"
 msgstr "Nota"
@@ -299,13 +299,13 @@ msgid "Permission for %{name}"
 msgstr "Permesso per %{name}"
 
 msgid "Permission was successfully created."
-msgstr ""
+msgstr "Autorizzazione creata con successo."
 
 msgid "Permission was successfully destroyed."
-msgstr ""
+msgstr "Il permesso è stato rimosso con successo."
 
 msgid "Permission was successfully updated."
-msgstr ""
+msgstr "L'autorizzazione è stata aggiornata."
 
 msgid "Please validate TOTP code !"
 msgstr "Si prega di convalidare il codice TOTP !"
@@ -326,10 +326,10 @@ msgid "Reserved"
 msgstr "Riservato"
 
 msgid "Run notification on run_scan"
-msgstr ""
+msgstr "Notifica durante una scansione"
 
 msgid "Run scan after creation"
-msgstr ""
+msgstr "Esegui la scansione dopo la creazione"
 
 msgid "Scan"
 msgstr "Scansione"
@@ -344,10 +344,10 @@ msgid "Scan in progress"
 msgstr "Scansione in corso"
 
 msgid "Scan was successfully scheduled."
-msgstr ""
+msgstr "La scansione è stata pianificata con successo."
 
 msgid "Schedule"
-msgstr ""
+msgstr "Piano"
 
 msgid "Secret: %{otp_secret}"
 msgstr "Segreto: %{otp_secret}"
@@ -356,7 +356,7 @@ msgid "Section"
 msgstr "Sezione"
 
 msgid "Section VLAN"
-msgstr ""
+msgstr "Sezione VLAN"
 
 msgid "Sections"
 msgstr "Sezioni"
@@ -368,10 +368,10 @@ msgid "Setup"
 msgstr "Configurazione"
 
 msgid "Sidekiq"
-msgstr ""
+msgstr "Sidekiq"
 
 msgid "Started from"
-msgstr ""
+msgstr "Iniziato da allora"
 
 msgid "State"
 msgstr "Stato"
@@ -401,13 +401,13 @@ msgid "Usage"
 msgstr "Utilizzo"
 
 msgid "Usage was successfully created."
-msgstr ""
+msgstr "L'Utilizzo è stato creato con successo."
 
 msgid "Usage was successfully destroyed."
-msgstr ""
+msgstr "L'Uso è stato rimosso con successo."
 
 msgid "Usage was successfully updated."
-msgstr ""
+msgstr "L'utilizzo è stato aggiornato con successo."
 
 msgid "Used"
 msgstr "Usato"
@@ -431,34 +431,34 @@ msgid "Vlan ID"
 msgstr "ID Vlan"
 
 msgid "Vlan was successfully created."
-msgstr ""
+msgstr "Il Vlan è stato creato."
 
 msgid "Vlan was successfully destroyed."
-msgstr ""
+msgstr "Vlan è stato eliminato con successo."
 
 msgid "Vlan was successfully updated."
-msgstr ""
+msgstr "Vlan è stato aggiornato con successo."
 
 msgid "Vlans"
 msgstr "Vlans"
 
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
-msgstr ""
+msgstr "L'agente \"default\" non è elencato qui. Questo agente gestisce tutte le attività interne di NetAM come backup."
 
 msgid "Worker name"
-msgstr ""
+msgstr "Nome dell'agente"
 
 msgid "Worker was successfully created."
-msgstr ""
+msgstr "L'agente è stato creato."
 
 msgid "Worker was successfully destroyed."
-msgstr ""
+msgstr "L'agente è stato eliminato con successo."
 
 msgid "Worker was successfully updated."
-msgstr ""
+msgstr "L'agente è stato aggiornato correttamente."
 
 msgid "Workers"
-msgstr ""
+msgstr "Agenti"
 
 msgid "YES"
 msgstr "SÌ"
@@ -467,7 +467,7 @@ msgid "Youhou !"
 msgstr "Youhou !"
 
 msgid "Your address IP is"
-msgstr ""
+msgstr "Il tuo indirizzo IP è"
 
 msgid "every 24 hours"
 msgstr "ogni 24 ore"
