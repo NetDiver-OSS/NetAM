@@ -14,461 +14,461 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-19 21:06\n"
+"PO-Revision-Date: 2020-11-19 22:07\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Acción"
 
 msgid "Actions"
-msgstr ""
+msgstr "Acciones"
 
 msgid "Activated"
-msgstr ""
+msgstr "Activado"
 
 msgid "Add Permission"
-msgstr ""
+msgstr "Añadir permiso"
 
 msgid "Add permission"
-msgstr ""
+msgstr "Añadir permiso"
 
 msgid "Address Matrix"
-msgstr ""
+msgstr "Matrimonio de dirección"
 
 msgid "Address Table"
-msgstr ""
+msgstr "Tabla de direcciones"
 
 msgid "Admin Backups"
-msgstr ""
+msgstr "Copias de seguridad de admin"
 
 msgid "Admin Center"
-msgstr ""
+msgstr "Centro Admin"
 
 msgid "Admin Jobs"
-msgstr ""
+msgstr "Trabajos de Admin"
 
 msgid "Affected sections"
-msgstr ""
+msgstr "Secciones afectadas"
 
 msgid "Affected worker"
-msgstr ""
+msgstr "Agente afectado"
 
 msgid "All Permissions"
-msgstr ""
+msgstr "Todos los permisos"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 msgid "Are you sure?"
-msgstr ""
+msgstr "¿Estás seguro?"
 
 msgid "Available IP"
-msgstr ""
+msgstr "IP disponible"
 
 msgid "Background jobs"
-msgstr ""
+msgstr "Trabajos en segundo plano"
 
 msgid "Backup list"
-msgstr ""
+msgstr "Lista de copias de seguridad"
 
 msgid "Backups"
-msgstr ""
+msgstr "Copias de seguridad"
 
 msgid "Boot time"
-msgstr ""
+msgstr "Hora de inicio"
 
 msgid "Broadcast"
-msgstr ""
+msgstr "Transmisión"
 
 msgid "Busy jobs"
-msgstr ""
+msgstr "Trabajos ocupados"
 
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgid "Calculate"
-msgstr ""
+msgstr "Calcular"
 
 msgid "Choose file"
-msgstr ""
+msgstr "Elegir archivo"
 
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 msgid "Concurrency jobs"
-msgstr ""
+msgstr "Trabajos de concurrencia"
 
 msgid "Connected"
-msgstr ""
+msgstr "Conectado"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 msgid "Disable"
-msgstr ""
+msgstr "Desactivar"
 
 msgid "Disable TOTP"
-msgstr ""
+msgstr "Desactivar TOTP"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Deshabilitado"
 
 msgid "Down"
-msgstr ""
+msgstr "Abajo"
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "Edit Address details"
-msgstr ""
+msgstr "Editar detalles de la dirección"
 
 msgid "Editing Permission"
-msgstr ""
+msgstr "Editando permiso"
 
 msgid "Editing Section"
-msgstr ""
+msgstr "Editando Sección"
 
 msgid "Editing Usage"
-msgstr ""
+msgstr "Editando Uso"
 
 msgid "Editing User"
-msgstr ""
+msgstr "Editando usuario"
 
 msgid "Editing Vlan"
-msgstr ""
+msgstr "Editando Vlan"
 
 msgid "Editing Worker"
-msgstr ""
+msgstr "Agente de edición"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enable TOTP"
-msgstr ""
+msgstr "Habilitar TOTP"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgid "FQDN"
-msgstr ""
+msgstr "FQDN"
 
 msgid "File"
-msgstr ""
+msgstr "Archivo"
 
 msgid "First IP"
-msgstr ""
+msgstr "Primera IP"
 
 msgid "Free IP"
-msgstr ""
+msgstr "IP gratis"
 
 msgid "Get unused IP"
-msgstr ""
+msgstr "Obtener IP no utilizada"
 
 msgid "Heartbeat"
-msgstr ""
+msgstr "Ultimo contacto"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Página web"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Nombre de host"
 
 msgid "Hosts per Subnet"
-msgstr ""
+msgstr "Hosts por subred"
 
 msgid "IP Address"
-msgstr ""
+msgstr "Dirección IP"
 
 msgid "IP Calculator"
-msgstr ""
+msgstr "Calculador IP"
 
 msgid "IP address Request"
-msgstr ""
+msgstr "Solicitud de dirección IP"
 
 msgid "IP calculator"
-msgstr ""
+msgstr "Calculadora de IP"
 
 msgid "IP used"
-msgstr ""
+msgstr "IP usada"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Import usages with CSV"
-msgstr ""
+msgstr "Importar usos con CSV"
 
 msgid "Job"
-msgstr ""
+msgstr "Trabajo"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Trabajos"
 
 msgid "Last IP"
-msgstr ""
+msgstr "Última IP"
 
 msgid "Last scan time :"
-msgstr ""
+msgstr "Fecha del último análisis :"
 
 msgid "Load Average"
-msgstr ""
+msgstr "Promedio de carga"
 
 msgid "Loading"
-msgstr ""
+msgstr "Cargando"
 
 msgid "Locked"
-msgstr ""
+msgstr "Bloqueado"
 
 msgid "Logout"
-msgstr ""
+msgstr "Cerrar sesión"
 
 msgid "Mask"
-msgstr ""
+msgstr "Máscara"
 
 msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
-msgstr ""
+msgstr "Uso masivo de importación por inyecciones csv. Debe tener formato CSV con la siguiente cabecera :"
 
 msgid "Memory"
-msgstr ""
+msgstr "Memoria"
 
 msgid "My home network"
-msgstr ""
+msgstr "Mi red doméstica"
 
 msgid "NO"
-msgstr ""
+msgstr "NO"
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid "NetAM agent node"
-msgstr ""
+msgstr "Nodo agente NetAM"
 
 msgid "NetAM control node"
-msgstr ""
+msgstr "Nodo de control NetAM"
 
 msgid "Network"
-msgstr ""
+msgstr "Red"
 
 msgid "New Section"
-msgstr ""
+msgstr "Nueva sección"
 
 msgid "New Usage"
-msgstr ""
+msgstr "Nuevo Uso"
 
 msgid "New User"
-msgstr ""
+msgstr "Nuevo usuario"
 
 msgid "New Vlan"
-msgstr ""
+msgstr "Nuevo Vlan"
 
 msgid "New Worker"
-msgstr ""
+msgstr "Nuevo agente"
 
 msgid "No free address IP available !"
-msgstr ""
+msgstr "¡No hay dirección IP disponible!"
 
 msgid "No worker assigned"
-msgstr ""
+msgstr "Ningún agente asignado"
 
 msgid "Notice"
-msgstr ""
+msgstr "Aviso"
 
 msgid "OTP code"
-msgstr ""
+msgstr "Código OTP"
 
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 msgid "Password confirmation"
-msgstr ""
+msgstr "Confirmación de contraseña"
 
 msgid "Permission for %{name}"
-msgstr ""
+msgstr "Permiso para %{name}"
 
 msgid "Permission was successfully created."
-msgstr ""
+msgstr "El permiso se creó correctamente."
 
 msgid "Permission was successfully destroyed."
-msgstr ""
+msgstr "El permiso se destruyó con éxito."
 
 msgid "Permission was successfully updated."
-msgstr ""
+msgstr "El permiso se actualizó correctamente."
 
 msgid "Please validate TOTP code !"
-msgstr ""
+msgstr "¡Por favor valida el código TOTP!"
 
 msgid "Queues"
-msgstr ""
+msgstr "Colas"
 
 msgid "Recovery codes"
-msgstr ""
+msgstr "Codigos de recuperación"
 
 msgid "Release"
-msgstr ""
+msgstr "Olvidar"
 
 msgid "Requirements"
-msgstr ""
+msgstr "Requisitos"
 
 msgid "Reserved"
-msgstr ""
+msgstr "Reservado"
 
 msgid "Run notification on run_scan"
-msgstr ""
+msgstr "Notificar durante un escaneo"
 
 msgid "Run scan after creation"
-msgstr ""
+msgstr "Ejecutar escaneo después de la creación"
 
 msgid "Scan"
-msgstr ""
+msgstr "Escanear"
 
 msgid "Scan Queued"
-msgstr ""
+msgstr "Escanear en cola"
 
 msgid "Scan complete"
-msgstr ""
+msgstr "Escaneo completo"
 
 msgid "Scan in progress"
-msgstr ""
+msgstr "Escaneo en progreso"
 
 msgid "Scan was successfully scheduled."
-msgstr ""
+msgstr "El análisis se programó correctamente."
 
 msgid "Schedule"
-msgstr ""
+msgstr "Calendario"
 
 msgid "Secret: %{otp_secret}"
-msgstr ""
+msgstr "Comunicación: %{otp_secret}"
 
 msgid "Section"
-msgstr ""
+msgstr "Sección"
 
 msgid "Section VLAN"
-msgstr ""
+msgstr "Sección VLAN"
 
 msgid "Sections"
-msgstr ""
+msgstr "Secciones"
 
 msgid "Sections linked to %{name} (#%{vid})"
-msgstr ""
+msgstr "Secciones enlazadas a %{name} (#%{vid})"
 
 msgid "Setup"
-msgstr ""
+msgstr "Configurar"
 
 msgid "Sidekiq"
-msgstr ""
+msgstr "Sidekiq"
 
 msgid "Started from"
-msgstr ""
+msgstr "Comenzó desde"
 
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 msgid "State available are :"
-msgstr ""
+msgstr "El estado disponible son:"
 
 msgid "Subject"
-msgstr ""
+msgstr "Asunto"
 
 msgid "Subject ID"
-msgstr ""
+msgstr "Asunto ID"
 
 msgid "Two Factor Auth"
-msgstr ""
+msgstr "Autor de dos Factores"
 
 msgid "Two Factor Authentication"
-msgstr ""
+msgstr "Autenticación de dos factores"
 
 msgid "Two Factor Authentication Manager"
-msgstr ""
+msgstr "Administrador de Autenticación de Dos Factores"
 
 msgid "Unknown state"
-msgstr ""
+msgstr "Estado desconocido"
 
 msgid "Usage"
-msgstr ""
+msgstr "Uso"
 
 msgid "Usage was successfully created."
-msgstr ""
+msgstr "El uso se creó correctamente."
 
 msgid "Usage was successfully destroyed."
-msgstr ""
+msgstr "El uso se destruyó con éxito."
 
 msgid "Usage was successfully updated."
-msgstr ""
+msgstr "El uso se actualizó correctamente."
 
 msgid "Used"
-msgstr ""
+msgstr "Usado"
 
 msgid "User Email"
-msgstr ""
+msgstr "Email de usuario"
 
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 msgid "Utils"
-msgstr ""
+msgstr "Utils"
 
 msgid "Validate"
-msgstr ""
+msgstr "Validate"
 
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 msgid "Vlan ID"
-msgstr ""
+msgstr "ID Vlan"
 
 msgid "Vlan was successfully created."
-msgstr ""
+msgstr "Vlan fue creado con éxito."
 
 msgid "Vlan was successfully destroyed."
-msgstr ""
+msgstr "Vlan fue destruido con éxito."
 
 msgid "Vlan was successfully updated."
-msgstr ""
+msgstr "Vlan se actualizó correctamente."
 
 msgid "Vlans"
-msgstr ""
+msgstr "Vlans"
 
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
-msgstr ""
+msgstr "El agente \"predeterminado\" no aparece aquí. Este agente gestiona todas las tareas internas de NetAM como respaldo."
 
 msgid "Worker name"
-msgstr ""
+msgstr "nombre del agente"
 
 msgid "Worker was successfully created."
-msgstr ""
+msgstr "El agente fue creado con éxito."
 
 msgid "Worker was successfully destroyed."
-msgstr ""
+msgstr "El agente fue destruido con éxito."
 
 msgid "Worker was successfully updated."
-msgstr ""
+msgstr "El agente se actualizó correctamente."
 
 msgid "Workers"
-msgstr ""
+msgstr "Agentes"
 
 msgid "YES"
-msgstr ""
+msgstr "SI"
 
 msgid "Youhou !"
-msgstr ""
+msgstr "Youhou !"
 
 msgid "Your address IP is"
-msgstr ""
+msgstr "Su dirección IP es"
 
 msgid "every 24 hours"
-msgstr ""
+msgstr "cada 24 horas"
 
