@@ -10,5 +10,6 @@ class LoadMacAddressTableWorker
     Sidekiq.logger.debug("Writing downloaded content to file as temporary file #{file_name}")
     output_file = File.new(Rails.root.join("tmp/#{file_name}"), 'w')
     output_file.syswrite(response.body)
+    IngestOuiDatabaseWorker.perform_async
   end
 end
