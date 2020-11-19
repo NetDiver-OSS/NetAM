@@ -320,7 +320,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.3)
+    redis (4.2.4)
     redis-rack-cache (2.2.1)
       rack-cache (>= 1.10, < 2)
       redis-store (>= 1.6, < 2)
