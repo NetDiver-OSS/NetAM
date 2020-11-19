@@ -1,0 +1,4 @@
+---
+update_oui_data:
+  cron: "0 1 * * *"
+  class: "LoadMacAddressTableWorker"
