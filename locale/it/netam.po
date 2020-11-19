@@ -14,10 +14,13 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 22:53\n"
+"PO-Revision-Date: 2020-11-19 21:06\n"
 
 msgid "Action"
 msgstr "Azione"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activated"
 msgstr "Attivato"
@@ -42,6 +45,12 @@ msgstr "Centro Amministratore"
 
 msgid "Admin Jobs"
 msgstr "Processi Amministratori"
+
+msgid "Affected sections"
+msgstr ""
+
+msgid "Affected worker"
+msgstr ""
 
 msgid "All Permissions"
 msgstr "Tutti I Permessi"
@@ -86,6 +95,9 @@ msgid "Close"
 msgstr ""
 
 msgid "Concurrency jobs"
+msgstr ""
+
+msgid "Connected"
 msgstr ""
 
 msgid "DHCP"
@@ -208,8 +220,8 @@ msgstr "Lavori"
 msgid "Last IP"
 msgstr "Ultimo IP"
 
-msgid "Last scan time: %{timestamp}"
-msgstr "Ultimo tempo di scansione: %{timestamp}"
+msgid "Last scan time :"
+msgstr ""
 
 msgid "Load Average"
 msgstr "Media Carico"
@@ -266,6 +278,9 @@ msgid "New Worker"
 msgstr ""
 
 msgid "No free address IP available !"
+msgstr ""
+
+msgid "No worker assigned"
 msgstr ""
 
 msgid "Notice"
@@ -340,6 +355,9 @@ msgstr "Segreto: %{otp_secret}"
 msgid "Section"
 msgstr "Sezione"
 
+msgid "Section VLAN"
+msgstr ""
+
 msgid "Sections"
 msgstr "Sezioni"
 
@@ -366,12 +384,6 @@ msgstr "Oggetto"
 
 msgid "Subject ID"
 msgstr "ID Oggetto"
-
-msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr "Questa sezione è collegata a Vlan %{name} con ID Vlan: %{vid}"
-
-msgid "To launch worker"
-msgstr ""
 
 msgid "Two Factor Auth"
 msgstr "Autenticazione A Due Fattori"
