@@ -8,7 +8,8 @@ module NetAM
       en: 'English',
       fr: 'Français',
       de: 'Deutsch',
-      it: 'Italiano'
+      it: 'Italiano',
+      es: 'Español'
     }.freeze
   end
 end
