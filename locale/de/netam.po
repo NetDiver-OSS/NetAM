@@ -14,10 +14,13 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 22:53\n"
+"PO-Revision-Date: 2020-11-19 21:06\n"
 
 msgid "Action"
 msgstr "Aktion"
+
+msgid "Actions"
+msgstr "Aktionen"
 
 msgid "Activated"
 msgstr "Aktiviert"
@@ -43,11 +46,17 @@ msgstr "Verwaltungszentrum"
 msgid "Admin Jobs"
 msgstr "Verwaltungsaufgaben"
 
+msgid "Affected sections"
+msgstr ""
+
+msgid "Affected worker"
+msgstr ""
+
 msgid "All Permissions"
 msgstr "Alle Berechtigungen"
 
 msgid "Apply"
-msgstr ""
+msgstr "Anwenden"
 
 msgid "Are you sure?"
 msgstr "Bist du sicher?"
@@ -83,10 +92,13 @@ msgid "Choose file"
 msgstr "Datei auswählen"
 
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 msgid "Concurrency jobs"
 msgstr ""
+
+msgid "Connected"
+msgstr "In Verbindung gebracht"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -101,7 +113,7 @@ msgid "Disable"
 msgstr "Deaktivieren"
 
 msgid "Disable TOTP"
-msgstr ""
+msgstr "TOTP deaktivieren"
 
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -131,7 +143,7 @@ msgid "Editing Vlan"
 msgstr "Vlan bearbeiten"
 
 msgid "Editing Worker"
-msgstr ""
+msgstr "Agent bearbeiten"
 
 msgid "Email"
 msgstr "E-Mail"
@@ -140,7 +152,7 @@ msgid "Enable"
 msgstr "Aktivieren"
 
 msgid "Enable TOTP"
-msgstr ""
+msgstr "TOTP aktivieren"
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -149,13 +161,13 @@ msgid "Error"
 msgstr "Fehler"
 
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 msgid "FQDN"
 msgstr "FQDN"
 
 msgid "File"
-msgstr ""
+msgstr "Datei"
 
 msgid "First IP"
 msgstr "Erste IP"
@@ -208,8 +220,8 @@ msgstr "Aufgaben"
 msgid "Last IP"
 msgstr "Letzte IP"
 
-msgid "Last scan time: %{timestamp}"
-msgstr "Letzte Scan-Zeit: %{timestamp}"
+msgid "Last scan time :"
+msgstr ""
 
 msgid "Load Average"
 msgstr "Durchschnittslast"
@@ -263,10 +275,13 @@ msgid "New Vlan"
 msgstr "Neuer Vlan"
 
 msgid "New Worker"
-msgstr ""
+msgstr "Neuer Agent"
 
 msgid "No free address IP available !"
-msgstr ""
+msgstr "Keine freie Adresse IP verfügbar !"
+
+msgid "No worker assigned"
+msgstr "Kein Agent zugewiesen"
 
 msgid "Notice"
 msgstr "Beachten"
@@ -340,6 +355,9 @@ msgstr "Geheim: %{otp_secret}"
 msgid "Section"
 msgstr "Abschnitt"
 
+msgid "Section VLAN"
+msgstr "Abschnitt VLAN"
+
 msgid "Sections"
 msgstr "Abschnitte"
 
@@ -350,10 +368,10 @@ msgid "Setup"
 msgstr "Konfigurieren"
 
 msgid "Sidekiq"
-msgstr ""
+msgstr "Sidekiq"
 
 msgid "Started from"
-msgstr ""
+msgstr "Begonnen von"
 
 msgid "State"
 msgstr "Zustand"
@@ -366,12 +384,6 @@ msgstr "Gegenstand"
 
 msgid "Subject ID"
 msgstr "Gegenstand ID"
-
-msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr "Dieser Abschnitt ist mit dem Vlan %{name} mit der Vlan-ID verknüpft: %{vid}"
-
-msgid "To launch worker"
-msgstr ""
 
 msgid "Two Factor Auth"
 msgstr "Zwei-Faktor-Auth"
@@ -389,13 +401,13 @@ msgid "Usage"
 msgstr "Verwenden"
 
 msgid "Usage was successfully created."
-msgstr ""
+msgstr "Benutzer wurde erfolgreich erstellt."
 
 msgid "Usage was successfully destroyed."
-msgstr ""
+msgstr "Vlan wurde erfolgreich zerstört."
 
 msgid "Usage was successfully updated."
-msgstr ""
+msgstr "Benutzer wurde erfolgreich aktualisiert."
 
 msgid "Used"
 msgstr "Benutzt"
@@ -419,34 +431,34 @@ msgid "Vlan ID"
 msgstr "Vlan ID"
 
 msgid "Vlan was successfully created."
-msgstr ""
+msgstr "Vlan wurde erfolgreich erstellt."
 
 msgid "Vlan was successfully destroyed."
-msgstr ""
+msgstr "Vlan wurde erfolgreich zerstört."
 
 msgid "Vlan was successfully updated."
-msgstr ""
+msgstr "Vlan wurde erfolgreich aktualisiert."
 
 msgid "Vlans"
 msgstr "Vlans"
 
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
-msgstr ""
+msgstr "Agent \"Standard\" ist hier nicht aufgeführt. Dieser Agent verwaltet alle internen NetAM-Aufgaben als Sicherung."
 
 msgid "Worker name"
-msgstr ""
+msgstr "Agentenname"
 
 msgid "Worker was successfully created."
-msgstr ""
+msgstr "Agent wurde erfolgreich erstellt."
 
 msgid "Worker was successfully destroyed."
-msgstr ""
+msgstr "Agent wurde erfolgreich zerstört."
 
 msgid "Worker was successfully updated."
-msgstr ""
+msgstr "Agent wurde erfolgreich aktualisiert."
 
 msgid "Workers"
-msgstr ""
+msgstr "Agent"
 
 msgid "YES"
 msgstr "JA"
@@ -455,7 +467,7 @@ msgid "Youhou !"
 msgstr "Youhou !"
 
 msgid "Your address IP is"
-msgstr ""
+msgstr "Ihre Adresse IP ist"
 
 msgid "every 24 hours"
 msgstr "alle 24 Stunden"
