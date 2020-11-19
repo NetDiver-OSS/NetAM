@@ -14,10 +14,10 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 22:53\n"
+"PO-Revision-Date: 2020-11-19 20:53\n"
 
 msgid "Action"
-msgstr "Action"
+msgstr ""
 
 msgid "Activated"
 msgstr "Activé"
@@ -56,7 +56,7 @@ msgid "Available IP"
 msgstr "IP disponible"
 
 msgid "Background jobs"
-msgstr ""
+msgstr "Tâches de fond"
 
 msgid "Backup list"
 msgstr "Liste des sauvegardes"
@@ -263,7 +263,7 @@ msgid "New Vlan"
 msgstr "Nouveau Vlan"
 
 msgid "New Worker"
-msgstr ""
+msgstr "Nouvel Agent"
 
 msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
@@ -350,7 +350,7 @@ msgid "Setup"
 msgstr "Configuration"
 
 msgid "Sidekiq"
-msgstr ""
+msgstr "Sidekiq"
 
 msgid "Started from"
 msgstr ""
@@ -434,10 +434,10 @@ msgid "Worker \"default\" is not listed here. This worker manages all NetAM inte
 msgstr ""
 
 msgid "Worker name"
-msgstr ""
+msgstr "Nom Agent"
 
 msgid "Worker was successfully created."
-msgstr ""
+msgstr "Agent a bien été créé."
 
 msgid "Worker was successfully destroyed."
 msgstr ""
