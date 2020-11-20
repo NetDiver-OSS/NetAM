@@ -77,7 +77,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   # Don't upgrade simplecov due to bug in sonarcloud !
   gem 'simplecov', '= 0.17.0'
-  gem 'simplecov-cobertura', '~> 1.3', '>= 1.3.1'
+  gem 'simplecov-cobertura', '~> 1.4'
 
   gem 'factory_bot_rails', '~> 6.1'
 
