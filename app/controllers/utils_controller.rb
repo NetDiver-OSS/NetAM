@@ -6,6 +6,6 @@ class UtilsController < ApplicationController
   end
 
   def mac_vendor
-    @mac_vendor = MacAddress.find_by(mac: params[:mac].split(':').take(3).join(':').upcase) rescue nil
+    @mac_vendors = MacAddress.where(mac: params[:mac].split(':').take(3).join(':').upcase) rescue nil
   end
 end
