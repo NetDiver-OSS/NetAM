@@ -9,9 +9,16 @@ describe 'Util', type: :request do
     sign_in admin
   end
 
-  describe 'GET /index' do
+  describe 'GET /utils/calculator' do
     it 'renders a successful response' do
       get utils_calculator_url
+      expect(response).to be_successful
+    end
+  end
+
+  describe 'GET /utils/mac_vendor' do
+    it 'renders a successful response' do
+      get utils_mac_vendor_url
       expect(response).to be_successful
     end
   end
