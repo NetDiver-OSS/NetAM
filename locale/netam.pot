@@ -220,7 +220,7 @@ msgstr ""
 msgid "Last IP"
 msgstr ""
 
-msgid "Last scan time :"
+msgid "Last scan time"
 msgstr ""
 
 msgid "Load Average"
@@ -233,6 +233,21 @@ msgid "Locked"
 msgstr ""
 
 msgid "Logout"
+msgstr ""
+
+msgid "Lookup"
+msgstr ""
+
+msgid "MAC Address"
+msgstr ""
+
+msgid "MAC Vendor"
+msgstr ""
+
+msgid "MAC Vendor Lookup"
+msgstr ""
+
+msgid "Mac Address Prefix"
 msgstr ""
 
 msgid "Mask"
@@ -280,6 +295,9 @@ msgstr ""
 msgid "No free address IP available !"
 msgstr ""
 
+msgid "No matching vendor"
+msgstr ""
+
 msgid "No worker assigned"
 msgstr ""
 
@@ -317,6 +335,9 @@ msgid "Recovery codes"
 msgstr ""
 
 msgid "Release"
+msgstr ""
+
+msgid "Requested MAC Prefix %{mac}"
 msgstr ""
 
 msgid "Requirements"
@@ -422,6 +443,9 @@ msgid "Utils"
 msgstr ""
 
 msgid "Validate"
+msgstr ""
+
+msgid "Vendor"
 msgstr ""
 
 msgid "View"

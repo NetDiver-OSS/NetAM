@@ -19,5 +19,6 @@ Sidekiq.configure_server do |config|
     end
 
     Sidekiq::Cron::Job.load_from_hash cron_settings
+    Sidekiq::Cron::Job.load_from_hash YAML.load_file('config/schedule.yml')
   end
 end

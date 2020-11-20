@@ -1,0 +1,8 @@
+= form_with(url: '', method: :get, local: true) do |form|
+  %div.d-flex.justify-content-center
+    %div.form-group.col-10
+      = form.label :mac, _('MAC Address')
+      = form.text_field :mac, class: "form-control #{dark_mode_class}", placeholder: 'FF:FF:FF:FF:FF:FF', value: params[:mac]
+
+    %div.col-2.mb-3.align-self-end
+      = form.button _('Lookup'), class: 'btn btn-block btn-info'
