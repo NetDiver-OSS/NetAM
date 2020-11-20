@@ -1,3 +1,20 @@
 - page_title _('MAC Vendor Lookup')
 
 = render 'utils/formvendor'
+
+- if @mac_vendor
+  %div.card.mt-4{class: dark_mode_class}
+    %div.card-header
+      %h3.card-title= params[:mac]
+    %div.card-body
+      %div.row
+        %div.col-6
+          %div.input-group
+            %div.input-group-prepend
+              %span.input-group-text{class: dark_mode_class}= _('Mac Address Prefix')
+            %input.form-control{class: dark_mode_class, disabled: true, type: 'text', value: @mac_vendor.mac}
+        %div.col-6
+          %div.input-group
+            %div.input-group-prepend
+              %span.input-group-text{class: dark_mode_class}= _('Vendor')
+            %input.form-control{class: dark_mode_class, disabled: true, type: 'text', value: @mac_vendor.vendor}
