@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class DevicesController < ApplicationController
-  #load_resource :devices
-  #load_resource :devices_type
-  #before_action :set_devices, only: %i[create edit update destroy]
+  load_resource :devices
+  load_resource :devices_type
+  before_action :set_devices, only: %i[create edit update destroy]
 
   def index
     # not used actually
