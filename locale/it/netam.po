@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-20 14:18\n"
+"PO-Revision-Date: 2020-11-21 21:06\n"
 
 msgid "Action"
 msgstr "Azione"
@@ -221,7 +221,7 @@ msgid "Last IP"
 msgstr "Ultimo IP"
 
 msgid "Last scan time"
-msgstr ""
+msgstr "Data dell'ultima analisi"
 
 msgid "Load Average"
 msgstr "Media Carico"
@@ -236,19 +236,19 @@ msgid "Logout"
 msgstr "Disconnettiti"
 
 msgid "Lookup"
-msgstr ""
+msgstr "Ricerca"
 
 msgid "MAC Address"
-msgstr ""
+msgstr "Indirizzo MAC"
 
 msgid "MAC Vendor"
-msgstr ""
+msgstr "Venditore MAC"
 
 msgid "MAC Vendor Lookup"
-msgstr ""
+msgstr "Ricerca Venditore MAC"
 
 msgid "Mac Address Prefix"
-msgstr ""
+msgstr "Prefisso Indirizzo Mac"
 
 msgid "Mask"
 msgstr "Maschera"
@@ -296,7 +296,7 @@ msgid "No free address IP available !"
 msgstr "Nessun indirizzo IP disponibile!"
 
 msgid "No matching vendor"
-msgstr ""
+msgstr "Nessun venditore corrispondente"
 
 msgid "No worker assigned"
 msgstr "Nessun agente assegnato"
@@ -338,7 +338,7 @@ msgid "Release"
 msgstr "Dimenticare"
 
 msgid "Requested MAC Prefix %{mac}"
-msgstr ""
+msgstr "Prefisso MAC richiesto %{mac}"
 
 msgid "Requirements"
 msgstr "Requisiti"
@@ -446,7 +446,7 @@ msgid "Validate"
 msgstr "Validate"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Venditore"
 
 msgid "View"
 msgstr "Visualizza"
