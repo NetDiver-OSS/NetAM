@@ -8,4 +8,8 @@ class UtilsController < ApplicationController
   def mac_vendor
     @mac_vendors = MacAddress.where(mac: params[:mac].split(':').take(3).join(':').upcase) rescue nil
   end
+
+  def devices
+    # Temp
+  end
 end

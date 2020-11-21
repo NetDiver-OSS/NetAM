@@ -15,6 +15,7 @@
           %ul.dropdown-menu.border-0.shadow{class: dark_mode_class}
             %li= link_to fa_icon_with_text('fas fa-server', _('IP Calculator')), utils_calculator_path, class: "dropdown-item #{dark_mode_class}"
             %li= link_to fa_icon_with_text('fas fa-server', _('MAC Vendor')), utils_mac_vendor_path, class: "dropdown-item #{dark_mode_class}"
+            %li= link_to fa_icon_with_text('fas fa-server', _('Devices')), utils_devices_path, class: "dropdown-item #{dark_mode_class}"
 
       %ul.order-1.order-md-3.navbar-nav.navbar-no-expand.ml-auto
         - if user_signed_in? && current_user.admin?

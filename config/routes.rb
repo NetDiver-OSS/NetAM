@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     namespace :utils do
       get :calculator
       get :mac_vendor
+      get :devices
     end
 
     if Rails.application.config.setup_mode
