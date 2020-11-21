@@ -125,6 +125,7 @@ Rails/UniqueValidationWithoutIndex:
   Exclude:
     - 'app/models/usage.rb'
     - 'app/models/vlan.rb'
+    - 'app/models/device.rb'
 
 # Offense count: 78
 Style/Documentation:
