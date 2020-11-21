@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
     resources :vlans
 
+    resources :devices
+
     namespace :account do
       resources :two_factor_auths, only: %i[index create] do
         collection do
@@ -53,7 +55,6 @@ Rails.application.routes.draw do
     namespace :utils do
       get :calculator
       get :mac_vendor
-      get :devices
     end
 
     if Rails.application.config.setup_mode
