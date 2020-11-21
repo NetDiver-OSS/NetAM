@@ -9,6 +9,5 @@ class CreateDevices < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_reference :devices, :usages, null: true, foreign_key: true
   end
 end

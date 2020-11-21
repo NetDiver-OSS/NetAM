@@ -8,6 +8,7 @@ class Usage < ApplicationRecord
   enum state: { locked: 0, actived: 1, down: 2, dhcp: 3 }
 
   belongs_to :section
+  belongs_to :device
 
   validates :section, presence: true
   validates :state, :ip_used, :identifier, presence: true
@@ -19,6 +20,7 @@ class Usage < ApplicationRecord
 
   # @param [int] section_id
   # @param [ActionDispatch::HTTP::UploadedFile] file
+  #
   def self.import(section_id, file)
     CSV.foreach(file.path, headers: true) do |row|
       Usage.create(

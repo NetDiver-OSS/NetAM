@@ -1,0 +1,19 @@
+-# = form_with(model: [@devices, device], local: true) do |form|
+= form_with(url: '', method: :get, local: true) do |form|
+  -# - device[:name] = params[:ip] unless params[:ip].nil?
+  %div.card-body
+    -# - if usage.errors.any?
+    -#   - usage.errors.full_messages.each do |message|
+    -#     %div.callout.callout-danger{class: dark_mode_class}
+    -#       %p= message
+    %div.row
+      %div.col-6
+        %div.form-group
+          = form.label _('Name')
+          = form.text_field :name, class: "form-control #{dark_mode_class}"
+      %div.col-4
+        %div.form-group
+          = form.label _('Type')
+          = form.select :type, %i[none], {}, {class: "form-control #{dark_mode_class}"}
+      %div.col-2.mb-3.align-self-end
+        = form.submit _('Apply'), class: 'btn btn-primary'
