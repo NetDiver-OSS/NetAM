@@ -14,16 +14,16 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 17:26\n"
+"PO-Revision-Date: 2020-11-21 21:05\n"
 
 msgid "Action"
 msgstr "Aktion"
 
+msgid "Actions"
+msgstr "Aktionen"
+
 msgid "Activated"
 msgstr "Aktiviert"
-
-msgid "Actived"
-msgstr ""
 
 msgid "Add Permission"
 msgstr "Berechtigung Hinzufügen"
@@ -46,11 +46,17 @@ msgstr "Verwaltungszentrum"
 msgid "Admin Jobs"
 msgstr "Verwaltungsaufgaben"
 
+msgid "Affected sections"
+msgstr "Betroffene Abschnitte"
+
+msgid "Affected worker"
+msgstr "Betroffener Agent"
+
 msgid "All Permissions"
 msgstr "Alle Berechtigungen"
 
 msgid "Apply"
-msgstr ""
+msgstr "Anwenden"
 
 msgid "Are you sure?"
 msgstr "Bist du sicher?"
@@ -58,8 +64,8 @@ msgstr "Bist du sicher?"
 msgid "Available IP"
 msgstr "Verfügbare IP"
 
-msgid "Backlog"
-msgstr "Offene Anfragen"
+msgid "Background jobs"
+msgstr "Wesentliche Aufgaben"
 
 msgid "Backup list"
 msgstr "Liste der Backups"
@@ -73,6 +79,9 @@ msgstr "Startzeit"
 msgid "Broadcast"
 msgstr "Diffusion"
 
+msgid "Busy jobs"
+msgstr "Beschäftigte Jobs"
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -83,7 +92,13 @@ msgid "Choose file"
 msgstr "Datei auswählen"
 
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
+
+msgid "Concurrency jobs"
+msgstr "Parallelitätsjobs"
+
+msgid "Connected"
+msgstr "In Verbindung gebracht"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -98,7 +113,7 @@ msgid "Disable"
 msgstr "Deaktivieren"
 
 msgid "Disable TOTP"
-msgstr ""
+msgstr "TOTP deaktivieren"
 
 msgid "Disabled"
 msgstr "Deaktiviert"
@@ -110,7 +125,7 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 msgid "Edit Address details"
-msgstr ""
+msgstr "Adressdetails bearbeiten"
 
 msgid "Editing Permission"
 msgstr "Berechtigung bearbeiten"
@@ -127,6 +142,9 @@ msgstr "Benutzer bearbeiten"
 msgid "Editing Vlan"
 msgstr "Vlan bearbeiten"
 
+msgid "Editing Worker"
+msgstr "Agent bearbeiten"
+
 msgid "Email"
 msgstr "E-Mail"
 
@@ -134,7 +152,7 @@ msgid "Enable"
 msgstr "Aktivieren"
 
 msgid "Enable TOTP"
-msgstr ""
+msgstr "TOTP aktivieren"
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -143,13 +161,13 @@ msgid "Error"
 msgstr "Fehler"
 
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 msgid "FQDN"
 msgstr "FQDN"
 
 msgid "File"
-msgstr ""
+msgstr "Datei"
 
 msgid "First IP"
 msgstr "Erste IP"
@@ -158,10 +176,16 @@ msgid "Free IP"
 msgstr "Freie IP"
 
 msgid "Get unused IP"
-msgstr ""
+msgstr "Erhalten Sie eine IP"
+
+msgid "Heartbeat"
+msgstr "Dernier Kontakt"
 
 msgid "Homepage"
 msgstr "Homepage"
+
+msgid "Hostname"
+msgstr "Gastgeber"
 
 msgid "Hosts per Subnet"
 msgstr "Hosts pro Subnetz"
@@ -173,13 +197,13 @@ msgid "IP Calculator"
 msgstr "IP-Rechner"
 
 msgid "IP address Request"
-msgstr ""
+msgstr "IP-Adressanfrage"
 
 msgid "IP calculator"
 msgstr "IP-rechner"
 
 msgid "IP used"
-msgstr ""
+msgstr "IP verwendet"
 
 msgid "Import"
 msgstr "Importieren"
@@ -196,23 +220,35 @@ msgstr "Aufgaben"
 msgid "Last IP"
 msgstr "Letzte IP"
 
-msgid "Last scan time: %{timestamp}"
-msgstr "Letzte Scan-Zeit: %{timestamp}"
-
-msgid "Latency"
-msgstr "Latenz"
+msgid "Last scan time"
+msgstr "Letzte Scanzeit"
 
 msgid "Load Average"
 msgstr "Durchschnittslast"
 
 msgid "Loading"
-msgstr ""
+msgstr "Wird geladen"
 
 msgid "Locked"
 msgstr "Gesperrt"
 
 msgid "Logout"
 msgstr "Abmelden"
+
+msgid "Lookup"
+msgstr "Suchen"
+
+msgid "MAC Address"
+msgstr "MAC-Adresse"
+
+msgid "MAC Vendor"
+msgstr "MAC-Hersteller"
+
+msgid "MAC Vendor Lookup"
+msgstr "MAC-Händlersuche"
+
+msgid "Mac Address Prefix"
+msgstr "Mac-Adresspräfix"
 
 msgid "Mask"
 msgstr "Maske"
@@ -253,8 +289,17 @@ msgstr "Neuer Benutzer"
 msgid "New Vlan"
 msgstr "Neuer Vlan"
 
+msgid "New Worker"
+msgstr "Neuer Agent"
+
 msgid "No free address IP available !"
-msgstr ""
+msgstr "Keine freie Adresse IP verfügbar !"
+
+msgid "No matching vendor"
+msgstr "Kein passender Anbieter"
+
+msgid "No worker assigned"
+msgstr "Kein Agent zugewiesen"
 
 msgid "Notice"
 msgstr "Beachten"
@@ -272,13 +317,13 @@ msgid "Permission for %{name}"
 msgstr "Berechtigung für %{name}"
 
 msgid "Permission was successfully created."
-msgstr ""
+msgstr "Autorisierung erfolgreich erstellt."
 
 msgid "Permission was successfully destroyed."
-msgstr ""
+msgstr "Anwendung wurde erfolgreich gelöscht."
 
 msgid "Permission was successfully updated."
-msgstr ""
+msgstr "Autorisierung erfolgreich erstellt."
 
 msgid "Please validate TOTP code !"
 msgstr "Bitte validieren Sie den TOTP-Code!"
@@ -292,6 +337,9 @@ msgstr "Wiederherstellungscodes"
 msgid "Release"
 msgstr "Vergessen"
 
+msgid "Requested MAC Prefix %{mac}"
+msgstr "Angefordertes MAC-Präfix %{mac}"
+
 msgid "Requirements"
 msgstr "Voraussetzung"
 
@@ -299,10 +347,10 @@ msgid "Reserved"
 msgstr "Reserviert"
 
 msgid "Run notification on run_scan"
-msgstr ""
+msgstr "Während eines Scans benachrichtigen"
 
 msgid "Run scan after creation"
-msgstr ""
+msgstr "Führen Sie den Scan nach der Erstellung aus"
 
 msgid "Scan"
 msgstr "Scannen"
@@ -317,16 +365,19 @@ msgid "Scan in progress"
 msgstr "Scan läuft"
 
 msgid "Scan was successfully scheduled."
-msgstr ""
+msgstr "Der Scan wurde erfolgreich geplant."
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planen"
 
 msgid "Secret: %{otp_secret}"
 msgstr "Geheim: %{otp_secret}"
 
 msgid "Section"
 msgstr "Abschnitt"
+
+msgid "Section VLAN"
+msgstr "Abschnitt VLAN"
 
 msgid "Sections"
 msgstr "Abschnitte"
@@ -336,6 +387,12 @@ msgstr "Mit %{name} verknüpfte Abschnitte (#%{vid})"
 
 msgid "Setup"
 msgstr "Konfigurieren"
+
+msgid "Sidekiq"
+msgstr "Sidekiq"
+
+msgid "Started from"
+msgstr "Begonnen von"
 
 msgid "State"
 msgstr "Zustand"
@@ -348,9 +405,6 @@ msgstr "Gegenstand"
 
 msgid "Subject ID"
 msgstr "Gegenstand ID"
-
-msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr "Dieser Abschnitt ist mit dem Vlan %{name} mit der Vlan-ID verknüpft: %{vid}"
 
 msgid "Two Factor Auth"
 msgstr "Zwei-Faktor-Auth"
@@ -368,13 +422,13 @@ msgid "Usage"
 msgstr "Verwenden"
 
 msgid "Usage was successfully created."
-msgstr ""
+msgstr "Benutzer wurde erfolgreich erstellt."
 
 msgid "Usage was successfully destroyed."
-msgstr ""
+msgstr "Vlan wurde erfolgreich zerstört."
 
 msgid "Usage was successfully updated."
-msgstr ""
+msgstr "Benutzer wurde erfolgreich aktualisiert."
 
 msgid "Used"
 msgstr "Benutzt"
@@ -391,6 +445,9 @@ msgstr "Werkzeuge"
 msgid "Validate"
 msgstr "Bestätigen"
 
+msgid "Vendor"
+msgstr "Verkäufer"
+
 msgid "View"
 msgstr "Sehen"
 
@@ -398,16 +455,34 @@ msgid "Vlan ID"
 msgstr "Vlan ID"
 
 msgid "Vlan was successfully created."
-msgstr ""
+msgstr "Vlan wurde erfolgreich erstellt."
 
 msgid "Vlan was successfully destroyed."
-msgstr ""
+msgstr "Vlan wurde erfolgreich zerstört."
 
 msgid "Vlan was successfully updated."
-msgstr ""
+msgstr "Vlan wurde erfolgreich aktualisiert."
 
 msgid "Vlans"
 msgstr "Vlans"
+
+msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
+msgstr "Agent \"Standard\" ist hier nicht aufgeführt. Dieser Agent verwaltet alle internen NetAM-Aufgaben als Sicherung."
+
+msgid "Worker name"
+msgstr "Agentenname"
+
+msgid "Worker was successfully created."
+msgstr "Agent wurde erfolgreich erstellt."
+
+msgid "Worker was successfully destroyed."
+msgstr "Agent wurde erfolgreich zerstört."
+
+msgid "Worker was successfully updated."
+msgstr "Agent wurde erfolgreich aktualisiert."
+
+msgid "Workers"
+msgstr "Agent"
 
 msgid "YES"
 msgstr "JA"
@@ -416,7 +491,7 @@ msgid "Youhou !"
 msgstr "Youhou !"
 
 msgid "Your address IP is"
-msgstr ""
+msgstr "Ihre Adresse IP ist"
 
 msgid "every 24 hours"
 msgstr "alle 24 Stunden"

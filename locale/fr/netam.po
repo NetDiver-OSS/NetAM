@@ -14,15 +14,15 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-13 17:27\n"
+"PO-Revision-Date: 2020-11-20 15:30\n"
 
 msgid "Action"
 msgstr "Action"
 
-msgid "Activated"
-msgstr "Activé"
+msgid "Actions"
+msgstr "Actions"
 
-msgid "Actived"
+msgid "Activated"
 msgstr "Activé"
 
 msgid "Add Permission"
@@ -46,6 +46,12 @@ msgstr "Centre d'administration"
 msgid "Admin Jobs"
 msgstr "Administration des tâches"
 
+msgid "Affected sections"
+msgstr "Sections affectées"
+
+msgid "Affected worker"
+msgstr "Agent affecté"
+
 msgid "All Permissions"
 msgstr "Toutes les permissions"
 
@@ -58,8 +64,8 @@ msgstr "Êtes-vous sûr?"
 msgid "Available IP"
 msgstr "IP disponible"
 
-msgid "Backlog"
-msgstr "Demandes en attente"
+msgid "Background jobs"
+msgstr "Tâches de fond"
 
 msgid "Backup list"
 msgstr "Liste des sauvegardes"
@@ -73,6 +79,9 @@ msgstr "Dernier redémarrage"
 msgid "Broadcast"
 msgstr "Diffusion"
 
+msgid "Busy jobs"
+msgstr "Tâches en cours"
+
 msgid "CPU"
 msgstr "CPU"
 
@@ -84,6 +93,12 @@ msgstr "Choisir un fichier"
 
 msgid "Close"
 msgstr "Fermer"
+
+msgid "Concurrency jobs"
+msgstr "Tâches Concurrentes"
+
+msgid "Connected"
+msgstr "Connecté"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -127,6 +142,9 @@ msgstr "Éditer l'utilisateur"
 msgid "Editing Vlan"
 msgstr "Éditer Vlan"
 
+msgid "Editing Worker"
+msgstr "Éditer Agent"
+
 msgid "Email"
 msgstr "E-mail"
 
@@ -160,8 +178,14 @@ msgstr "IP libre"
 msgid "Get unused IP"
 msgstr "Obtenir une IP"
 
+msgid "Heartbeat"
+msgstr "Dernier contact"
+
 msgid "Homepage"
 msgstr "Page d'accueil"
+
+msgid "Hostname"
+msgstr "Hôte"
 
 msgid "Hosts per Subnet"
 msgstr "Hôtes par sous-réseau"
@@ -196,11 +220,8 @@ msgstr "Tâches"
 msgid "Last IP"
 msgstr "Dernière IP"
 
-msgid "Last scan time: %{timestamp}"
-msgstr "Dernière analyse : %{timestamp}"
-
-msgid "Latency"
-msgstr "Latence"
+msgid "Last scan time"
+msgstr "Dernière analyse effectuée"
 
 msgid "Load Average"
 msgstr "Charge moyenne"
@@ -213,6 +234,21 @@ msgstr "Verrouillé"
 
 msgid "Logout"
 msgstr "Déconnecter"
+
+msgid "Lookup"
+msgstr "Recherche inversée"
+
+msgid "MAC Address"
+msgstr "Adresse MAC"
+
+msgid "MAC Vendor"
+msgstr "Constructeur MAC"
+
+msgid "MAC Vendor Lookup"
+msgstr "Recherche par adresse MAC"
+
+msgid "Mac Address Prefix"
+msgstr "Préfixe d'adresse MAC"
 
 msgid "Mask"
 msgstr "Masque"
@@ -253,8 +289,17 @@ msgstr "Nouvel Utilisateur"
 msgid "New Vlan"
 msgstr "Nouveau Vlan"
 
+msgid "New Worker"
+msgstr "Nouvel Agent"
+
 msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
+
+msgid "No matching vendor"
+msgstr "Pas de constructeur correspondant"
+
+msgid "No worker assigned"
+msgstr "Aucun agent assigné"
 
 msgid "Notice"
 msgstr "Remarque"
@@ -292,6 +337,9 @@ msgstr "Code de récupération"
 msgid "Release"
 msgstr "Libérer"
 
+msgid "Requested MAC Prefix %{mac}"
+msgstr "Préfixe MAC demandé : %{mac}"
+
 msgid "Requirements"
 msgstr "Prérequis"
 
@@ -328,6 +376,9 @@ msgstr "Secret : %{otp_secret}"
 msgid "Section"
 msgstr "Section"
 
+msgid "Section VLAN"
+msgstr "Section VLAN"
+
 msgid "Sections"
 msgstr "Sections"
 
@@ -336,6 +387,12 @@ msgstr "Sections liées à %{name} (#%{vid})"
 
 msgid "Setup"
 msgstr "Configuration"
+
+msgid "Sidekiq"
+msgstr "Sidekiq"
+
+msgid "Started from"
+msgstr "Démarré depuis"
 
 msgid "State"
 msgstr "État"
@@ -348,9 +405,6 @@ msgstr "Objet"
 
 msgid "Subject ID"
 msgstr "ID de l'objet"
-
-msgid "This section is linked to Vlan %{name} with Vlan ID: %{vid}"
-msgstr "Cette section est liée au Vlan %{name} avec l'ID Vlan : %{vid}"
 
 msgid "Two Factor Auth"
 msgstr "Authentification à deux facteurs"
@@ -391,6 +445,9 @@ msgstr "Outils"
 msgid "Validate"
 msgstr "Valider"
 
+msgid "Vendor"
+msgstr "Constructeur"
+
 msgid "View"
 msgstr "Voir"
 
@@ -408,6 +465,24 @@ msgstr "Vlan a été mis à jour avec succès."
 
 msgid "Vlans"
 msgstr "Vlans"
+
+msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
+msgstr "L'Agent \"default\" n'est pas listé ici. Cet Agent gère toutes les tâches internes de NetAM comme sauvegarde."
+
+msgid "Worker name"
+msgstr "Nom Agent"
+
+msgid "Worker was successfully created."
+msgstr "Agent a bien été créé."
+
+msgid "Worker was successfully destroyed."
+msgstr "Agent a bien été supprimée."
+
+msgid "Worker was successfully updated."
+msgstr "Agent a bien été mis à jour."
+
+msgid "Workers"
+msgstr "Agents"
 
 msgid "YES"
 msgstr "OUI"
