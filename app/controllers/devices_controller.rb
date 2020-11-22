@@ -1,27 +1,58 @@
 # frozen_string_literal: true
 
 class DevicesController < ApplicationController
-  load_resource :devices
-  load_resource :devices_type
-  before_action :set_devices, only: %i[create edit update destroy]
+  load_and_authorize_resource
 
+  # GET /devices
   def index
-    # not used actually
+    @devices = Device.all
   end
 
-  def create
-    # not used actually
+  # GET /devices/1
+  def show
+    # Not used
   end
 
+  # GET /devices/new
+  def new
+    @device = Device.new
+  end
+
+  # GET /devices/1/edit
   def edit
-    # not used actually
+    # Not used
   end
 
+  # POST /devices
+  def create
+    @device = Device.new(device_params)
+
+    if @device.save
+      redirect_to @device, notice: 'Device was successfully created.'
+    else
+      render :new
+    end
+  end
+
+  # PATCH/PUT /devices/1
   def update
-    # not used actually
+    if @device.update(device_params)
+      redirect_to @device, notice: 'Device was successfully updated.'
+    else
+      render :edit
+    end
   end
 
+  # DELETE /devices/1
   def destroy
-    # not used actually
+    @device.destroy
+    redirect_to devices_url, notice: 'Device was successfully destroyed.'
+  end
+
+  private
+
+  # Only allow a trusted parameter "white list" through.
+  def device_params
+    params.require(:device).permit(:name, :h_size, :p_size)
   end
 end

@@ -1,11 +1,9 @@
--# = form_with(model: [@devices, device], local: true) do |form|
-= form_with(url: '', method: :get, local: true) do |form|
-  -# - device[:name] = params[:ip] unless params[:ip].nil?
+= form_with(model: device, local: true) do |form|
   %div.card-body
-    -# - if usage.errors.any?
-    -#   - usage.errors.full_messages.each do |message|
-    -#     %div.callout.callout-danger{class: dark_mode_class}
-    -#       %p= message
+    - if device.errors.any?
+      - device.errors.full_messages.each do |message|
+        %div.callout.callout-danger{class: dark_mode_class}
+          %p= message
     %div.row
       %div.col-6
         %div.form-group

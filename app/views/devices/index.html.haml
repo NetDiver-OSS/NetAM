@@ -1,3 +1,17 @@
 - page_title _('Devices list')
 
-= render 'form', usage: @usage
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= _('Name')
+      %th= _('Type')
+      %th.w-25
+  %tbody
+    - @devices.each do |device|
+      %tr
+        %td= device.name
+        %td= device.device_type.name
+        %td
+          %div.btn-group
+            = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_device_path(device), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, device
+            = link_to fa_icon_with_text('fas fa-trash', _('Release')), device_path(device), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, device
