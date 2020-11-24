@@ -67,7 +67,7 @@ class UsagesController < ApplicationController
   # DELETE /usages/1
   def destroy
     @usage.destroy
-    @usage.device.delete
+    @usage.device.delete if @usage.device.present? && @usage.device.id == @usage.device_id
     redirect_to section_path(@usage.section_id), notice: _('Usage was successfully destroyed.')
   end
 
