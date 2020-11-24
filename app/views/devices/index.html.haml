@@ -1,7 +1,7 @@
 - page_title _('Devices list')
 - page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_device_path})
 
-%table.table.table-bordered.table-striped
+%table.table.table-bordered.table-striped.datatable
   %thead
     %tr
       %th= _('Name')
@@ -11,7 +11,16 @@
     - @devices.each do |device|
       %tr
         %td= device.name
-        %td= device.device_type.name
+        %td
+          - if device.device_type_id.present?
+            - if device.device_type.color.present?
+              %div{ :style => "background-color: #{device.device_type.color}"}
+                %p.text-center= device.device_type.name
+            - else
+              %p.text-center= device.device_type.name
+          - else
+            %p.text-center= _('None')
+
         %td
           %div.btn-group
             = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_device_path(device), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, device

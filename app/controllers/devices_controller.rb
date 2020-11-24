@@ -2,6 +2,7 @@
 
 class DevicesController < ApplicationController
   load_and_authorize_resource
+  before_action :set_device_types, only: %i[create update new edit]
 
   # GET /devices
   def index
@@ -28,7 +29,7 @@ class DevicesController < ApplicationController
     @device = Device.new(device_params)
 
     if @device.save
-      redirect_to @device, notice: 'Device was successfully created.'
+      redirect_to devices_path, notice: 'Device was successfully created.'
     else
       render :new
     end
@@ -37,7 +38,7 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1
   def update
     if @device.update(device_params)
-      redirect_to @device, notice: 'Device was successfully updated.'
+      redirect_to devices_path, notice: 'Device was successfully updated.'
     else
       render :edit
     end
@@ -51,8 +52,13 @@ class DevicesController < ApplicationController
 
   private
 
+  def set_device_types
+    @device_types = DeviceType.all.pluck(:name, :id)
+  end
+
   # Only allow a trusted parameter "white list" through.
   def device_params
-    params.require(:device).permit(:name, :h_size, :p_size)
+    params.require(:device).permit(:name, :h_size, :p_size, :device_type_id)
   end
 end
+
