@@ -2,6 +2,14 @@
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+Rails.application.config.to_prepare do
+  Devise::SessionsController.layout 'devise'
+  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? 'application' : 'devise' }
+  Devise::ConfirmationsController.layout 'devise'
+  Devise::UnlocksController.layout 'devise'
+  Devise::PasswordsController.layout 'devise'
+end
+
 Devise.setup do |config|
   config.warden do |manager|
     manager.default_strategies(scope: :user).unshift :two_factor_authenticatable, :two_factor_backupable

@@ -20,15 +20,4 @@
     %link{href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", rel:"stylesheet"}
 
   %body
-    = render partial: 'layouts/parts/header'
-
-    %div.container-fluid
-      %div.row
-        = render partial: 'layouts/parts/navbar'
-        %main.col-md-9.ml-sm-auto.col-lg-10.px-md-4
-          = render partial: 'layouts/parts/toast', locals: {title: _('Notice'), message: notice, color: 'bg-success'} unless notice.nil?
-          = render partial: 'layouts/parts/toast', locals: {title: _('Error'), message: alert, color: 'bg-danger'} unless alert.nil?
-
-          = render partial: 'layouts/parts/actions'
-          = yield
-          = render partial: 'layouts/parts/footer'
+    = yield
