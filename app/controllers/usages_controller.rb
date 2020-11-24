@@ -41,6 +41,10 @@ class UsagesController < ApplicationController
     @usage = @section.usages.build(usage_params)
 
     if @usage.save
+      if @usage.define_device == '1' && @usage.fqdn.present?
+        device_created = Device.create!(name: @usage.fqdn, device_type_id: 1)
+        @usage.update!(device_id: device_created.id)
+      end
       redirect_to section_path(@usage.section_id), notice: _('Usage was successfully created.')
     else
       render :new
@@ -50,6 +54,10 @@ class UsagesController < ApplicationController
   # PATCH/PUT /usages/1
   def update
     if @usage.update(usage_params)
+      if @usage.define_device == '1' && @usage.fqdn.present?
+        device_created = Device.create!(name: @usage.fqdn, device_type_id: 1)
+        @usage.update!(device_id: device_created.id)
+      end
       redirect_to section_path(@usage.section_id), notice: _('Usage was successfully updated.')
     else
       render :edit
@@ -80,6 +88,6 @@ class UsagesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def usage_params
-    params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id)
+    params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id, :define_device)
   end
 end
