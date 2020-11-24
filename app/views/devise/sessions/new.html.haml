@@ -1,0 +1,30 @@
+%div.d-flex.align-items-center.vh-100
+  %div.col-8.offset-2
+    %div.card
+      %div.card-body
+        %p.fs-2 Sign in to start your session
+
+        - if alert
+          %div.alert.alert-danger
+            %h5 Errors:
+            = alert
+
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          %div.row
+            %div.col-9
+              %div.input-group.mb-3
+                %span.input-group-text{class: dark_mode_class}= icon('envelope')
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address', class: "form-control"
+
+              %div.input-group.mb-3
+                %span.input-group-text{class: dark_mode_class}= icon('key')
+                = f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: "form-control"
+
+              %div.input-group.mb-3
+                %span.input-group-text{class: dark_mode_class}= icon('shield-lock')
+                = f.password_field :otp_attempt, placeholder: 'TOTP (if enabled)', class: "form-control"
+
+            %div.col-3.d-grid
+              = f.submit "Log in with Email", class: "btn btn-primary"
+              = render 'devise/shared/omniauth'
+              = render 'devise/shared/links'
