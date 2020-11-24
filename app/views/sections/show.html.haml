@@ -47,51 +47,42 @@
 
   %div.col-6
     %div.row
-      %div.col-6
-        %div.info-box{class: dark_mode_class}
-          %span.info-box-icon.bg-blue
-            %i.fas.fa-lock
+      %div.col-6.mt-3
+        %div.card
+          %div.card-body.text-center
+            %h5.card-title= _('Locked')
+            %p.card-text= number_with_delimiter @ip_locked
 
-          %div.info-box-content
-            %span.info-box-text= _('Locked')
-            %span.info-box-number= number_with_delimiter @ip_locked
-      %div.col-6
-        %div.info-box{class: dark_mode_class}
-          %span.info-box-icon.bg-green
-            %i.fas.fa-check-circle
+      %div.col-6.mt-3
+        %div.card
+          %div.card-body.text-center
+            %h5.card-title= _('Activated')
+            %p.card-text= number_with_delimiter @ip_activated
 
-          %div.info-box-content
-            %span.info-box-text= _('Activated')
-            %span.info-box-number= number_with_delimiter @ip_activated
-      %div.col-6
-        %div.info-box{class: dark_mode_class}
-          %span.info-box-icon.bg-red
-            %i.fas.fa-times-circle
+      %div.col-6.mt-3
+        %div.card
+          %div.card-body.text-center
+            %h5.card-title= _('Down')
+            %p.card-text= number_with_delimiter @ip_down
 
-          %div.info-box-content
-            %span.info-box-text= _('Down')
-            %span.info-box-number= number_with_delimiter @ip_down
-      %div.col-6
-        %div.info-box{class: dark_mode_class}
-          %span.info-box-icon.bg-purple
-            %i.fas.fa-random
+      %div.col-6.mt-3
+        %div.card
+          %div.card-body.text-center
+            %h5.card-title= _('DHCP')
+            %p.card-text= number_with_delimiter @ip_dhcp
 
-          %div.info-box-content
-            %span.info-box-text= _('DHCP')
-            %span.info-box-number= number_with_delimiter @ip_dhcp
     %div.row
-      %div.col-12
-        %div.info-box.bg-gradient-info
-          %span.info-box-icon
-            %i.fas.fa-check
+      %div.col-12.mt-3
+        %div.card
+          %div.card-body.text-center
+            %h5.card-title= _('Free IP')
+            %div.row.card-text
+              %div.col-11
+                %div.progress
+                  %div.progress-bar{style: "width: #{(@ip_free * 100 / IPAddress(@section.network).size)}%"}
+                    = "#{(@ip_free * 100 / IPAddress(@section.network).size)}%"
 
-          %div.info-box-content
-            %span.info-box-text= _('Free IP')
-            %span.info-box-number= number_with_delimiter @ip_free
-
-            %div.progress
-              %div.progress-bar{style: "width: #{(@ip_free * 100 / IPAddress(@section.network).size)}%"}
-            %span.progress-description= "#{(@ip_free * 100 / IPAddress(@section.network).size)}%"
+              %p.col-1= number_with_delimiter @ip_free
 
   %div.col-6
     %canvas#donutChart{style: "height:230px; min-height:230px"}
@@ -127,7 +118,7 @@
                 %th= _('Description')
                 %th= _('State')
                 %th.w-25
-            %tbody
+            %tbody.align-baseline
               - @section.usages.order("inet(ip_used) ASC").each do |usage|
                 %tr
                   %td= usage.fqdn

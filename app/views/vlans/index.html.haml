@@ -9,7 +9,7 @@
         %th{style: "width: 20%"}= _('Name')
         %th{style: "width: 40%"}= _('Description')
         %th{style: "width: 30%"}
-    %tbody
+    %tbody.align-baseline
       - @vlans.each do |vlan|
         %tr
           %td= vlan.vid

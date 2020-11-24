@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 
 require.context('bootstrap-icons', true)
 
+import 'chart.js'
 import './dark_mode'
 
 /* VueJS imports */
