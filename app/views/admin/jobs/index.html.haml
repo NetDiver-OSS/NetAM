@@ -1,30 +1,25 @@
 - page_title _('Admin Jobs')
 
 
-%section
-  %div.card{class: dark_mode_class}
-    %div.card-header
-      %h3.card-title= _('Sections')
-    %div.card-body.p-0
-      %table.table.table-striped.projects
-        %thead
-          %tr
-            %th{style: "width: 45%"}= _('Name')
-            %th{style: "width: 30%"}= _('Job')
-            %th{style: "width: 25%"}
-        %tbody
-          - @admin_jobs.each do |admin_job|
-            %tr
-              %td
-                %a
-                  = admin_job.name
-                  - if admin_job.status == 'enabled'
-                    %span.badge.bg-success= _('Enabled')
-                  - else
-                    %span.badge.bg-danger= _('Disabled')
-                %br
-                %small= admin_job.cron
-              %td= admin_job.klass
-
-              %td.project-actions.text-right
-                = link_to (admin_job.status == 'enabled')? _('Disable') : _('Enable'), toggle_admin_job_path(admin_job.name), class: 'btn btn-secondary btn-sm', method: :post, data: { confirm: _('Are you sure?') }
+%table.table.table-striped
+  %thead
+    %tr
+      %th{style: "width: 20%"}= _('Name')
+      %th{style: "width: 20%"}= _('Status')
+      %th{style: "width: 20%"}= _('Cron')
+      %th{style: "width: 30%"}= _('Job')
+      %th{style: "width: 10%"}
+  %tbody
+    - @admin_jobs.each do |admin_job|
+      %tr
+        %td= admin_job.name
+        %td
+          - if admin_job.status == 'enabled'
+            %span.badge.bg-success= _('Enabled')
+          - else
+            %span.badge.bg-danger= _('Disabled')
+          %br
+        %td= admin_job.cron
+        %td= admin_job.klass
+        %td.text-right
+          = link_to (admin_job.status == 'enabled')? _('Disable') : _('Enable'), toggle_admin_job_path(admin_job.name), class: 'btn btn-secondary btn-sm', method: :post, data: { confirm: _('Are you sure?') }
