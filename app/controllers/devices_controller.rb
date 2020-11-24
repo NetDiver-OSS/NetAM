@@ -61,4 +61,3 @@ class DevicesController < ApplicationController
     params.require(:device).permit(:name, :h_size, :p_size, :device_type_id)
   end
 end
-
