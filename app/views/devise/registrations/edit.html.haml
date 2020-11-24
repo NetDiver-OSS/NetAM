@@ -7,23 +7,23 @@
     %div.row
       %div.col-6
         %div.input-group.mb-3
-          %span.input-group-text{class: dark_mode_class}= _('Email')
-          = f.text_field :email, autocomplete: "email", class: "form-control #{dark_mode_class}"
+          %span.input-group-text= _('Email')
+          = f.text_field :email, autocomplete: "email", class: 'form-control'
 
       %div.col-6
         %div.input-group.mb-3
-          %span.input-group-text{class: dark_mode_class}= _('Current Password')
-          = f.password_field :current_password, placeholder: '(we need your current password to confirm your changes)', autocomplete: "current-password", class: "form-control #{dark_mode_class}"
+          %span.input-group-text= _('Current Password')
+          = f.password_field :current_password, placeholder: '(we need your current password to confirm your changes)', autocomplete: "current-password", class: 'form-control'
 
       %div.col-12
         %div.input-group.mb-3
-          %span.input-group-text{class: dark_mode_class}= _('New Password')
-          = f.password_field :password, placeholder: "(leave blank if you don't want to change it) #{@minimum_password_length} characters minimum", autocomplete: "new-password", class: "form-control #{dark_mode_class}"
+          %span.input-group-text= _('New Password')
+          = f.password_field :password, placeholder: "(leave blank if you don't want to change it) #{@minimum_password_length} characters minimum", autocomplete: "new-password", class: 'form-control'
 
       %div.col-12
         %div.input-group.mb-3
-          %span.input-group-text{class: dark_mode_class}= _('Password Again')
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control #{dark_mode_class}"
+          %span.input-group-text= _('Password Again')
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
 
     %div.row
       %div.col-6

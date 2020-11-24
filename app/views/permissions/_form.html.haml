@@ -4,30 +4,30 @@
   %div.card-body
     - if permission.errors.any?
       - permission.errors.full_messages.each do |message|
-        %div.callout.callout-danger{class: dark_mode_class}
+        %div.callout.callout-danger
           %p= message
     %div.row
       %div.col-6
         %div.form-group
           = form.label :user_id
-          = form.select :user_id, @users, {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :user_id, @users, {}, {class: 'form-control'}
       %div.col-6
         %div.form-group
           = form.label :name
-          = form.text_field :name, class: "form-control #{dark_mode_class}"
+          = form.text_field :name, class: 'form-control'
     %div.row
       %div.col-4
         %div.form-group
           = form.label :subject_class
-          = form.text_field :subject_class, readonly: 'disabled', class: "form-control #{dark_mode_class}"
+          = form.text_field :subject_class, readonly: 'disabled', class: 'form-control'
       %div.col-4
         %div.form-group
           = form.label :subject_id
-          = form.text_field :subject_id, readonly: 'disabled', class: "form-control #{dark_mode_class}"
+          = form.text_field :subject_id, readonly: 'disabled', class: 'form-control'
       %div.col-4
         %div.form-group
           = form.label :action
-          = form.select :action, [:read, :manage], {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :action, [:read, :manage], {}, {class: 'form-control'}
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

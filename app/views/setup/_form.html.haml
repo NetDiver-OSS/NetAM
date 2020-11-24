@@ -1,23 +1,23 @@
 = form_with(url: setup_create_path, method: 'post', model: user, local: true) do |form|
   - if user.errors.any?
     - user.errors.full_messages.each do |message|
-      %div.callout.callout-danger{class: dark_mode_class}
+      %div.callout.callout-danger
         %p= message
   %div.row
     %div.col-12
       %div.input-group.mb-3
-        %span.input-group-text{class: dark_mode_class}= icon('envelope')
-        = form.text_field :email, placeholder: _('Email'), class: "form-control #{dark_mode_class}"
+        %span.input-group-text= icon('envelope')
+        = form.text_field :email, placeholder: _('Email'), class: 'form-control'
 
   %div.row
     %div.col-6
       %div.input-group.mb-3
-        %span.input-group-text{class: dark_mode_class}= icon('key')
-        = form.password_field :password, placeholder: _('Password'), class: "form-control #{dark_mode_class}"
+        %span.input-group-text= icon('key')
+        = form.password_field :password, placeholder: _('Password'), class: 'form-control'
 
     %div.col-6
       %div.input-group.mb-3
-        %span.input-group-text{class: dark_mode_class}= icon('key')
-        = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{dark_mode_class}"
+        %span.input-group-text= icon('key')
+        = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: 'form-control'
 
   = form.submit nil, class: 'btn btn-primary float-right'

@@ -3,14 +3,14 @@
 
 %div.row
   %div.col-md-3
-    %div.card{class: dark_mode_class}
+    %div.card
       %div.card-body.box-profile
         %h3.profile-username.text-center= @user.email
         %p.text-muted.text-center ##{@user.id}
 
   %div.col-md-9
     - %w[SectionsController].each do |controller|
-      %div.card{class: dark_mode_class}
+      %div.card
         %div.card-header
           %h3.card-title= controller.to_s
 

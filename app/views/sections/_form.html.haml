@@ -1,34 +1,34 @@
 = form_with(model: section, local: true) do |form|
   - if section.errors.any?
     - section.errors.full_messages.each do |message|
-      %div.alert.alert-danger{class: dark_mode_class}= message
+      %div.alert.alert-danger= message
 
   %div.row
     %div.col-6
       %div.input-group.mb-3
-        %span.input-group-text{class: dark_mode_class}= icon('pencil-square')
-        = form.text_field :name, placeholder: _('My home network'), class: "form-control #{dark_mode_class}"
+        %span.input-group-text= icon('pencil-square')
+        = form.text_field :name, placeholder: _('My home network'), class: 'form-control'
 
     %div.col-6
       %div.input-group.mb-3
-        %span.input-group-text{class: dark_mode_class}= icon('diagram-3')
-        = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{dark_mode_class}"
+        %span.input-group-text= icon('diagram-3')
+        = form.text_field :network, placeholder: '192.168.1.0/24', class: 'form-control'
 
     %div.col-6
       = form.label _('Schedule')
       %div.input-group.mb-3
-        %span.input-group-text{class: dark_mode_class}= icon('clock')
-        = form.text_field :schedule, placeholder: _('every 24 hours'), class: "form-control #{dark_mode_class}"
+        %span.input-group-text= icon('clock')
+        = form.text_field :schedule, placeholder: _('every 24 hours'), class: 'form-control'
 
     %div.col-6
       %div.form-group
         = form.label :vlan_id
-        = form.select :vlan_id, @vlan_list, {}, {class: "form-select #{dark_mode_class}"}
+        = form.select :vlan_id, @vlan_list, {}, {class: 'form-select'}
 
   %div.row
     %div.col-12
       %div.form-floating
-        = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", style: "height: 100px"
+        = form.text_area :description, placeholder: _('Description'), class: 'form-control', style: "height: 100px"
         = form.label :description
 
   %div.row

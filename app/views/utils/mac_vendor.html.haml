@@ -7,12 +7,12 @@
     %div.row.pt-3
       %div.col-6
         %div.input-group
-          %span.input-group-text{class: dark_mode_class}= _('Mac Address Prefix')
-          %input.form-control{class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.mac}
+          %span.input-group-text= _('Mac Address Prefix')
+          %input.form-control{disabled: true, type: 'text', value: mac_vendor.mac}
       %div.col-6
         %div.input-group
-          %span.input-group-text{class: dark_mode_class}= _('Vendor')
-          %input.form-control{class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.vendor}
+          %span.input-group-text= _('Vendor')
+          %input.form-control{disabled: true, type: 'text', value: mac_vendor.vendor}
 - else
   %div.row.pt-3
     %div.col-12

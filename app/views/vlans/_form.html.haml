@@ -1,23 +1,23 @@
 = form_with(model: vlan, local: true) do |form|
   - if vlan.errors.any?
     - vlan.errors.full_messages.each do |message|
-      %div.alert.alert-danger{class: dark_mode_class}= message
+      %div.alert.alert-danger= message
 
   %div.row
     %div.col-6
       %div.form-floating.mb-3
-        = form.number_field :vid, class: "form-control #{dark_mode_class}"
+        = form.number_field :vid, class: 'form-control'
         = form.label :vid
 
     %div.col-6
       %div.form-floating.mb-3
-        = form.text_field :name, class: "form-control #{dark_mode_class}"
+        = form.text_field :name, class: 'form-control'
         = form.label _('Name')
 
   %div.row
     %div.col-12
       %div.form-floating.mb-3
-        = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", style: "height: 100px"
+        = form.text_area :description, placeholder: _('Description'), class: 'form-control', style: "height: 100px"
         = form.label _('Description')
 
   = form.submit nil, class: 'btn btn-primary float-right'

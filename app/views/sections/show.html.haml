@@ -90,21 +90,21 @@
 %div.row.mt-4
   %div.card.p-0.w-100
     %div.card-header.py-0.border-bottom-0
-      %ul.nav.nav-tabs#custom-tabs-three-tab{class: dark_mode_class, role: 'tablist'}
+      %ul.nav.nav-tabs#custom-tabs-three-tab{role: 'tablist'}
         %li.nav-item
-          %a.nav-link.active#address-table-tab{class: dark_mode_class, role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}}= _('Address Table')
+          %a.nav-link.active#address-table-tab{role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}}= _('Address Table')
         - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
           %li.nav-item
-            %a.nav-link#address-matrix-tab{class: dark_mode_class, role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}}= _('Address Matrix')
+            %a.nav-link#address-matrix-tab{role: 'tab', href: '#address-matrix', data: {toggle: 'pill'}, aria: {controls: 'address-matrix', selected: 'true'}}= _('Address Matrix')
 
-    %div.card-body{class: dark_mode_class}
+    %div.card-body
       %div.tab-content#custom-tabs-three-tabContent
         - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
           %div.tab-pane.fade#address-matrix{role: "tabpanel", aria: {labelledby: "address-matrix-tab"}}
             %div.d-flex.flex-wrap.justify-content-between
             - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
               - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-              %a.btn.btn-flat.text-center{class: "#{dark_mode_class} text-#{ip_usage.nil? ? 'dark' : usage_color(ip_usage[2])}", style: 'padding: 0;width: 35px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
+              %a.btn.btn-flat.text-center{class: "text-#{ip_usage.nil? ? 'dark' : usage_color(ip_usage[2])}", style: 'padding: 0;width: 35px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
                 %small= NetAM::Network::Range.clean_display(address)
                 %br
                 = icon('circle-fill')
