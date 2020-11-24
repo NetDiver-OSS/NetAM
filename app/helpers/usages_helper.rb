@@ -4,15 +4,15 @@ module UsagesHelper
   def usage_color(usage)
     case usage
     when 'locked'
-      'blue'
+      'primary'
     when 'actived'
-      'green'
+      'success'
     when 'down'
-      'red'
+      'danger'
     when 'dhcp'
-      'purple'
+      'info'
     else
-      'gray'
+      'dark'
     end
   end
 

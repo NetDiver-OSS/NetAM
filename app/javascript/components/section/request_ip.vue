@@ -41,7 +41,10 @@ export default {
         })
         .finally(() => {
           this.loading = false
-          $('.modal').modal('show')
+
+          document.querySelectorAll('.modal').forEach(function (el) {
+            return new bootstrap.Modal(el, {}).show()
+          })
         })
     }
   },
