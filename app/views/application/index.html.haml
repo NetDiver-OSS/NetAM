@@ -1,71 +1,51 @@
 - page_title _('Homepage')
 
 %h3= _('NetAM control node')
-%div.row
+%div.row.mb-3
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
-      %span.info-box-icon.bg-info.elevation-1
-        %i.fas.fa-microchip
-
-      %div.info-box-content
-        %span.info-box-text= _('CPU')
-        %span.info-box-number= @master_node[:cpu].length
+    %div.card
+      %div.card-body.text-center
+        %h5.card-title= @master_node[:cpu].length
+        %p.card-text= _('CPU')
 
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
-      %span.info-box-icon.bg-danger.elevation-1
-        %i.fas.fa-memory
-
-      %div.info-box-content
-        %span.info-box-text= _('Memory')
-        %span.info-box-number #{number_to_human_size(@master_node[:memory].active_bytes)} / #{number_to_human_size(@master_node[:memory].total_bytes)}
-
-  %div.clearfix.hidden-md-up
+    %div.card
+      %div.card-body.text-center
+        %h5.card-title #{number_to_human_size(@master_node[:memory].active_bytes)} / #{number_to_human_size(@master_node[:memory].total_bytes)}
+        %p.card-text= _('Memory')
 
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
-      %span.info-box-icon.bg-success.elevation-1
-        %i.fas.fa-hourglass
-
-      %div.info-box-content
-        %span.info-box-text= _('Load Average')
-        %span.info-box-number #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
+    %div.card
+      %div.card-body.text-center
+        %h5.card-title #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
+        %p.card-text= _('Load Average')
 
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
-      %span.info-box-icon.bg-warning.elevation-1
-        %i.fas.fa-history
-
-      %div.info-box-content
-        %span.info-box-text= _('Boot time')
-        %span.info-box-number= distance_of_time_in_words(@master_node[:boot_time], Time.now)
+    %div.card
+      %div.card-body.text-center
+        %h5.card-title= distance_of_time_in_words(@master_node[:boot_time], Time.now)
+        %p.card-text= _('Boot time')
 
 %h3= _('NetAM agent node')
-%div.row
-  %div.col-12
-    %div.card{class: dark_mode_class}
-      %div.card-header
-        %h3.card-title= _('Workers')
+%table.table.table-striped
+  %thead
+    %tr
+      %th= _('Worker name')
+      %th= _('Hostname')
+      %th= _('Concurrency jobs')
+      %th= _('Busy jobs')
+      %th= _('Queues')
+      %th= _('Started from')
+      %th= _('Heartbeat')
 
-      %div.card-body.table-responsive
-        %table.table.table-striped.projects.datatable
-          %thead
-            %tr
-              %th= _('Worker name')
-              %th= _('Hostname')
-              %th= _('Concurrency jobs')
-              %th= _('Busy jobs')
-              %th= _('Queues')
-              %th= _('Started from')
-              %th= _('Heartbeat')
+  %tbody
+    - @sidekiq_processes.each do |process|
+      %tr
+        %td= process[:worker]
+        %td= process[:hostname]
+        %td= process[:concurrency]
+        %td= process[:busy]
+        %td= process[:queues].join(' | ')
+        %td= distance_of_time_in_words(process[:started_at], Time.now)
+        %td= distance_of_time_in_words(process[:beat], Time.now)
 
-          %tbody
-            - @sidekiq_processes.each do |process|
-              %tr
-                %td= process[:worker]
-                %td= process[:hostname]
-                %td= process[:concurrency]
-                %td= process[:busy]
-                %td= process[:queues].join(' | ')
-                %td= distance_of_time_in_words(process[:started_at], Time.now)
-                %td= distance_of_time_in_words(process[:beat], Time.now)

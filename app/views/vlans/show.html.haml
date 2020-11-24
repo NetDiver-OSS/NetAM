@@ -1,26 +1,21 @@
-- page_title "<strong>#{@vlan.name.upcase}</strong> - <small>#{@vlan.vid}</small>"
+- page_title @vlan.name.upcase, @vlan.vid
 
-- page_action({icon: '<i class="fas fa-edit"></i> Edit', path: edit_vlan_path(@vlan)}) if can? :edit, @vlan
+- page_action({icon: icon_with_text('pencil-square', _('Edit')), path: edit_vlan_path(@vlan)}) if can? :edit, @vlan
 
-%div.row
-  %div.col-12
-    %div.card{class: dark_mode_class}
-      %div.card-header
-        %div.card-title
-          %h3= _('Sections linked to %{name} (#%{vid})') % { name: @vlan.name.upcase, vid: @vlan.vid }
-      %div.card-body.p-0
-        %table.table.table-condensed
-          %thead
-            %tr
-              %th= _('Name')
-              %th= _('Network')
-              %th= _('Description')
-              %th{style: "width: 15%"}
-          %tbody
-            - @vlan.sections.each do |section|
-              %tr
-                %td= section.name
-                %td= section.network
-                %td= section.description
-                %td
-                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_path(section), class: 'btn btn-info btn-sm'
+%h3= _('Sections linked to %{name} (#%{vid})') % { name: @vlan.name.upcase, vid: @vlan.vid }
+
+%div.card-body.p-0
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= _('Name')
+        %th= _('Network')
+        %th= _('Description')
+        %th{style: "width: 15%"}
+    %tbody
+      - @vlan.sections.each do |section|
+        %tr
+          %td= section.name
+          %td= section.network
+          %td= section.description
+          %td= link_to icon_with_text('pencil-square', _('Edit')), edit_section_path(section), class: 'btn btn-secondary btn-sm'

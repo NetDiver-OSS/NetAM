@@ -1,18 +1,13 @@
-- page_title _('Admin Backups')
-- page_action({icon: '<i class="fas fa-save"></i>', path: admin_backups_path, method: 'post'})
+- page_title _('Backup list')
+- page_action({icon: icon('inbox'), path: admin_backups_path, method: 'post'})
 
-
-%div.card{class: dark_mode_class}
-  %div.card-header
-    %h3.card-title= _('Backup list')
-  %div.card-body.p-0
-    %table.table.table-condensed
-      %thead
-        %tr
-          %th= _('Name')
-          %th
-      %tbody
-        - @backups.each do |backup|
-          %tr
-            %td= backup
-            %td
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th= _('Name')
+      %th
+  %tbody
+    - @backups.each do |backup|
+      %tr
+        %td= backup
+        %td

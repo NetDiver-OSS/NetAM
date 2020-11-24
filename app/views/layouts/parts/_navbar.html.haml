@@ -1,52 +1,26 @@
-%nav{class: "main-header navbar navbar-expand-md #{dark_mode? ? 'navbar-dark' : 'navbar-light navbar-white' }"}
-  %div.container
-    %a.navbar-brand{href: root_path}
-      %span.brand-text.font-weight-light NetAM
-
-    %button.navbar-toggler.order-1{type: 'button', data: {toggle: 'collapse', target: '#navbarCollapse'}}
-      %span.navbar-toggler-icon
-
-    %div#navbarCollapse.collapse.navbar-collapse.order-3
-      %ul.navbar-nav
-        %li.nav-item= link_to _('Sections'), sections_path, class: 'nav-link'
-        %li.nav-item= link_to _('Vlans'), vlans_path, class: 'nav-link'
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}= _('Utils')
-          %ul.dropdown-menu.border-0.shadow{class: dark_mode_class}
-            %li= link_to fa_icon_with_text('fas fa-server', _('IP Calculator')), utils_calculator_path, class: "dropdown-item #{dark_mode_class}"
-            %li= link_to fa_icon_with_text('fas fa-server', _('MAC Vendor')), utils_mac_vendor_path, class: "dropdown-item #{dark_mode_class}"
-
-      %ul.order-1.order-md-3.navbar-nav.navbar-no-expand.ml-auto
-        - if user_signed_in? && current_user.admin?
-          %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}= _('Admin Center')
-            %ul.dropdown-menu.border-0.shadow{class: dark_mode_class}
-              %li= link_to fa_icon_with_text('fas fa-users', _('Users')), admin_users_path, class: "dropdown-item #{dark_mode_class}"
-              %li= link_to fa_icon_with_text('fas fa-save', _('Backups')), admin_backups_path, class: "dropdown-item #{dark_mode_class}"
-              %div.dropdown-divider
-              %li= link_to fa_icon_with_text('fas fa-tools', _('Jobs')), admin_jobs_path, class: "dropdown-item #{dark_mode_class}"
-              %li= link_to fa_icon_with_text('fas fa-server', _('Workers')), admin_workers_path, class: "dropdown-item #{dark_mode_class}"
-              %li= link_to fa_icon_with_text('fas fa-stream', _('Sidekiq')), admin_sidekiq_index_path, class: "dropdown-item #{dark_mode_class}"
-
-        %li.nav-item
-          = link_to '<i class="fas fa-moon"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' unless dark_mode?
-          = link_to '<i class="fas fa-sun"></i>'.html_safe, '', class: "nav-link", id: 'dark_mode' if dark_mode?
-
-        %li.nav-item.dropdown
-          %a.nav-link{href: "#", data: {toggle: "dropdown"}}
-            %i.flag-icon{class: "flag-icon-#{I18n.locale}"}
-          %div.dropdown-menu.dropdown-menu-right.p-0{class: dark_mode_class}
-            - NetAM::Translation::AVAILABLE_LOCALE.each do |code, name|
-              %a.dropdown-item{class: dark_mode_class, href: url_for({locale: code})}
-                %i.flag-icon.mr-2{class: "flag-icon-#{code}"}
-                = _(name)
-
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
-            %i.fas.fa-user
-          %ul.dropdown-menu.border-0.shadow{class: dark_mode_class}
-            %li
-              = link_to current_user&.email, edit_user_registration_path, class: "dropdown-item #{dark_mode_class}"
-              = link_to _('Two Factor Auth'), account_two_factor_auths_path, class: "dropdown-item #{dark_mode_class}"
-              %div.dropdown-divider
-              = link_to fa_icon_with_text('fas fa-sign-out-alt', _('Logout')), destroy_user_session_path, method: :delete, class: "dropdown-item #{dark_mode_class}"
+%nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+  %div.position-sticky.pt-3.h-100
+    %ul.nav.flex-column
+      %li.nav-item
+        = link_to icon_with_text('house', _('Dashboard')), root_path, class: 'nav-link'
+    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+      %span= _('NetAM')
+    %ul.nav.flex-column.mb-2
+      %li.nav-item
+        = link_to icon_with_text('app', _('Sections')), sections_path, class: 'nav-link'
+        = link_to icon_with_text('app', _('Vlans')), vlans_path, class: 'nav-link'
+    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+      %span= _('Utils')
+    %ul.nav.flex-column.mb-2
+      %li.nav-item
+        = link_to icon_with_text('calculator', _('IP Calculator')), utils_calculator_path, class: 'nav-link'
+        = link_to icon_with_text('shop-window', _('MAC Vendor')), utils_mac_vendor_path, class: 'nav-link'
+    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+      %span= _('Admin Center')
+    %ul.nav.flex-column.mb-2
+      %li.nav-item
+        = link_to icon_with_text('people', _('Users')), admin_users_path, class: 'nav-link'
+        = link_to icon_with_text('archive', _('Backups')), admin_backups_path, class: 'nav-link'
+        = link_to icon_with_text('wrench', _('Jobs')), admin_jobs_path, class: 'nav-link'
+        = link_to icon_with_text('tools', _('Workers')), admin_workers_path, class: 'nav-link'
+        = link_to icon_with_text('list-task', _('Sidekiq')), admin_sidekiq_index_path, class: 'nav-link'

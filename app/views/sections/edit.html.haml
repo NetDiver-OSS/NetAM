@@ -1,6 +1,5 @@
-%div.card{class: dark_mode_class}
-  %div.card-header
-    %h3.card-title= _('Editing Section')
-  = render 'form', section: @section
+- page_title _('Editing Section')
+
+= render 'form', section: @section
 
 = render 'permissions/rbac', permission: @section, controller: SectionsController

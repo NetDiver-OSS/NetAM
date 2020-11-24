@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def fa_icon(icon_class)
-    tag(:i, class: icon_class)
+  def icon(name, size = 16)
+    icon = <<~SVG
+      <svg class="bi" width="#{size}" height="#{size}" fill="currentColor">
+        <use xlink:href="#{asset_pack_url('media/bootstrap-icons/bootstrap-icons.svg')}##{name}"/>
+      </svg>
+    SVG
+
+    icon.html_safe # rubocop:disable Rails/OutputSafety
   end
 
-  def fa_icon_with_text(icon_class, text)
-    sanitize "#{fa_icon(icon_class)} #{text}"
+  def icon_with_text(name, text, size = 16)
+    "#{icon(name, size)} #{text}".html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def page_title(*titles)
@@ -24,7 +30,7 @@ module ApplicationHelper
     if actions.any?
       actions.each do |action|
         @page_action.push(
-          link_to(sanitize(action[:icon]), action[:path], class: 'btn btn-secondary btn-flat', method: action[:method] || 'get')
+          link_to(action[:icon].html_safe, action[:path], class: 'btn btn-sm btn-outline-secondary btn-flat', method: action[:method] || 'get') # rubocop:disable Rails/OutputSafety
         )
       end
     end
