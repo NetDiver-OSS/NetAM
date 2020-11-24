@@ -15,6 +15,7 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application', defer: true
     = javascript_pack_tag 'application'
+    = javascript_pack_tag 'bootstrap', defer: true
 
     %link{href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", rel:"stylesheet"}
 
@@ -28,28 +29,9 @@
         %div.row
           = render partial: 'layouts/parts/navbar'
           %main.col-md-9.ml-sm-auto.col-lg-10.px-md-4
+            = render partial: 'layouts/parts/toast', locals: {title: _('Notice'), message: notice, color: 'bg-success'} unless notice.nil?
+            = render partial: 'layouts/parts/toast', locals: {title: _('Error'), message: alert, color: 'bg-danger'} unless alert.nil?
+
             = render partial: 'layouts/parts/actions'
             = yield
             = render partial: 'layouts/parts/footer'
-
-      -#%div.wrapper
-      -#  %div.content-wrapper{class: dark_mode_class}
-      -#    %div.content-header
-      -#
-      -#      %div.container
-      -#        - unless notice.nil?
-      -#          %div.alert.alert-info.alert-dismissible
-      -#            %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-      -#            %h5
-      -#              %i.icon.fas.fa-info
-      -#              = _('Notice')
-      -#            = notice
-      -#
-      -#
-      -#        - unless alert.nil?
-      -#          %div.alert.alert-danger.alert-dismissible
-      -#            %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-      -#            %h5
-      -#              %i.icon.fas.fa-ban
-      -#              = _('Error')
-      -#            = alert
