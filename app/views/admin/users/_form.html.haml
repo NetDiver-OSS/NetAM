@@ -1,36 +1,27 @@
 = form_with(url: params[:id] ? admin_user_path : admin_users_path, model: user, local: true) do |form|
-  %div.card-body
-    - if user.errors.any?
-      - user.errors.full_messages.each do |message|
-        %div.callout.callout-danger{class: dark_mode_class}
-          %p= message
-    %div.row
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{class: dark_mode_class}
-              %i.fas.fa-envelope
-          = form.text_field :email, placeholder: _('Email'), class: "form-control #{dark_mode_class}"
-      %div.col-6
-        %div.form-group
-          %div.custom-control.custom-switch
-            = form.check_box :admin, class: "custom-control-input #{dark_mode_class}"
-            = form.label :admin, class: 'custom-control-label'
+  - if user.errors.any?
+    - user.errors.full_messages.each do |message|
+      %div.callout.callout-danger{class: dark_mode_class}
+        %p= message
+  %div.row
+    %div.col-6
+      %div.input-group.mb-3
+        %span.input-group-text{class: dark_mode_class}= icon('envelope')
+        = form.text_field :email, placeholder: _('Email'), class: "form-control #{dark_mode_class}"
+    %div.col-6
+      %div.form-check.form-switch.py-2
+        = form.check_box :admin, class: "form-check-input #{dark_mode_class}"
+        = form.label :admin, class: 'form-check-label'
 
-    %div.row
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{class: dark_mode_class}
-              %i.fas.fa-key
-          = form.password_field :password, placeholder: _('Password'), class: "form-control #{dark_mode_class}"
+  %div.row
+    %div.col-6
+      %div.input-group.mb-3
+        %span.input-group-text{class: dark_mode_class}= icon('key')
+        = form.password_field :password, placeholder: _('Password'), class: "form-control #{dark_mode_class}"
 
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{class: dark_mode_class}
-              %i.fas.fa-key
-          = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{dark_mode_class}"
+    %div.col-6
+      %div.input-group.mb-3
+        %span.input-group-text{class: dark_mode_class}= icon('key')
+        = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{dark_mode_class}"
 
-  %div.card-footer
-    = form.submit nil, class: 'btn btn-primary float-right'
+  = form.submit nil, class: 'btn btn-primary float-right'
