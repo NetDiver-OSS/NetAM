@@ -23,18 +23,16 @@
 %div.row
   - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
   %div{class: last_scan == 0 ? 'col-6' : 'col-4' }
-    %div.info-box.mt-4{class: dark_mode_class}
-      %div.info-box-content
-        %span.info-box-text
-          = _('Section VLAN')
-        %span.info-box-number
-          = '%{name} (VID %{vid})' % { name: @section.vlan_name, vid: @section.vlan_vid }
+    %div.card
+      %div.card-body.text-center
+        %h5.card-title= _('Section VLAN')
+        %p.card-text= '%{name} (VID %{vid})' % { name: @section.vlan_name, vid: @section.vlan_vid }
+
   %div{class: last_scan == 0 ? 'col-6' : 'col-4' }
-    %div.info-box.mt-4{class: dark_mode_class}
-      %div.info-box-content
-        %spam.info-box-text
-          = _('Affected worker')
-        %span.info-box-number
+    %div.card
+      %div.card-body.text-center
+        %h5.card-title= _('Affected worker')
+        %p.card-text
           - unless @section.worker.nil?
             = @section.worker_name
           - else
@@ -42,12 +40,10 @@
 
   - unless last_scan == 0
     %div.col-4
-      %div.info-box.mt-4{class: dark_mode_class}
-        %div.info-box-content
-          %span.info-box-text
-            = _('Last scan time')
-          %span.info-box-number
-            = Time.at(last_scan)
+      %div.card
+        %div.card-body.text-center
+          %h5.card-title= _('Last scan time')
+          %p.card-text= Time.at(last_scan)
 
   %div.col-6
     %div.row
@@ -101,8 +97,8 @@
     %canvas#donutChart{style: "height:230px; min-height:230px"}
 
 %div.row.mt-4
-  %div.card.card-info.card-outline.card-outline-tabs.w-100
-    %div.card-header.p-0.border-bottom-0
+  %div.card.p-0.w-100
+    %div.card-header.py-0.border-bottom-0
       %ul.nav.nav-tabs#custom-tabs-three-tab{class: dark_mode_class, role: 'tablist'}
         %li.nav-item
           %a.nav-link.active#address-table-tab{class: dark_mode_class, role: 'tab', href: '#address-table', data: {toggle: 'pill'}, aria: {controls: 'address-table', selected: 'false'}}= _('Address Table')
@@ -117,10 +113,10 @@
             %div.d-flex.flex-wrap.justify-content-between
             - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
               - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-              %a.btn.btn-flat.text-center{class: dark_mode_class, style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
+              %a.btn.btn-flat.text-center{class: "#{dark_mode_class} text-#{ip_usage.nil? ? 'dark' : usage_color(ip_usage[2])}", style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, {ip: address}) : edit_section_usage_path(@section, ip_usage[0])}
                 %small= NetAM::Network::Range.clean_display(address)
                 %br
-                %i{class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}"}
+                = icon('circle-fill')
 
         %div.tab-pane.fade.show.active#address-table{role: "tabpanel", aria: {labelledby: "address-table-tab"}}
           %table.table.table-bordered.table-striped
@@ -141,7 +137,7 @@
                   %td
                     %div.btn-group
                       = link_to icon_with_text('search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
-                      = link_to icon_with_text('pencil-square', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
+                      = link_to icon_with_text('pencil-square', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-secondary btn-sm', data: {:content => 'Edit'} if can? :edit, @section
                       = link_to icon_with_text('trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
 
 :javascript

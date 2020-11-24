@@ -11,6 +11,8 @@ module NetAM
       end
 
       0
+    rescue StandardError
+      0
     end
   end
 end
