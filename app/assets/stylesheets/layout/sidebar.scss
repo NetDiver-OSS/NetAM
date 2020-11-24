@@ -43,3 +43,10 @@
   font-size: .75rem;
   text-transform: uppercase;
 }
+
+.sidebar-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+}
