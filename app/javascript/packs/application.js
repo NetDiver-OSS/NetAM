@@ -6,24 +6,18 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
-import "bootstrap"
-
-import '@fortawesome/fontawesome-free/js/all.min'
-import 'admin-lte/dist/js/adminlte.min'
-import 'admin-lte/plugins/chart.js/Chart.min'
+require.context('bootstrap-icons', true)
 
 import './dark_mode'
-import './datatable'
-import './select'
 
 /* VueJS imports */
 import Vue from 'vue/dist/vue.esm'
 /* Components imports */
 import request_ip from '../components/section/request_ip'
 
-jQuery(document).ready(function() {
-  $('#totp_to_valid').modal('show')
-});
+// jQuery(document).ready(function() {
+//   $('#totp_to_valid').modal('show')
+// });
 
 Vue.component('btn-request-ip', request_ip)
 

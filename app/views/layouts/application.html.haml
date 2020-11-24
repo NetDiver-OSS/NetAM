@@ -13,8 +13,7 @@
     = csp_meta_tag
 
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag 'dark_mode', media: 'all' if dark_mode?
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', defer: true
     = javascript_pack_tag 'application'
 
     %link{href: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700", rel:"stylesheet"}
@@ -23,34 +22,34 @@
     - if devise_controller?
       = yield
     - else
-      %div.wrapper
-        = render partial: 'layouts/parts/navbar'
+      = render partial: 'layouts/parts/header'
 
-        %div.content-wrapper{class: dark_mode_class}
-          %div.content-header
-
-            %div.container
-              - unless notice.nil?
-                %div.alert.alert-info.alert-dismissible
-                  %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-                  %h5
-                    %i.icon.fas.fa-info
-                    = _('Notice')
-                  = notice
-
-
-              - unless alert.nil?
-                %div.alert.alert-danger.alert-dismissible
-                  %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
-                  %h5
-                    %i.icon.fas.fa-ban
-                    = _('Error')
-                  = alert
-
+      %div.container-fluid
+        %div.row
+          = render partial: 'layouts/parts/navbar'
+          %main.col-md-9.ml-sm-auto.col-lg-10.px-md-4
             = render partial: 'layouts/parts/actions'
+            = yield
+            = render partial: 'layouts/parts/footer'
 
-          %div.content
-            %div.container
-              = yield
-
-        = render partial: 'layouts/parts/footer'
+      -#%div.wrapper
+      -#  %div.content-wrapper{class: dark_mode_class}
+      -#    %div.content-header
+      -#
+      -#      %div.container
+      -#        - unless notice.nil?
+      -#          %div.alert.alert-info.alert-dismissible
+      -#            %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
+      -#            %h5
+      -#              %i.icon.fas.fa-info
+      -#              = _('Notice')
+      -#            = notice
+      -#
+      -#
+      -#        - unless alert.nil?
+      -#          %div.alert.alert-danger.alert-dismissible
+      -#            %button.close{type: "button", data: {dismiss: "alert"}, aria:{hidden: "true"}} ×
+      -#            %h5
+      -#              %i.icon.fas.fa-ban
+      -#              = _('Error')
+      -#            = alert

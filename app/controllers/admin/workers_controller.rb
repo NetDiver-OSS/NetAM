@@ -7,7 +7,7 @@ module Admin
 
     # GET /workers
     def index
-      @workers = Worker.all
+      @workers = Worker.accessible_by(current_ability).page params[:page]
     end
 
     # GET /workers/new

@@ -1,50 +1,45 @@
 = form_with(model: section, local: true) do |form|
-  %div.card-body
-    - if section.errors.any?
-      - section.errors.full_messages.each do |message|
-        %div.callout.callout-danger{class: dark_mode_class}
-          %p= message
-    %div.row
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{class: dark_mode_class}
-              %i.fas.fa-pencil-alt
-          = form.text_field :name, placeholder: _('My home network'), class: "form-control #{dark_mode_class}"
+  - if section.errors.any?
+    - section.errors.full_messages.each do |message|
+      %div.alert.alert-danger{class: dark_mode_class}= message
 
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{class: dark_mode_class}
-              %i.fas.fa-network-wired
-          = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{dark_mode_class}"
+  %div.row
+    %div.col-6
+      %div.input-group.mb-3
+        %span.input-group-text{class: dark_mode_class}= icon('pencil-square')
+        = form.text_field :name, placeholder: _('My home network'), class: "form-control #{dark_mode_class}"
 
-      %div.col-6
-        = form.label _('Schedule')
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{class: dark_mode_class}
-              %i.fas.fa-clock
-          = form.text_field :schedule, placeholder: _('every 24 hours'), class: "form-control #{dark_mode_class}"
+    %div.col-6
+      %div.input-group.mb-3
+        %span.input-group-text{class: dark_mode_class}= icon('diagram-3')
+        = form.text_field :network, placeholder: '192.168.1.0/24', class: "form-control #{dark_mode_class}"
 
-      %div.col-6
-        %div.form-group
-          = form.label :vlan_id
-          = form.select :vlan_id, @vlan_list, {}, {class: "form-control #{dark_mode_class}"}
+    %div.col-6
+      = form.label _('Schedule')
+      %div.input-group.mb-3
+        %span.input-group-text{class: dark_mode_class}= icon('clock')
+        = form.text_field :schedule, placeholder: _('every 24 hours'), class: "form-control #{dark_mode_class}"
 
-    %div.row
-      %div.col-12
-        %div.form-group
-          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
+    %div.col-6
+      %div.form-group
+        = form.label :vlan_id
+        = form.select :vlan_id, @vlan_list, {}, {class: "form-select #{dark_mode_class}"}
 
-    %div.row
-      %div.col-6
-        %div.form-check.mt-2
-          = form.check_box :notification_run_scan, checked: section.settings(:notification).on_run, class: 'form-check-input'
-          = form.label :notification_run_scan, _('Run notification on run_scan'), class: 'form-check-label'
+  %div.row
+    %div.col-12
+      %div.form-floating
+        = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", style: "height: 100px"
+        = form.label :description
 
-  %div.card-footer
-    %div.form-check.float-left.mt-2
-      = form.check_box :run_scan, checked: false, class: 'form-check-input'
-      = form.label :run_scan, _('Run scan after creation'), class: 'form-check-label'
-    = form.submit _('Apply'), class: 'btn btn-primary float-right'
+  %div.row
+    %div.col-6
+      %div.form-check.mt-2
+        = form.check_box :notification_run_scan, checked: section.settings(:notification).on_run, class: 'form-check-input'
+        = form.label :notification_run_scan, _('Run notification on run_scan'), class: 'form-check-label'
+
+    %div.col-6
+      %div.form-check.mt-2
+        = form.check_box :run_scan, checked: false, class: 'form-check-input'
+        = form.label :run_scan, _('Run scan after creation'), class: 'form-check-label'
+
+  = form.submit _('Apply'), class: 'btn btn-primary float-right'

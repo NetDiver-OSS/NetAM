@@ -1,9 +1,9 @@
 - page_title "<strong>#{@section.name.upcase}</strong> - <small>#{@section.network}</small>"
 
-- page_action({icon: fa_icon_with_text('fas fa-edit', _('Edit')), path: edit_section_path(@section)}) if can? :edit, @section
-- page_action({icon: fa_icon_with_text('fas fa-search', _('Scan')), path: section_scan_path(@section), method: 'post'}) if can? :scan, @section
-- page_action({icon: fa_icon_with_text('fas fa-download', _('Export')), path: section_export_path(@section.id), method: 'post'}) if can? :export, @section
-- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id)}) if can? :edit, @section
+- page_action({icon: icon_with_text('pencil-square', _('Edit')), path: edit_section_path(@section)}) if can? :edit, @section
+- page_action({icon: icon_with_text('search', _('Scan')), path: section_scan_path(@section), method: 'post'}) if can? :scan, @section
+- page_action({icon: icon_with_text('download', _('Export')), path: section_export_path(@section.id), method: 'post'}) if can? :export, @section
+- page_action({icon: icon('plus'), path: new_section_usage_path(@section.id)}) if can? :edit, @section
 
 
 - if params[:scan_id]
@@ -140,9 +140,9 @@
                   %td #{usage&.state.capitalize} #{usage_icon(usage&.state)}
                   %td
                     %div.btn-group
-                      = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
-                      = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
-                      = link_to fa_icon_with_text('fas fa-trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
+                      = link_to icon_with_text('search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
+                      = link_to icon_with_text('pencil-square', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, @section
+                      = link_to icon_with_text('trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
 
 :javascript
     var donutChartCanvas = document.getElementById('donutChart').getContext('2d')

@@ -1,0 +1,31 @@
+%header.navbar.navbar-expand.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+  = link_to 'NetAM', root_path, class: 'navbar-brand col-md-3 col-lg-2 mr-0 px-3'
+  %button.navbar-toggler.position-absolute.d-md-none.collapsed{type: 'button', data: { toggle: 'collapse', target: '#sidebarMenu' }, aria: { controls: 'sidebarMenu', expanded: 'false', label: 'Toggle navigation' }}
+    %span.navbar-toggler-icon
+  = text_field_tag :s, nil, class: 'form-control form-control-dark w-100', placeholder: 'Search...'
+
+  %ul.navbar-nav.flex-row.px-1
+    %li.nav-item.dropdown.px-1
+      %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
+        %i.flag-icon{class: "flag-icon-#{I18n.locale}"}
+      %ul.dropdown-menu.dropdown-menu-right{class: dark_mode_class}
+        - NetAM::Translation::AVAILABLE_LOCALE.each do |code, name|
+          %li
+            %a.dropdown-item{class: dark_mode_class, href: url_for({locale: code})}
+              %i.flag-icon.mr-2{class: "flag-icon-#{code}"}
+              = _(name)
+
+    %li.nav-item.text-nowrap.px-1
+      = link_to icon('moon'), '', class: "nav-link", id: 'dark_mode' unless dark_mode?
+      = link_to icon('sun'), '', class: "nav-link", id: 'dark_mode' if dark_mode?
+
+    %li.nav-item.dropdown.px-1
+      %a.nav-link.dropdown-toggle{href: "#", data: {toggle: "dropdown"}}
+        = icon('person-fill')
+      %ul.dropdown-menu.dropdown-menu-right.border-0.shadow{class: dark_mode_class}
+        %li
+          = link_to current_user&.email, edit_user_registration_path, class: "dropdown-item #{dark_mode_class}"
+          = link_to _('Two Factor Auth'), account_two_factor_auths_path, class: "dropdown-item #{dark_mode_class}"
+
+    %li.nav-item.text-nowrap.px-1
+      = link_to icon('arrow-bar-right'), destroy_user_session_path, method: :delete, class: 'nav-link'

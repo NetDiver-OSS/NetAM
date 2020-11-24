@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     btnClass() {
-      return this.error ? 'btn-danger' : 'btn-secondary'
+      return this.error ? 'btn-outline-danger' : 'btn-outline-secondary'
     },
     usageEditURL() {
       return '/sections/' + this.section_id + '/usages/' + this.message.id + '/edit'
@@ -71,11 +71,11 @@ export default {
 
 <template>
   <fragment>
-    <button v-if="!loading" class="btn btn-flat" :class="btnClass" @click="requestIP">
+    <button v-if="!loading" class="btn btn-sm btn-flat" :class="btnClass" @click="requestIP">
       <i class="fas fa-ethernet"></i> {{ fields.get_unused_ip }}
     </button>
 
-    <button v-if="loading" class="btn btn-flat" :class="btnClass" disabled>
+    <button v-if="loading" class="btn btn-sm btn-flat" :class="btnClass" disabled>
       <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
       {{ fields.loading }}...
     </button>
