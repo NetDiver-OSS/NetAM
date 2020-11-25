@@ -1,0 +1,44 @@
+@import 'colors';
+
+html.dark {
+  body {
+    background-color: map-get($gray, 800);
+    color: map-get($gray, 100);
+  }
+
+  .sidebar {
+    background-color: map-get($gray, 900) !important;
+
+    .nav-link {
+      color: map-get($gray, 100) !important;
+    }
+  }
+
+  .card {
+    background-color: map-get($gray, 700) !important;
+  }
+
+  .table,
+  .table-striped > tbody > tr:nth-of-type(odd),
+  .dropdown-item {
+    color: map-get($gray, 100);
+  }
+
+  .form-control,
+  .input-group-text,
+  .dropdown-menu,
+  .form-select {
+    color: map-get($gray, 100);
+    background-color: map-get($gray, 600);
+    border-color: map-get($gray, 700);
+  }
+
+  .dropdown-item:hover {
+    background-color: map-get($gray, 700);
+  }
+
+  .progress {
+    background-color: map-get($gray, 700);
+  }
+
+}

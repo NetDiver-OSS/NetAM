@@ -23,7 +23,7 @@ class SectionsController < ApplicationController
 
     @chart_label = "[\"#{_('Locked')}\", \"#{_('Activated')}\", \"#{_('Down')}\", \"#{_('Free IP')}\", \"#{_('DHCP')}\"]".html_safe # rubocop:disable Rails/OutputSafety
     @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
-    @chart_color = '["#0d6efd", "#198754", "#dc3545", "#212529", "#0dcaf0"]'.html_safe
+    @chart_color = '["#3B82F6", "#22C55E", "#EF4444", "#27272A", "#A855F7"]'.html_safe
   end
 
   # POST /sections/1/scan
