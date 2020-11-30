@@ -2,8 +2,8 @@
 
 class SectionsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_permissions, only: [:edit]
-  before_action :set_vlan, only: %i[new create edit]
+  before_action :set_permissions, only: %i[edit update]
+  before_action :set_vlan, only: %i[new create edit update]
 
   # GET /sections
   def index

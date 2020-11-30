@@ -1,0 +1,4 @@
+---
+type: fixed
+title: Allow before actions on update action for sections
+merge_request: 166
