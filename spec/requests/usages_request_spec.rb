@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Usage', type: :request do
   let(:admin) { create :user, :admin }
   let(:section) { create :section }
+  let(:device) { create :device }
 
   let(:valid_attributes) do
     {
@@ -53,6 +54,11 @@ RSpec.describe 'Usage', type: :request do
 
       it 'redirects to the created usage' do
         post section_usages_url(section_id: section.id), params: { usage: valid_attributes }
+        expect(response).to redirect_to(section_url(section.id))
+      end
+
+      it 'is defined as device' do
+        post section_usages_url(section_id: section.id), params: { usage: valid_attributes.merge!({ define_device: device }) }
         expect(response).to redirect_to(section_url(section.id))
       end
     end
