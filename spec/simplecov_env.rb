@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'simplecov-cobertura'
 require 'active_support/core_ext/numeric/time'
 
 module SimpleCovEnv
@@ -11,15 +10,16 @@ module SimpleCovEnv
     configure_profile
     configure_formatter
 
-    SimpleCov.start
+    SimpleCov.start do
+      enable_coverage :branch
+    end
   end
 
   def configure_formatter
     SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new(
       [
         SimpleCov::Formatter::SimpleFormatter,
-        SimpleCov::Formatter::HTMLFormatter,
-        SimpleCov::Formatter::CoberturaFormatter
+        SimpleCov::Formatter::HTMLFormatter
       ]
     )
   end
