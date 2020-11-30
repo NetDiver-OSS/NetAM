@@ -15,7 +15,7 @@
     "vue-loader": "15.9.5",
     "vue-template-compiler": "2.6.12"
   },
-  "version": "1.5.0",
+  "version": "1.5.1",
   "devDependencies": {
     "webpack-dev-server": "3.11.0"
   }
