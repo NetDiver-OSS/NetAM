@@ -7,7 +7,7 @@ ruby '2.7.2'
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
-gem 'puma', '5.0.4'
+gem 'puma', '5.1.0'
 gem 'rails', '= 6.0.3.4'
 
 # Database
