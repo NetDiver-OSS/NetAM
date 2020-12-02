@@ -6,7 +6,7 @@ class DevicesController < ApplicationController
 
   # GET /devices
   def index
-    @devices = Device.all
+    @devices = Device.accessible_by(current_ability)
   end
 
   # GET /devices/1
@@ -29,7 +29,7 @@ class DevicesController < ApplicationController
     @device = Device.new(device_params)
 
     if @device.save
-      redirect_to devices_path, notice: 'Device was successfully created.'
+      redirect_to devices_path, notice: _('Device was successfully created.')
     else
       render :new
     end
@@ -38,7 +38,7 @@ class DevicesController < ApplicationController
   # PATCH/PUT /devices/1
   def update
     if @device.update(device_params)
-      redirect_to devices_path, notice: 'Device was successfully updated.'
+      redirect_to devices_path, notice: _('Device was successfully updated.')
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class DevicesController < ApplicationController
   # DELETE /devices/1
   def destroy
     @device.destroy
-    redirect_to devices_url, notice: 'Device was successfully destroyed.'
+    redirect_to devices_url, notice: _('Device was successfully destroyed.')
   end
 
   private
@@ -58,6 +58,6 @@ class DevicesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def device_params
-    params.require(:device).permit(:name, :h_size, :p_size, :device_type_id)
+    params.require(:device).permit(:name, :rack_height, :depth_type, :device_type_id)
   end
 end

@@ -1,7 +1,7 @@
-= form_with(model: @device_type, local: true) do |form|
+= form_with(model: device_type, local: true) do |form|
   %div.card-body
-    - if @device_type.errors.any?
-      - @device_type.errors.full_messages.each do |message|
+    - if device_type.errors.any?
+      - device_type.errors.full_messages.each do |message|
         %div.callout.callout-danger{class: dark_mode_class}
           %p= message
     %div.row
