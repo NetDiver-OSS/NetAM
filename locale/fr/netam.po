@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-12-04 17:01\n"
+"PO-Revision-Date: 2020-12-04 18:45\n"
 
 msgid "Action"
 msgstr "Action"
@@ -527,16 +527,16 @@ msgid "Worker \"default\" is not listed here. This worker manages all NetAM inte
 msgstr "L'Agent \"default\" n'est pas listé ici. Cet Agent gère toutes les tâches internes de NetAM comme sauvegarde."
 
 msgid "Worker name"
-msgstr "Nom Agent"
+msgstr "Nom de L'agent"
 
 msgid "Worker was successfully created."
-msgstr "Agent a bien été créé."
+msgstr "L'agent a bien été créé."
 
 msgid "Worker was successfully destroyed."
-msgstr "Agent a bien été supprimée."
+msgstr "L'agent a bien été supprimée."
 
 msgid "Worker was successfully updated."
-msgstr "Agent a bien été mis à jour."
+msgstr "L'agent a bien été mis à jour."
 
 msgid "Workers"
 msgstr "Agents"
