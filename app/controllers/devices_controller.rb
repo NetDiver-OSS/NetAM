@@ -2,6 +2,7 @@
 
 class DevicesController < ApplicationController
   load_and_authorize_resource
+  before_action :set_permissions, only: %i[edit update]
   before_action :set_device_types, only: %i[create update new edit]
 
   # GET /devices
@@ -29,6 +30,15 @@ class DevicesController < ApplicationController
     @device = Device.new(device_params)
 
     if @device.save
+      Permission.create!(
+        {
+          user_id: current_user.id,
+          subject_class: 'Device',
+          subject_id: @device.id,
+          action: 'manage'
+        }
+      )
+
       redirect_to devices_path, notice: _('Device was successfully created.')
     else
       render :new
@@ -51,6 +61,10 @@ class DevicesController < ApplicationController
   end
 
   private
+
+  def set_permissions
+    @permissions = Permission.where(subject_class: 'Device', subject_id: @device.id)
+  end
 
   def set_device_types
     @device_types = DeviceType.all.pluck(:name, :id)

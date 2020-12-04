@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class DeviceTypesController < ApplicationController
+  load_resource :device
   load_and_authorize_resource
+  before_action :set_permissions, only: %i[edit update]
 
   # GET /device_types
   def index
@@ -28,6 +30,15 @@ class DeviceTypesController < ApplicationController
     @device_type = DeviceType.new(device_type_params)
 
     if @device_type.save
+      Permission.create!(
+        {
+          user_id: current_user.id,
+          subject_class: 'DeviceType',
+          subject_id: @device_type.id,
+          action: 'manage'
+        }
+      )
+
       redirect_to device_types_path, notice: _('Device type was successfully created.')
     else
       render :new
@@ -50,6 +61,10 @@ class DeviceTypesController < ApplicationController
   end
 
   private
+
+  def set_permissions
+    @permissions = Permission.where(subject_class: 'DeviceType', subject_id: @device_type.id)
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_device_type

@@ -28,14 +28,14 @@ module API
         end
         post '', root: 'device' do
           device = Device.create!(declared_params(include_missing: false))
-          #Permission.create!(
-          #  {
-          #    user_id: current_user.id,
-          #    subject_class: 'Vlan',
-          #    subject_id: vlan.id,
-          #    action: 'manage'
-          #  }
-          #)
+          Permission.create!(
+            {
+              user_id: current_user.id,
+              subject_class: 'Device',
+              subject_id: @device.id,
+              action: 'manage'
+            }
+          )
           device
         end
 
