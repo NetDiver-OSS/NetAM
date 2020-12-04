@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-12-04 16:52\n"
+"PO-Revision-Date: 2020-12-04 17:01\n"
 
 msgid "Action"
 msgstr "Action"
@@ -95,7 +95,7 @@ msgid "Close"
 msgstr "Fermer"
 
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 msgid "Concurrency jobs"
 msgstr "Tâches Concurrentes"
@@ -107,7 +107,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "Define as device"
-msgstr ""
+msgstr "Définir comme équipement"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -116,37 +116,37 @@ msgid "Description"
 msgstr "Description"
 
 msgid "Device type was not destroyed."
-msgstr ""
+msgstr "Le type d'équipement n'a pas été supprimé."
 
 msgid "Device type was successfully created."
-msgstr ""
+msgstr "Le type d'équipement a bien été créé."
 
 msgid "Device type was successfully destroyed."
-msgstr ""
+msgstr "Le type d'équipement a bien été supprimé."
 
 msgid "Device type was successfully updated."
-msgstr ""
+msgstr "Le type d'équipement a bien été mis à jour."
 
 msgid "Device was successfully created."
-msgstr ""
+msgstr "L'équipement a bien été créé."
 
 msgid "Device was successfully destroyed."
-msgstr ""
+msgstr "L'équipement a bien été supprimé."
 
 msgid "Device was successfully updated."
-msgstr ""
+msgstr "L'équipement a bien été mis à jour."
 
 msgid "Devices"
-msgstr ""
+msgstr "Équipements"
 
 msgid "Devices Type"
-msgstr ""
+msgstr "Type d'équipements"
 
 msgid "Devices list"
-msgstr ""
+msgstr "Liste d'équipements"
 
 msgid "Devices type list"
-msgstr ""
+msgstr "Liste de types d'équipement"
 
 msgid "Disable"
 msgstr "Désactiver"
@@ -167,10 +167,10 @@ msgid "Edit Address details"
 msgstr "Modifier les détails de l'adresse"
 
 msgid "Edit device"
-msgstr ""
+msgstr "Éditer l'équipement"
 
 msgid "Edit device type"
-msgstr ""
+msgstr "Éditer le type d'équipement"
 
 msgid "Editing Permission"
 msgstr "Éditer les permissions"
@@ -338,10 +338,10 @@ msgid "New Worker"
 msgstr "Nouvel Agent"
 
 msgid "New device"
-msgstr ""
+msgstr "Nouvel équipement"
 
 msgid "New devices type"
-msgstr ""
+msgstr "Nouveau type d'équipement"
 
 msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
@@ -353,7 +353,7 @@ msgid "No worker assigned"
 msgstr "Aucun agent assigné"
 
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgid "Notice"
 msgstr "Remarque"
@@ -470,7 +470,7 @@ msgid "Two Factor Authentication Manager"
 msgstr "Gestionnaire d'authentification à deux facteurs"
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Unknown state"
 msgstr "État inconnu"
