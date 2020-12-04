@@ -1,0 +1,4 @@
+---
+type: fixed
+title: update cron job queue when worker configuration is updated
+merge_request: 170

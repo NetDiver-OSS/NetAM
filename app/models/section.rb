@@ -18,13 +18,14 @@ class Section < ApplicationRecord
     s.key :notification, defaults: { on_run: false }
   end
 
-  after_save do |section|
+  after_commit do |section|
     schedule_name = "section:#{section.id}"
     Sidekiq::Cron::Job.destroy(schedule_name)
 
     if section.schedule.present?
       Sidekiq::Cron::Job.new(
         name: schedule_name,
+        queue: section.worker.nil? ? 'default' : "node:#{section.worker.uuid}",
         class: 'ScanNetworkWithPingWorker',
         cron: Fugit.parse(section.schedule).to_cron_s,
         args: [{ id: section.id, network: section.network }]
