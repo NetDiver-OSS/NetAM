@@ -2,6 +2,7 @@
 import * as axios from "axios";
 import Cookies from 'js-cookie';
 import { Fragment } from 'vue-fragment'
+import Icon from "../icon";
 
 const AXIOS_HEADERS = {
   headers: {
@@ -11,7 +12,7 @@ const AXIOS_HEADERS = {
 
 export default {
   name: "request_ip",
-  components: { Fragment },
+  components: {Icon, Fragment },
   props: {
     section_id: {
       required: true,
@@ -75,7 +76,7 @@ export default {
 <template>
   <fragment>
     <button v-if="!loading" class="btn btn-sm btn-flat" :class="btnClass" @click="requestIP">
-      <i class="fas fa-ethernet"></i> {{ fields.get_unused_ip }}
+      <icon name="hdd-network" size="16" /> {{ fields.get_unused_ip }}
     </button>
 
     <button v-if="loading" class="btn btn-sm btn-flat" :class="btnClass" disabled>

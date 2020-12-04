@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
   <div class="callout callout-danger">
     <h5>
-      <i class="fas fa-exclamation"></i>
+      <%= icon('exclamation') %>
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)

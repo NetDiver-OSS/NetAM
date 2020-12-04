@@ -6,7 +6,7 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
-require.context('bootstrap-icons', true)
+require.context('bootstrap-icons/', false)
 
 import 'chart.js'
 import './dark_mode'

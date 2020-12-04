@@ -2,16 +2,16 @@
   %div.card-body
     - if device_type.errors.any?
       - device_type.errors.full_messages.each do |message|
-        %div.callout.callout-danger{class: dark_mode_class}
+        %div.callout.callout-danger
           %p= message
     %div.row
       %div.col-6
         %div.form-group
           = form.label _('Name')
-          = form.text_field :name, class: "form-control #{dark_mode_class}"
+          = form.text_field :name, class: "form-control"
       %div.col-4
         %div.form-group
           = form.label _('Color')
-          = form.color_field :color, class: "form-control #{dark_mode_class}"
+          = form.color_field :color, class: "form-control"
       %div.col-2.mb-3.align-self-end
         = form.submit _('Apply'), class: 'btn btn-primary'

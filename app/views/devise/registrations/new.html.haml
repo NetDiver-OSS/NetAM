@@ -1,0 +1,31 @@
+%div.d-flex.align-items-center.vh-100
+  %div.col-8.offset-2
+    %div.card
+      %div.card-body
+        %p.fs-2 Sign in to start your session
+
+        - if alert
+          %div.alert.alert-danger
+            %h5 Errors:
+            = alert
+
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          %div.row
+            %div.col-9
+              %div.input-group.mb-3
+                %span.input-group-text= icon('envelope')
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address', class: "form-control"
+
+              %div.input-group.mb-3
+                %span.input-group-text= icon('key')
+                = f.password_field :password, autocomplete: 'current-password', placeholder: _('New Password'), class: "form-control"
+
+              %div.input-group.mb-3
+                %span.input-group-text= icon('key')
+                = f.password_field :password_confirmation, placeholder: _('Confirm new Password'), class: 'form-control'
+
+            %div.col-3.d-grid
+              = f.submit "Sign up", class: "btn btn-primary"
+              = render 'devise/shared/omniauth'
+              = render 'devise/shared/links'
+

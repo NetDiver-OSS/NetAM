@@ -1,0 +1,22 @@
+%div.d-flex.align-items-center.vh-100
+  %div.col-8.offset-2
+    %div.card
+      %div.card-body
+        %p.fs-2 You forgot your password?
+
+        - if alert
+          %div.alert.alert-danger
+            %h5 Errors:
+            = alert
+
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post}) do |f|
+          %div.row
+            %div.col-7
+              %div.input-group.mb-3
+                %span.input-group-text= icon('envelope')
+                = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address', class: "form-control"
+
+            %div.col-5.d-grid
+              = f.submit "Send me reset password instructions", class: "btn btn-primary"
+
+              = render 'devise/shared/links'

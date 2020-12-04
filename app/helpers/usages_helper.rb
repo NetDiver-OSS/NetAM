@@ -19,15 +19,15 @@ module UsagesHelper
   def usage_icon(usage)
     case usage
     when 'locked'
-      '<i class="fas fa-lock"></i>'.html_safe
+      icon('lock')
     when 'actived'
-      '<i class="fas fa-check-circle"></i>'.html_safe
+      icon('check2')
     when 'down'
-      '<i class="fas fa-times-circle"></i>'.html_safe
+      icon('x')
     when 'dhcp'
-      '<i class="fas fa-random"></i>'.html_safe
+      icon('shuffle')
     else
-      '<i class="fas fa-question-circle"></i>'.html_safe
+      icon('question')
     end
   end
 end
