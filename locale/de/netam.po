@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-21 21:05\n"
+"PO-Revision-Date: 2020-12-04 16:52\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -94,6 +94,9 @@ msgstr "Datei auswählen"
 msgid "Close"
 msgstr "Schließen"
 
+msgid "Color"
+msgstr ""
+
 msgid "Concurrency jobs"
 msgstr "Parallelitätsjobs"
 
@@ -103,11 +106,47 @@ msgstr "In Verbindung gebracht"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Define as device"
+msgstr ""
+
 msgid "Delete"
 msgstr "Löschen"
 
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Device type was not destroyed."
+msgstr ""
+
+msgid "Device type was successfully created."
+msgstr ""
+
+msgid "Device type was successfully destroyed."
+msgstr ""
+
+msgid "Device type was successfully updated."
+msgstr ""
+
+msgid "Device was successfully created."
+msgstr ""
+
+msgid "Device was successfully destroyed."
+msgstr ""
+
+msgid "Device was successfully updated."
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Devices Type"
+msgstr ""
+
+msgid "Devices list"
+msgstr ""
+
+msgid "Devices type list"
+msgstr ""
 
 msgid "Disable"
 msgstr "Deaktivieren"
@@ -126,6 +165,12 @@ msgstr "Bearbeiten"
 
 msgid "Edit Address details"
 msgstr "Adressdetails bearbeiten"
+
+msgid "Edit device"
+msgstr ""
+
+msgid "Edit device type"
+msgstr ""
 
 msgid "Editing Permission"
 msgstr "Berechtigung bearbeiten"
@@ -292,6 +337,12 @@ msgstr "Neuer Vlan"
 msgid "New Worker"
 msgstr "Neuer Agent"
 
+msgid "New device"
+msgstr ""
+
+msgid "New devices type"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr "Keine freie Adresse IP verfügbar !"
 
@@ -300,6 +351,9 @@ msgstr "Kein passender Anbieter"
 
 msgid "No worker assigned"
 msgstr "Kein Agent zugewiesen"
+
+msgid "None"
+msgstr ""
 
 msgid "Notice"
 msgstr "Beachten"
@@ -414,6 +468,9 @@ msgstr "Zwei-Faktor-Authentifizierung"
 
 msgid "Two Factor Authentication Manager"
 msgstr "Zwei-Faktor-Authentifizierungs-Manager"
+
+msgid "Type"
+msgstr ""
 
 msgid "Unknown state"
 msgstr "Unbekannter Status"
