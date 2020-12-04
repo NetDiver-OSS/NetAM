@@ -6,6 +6,8 @@ module API
       mount API::V1::Sections
       mount API::V1::Vlans
       mount API::V1::Backups
+      mount API::V1::Devices
+      mount API::V1::DeviceTypes
 
       add_swagger_documentation(
         api_version: 'v1',
