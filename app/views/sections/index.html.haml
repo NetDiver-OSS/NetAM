@@ -24,7 +24,7 @@
               = link_to icon_with_text('folder', _('View')), section, class: 'btn btn-primary btn-sm'
               = link_to icon_with_text('search', _('Scan')), section_scan_path(section), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, section
 
-              = link_to icon_with_text('pencil-square', _('Edit')), edit_section_path(section), class: 'btn btn-info btn-sm' if can? :edit, section
+              = link_to icon_with_text('pencil-square', _('Edit')), edit_section_path(section), class: 'btn btn-secondary btn-sm' if can? :edit, section
               = link_to icon_with_text('trash', _('Delete')), section, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')} if can? :destroy, section
 
   = paginate @sections
