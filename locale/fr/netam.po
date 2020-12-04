@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-20 15:30\n"
+"PO-Revision-Date: 2020-12-04 16:52\n"
 
 msgid "Action"
 msgstr "Action"
@@ -94,6 +94,9 @@ msgstr "Choisir un fichier"
 msgid "Close"
 msgstr "Fermer"
 
+msgid "Color"
+msgstr ""
+
 msgid "Concurrency jobs"
 msgstr "Tâches Concurrentes"
 
@@ -103,11 +106,47 @@ msgstr "Connecté"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Define as device"
+msgstr ""
+
 msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Description"
 msgstr "Description"
+
+msgid "Device type was not destroyed."
+msgstr ""
+
+msgid "Device type was successfully created."
+msgstr ""
+
+msgid "Device type was successfully destroyed."
+msgstr ""
+
+msgid "Device type was successfully updated."
+msgstr ""
+
+msgid "Device was successfully created."
+msgstr ""
+
+msgid "Device was successfully destroyed."
+msgstr ""
+
+msgid "Device was successfully updated."
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Devices Type"
+msgstr ""
+
+msgid "Devices list"
+msgstr ""
+
+msgid "Devices type list"
+msgstr ""
 
 msgid "Disable"
 msgstr "Désactiver"
@@ -126,6 +165,12 @@ msgstr "Editer"
 
 msgid "Edit Address details"
 msgstr "Modifier les détails de l'adresse"
+
+msgid "Edit device"
+msgstr ""
+
+msgid "Edit device type"
+msgstr ""
 
 msgid "Editing Permission"
 msgstr "Éditer les permissions"
@@ -292,6 +337,12 @@ msgstr "Nouveau Vlan"
 msgid "New Worker"
 msgstr "Nouvel Agent"
 
+msgid "New device"
+msgstr ""
+
+msgid "New devices type"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
 
@@ -300,6 +351,9 @@ msgstr "Pas de constructeur correspondant"
 
 msgid "No worker assigned"
 msgstr "Aucun agent assigné"
+
+msgid "None"
+msgstr ""
 
 msgid "Notice"
 msgstr "Remarque"
@@ -414,6 +468,9 @@ msgstr "Authentification à deux facteurs"
 
 msgid "Two Factor Authentication Manager"
 msgstr "Gestionnaire d'authentification à deux facteurs"
+
+msgid "Type"
+msgstr ""
 
 msgid "Unknown state"
 msgstr "État inconnu"
