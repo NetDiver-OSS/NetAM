@@ -1,0 +1,33 @@
+name: Crowdin
+
+on:
+  push:
+    branches:
+      - l10n_dev
+
+jobs:
+  gettext:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: '2.7.2'
+          bundler-cache: true
+      - name: Run tests
+        run: |
+          bundle exec rake gettext:po_to_json
+        env:
+          RAILS_ENV: test
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "feat: Update gettext for javascript"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
