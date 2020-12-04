@@ -1,0 +1,16 @@
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/hamlit-2.13.0/ext/hamlit
+/opt/hostedtoolcache/Ruby/2.7.2/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.2/x64/lib/ruby/2.7.0 -r ./siteconf20201113-3267-5lkdgb.rb extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/hamlit-2.13.0/ext/hamlit
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/hamlit-2.13.0/ext/hamlit
+make "DESTDIR="
+compiling hamlit.c
+compiling hescape.c
+linking shared-object hamlit/hamlit.so
+
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/hamlit-2.13.0/ext/hamlit
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 hamlit.so ./.gem.20201113-3267-l2geak/hamlit

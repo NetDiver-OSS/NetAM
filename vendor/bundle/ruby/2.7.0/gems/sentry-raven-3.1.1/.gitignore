@@ -1,0 +1,16 @@
+coverage
+pkg
+tmp
+ruby/
+log/
+.bundle
+*.gem
+gemfiles/*.lock
+Gemfile.lock
+.coveralls.yml
+.ruby-version
+.ruby-gemset
+.idea
+*.rdb
+
+examples/**/node_modules

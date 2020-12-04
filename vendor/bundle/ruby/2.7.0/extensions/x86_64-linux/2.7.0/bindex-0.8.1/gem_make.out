@@ -1,0 +1,15 @@
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/opt/hostedtoolcache/Ruby/2.7.2/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/2.7.2/x64/lib/ruby/2.7.0 -r ./siteconf20201113-3267-v8qbcs.rb extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/runner/work/NetAM/NetAM/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20201113-3267-97avze/skiptrace/internal
