@@ -38,8 +38,8 @@ Rails.application.routes.draw do
     end
 
     resources :vlans
-    resources :devices
-    resources :device_types
+    resources :devices, except: [:show]
+    resources :device_types, except: [:show]
 
     namespace :account do
       resources :two_factor_auths, only: %i[index create] do

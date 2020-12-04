@@ -56,8 +56,11 @@ class DeviceTypesController < ApplicationController
 
   # DELETE /device_types/1
   def destroy
-    @device_type.destroy
-    redirect_to device_types_url, notice: _('Device type was successfully destroyed.')
+    if @device_type.destroy
+      redirect_to device_types_url, notice: _('Device type was successfully destroyed.')
+    else
+      redirect_to device_types_url, alert: _('Device type was not destroyed.')
+    end
   end
 
   private

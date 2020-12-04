@@ -115,6 +115,9 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+msgid "Device type was not destroyed."
+msgstr ""
+
 msgid "Device type was successfully created."
 msgstr ""
 
