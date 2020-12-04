@@ -89,6 +89,8 @@ Rails/HttpPositionalArguments:
     - 'spec/requests/api/v1/backups_request_spec.rb'
     - 'spec/requests/api/v1/sections_request_spec.rb'
     - 'spec/requests/api/v1/vlans_request_spec.rb'
+    - 'spec/requests/api/v1/devices_request_spec.rb'
+    - 'spec/requests/api/v1/device_types_request_spec.rb'
 
 # Offense count: 1
 # Configuration parameters: Include.

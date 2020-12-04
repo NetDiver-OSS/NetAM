@@ -30,7 +30,7 @@ module API
             {
               user_id: current_user.id,
               subject_class: 'DeviceType',
-              subject_id: @device_type.id,
+              subject_id: device_type.id,
               action: 'manage'
             }
           )
