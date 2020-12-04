@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-21 21:05\n"
+"PO-Revision-Date: 2020-12-04 16:52\n"
 
 msgid "Action"
 msgstr "Acción"
@@ -94,6 +94,9 @@ msgstr "Elegir archivo"
 msgid "Close"
 msgstr "Cerrar"
 
+msgid "Color"
+msgstr ""
+
 msgid "Concurrency jobs"
 msgstr "Trabajos de concurrencia"
 
@@ -103,11 +106,47 @@ msgstr "Conectado"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Define as device"
+msgstr ""
+
 msgid "Delete"
 msgstr "Eliminar"
 
 msgid "Description"
 msgstr "Descripción"
+
+msgid "Device type was not destroyed."
+msgstr ""
+
+msgid "Device type was successfully created."
+msgstr ""
+
+msgid "Device type was successfully destroyed."
+msgstr ""
+
+msgid "Device type was successfully updated."
+msgstr ""
+
+msgid "Device was successfully created."
+msgstr ""
+
+msgid "Device was successfully destroyed."
+msgstr ""
+
+msgid "Device was successfully updated."
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Devices Type"
+msgstr ""
+
+msgid "Devices list"
+msgstr ""
+
+msgid "Devices type list"
+msgstr ""
 
 msgid "Disable"
 msgstr "Desactivar"
@@ -126,6 +165,12 @@ msgstr "Editar"
 
 msgid "Edit Address details"
 msgstr "Editar detalles de la dirección"
+
+msgid "Edit device"
+msgstr ""
+
+msgid "Edit device type"
+msgstr ""
 
 msgid "Editing Permission"
 msgstr "Editando permiso"
@@ -292,6 +337,12 @@ msgstr "Nuevo Vlan"
 msgid "New Worker"
 msgstr "Nuevo agente"
 
+msgid "New device"
+msgstr ""
+
+msgid "New devices type"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr "¡No hay dirección IP disponible!"
 
@@ -300,6 +351,9 @@ msgstr "No hay proveedor coincidente"
 
 msgid "No worker assigned"
 msgstr "Ningún agente asignado"
+
+msgid "None"
+msgstr ""
 
 msgid "Notice"
 msgstr "Aviso"
@@ -414,6 +468,9 @@ msgstr "Autenticación de dos factores"
 
 msgid "Two Factor Authentication Manager"
 msgstr "Administrador de Autenticación de Dos Factores"
+
+msgid "Type"
+msgstr ""
 
 msgid "Unknown state"
 msgstr "Estado desconocido"
