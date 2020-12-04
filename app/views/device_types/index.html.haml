@@ -17,4 +17,5 @@
         %td
           %div.btn-group
             = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_device_type_path(device_type), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, device_type
-            = link_to fa_icon_with_text('fas fa-trash', _('Delete')), device_type_path(device_type), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, device_type
+            - unless device_type.name == 'None'
+              = link_to fa_icon_with_text('fas fa-trash', _('Delete')), device_type_path(device_type), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, device_type
