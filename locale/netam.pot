@@ -94,6 +94,9 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+msgid "Color"
+msgstr ""
+
 msgid "Concurrency jobs"
 msgstr ""
 
@@ -103,10 +106,46 @@ msgstr ""
 msgid "DHCP"
 msgstr ""
 
+msgid "Define as device"
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Device type was not destroyed."
+msgstr ""
+
+msgid "Device type was successfully created."
+msgstr ""
+
+msgid "Device type was successfully destroyed."
+msgstr ""
+
+msgid "Device type was successfully updated."
+msgstr ""
+
+msgid "Device was successfully created."
+msgstr ""
+
+msgid "Device was successfully destroyed."
+msgstr ""
+
+msgid "Device was successfully updated."
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Devices Type"
+msgstr ""
+
+msgid "Devices list"
+msgstr ""
+
+msgid "Devices type list"
 msgstr ""
 
 msgid "Disable"
@@ -125,6 +164,12 @@ msgid "Edit"
 msgstr ""
 
 msgid "Edit Address details"
+msgstr ""
+
+msgid "Edit device"
+msgstr ""
+
+msgid "Edit device type"
 msgstr ""
 
 msgid "Editing Permission"
@@ -292,6 +337,12 @@ msgstr ""
 msgid "New Worker"
 msgstr ""
 
+msgid "New device"
+msgstr ""
+
+msgid "New devices type"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr ""
 
@@ -299,6 +350,9 @@ msgid "No matching vendor"
 msgstr ""
 
 msgid "No worker assigned"
+msgstr ""
+
+msgid "None"
 msgstr ""
 
 msgid "Notice"
@@ -413,6 +467,9 @@ msgid "Two Factor Authentication"
 msgstr ""
 
 msgid "Two Factor Authentication Manager"
+msgstr ""
+
+msgid "Type"
 msgstr ""
 
 msgid "Unknown state"

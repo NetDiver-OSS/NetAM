@@ -10,6 +10,8 @@ class Ability
 
     can %i[index new create], Section
     can %i[index new create], Vlan
+    can %i[index new create], Device
+    can %i[index new create], DeviceType
 
     user.permissions.each do |permission|
       next if permission.subject_id.nil?

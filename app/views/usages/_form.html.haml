@@ -26,4 +26,7 @@
           = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
 
   %div.card-footer
+    %div.form-check.float-left.mt-2
+      = form.check_box :define_device, checked: usage.device_id.present?, class: 'form-check-input'
+      = form.label :define_device, _('Define as device'), class: 'form-check-label'
     = form.submit _('Apply'), class: 'btn btn-primary float-right'

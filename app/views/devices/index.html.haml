@@ -1,0 +1,27 @@
+- page_title _('Devices list')
+- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_device_path})
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= _('Name')
+      %th= _('Type')
+      %th.w-25
+  %tbody
+    - @devices.each do |device|
+      %tr
+        %td= device.name
+        %td
+          - if device.device_type.present?
+            - if device.device_type.color.present?
+              %div{ :style => "background-color: #{device.device_type.color}"}
+                %p.text-center= device.device_type.name
+            - else
+              %p.text-center= device.device_type.name
+          - else
+            %p.text-center= _('None')
+
+        %td
+          %div.btn-group
+            = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_device_path(device), class: 'btn btn-info btn-sm', data: {:content => 'Edit'} if can? :edit, device
+            = link_to fa_icon_with_text('fas fa-trash', _('Release')), device_path(device), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, device

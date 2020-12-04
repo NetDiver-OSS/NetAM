@@ -1,0 +1,4 @@
+- page_title _('Edit device')
+
+= render 'form', device: @device
+= render 'permissions/rbac', permission: @device, controller: DevicesController

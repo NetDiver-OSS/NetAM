@@ -8,10 +8,13 @@ class Usage < ApplicationRecord
   enum state: { locked: 0, actived: 1, down: 2, dhcp: 3 }
 
   belongs_to :section
+  belongs_to :device, optional: true, dependent: :destroy
 
   validates :section, presence: true
   validates :state, :ip_used, :identifier, presence: true
   validates :ip_used, uniqueness: { scope: :section, message: 'should happen once per section' }
+
+  attr_accessor :define_device
 
   def init
     self.identifier = "#{id}_#{ip_used}"
