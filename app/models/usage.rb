@@ -12,7 +12,7 @@ class Usage < ApplicationRecord
   validates :ip_used, uniqueness: { scope: :section, message: "should happen once per section" }
 
   def init
-    self.identifier = "#{id}_#{ip_used}"
+    self.identifier = "#{section_id}_#{ip_used}"
   end
 
   # @param [int] section_id
