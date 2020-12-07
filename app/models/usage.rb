@@ -17,7 +17,7 @@ class Usage < ApplicationRecord
   attr_accessor :define_device
 
   def init
-    self.identifier = "#{id}_#{ip_used}"
+    self.identifier = "#{section_id}_#{ip_used}"
   end
 
   # @param [int] section_id
