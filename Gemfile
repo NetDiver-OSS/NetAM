@@ -61,7 +61,7 @@ gem 'sentry-raven', '~> 3.0'
 
 # Logs management
 gem 'amazing_print', '= 1.2.2'
-gem 'rails_semantic_logger', '4.4.5'
+gem 'rails_semantic_logger', '4.4.6'
 
 gem 'logstash-logger', '= 0.26.1'
 gem 'net_tcp_client', '= 2.2'
