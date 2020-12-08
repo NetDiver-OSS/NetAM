@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-21 21:06\n"
+"PO-Revision-Date: 2020-12-08 09:31\n"
 
 msgid "Action"
 msgstr "Azione"
@@ -94,6 +94,9 @@ msgstr "Scegli file"
 msgid "Close"
 msgstr "Chiudere"
 
+msgid "Color"
+msgstr "Colore"
+
 msgid "Concurrency jobs"
 msgstr "Processi di concorrenza"
 
@@ -103,11 +106,47 @@ msgstr "Collegato"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Define as device"
+msgstr "Definisci come dispositivo"
+
 msgid "Delete"
 msgstr "Elimina"
 
 msgid "Description"
 msgstr "Descrizione"
+
+msgid "Device type was not destroyed."
+msgstr "Tipo di dispositivo non distrutto."
+
+msgid "Device type was successfully created."
+msgstr "Tipo di dispositivo creato correttamente."
+
+msgid "Device type was successfully destroyed."
+msgstr "Tipo di dispositivo distrutto con successo."
+
+msgid "Device type was successfully updated."
+msgstr "Tipo di dispositivo aggiornato correttamente."
+
+msgid "Device was successfully created."
+msgstr "Il dispositivo è stato creato correttamente."
+
+msgid "Device was successfully destroyed."
+msgstr "Dispositivo distrutto con successo."
+
+msgid "Device was successfully updated."
+msgstr "Il dispositivo è stato aggiornato correttamente."
+
+msgid "Devices"
+msgstr "Dispositivo"
+
+msgid "Devices Type"
+msgstr "Tipo di dispositivo"
+
+msgid "Devices list"
+msgstr "Elenco dei dispositivi per"
+
+msgid "Devices type list"
+msgstr "Elenco tipi di dispositivi"
 
 msgid "Disable"
 msgstr "Disabilita"
@@ -126,6 +165,12 @@ msgstr "Modifica"
 
 msgid "Edit Address details"
 msgstr "Modifica i dettagli dell'indirizzo"
+
+msgid "Edit device"
+msgstr "Modifica dispositivo"
+
+msgid "Edit device type"
+msgstr "Modifica tipo dispositivo"
 
 msgid "Editing Permission"
 msgstr "Modifica Del Permesso"
@@ -292,6 +337,12 @@ msgstr "Nuovo Vlan"
 msgid "New Worker"
 msgstr "Nuovo agente"
 
+msgid "New device"
+msgstr "Nuovo dispositivo"
+
+msgid "New devices type"
+msgstr "Tipo di nuovo dispositivo"
+
 msgid "No free address IP available !"
 msgstr "Nessun indirizzo IP disponibile!"
 
@@ -300,6 +351,9 @@ msgstr "Nessun venditore corrispondente"
 
 msgid "No worker assigned"
 msgstr "Nessun agente assegnato"
+
+msgid "None"
+msgstr "Nessuno"
 
 msgid "Notice"
 msgstr "Nota"
@@ -414,6 +468,9 @@ msgstr "Autenticazione A Due Fattori"
 
 msgid "Two Factor Authentication Manager"
 msgstr "Gestore Autenticazione A Due Fattori"
+
+msgid "Type"
+msgstr "Tipo"
 
 msgid "Unknown state"
 msgstr "Stato sconosciuto"
