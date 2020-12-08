@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.CROWDIN_SECRET }}
       - name: Set up Ruby
         uses: ruby/setup-ruby@master
         with:
@@ -22,13 +24,14 @@ jobs:
         env:
           RAILS_ENV: test
       - name: Commit files
+        continue-on-error: true
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "contact@sdeu.fr"
+          git config --local user.name "NetAM-Bot"
           git add app/assets/javascripts/locale
           git commit -am "feat: Update gettext for javascript"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.CROWDIN_SECRET }}
           branch: ${{ github.ref }}
