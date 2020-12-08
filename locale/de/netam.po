@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-21 21:05\n"
+"PO-Revision-Date: 2020-12-08 09:31\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -94,6 +94,9 @@ msgstr "Datei auswählen"
 msgid "Close"
 msgstr "Schließen"
 
+msgid "Color"
+msgstr "Farbe"
+
 msgid "Concurrency jobs"
 msgstr "Parallelitätsjobs"
 
@@ -103,11 +106,47 @@ msgstr "In Verbindung gebracht"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Define as device"
+msgstr "Als Gerät definieren"
+
 msgid "Delete"
 msgstr "Löschen"
 
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Device type was not destroyed."
+msgstr "Gerätetyp wurde nicht zerstört."
+
+msgid "Device type was successfully created."
+msgstr "Gerätetyp wurde erfolgreich erstellt."
+
+msgid "Device type was successfully destroyed."
+msgstr "Gerätetyp wurde erfolgreich gelöscht."
+
+msgid "Device type was successfully updated."
+msgstr "Gerätetyp wurde erfolgreich aktualisiert."
+
+msgid "Device was successfully created."
+msgstr "Gerät wurde erfolgreich erstellt."
+
+msgid "Device was successfully destroyed."
+msgstr "Gerät wurde erfolgreich zerstört."
+
+msgid "Device was successfully updated."
+msgstr "Gerät wurde erfolgreich aktualisiert."
+
+msgid "Devices"
+msgstr "Geräte"
+
+msgid "Devices Type"
+msgstr "Gerätetyp"
+
+msgid "Devices list"
+msgstr "Geräteliste"
+
+msgid "Devices type list"
+msgstr "Gerätetypenliste"
 
 msgid "Disable"
 msgstr "Deaktivieren"
@@ -126,6 +165,12 @@ msgstr "Bearbeiten"
 
 msgid "Edit Address details"
 msgstr "Adressdetails bearbeiten"
+
+msgid "Edit device"
+msgstr "Gerät bearbeiten"
+
+msgid "Edit device type"
+msgstr "Endgerät editieren"
 
 msgid "Editing Permission"
 msgstr "Berechtigung bearbeiten"
@@ -292,6 +337,12 @@ msgstr "Neuer Vlan"
 msgid "New Worker"
 msgstr "Neuer Agent"
 
+msgid "New device"
+msgstr "Neues Gerät"
+
+msgid "New devices type"
+msgstr "Neues Endgerät"
+
 msgid "No free address IP available !"
 msgstr "Keine freie Adresse IP verfügbar !"
 
@@ -300,6 +351,9 @@ msgstr "Kein passender Anbieter"
 
 msgid "No worker assigned"
 msgstr "Kein Agent zugewiesen"
+
+msgid "None"
+msgstr "Versteckt"
 
 msgid "Notice"
 msgstr "Beachten"
@@ -414,6 +468,9 @@ msgstr "Zwei-Faktor-Authentifizierung"
 
 msgid "Two Factor Authentication Manager"
 msgstr "Zwei-Faktor-Authentifizierungs-Manager"
+
+msgid "Type"
+msgstr "Typ"
 
 msgid "Unknown state"
 msgstr "Unbekannter Status"
