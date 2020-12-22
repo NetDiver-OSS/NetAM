@@ -8,7 +8,7 @@
     "@rails/ujs": "6.1.0",
     "@rails/webpacker": "5.2.1",
     "admin-lte": "3.0.5",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "js-cookie": "2.2.1",
     "vue": "2.6.12",
     "vue-fragment": "1.5.1",
