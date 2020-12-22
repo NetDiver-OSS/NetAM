@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :vlans
     resources :devices, except: [:show]
     resources :device_types, except: [:show]
+    resources :cabinets
 
     namespace :account do
       resources :two_factor_auths, only: %i[index create] do

@@ -85,6 +85,18 @@ msgstr ""
 msgid "CPU"
 msgstr ""
 
+msgid "Cabinet was successfully created."
+msgstr ""
+
+msgid "Cabinet was successfully destroyed."
+msgstr ""
+
+msgid "Cabinet was successfully updated."
+msgstr ""
+
+msgid "Cabinets"
+msgstr ""
+
 msgid "Calculate"
 msgstr ""
 
@@ -113,6 +125,9 @@ msgid "Delete"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Destroy"
 msgstr ""
 
 msgid "Device type was not destroyed."
@@ -164,6 +179,9 @@ msgid "Edit"
 msgstr ""
 
 msgid "Edit Address details"
+msgstr ""
+
+msgid "Edit cabinet"
 msgstr ""
 
 msgid "Edit device"
@@ -274,6 +292,9 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
+msgid "Location"
+msgstr ""
+
 msgid "Locked"
 msgstr ""
 
@@ -335,6 +356,9 @@ msgid "New Vlan"
 msgstr ""
 
 msgid "New Worker"
+msgstr ""
+
+msgid "New cabinet"
 msgstr ""
 
 msgid "New device"
@@ -442,6 +466,9 @@ msgstr ""
 msgid "Setup"
 msgstr ""
 
+msgid "Show"
+msgstr ""
+
 msgid "Sidekiq"
 msgstr ""
 
@@ -470,6 +497,12 @@ msgid "Two Factor Authentication Manager"
 msgstr ""
 
 msgid "Type"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unit height"
 msgstr ""
 
 msgid "Unknown state"
