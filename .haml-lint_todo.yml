@@ -50,11 +50,6 @@ linters:
       - "app/views/vlans/show.html.haml"
 
   # Offense count: 1
-  UnnecessaryStringOutput:
-    exclude:
-      - "app/views/sections/show.html.haml"
-
-  # Offense count: 1
   ViewLength:
     exclude:
       - "app/views/sections/show.html.haml"
