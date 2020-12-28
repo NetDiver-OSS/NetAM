@@ -19,6 +19,20 @@
 - reduce technical debt #133
 
 
+## [1.5.2] - 2020-12-07
+
+### Fixed (1 change)
+
+- use correct field to generate usage identifier #183
+
+
+## [1.5.1] - 2020-11-30
+
+### Fixed (1 change)
+
+- Allow before actions on update action for sections #166
+
+
 ## [1.5.0] - 2020-11-13
 
 ### Added (2 changes)
