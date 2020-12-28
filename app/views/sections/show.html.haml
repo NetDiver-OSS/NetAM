@@ -99,7 +99,7 @@
             %span.progress-description #{@ip_free * 100 / IPAddress(@section.network).size}%
 
   %div.col-6
-    %canvas#donutChart{ style: 'height:230px; min-height:230px' }
+    %canvas#donut-chart{ style: 'height:230px; min-height:230px' }
 
 %div.row.mt-4
   %div.card.card-info.card-outline.card-outline-tabs.w-100
@@ -112,7 +112,7 @@
             %a.nav-link#address-matrix-tab{ class: dark_mode_class, role: 'tab', href: '#address-matrix', data: { toggle: 'pill' }, aria: { controls: 'address-matrix', selected: 'true' } }= _('Address Matrix')
 
     %div.card-body{ class: dark_mode_class }
-      %div.tab-content#custom-tabs-three-tabContent
+      %div.tab-content
         - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
           %div.tab-pane.fade#address-matrix{ role: 'tabpanel', aria: { labelledby: 'address-matrix-tab' } }
             %div.d-flex.flex-wrap.justify-content-between
@@ -146,7 +146,7 @@
                       = link_to fa_icon_with_text('fas fa-trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
 
 :javascript
-    var donutChartCanvas = document.getElementById('donutChart').getContext('2d')
+    var donutChartCanvas = document.getElementById('donut-chart').getContext('2d')
     var donutData = {
       labels: #{@chart_label},
       datasets: [

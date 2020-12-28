@@ -3,10 +3,10 @@
     %a.navbar-brand{ href: root_path }
       %span.brand-text.font-weight-light NetAM
 
-    %button.navbar-toggler.order-1{ type: 'button', data: { toggle: 'collapse', target: '#navbarCollapse' } }
+    %button.navbar-toggler.order-1{ type: 'button', data: { toggle: 'collapse', target: '#navbar-collapse' } }
       %span.navbar-toggler-icon
 
-    %div.collapse.navbar-collapse.order-3#navbarCollapse
+    %div.collapse.navbar-collapse.order-3#navbar-collapse
       %ul.navbar-nav
         %li.nav-item= link_to _('Sections'), sections_path, class: 'nav-link'
         %li.nav-item= link_to _('Vlans'), vlans_path, class: 'nav-link'
