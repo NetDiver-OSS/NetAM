@@ -1,6 +1,6 @@
 %div.row
   %div.col-12
-    %div.card{class: dark_mode_class}
+    %div.card{ class: dark_mode_class }
       %div.card-header
         %h3.card-title= format(_('Permission for %{name}'), { name: permission.name })
 
@@ -22,7 +22,7 @@
                     - else
                       %span.badge.bg-danger= _('NO')
 
-    %div.card{class: dark_mode_class}
+    %div.card{ class: dark_mode_class }
       %div.card-header
         %div.row
           %div.col-6.card-title
@@ -33,12 +33,12 @@
         %table.table.table-condensed
           %thead
             %tr
-              %th{style: 'width: 10px'} #
+              %th{ style: 'width: 10px' } #
               %th= _('User Email')
               %th= _('Subject')
               %th= _('Subject ID')
               %th= _('Action')
-              %th{style: 'width: 15%'}
+              %th{ style: 'width: 15%' }
           %tbody
             - @permissions.each do |permission|
               %tr

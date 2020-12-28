@@ -2,16 +2,16 @@
 
 
 %section
-  %div.card{class: dark_mode_class}
+  %div.card{ class: dark_mode_class }
     %div.card-header
       %h3.card-title= _('Sections')
     %div.card-body.p-0
       %table.table.table-striped.projects
         %thead
           %tr
-            %th{style: 'width: 45%'}= _('Name')
-            %th{style: 'width: 30%'}= _('Job')
-            %th{style: 'width: 25%'}
+            %th{ style: 'width: 45%' }= _('Name')
+            %th{ style: 'width: 30%' }= _('Job')
+            %th{ style: 'width: 25%' }
         %tbody
           - @admin_jobs.each do |admin_job|
             %tr

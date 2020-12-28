@@ -1,9 +1,9 @@
-%div.container{'data-behavior': 'vue'}
+%div.container{ 'data-behavior': 'vue' }
   %div.row.mb-2
     %div.col-6
       %h1= sanitize page_title
     %div.col-6
       %div.float-right
         - if controller_name == 'sections' && action_name == 'show' && can?(:edit, @section)
-          %btn-request-ip{':section_id': params[:id]}
+          %btn-request-ip{ ':section_id': params[:id] }
         = sanitize page_action

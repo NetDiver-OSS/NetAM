@@ -4,7 +4,7 @@
 %div.row.d-flex.align-items-stretch
   - @users.each do |user|
     %div.col-12.col-sm-6.col-md-4.d-flex.align-items-stretch
-      %div{class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100"}
+      %div{ class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100" }
         %div.card-header.text-muted.border-bottom-0 ##{user.id}
         %div.card-body.pt-0
           %div.row

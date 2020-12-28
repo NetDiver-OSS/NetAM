@@ -14,7 +14,7 @@
         %td
           - if device.device_type.present?
             - if device.device_type.color.present?
-              %div{ style: "background-color: #{device.device_type.color}"}
+              %div{ style: "background-color: #{device.device_type.color}" }
                 %p.text-center= device.device_type.name
             - else
               %p.text-center= device.device_type.name

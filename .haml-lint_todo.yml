@@ -12,10 +12,6 @@ linters:
   ImplicitDiv:
     enabled: false
 
-  # Offense count: 311
-  SpaceInsideHashAttributes:
-    enabled: false
-
   # Offense count: 4
   IdNames:
     exclude:
@@ -53,8 +49,3 @@ linters:
   ViewLength:
     exclude:
       - "app/views/sections/show.html.haml"
-
-  # Offense count: 2
-  SpaceBeforeScript:
-    exclude:
-      - "app/views/setup/finished.html.haml"

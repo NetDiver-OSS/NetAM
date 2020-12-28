@@ -4,7 +4,7 @@
 
 %div.row
   %div.col-12
-    %div.card{class: dark_mode_class}
+    %div.card{ class: dark_mode_class }
       %div.card-header
         %div.card-title
           %h3= format(_('Sections linked to %{name} (#%{vid})'), { name: @vlan.name.upcase, vid: @vlan.vid })
@@ -15,7 +15,7 @@
               %th= _('Name')
               %th= _('Network')
               %th= _('Description')
-              %th{style: 'width: 15%'}
+              %th{ style: 'width: 15%' }
           %tbody
             - @vlan.sections.each do |section|
               %tr
