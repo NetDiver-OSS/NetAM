@@ -1,0 +1,4 @@
+---
+type: fixed
+title: launch identifier calculation before_validation instead of after_initialize
+merge_request: 208
