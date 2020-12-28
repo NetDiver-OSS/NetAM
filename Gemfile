@@ -15,7 +15,7 @@ gem 'ledermann-rails-settings', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 
 # HTML
-gem 'hamlit', '~> 2.11'
+gem 'hamlit', '~> 2.13'
 gem 'rqrcode', '~> 1.1', '>= 1.1.2'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.2.0'
