@@ -49,11 +49,6 @@ linters:
       - "app/views/vlans/index.html.haml"
       - "app/views/vlans/show.html.haml"
 
-  # Offense count: 3
-  ConsecutiveSilentScripts:
-    exclude:
-      - "app/views/sections/show.html.haml"
-
   # Offense count: 1
   UnnecessaryStringOutput:
     exclude:
