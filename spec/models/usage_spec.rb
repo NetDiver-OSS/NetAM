@@ -3,11 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Usage, type: :model do
-  subject(:usage) { described_class.new(section_id: 1, ip_used: '10.0.0.42') }
+  subject(:usage) { described_class.new(section_id: section.id, ip_used: '10.0.0.42') }
 
-  it 'should be valid' do
-    expect(usage).not_to be_valid
-  end
+  let(:section) { create :section }
 
   it 'section_id should be present' do
     usage.section_id = nil
@@ -20,6 +18,7 @@ RSpec.describe Usage, type: :model do
   end
 
   it 'identifier should be valid' do
-    expect(usage.identifier).to eq('1_10.0.0.42')
+    usage.save!
+    expect(usage.identifier).to eq("#{section.id}_10.0.0.42")
   end
 end
