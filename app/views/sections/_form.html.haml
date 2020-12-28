@@ -30,12 +30,12 @@
       %div.col-6
         %div.form-group
           = form.label :vlan_id
-          = form.select :vlan_id, @vlan_list, {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :vlan_id, @vlan_list, {}, { class: "form-control #{dark_mode_class}" }
 
     %div.row
       %div.col-12
         %div.form-group
-          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
+          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: '5'
 
     %div.row
       %div.col-6

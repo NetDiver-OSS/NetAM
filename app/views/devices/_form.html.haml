@@ -12,6 +12,6 @@
       %div.col-4
         %div.form-group
           = form.label _('Type')
-          = form.select :device_type_id, @device_types, {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :device_type_id, @device_types, {}, { class: "form-control #{dark_mode_class}" }
       %div.col-2.mb-3.align-self-end
         = form.submit _('Apply'), class: 'btn btn-primary'

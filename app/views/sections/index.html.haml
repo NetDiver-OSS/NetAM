@@ -1,13 +1,13 @@
 - page_title _('Sections')
-- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_section_path})
+- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_section_path })
 
 %section
   %table.table.table-striped.projects.datatable
     %thead
       %tr
-        %th{style: "width: 20%"}= _('Name')
-        %th{style: "width: 50%"}= _('Usage')
-        %th{style: "width: 30%"}
+        %th{style: 'width: 20%'}= _('Name')
+        %th{style: 'width: 50%'}= _('Usage')
+        %th{style: 'width: 30%'}
     %tbody
       - @sections.each do |section|
         %tr
@@ -17,13 +17,13 @@
             %small= section.network
           %td.project_progress
             %div.progress.progress-sm
-              %div.progress-bar.bg-green{role: 'progressbar', style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / NetAM::Network::Range.new(section.network).free_ips }%"}= _('Used')
-              %div.progress-bar.bg-danger{role: 'progressbar', style: "width: #{section.usages.down.count * 100 / NetAM::Network::Range.new(section.network).free_ips }%"}= _('Down')
-              %div.progress-bar.bg-purple{role: 'progressbar', style: "width: #{section.usages.dhcp.count * 100 / NetAM::Network::Range.new(section.network).free_ips }%"}= _('Reserved')
+              %div.progress-bar.bg-green{ role: 'progressbar', style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / NetAM::Network::Range.new(section.network).free_ips}%" }= _('Used')
+              %div.progress-bar.bg-danger{ role: 'progressbar', style: "width: #{section.usages.down.count * 100 / NetAM::Network::Range.new(section.network).free_ips}%" }= _('Down')
+              %div.progress-bar.bg-purple{ role: 'progressbar', style: "width: #{section.usages.dhcp.count * 100 / NetAM::Network::Range.new(section.network).free_ips}%" }= _('Reserved')
           %td.project-actions.text-right
             %div.btn-group
               = link_to fa_icon_with_text('fas fa-folder', _('View')), section, class: 'btn btn-primary btn-sm'
               = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_scan_path(section), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, section
 
               = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_path(section), class: 'btn btn-info btn-sm' if can? :edit, section
-              = link_to fa_icon_with_text('fas fa-trash', _('Delete')), section, method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')} if can? :destroy, section
+              = link_to fa_icon_with_text('fas fa-trash', _('Delete')), section, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: _('Are you sure?') } if can? :destroy, section

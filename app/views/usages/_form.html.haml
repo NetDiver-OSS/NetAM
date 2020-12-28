@@ -17,13 +17,13 @@
       %div.col-4
         %div.form-group
           = form.label _('State')
-          = form.select :state, %i[locked actived down dhcp], {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :state, %i[locked actived down dhcp], {}, { class: "form-control #{dark_mode_class}" }
 
     %div.row
       %div.col-12
         %div.form-group
           = form.label _('Description')
-          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
+          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: '5'
 
   %div.card-footer
     %div.form-check.float-left.mt-2

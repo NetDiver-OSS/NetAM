@@ -6,7 +6,7 @@
 
     %div.form-group.col-6
       = form.label :subnet, _('Hosts per Subnet')
-      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, {selected: params[:subnet].to_i}, {class: "form-control #{dark_mode_class}" }
+      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, { selected: params[:subnet].to_i }, { class: "form-control #{dark_mode_class}" }
 
   %div.d-flex.justify-content-center
     %div.col-4
