@@ -49,16 +49,6 @@ linters:
       - "app/views/vlans/index.html.haml"
       - "app/views/vlans/show.html.haml"
 
-  # Offense count: 1
-  UnnecessaryInterpolation:
-    exclude:
-      - "app/views/layouts/application.html.haml"
-
-  # Offense count: 1
-  ClassesBeforeIds:
-    exclude:
-      - "app/views/layouts/parts/_navbar.html.haml"
-
   # Offense count: 3
   ConsecutiveSilentScripts:
     exclude:
