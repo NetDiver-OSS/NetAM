@@ -3,7 +3,7 @@
     %h3.card-title My informations
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     %div.card-body
-      = render "devise/shared/error_messages", resource: resource
+      = render 'devise/shared/error_messages', resource: resource
 
       %div.row
         %div.col-12
@@ -11,31 +11,31 @@
             %div.input-group-prepend
               %span.input-group-text{class: dark_mode_class}
                 Email
-            = f.text_field :email, autocomplete: "email", class: "form-control #{dark_mode_class}"
+            = f.text_field :email, autocomplete: 'email', class: "form-control #{dark_mode_class}"
 
         %div.col-12
           %div.input-group.mb-3
             %div.input-group-prepend
               %span.input-group-text{class: dark_mode_class}
                 New Password
-            = f.password_field :password, placeholder: "(leave blank if you don't want to change it) #{@minimum_password_length} characters minimum", autocomplete: "new-password", class: "form-control #{dark_mode_class}"
+            = f.password_field :password, placeholder: "(leave blank if you don't want to change it) #{@minimum_password_length} characters minimum", autocomplete: 'new-password', class: "form-control #{dark_mode_class}"
 
         %div.col-12
           %div.input-group.mb-3
             %div.input-group-prepend
               %span.input-group-text{class: dark_mode_class}
                 Password Again
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control #{dark_mode_class}"
+            = f.password_field :password_confirmation, autocomplete: 'new-password', class: "form-control #{dark_mode_class}"
 
         %div.col-12
           %div.input-group.mb-3
             %div.input-group-prepend
               %span.input-group-text{class: dark_mode_class}
                 Current Password
-            = f.password_field :current_password, placeholder: '(we need your current password to confirm your changes)', autocomplete: "current-password", class: "form-control #{dark_mode_class}"
+            = f.password_field :current_password, placeholder: '(we need your current password to confirm your changes)', autocomplete: 'current-password', class: "form-control #{dark_mode_class}"
 
     %div.card-footer
       %div.form-check
         = f.submit nil, class: 'btn btn-primary float-right'
 
-= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-danger btn-block'
+= button_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-outline-danger btn-block'

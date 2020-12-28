@@ -3,4 +3,4 @@ inherits_from:
 
 linters:
   RuboCop:
-    enabled: false
+    enabled: true

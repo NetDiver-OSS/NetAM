@@ -7,9 +7,9 @@
         %h3.card-title= _('Two Factor Authentication')
       %div.card-body.text-center
         - if current_user.otp_required_for_login
-          = @qrcode.html_safe
+          = sanitize @qrcode, tags: %w[svg rect], attributes: %w[width height x y]
           %div.text-center
-            = _('Secret: %{otp_secret}') % { otp_secret: current_user.otp_secret }
+            = format(_('Secret: %{otp_secret}'), { otp_secret: current_user.otp_secret })
 
   %div.col-6
     %div.card{class: dark_mode_class}
