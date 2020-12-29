@@ -72,6 +72,6 @@ class DevicesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def device_params
-    params.require(:device).permit(:name, :rack_height, :depth_type, :device_type_id)
+    params.require(:device).permit(:name, :rack_height, :depth_type, :device_type_id, rack_occupation_attributes: %i[id cabinet_id rack_anchor])
   end
 end

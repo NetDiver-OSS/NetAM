@@ -22,5 +22,17 @@
           = form.label _('Depth Type')
           = form.select :depth_type, Device.depth_types.keys, {}, { class: "form-control #{dark_mode_class}" }
 
+    = form.fields_for :rack_occupation, RackOccupation.new do |rack_form|
+      %hr
+      %div.row
+        %div.col-6
+          %div.form-group
+            = rack_form.label _('Cabinet')
+            = rack_form.select :cabinet_id, Cabinet.all.pluck(:name, :id), {}, { class: "form-control #{dark_mode_class}" }
+        %div.col-6
+          %div.form-group
+            = rack_form.label _('Rack anchor')
+            = rack_form.text_field :rack_anchor, class: "form-control #{dark_mode_class}"
+
   %div.card-footer
     = form.submit _('Apply'), class: 'btn btn-primary float-right'
