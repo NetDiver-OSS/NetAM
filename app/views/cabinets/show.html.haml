@@ -3,18 +3,40 @@
 - page_action({ icon: fa_icon_with_text('fas fa-edit', _('Edit')), path: edit_cabinet_path(@cabinet) }) if can? :edit, @section
 
 %div.row
-  %div.col-6
+  %div.col-12
     %p
       %b Location:
       = @cabinet.location
-  %div.col-6
+
+  %div.col-4
     %table.table.table-sm.table-borderless.text-center
       %thead
         %tr
-          %th
-          %th.bg-dark{ scope: 'col' }= @cabinet.name
+          %th{ width: '10%' }
+          %th.bg-dark{ scope: 'col' }= _('Front')
       %tbody
-        - @cabinet.unit_height.downto(1) do |unit|
+        - @rack_overview.each do |unit, device|
           %tr
             %td.text-right= unit
-            %td.table-secondary.border
+            - if device
+              %td.border.align-middle{ rowspan: device.rack_height, style: "background-color: #{device.device_type.color}" }= device.name
+            - if device.nil?
+              %td.table-secondary.border= device
+
+  %div.col-8
+    %table.table.table-sm.table-borderless.text-center
+      %thead
+        %tr
+          %th{ width: '10%' }
+          %th.bg-dark{ colspan: '3', scope: 'col' }= _('Side')
+      %tbody
+        - @rack_overview.each do |unit, device|
+          %tr
+            %td.text-right= unit
+            - if device
+              %td.border.align-middle{ rowspan: device.rack_height, colspan: Device.depth_types[device.depth_type], style: "background-color: #{device.device_type.color}" }= device.name
+              - unless device.full_depth?
+                - (3 - Device.depth_types[device.depth_type]).times do
+                  %td.table-secondary.border{ rowspan: device.rack_height }
+            - if device.nil?
+              %td.table-secondary.border{ colspan: 3 }= device

@@ -5,18 +5,22 @@
         %div.callout.callout-danger{ class: dark_mode_class }
           %p= message
     %div.row
-      %div.col-5
+      %div.col-6
         %div.form-group
           = form.label _('Name')
           = form.text_field :name, class: "form-control #{dark_mode_class}"
-      %div.col-5
+      %div.col-6
         %div.form-group
           = form.label _('Type')
           = form.select :device_type_id, @device_types, {}, { class: "form-control #{dark_mode_class}" }
-      %div.col-2
+      %div.col-6
         %div.form-group
           = form.label _('Rack Height')
           = form.number_field :rack_height, class: "form-control #{dark_mode_class}"
+      %div.col-6
+        %div.form-group
+          = form.label _('Depth Type')
+          = form.select :depth_type, Device.depth_types.keys, {}, { class: "form-control #{dark_mode_class}" }
 
   %div.card-footer
     = form.submit _('Apply'), class: 'btn btn-primary float-right'

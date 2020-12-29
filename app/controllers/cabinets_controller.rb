@@ -11,7 +11,13 @@ class CabinetsController < ApplicationController
 
   # GET /cabinets/1
   def show
-    # not used actually
+    @rack_overview = @cabinet.unit_height.downto(1).index_with { nil }
+
+    @cabinet.devices.each do |device|
+      device.rack_occupation.rack_anchor.downto(device.rack_occupation.rack_anchor - device.rack_height + 1).each do |rack_unit|
+        @rack_overview[rack_unit] = rack_unit == device.rack_occupation.rack_anchor ? device : false
+      end
+    end
   end
 
   # GET /cabinets/new
