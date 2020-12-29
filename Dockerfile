@@ -12,7 +12,27 @@ RUN \
   rm -rf /var/cache/apk/* &&\
   mkdir -p /app /app/config /app/log/
 
-COPY . /app
+#COPY . /app
+COPY app /app/app
+COPY bin /app/bin
+COPY config /app/config
+COPY db /app/db
+COPY docker /app/docker
+COPY lib /app/lib
+COPY locale /app/locale
+COPY public /app/public
+COPY .browserslistrc /app/.browserslistrc
+COPY babel.config.js /app/babel.config.js
+COPY config.ru /app/config.ru
+COPY crowdin.yml /app/crowdin.yml
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+COPY LICENSE /app/LICENSE
+COPY package.json /app/package.json
+COPY postcss.config.js /app/postcss.config.js
+COPY Rakefile /app/Rakefile
+COPY VERSION /app/VERSION
+COPY yarn.lock /app/yarn.lock
 
 RUN \
   bundle config set without 'development test' &&\
