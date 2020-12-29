@@ -6,4 +6,4 @@
       %div.float-right
         - if controller_name == 'sections' && action_name == 'show' && can?(:edit, @section)
           %btn-request-ip{ ':section_id': params[:id] }
-        = sanitize page_action
+        = sanitize page_action, attributes: %w[class href src width height alt cite datetime data-method title name xml:lang abbr]
