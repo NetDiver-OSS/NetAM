@@ -455,7 +455,7 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2020.3)
+    tzinfo-data (1.2020.5)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.0.0)
     vmstat (2.3.1)
