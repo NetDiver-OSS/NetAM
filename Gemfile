@@ -85,7 +85,7 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.9'
   gem 'rubocop-rspec', '~> 2.1'
 
-  gem 'haml_lint', '~> 0.36.0', require: false
+  gem 'haml_lint', '~> 0.37.0', require: false
 end
 
 group :development do
