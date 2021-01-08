@@ -4,7 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.1",
     "@rails/actioncable": "6.1.0",
-    "@rails/activestorage": "6.1.0",
+    "@rails/activestorage": "6.1.1",
     "@rails/ujs": "6.1.0",
     "@rails/webpacker": "5.2.1",
     "admin-lte": "3.0.5",
