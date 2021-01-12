@@ -15,7 +15,7 @@ gem 'ledermann-rails-settings', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 
 # HTML
-gem 'hamlit', '~> 2.13'
+gem 'hamlit', '~> 2.14'
 gem 'rqrcode', '~> 1.2'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.2.0'
@@ -76,11 +76,11 @@ group :development, :test do
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rspec-rails', '~> 4.0'
   # Don't upgrade simplecov due to bug in sonarcloud !
-  gem 'simplecov', '0.21.1'
+  gem 'simplecov', '0.21.2'
 
   gem 'factory_bot_rails', '~> 6.1'
 
-  gem 'rubocop', '1.8.0'
+  gem 'rubocop', '1.8.1'
   gem 'rubocop-performance', '~> 1.9'
   gem 'rubocop-rails', '~> 2.9'
   gem 'rubocop-rspec', '~> 2.1'
