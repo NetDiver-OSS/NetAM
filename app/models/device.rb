@@ -10,7 +10,7 @@ class Device < ApplicationRecord
 
   enum depth_type: { small: 1, half: 2, full: 3 }, _suffix: 'depth'
 
-  accepts_nested_attributes_for :rack_occupation
+  accepts_nested_attributes_for :rack_occupation, allow_destroy: true, reject_if: ->(r) { r['rack_anchor'].blank? }
 
   validates :name, :rack_height, :depth_type, presence: true
   validates :name, presence: true, uniqueness: true

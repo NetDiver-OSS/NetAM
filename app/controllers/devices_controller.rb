@@ -18,11 +18,12 @@ class DevicesController < ApplicationController
   # GET /devices/new
   def new
     @device = Device.new
+    2.times { @device.build_rack_occupation }
   end
 
   # GET /devices/1/edit
   def edit
-    # Not used
+    2.times { @device.build_rack_occupation } if @device.rack_occupation.nil?
   end
 
   # POST /devices
@@ -72,6 +73,6 @@ class DevicesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def device_params
-    params.require(:device).permit(:name, :rack_height, :depth_type, :device_type_id, rack_occupation_attributes: %i[id cabinet_id rack_anchor])
+    params.require(:device).permit(:name, :rack_height, :depth_type, :device_type_id, rack_occupation_attributes: %i[id cabinet_id rack_anchor _destroy])
   end
 end

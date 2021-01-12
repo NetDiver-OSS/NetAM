@@ -22,8 +22,14 @@
           = form.label _('Depth Type')
           = form.select :depth_type, Device.depth_types.keys, {}, { class: "form-control #{dark_mode_class}" }
 
-    = form.fields_for :rack_occupation, RackOccupation.new do |rack_form|
+    = form.fields_for :rack_occupation do |rack_form|
       %hr
+      - if action_name == 'edit'
+        %div.row
+          %div.col-6
+            %div.form-check.mt-2
+              = rack_form.check_box :_destroy, class: 'form-check-input'
+              = rack_form.label :_destroy, _('Delete Rackspace link'), class: 'form-check-label'
       %div.row
         %div.col-6
           %div.form-group
@@ -32,7 +38,7 @@
         %div.col-6
           %div.form-group
             = rack_form.label _('Rack anchor')
-            = rack_form.text_field :rack_anchor, class: "form-control #{dark_mode_class}"
+            = rack_form.text_field :rack_anchor, placeholder: _('Ignore rackspace management when is empty'), class: "form-control #{dark_mode_class}"
 
   %div.card-footer
     = form.submit _('Apply'), class: 'btn btn-primary float-right'
