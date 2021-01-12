@@ -14,8 +14,8 @@ class CabinetsController < ApplicationController
     @rack_overview = @cabinet.unit_height.downto(1).index_with { nil }
 
     @cabinet.devices.each do |device|
-      device.rack_occupation.rack_anchor.downto(device.rack_occupation.rack_anchor - device.rack_height + 1).each do |rack_unit|
-        @rack_overview[rack_unit] = rack_unit == device.rack_occupation.rack_anchor ? device : false
+      (device.rack_occupation.rack_anchor + device.rack_height - 1).downto(device.rack_occupation.rack_anchor).each_with_index do |rack_unit, index|
+        @rack_overview[rack_unit] = index.zero? ? device : false
       end
     end
   end
