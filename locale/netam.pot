@@ -85,6 +85,9 @@ msgstr ""
 msgid "CPU"
 msgstr ""
 
+msgid "Cabinet"
+msgstr ""
+
 msgid "Cabinet was successfully created."
 msgstr ""
 
@@ -122,6 +125,9 @@ msgid "Define as device"
 msgstr ""
 
 msgid "Delete"
+msgstr ""
+
+msgid "Depth Type"
 msgstr ""
 
 msgid "Description"
@@ -236,6 +242,9 @@ msgid "First IP"
 msgstr ""
 
 msgid "Free IP"
+msgstr ""
+
+msgid "Front"
 msgstr ""
 
 msgid "Get unused IP"
@@ -409,6 +418,12 @@ msgstr ""
 msgid "Queues"
 msgstr ""
 
+msgid "Rack Height"
+msgstr ""
+
+msgid "Rack anchor"
+msgstr ""
+
 msgid "Recovery codes"
 msgstr ""
 
@@ -466,7 +481,13 @@ msgstr ""
 msgid "Setup"
 msgstr ""
 
+msgid "Setup finished"
+msgstr ""
+
 msgid "Show"
+msgstr ""
+
+msgid "Side"
 msgstr ""
 
 msgid "Sidekiq"
@@ -485,6 +506,9 @@ msgid "Subject"
 msgstr ""
 
 msgid "Subject ID"
+msgstr ""
+
+msgid "To enable your instance, please reboot it !"
 msgstr ""
 
 msgid "Two Factor Auth"
@@ -584,4 +608,7 @@ msgid "Your address IP is"
 msgstr ""
 
 msgid "every 24 hours"
+msgstr ""
+
+msgid "is higher than Rackspace unit"
 msgstr ""
