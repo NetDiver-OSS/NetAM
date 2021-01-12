@@ -1,7 +1,7 @@
-= form_with(model: cabinet, local: true) do |form|
+= form_with(model: rackspace, local: true) do |form|
   %div.card-body
-    - if cabinet.errors.any?
-      - cabinet.errors.full_messages.each do |message|
+    - if rackspace.errors.any?
+      - rackspace.errors.full_messages.each do |message|
         %div.callout.callout-danger{ class: dark_mode_class }
           %p= message
     %div.row

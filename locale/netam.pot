@@ -85,21 +85,6 @@ msgstr ""
 msgid "CPU"
 msgstr ""
 
-msgid "Cabinet"
-msgstr ""
-
-msgid "Cabinet was successfully created."
-msgstr ""
-
-msgid "Cabinet was successfully destroyed."
-msgstr ""
-
-msgid "Cabinet was successfully updated."
-msgstr ""
-
-msgid "Cabinets"
-msgstr ""
-
 msgid "Calculate"
 msgstr ""
 
@@ -127,13 +112,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Delete Rackspace link"
+msgstr ""
+
 msgid "Depth Type"
+msgstr ""
+
+msgid "Depth type"
 msgstr ""
 
 msgid "Description"
 msgstr ""
 
 msgid "Destroy"
+msgstr ""
+
+msgid "Device type"
 msgstr ""
 
 msgid "Device type was not destroyed."
@@ -187,13 +181,13 @@ msgstr ""
 msgid "Edit Address details"
 msgstr ""
 
-msgid "Edit cabinet"
-msgstr ""
-
 msgid "Edit device"
 msgstr ""
 
 msgid "Edit device type"
+msgstr ""
+
+msgid "Edit rackspace"
 msgstr ""
 
 msgid "Editing Permission"
@@ -275,6 +269,9 @@ msgid "IP calculator"
 msgstr ""
 
 msgid "IP used"
+msgstr ""
+
+msgid "Ignore rackspace management when is empty"
 msgstr ""
 
 msgid "Import"
@@ -367,13 +364,13 @@ msgstr ""
 msgid "New Worker"
 msgstr ""
 
-msgid "New cabinet"
-msgstr ""
-
 msgid "New device"
 msgstr ""
 
 msgid "New devices type"
+msgstr ""
+
+msgid "New rackspace"
 msgstr ""
 
 msgid "No free address IP available !"
@@ -422,6 +419,21 @@ msgid "Rack Height"
 msgstr ""
 
 msgid "Rack anchor"
+msgstr ""
+
+msgid "Rackspace"
+msgstr ""
+
+msgid "Rackspace was successfully created."
+msgstr ""
+
+msgid "Rackspace was successfully destroyed."
+msgstr ""
+
+msgid "Rackspace was successfully updated."
+msgstr ""
+
+msgid "Rackspaces"
 msgstr ""
 
 msgid "Recovery codes"

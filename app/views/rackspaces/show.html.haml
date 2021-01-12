@@ -1,12 +1,12 @@
-- page_title "Cabinet #{@cabinet.name.upcase}"
+- page_title "Rackspace #{@rackspace.name.upcase}"
 
-- page_action({ icon: fa_icon_with_text('fas fa-edit', _('Edit')), path: edit_cabinet_path(@cabinet) }) if can? :edit, @section
+- page_action({ icon: fa_icon_with_text('fas fa-edit', _('Edit')), path: edit_rackspace_path(@rackspace) }) if can? :edit, @section
 
 %div.row
   %div.col-12
     %p
       %b Location:
-      = @cabinet.location
+      = @rackspace.location
 
   %div.col-4
     %table.table.table-sm.table-borderless.text-center
@@ -37,7 +37,7 @@
               %td.border.align-middle{ rowspan: device.rack_height, colspan: Device.depth_types[device.depth_type], style: "background-color: #{device.device_type.color}" }= device.name
               - unless device.full_depth?
                 - (3 - Device.depth_types[device.depth_type]).times do
-                  %td.table-secondary.border{ rowspan: device.rack_height }
+                  %td.table-secondary.border{ width: '25%', rowspan: device.rack_height }
             - if device.nil?
               %td.table-secondary.border{ colspan: 3 }= device
 
@@ -51,7 +51,7 @@
           %th= _('Device type')
           %th
       %tbody
-        - @cabinet.devices.each do |device|
+        - @rackspace.devices.each do |device|
           %tr
             %td= device.name
             %td= device.depth_type

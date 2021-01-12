@@ -30,7 +30,7 @@ linters:
     exclude:
       - "app/views/admin/jobs/index.html.haml"
       - "app/views/admin/sidekiq/index.html.haml"
-      - "app/views/cabinets/show.html.haml"
+      - "app/views/rackspaces/show.html.haml"
       - "app/views/device_types/index.html.haml"
       - "app/views/devices/index.html.haml"
       - "app/views/permissions/_rbac.html.haml"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RackOccupation < ApplicationRecord
-  belongs_to :cabinet
+  belongs_to :rackspace
   belongs_to :device
 
   validates_with RackOccupationValidator

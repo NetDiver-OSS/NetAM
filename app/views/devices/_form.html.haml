@@ -33,8 +33,8 @@
       %div.row
         %div.col-6
           %div.form-group
-            = rack_form.label _('Cabinet')
-            = rack_form.select :cabinet_id, Cabinet.all.pluck(:name, :id), {}, { class: "form-control #{dark_mode_class}" }
+            = rack_form.label _('Rackspace')
+            = rack_form.select :rackspace_id, Rackspace.all.pluck(:name, :id), {}, { class: "form-control #{dark_mode_class}" }
         %div.col-6
           %div.form-group
             = rack_form.label _('Rack anchor')
