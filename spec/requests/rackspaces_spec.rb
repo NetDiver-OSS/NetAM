@@ -59,9 +59,9 @@ RSpec.describe 'Rackspaces', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Rackspace' do
-        expect {
+        expect do
           post rackspaces_url, params: { rackspace: valid_attributes }
-        }.to change(Rackspace, :count).by(1)
+        end.to change(Rackspace, :count).by(1)
       end
 
       it 'redirects to the created rackspace' do
@@ -72,9 +72,9 @@ RSpec.describe 'Rackspaces', type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new rackspace' do
-        expect {
+        expect do
           post rackspaces_url, params: { rackspace: invalid_attributes }
-        }.to change(Rackspace, :count).by(0)
+        end.to change(Rackspace, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -86,9 +86,9 @@ RSpec.describe 'Rackspaces', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) {
+      let(:new_attributes) do
         skip('Add a hash of attributes valid for your model')
-      }
+      end
 
       it 'updates the requested rackspace' do
         rackspace = Rackspace.create! valid_attributes
@@ -117,9 +117,9 @@ RSpec.describe 'Rackspaces', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested rackspace' do
       rackspace = Rackspace.create! valid_attributes
-      expect {
+      expect do
         delete rackspace_url(rackspace)
-      }.to change(Rackspace, :count).by(-1)
+      end.to change(Rackspace, :count).by(-1)
     end
 
     it 'redirects to the rackspaces list' do
