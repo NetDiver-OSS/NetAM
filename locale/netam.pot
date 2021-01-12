@@ -436,6 +436,9 @@ msgstr ""
 msgid "Rackspaces"
 msgstr ""
 
+msgid "Rear"
+msgstr ""
+
 msgid "Recovery codes"
 msgstr ""
 
@@ -494,12 +497,6 @@ msgid "Setup"
 msgstr ""
 
 msgid "Setup finished"
-msgstr ""
-
-msgid "Show"
-msgstr ""
-
-msgid "Side"
 msgstr ""
 
 msgid "Sidekiq"

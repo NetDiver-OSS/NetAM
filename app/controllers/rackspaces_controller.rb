@@ -11,11 +11,18 @@ class RackspacesController < ApplicationController
 
   # GET /rackspaces/1
   def show
-    @rack_overview = @rackspace.unit_height.downto(1).index_with { nil }
+    @rack_front = @rackspace.unit_height.downto(1).index_with { nil }
+    @rack_rear = @rack_front.dup
 
     @rackspace.devices.each do |device|
       (device.rack_occupation.rack_anchor + device.rack_height - 1).downto(device.rack_occupation.rack_anchor).each_with_index do |rack_unit, index|
-        @rack_overview[rack_unit] = index.zero? ? device : false
+        @rack_front[rack_unit] = index.zero? ? device : false
+      end
+    end
+
+    @rackspace.devices.where(depth_type: :full).each do |device|
+      (device.rack_occupation.rack_anchor + device.rack_height - 1).downto(device.rack_occupation.rack_anchor).each_with_index do |rack_unit, index|
+        @rack_rear[rack_unit] = index.zero? ? device : false
       end
     end
   end

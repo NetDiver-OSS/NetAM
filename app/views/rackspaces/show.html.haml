@@ -8,14 +8,14 @@
       %b Location:
       = @rackspace.location
 
-  %div.col-4
+  %div.col-6
     %table.table.table-sm.table-borderless.text-center
       %thead
         %tr
           %th{ width: '10%' }
           %th.bg-dark{ scope: 'col' }= _('Front')
       %tbody
-        - @rack_overview.each do |unit, device|
+        - @rack_front.each do |unit, device|
           %tr
             %td.text-right= unit
             - if device
@@ -23,14 +23,14 @@
             - if device.nil?
               %td.table-secondary.border= device
 
-  %div.col-8
+  %div.col-6
     %table.table.table-sm.table-borderless.text-center
       %thead
         %tr
           %th{ width: '10%' }
-          %th.bg-dark{ colspan: '3', scope: 'col' }= _('Side')
+          %th.bg-dark{ colspan: '3', scope: 'col' }= _('Rear')
       %tbody
-        - @rack_overview.each do |unit, device|
+        - @rack_rear.each do |unit, device|
           %tr
             %td.text-right= unit
             - if device
