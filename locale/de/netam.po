@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-12-08 09:31\n"
+"PO-Revision-Date: 2021-01-13 16:28\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -112,8 +112,23 @@ msgstr "Als Gerät definieren"
 msgid "Delete"
 msgstr "Löschen"
 
+msgid "Delete Rackspace link"
+msgstr ""
+
+msgid "Depth Type"
+msgstr ""
+
+msgid "Depth type"
+msgstr ""
+
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Device type"
+msgstr ""
 
 msgid "Device type was not destroyed."
 msgstr "Gerätetyp wurde nicht zerstört."
@@ -172,6 +187,9 @@ msgstr "Gerät bearbeiten"
 msgid "Edit device type"
 msgstr "Endgerät editieren"
 
+msgid "Edit rackspace"
+msgstr ""
+
 msgid "Editing Permission"
 msgstr "Berechtigung bearbeiten"
 
@@ -220,6 +238,9 @@ msgstr "Erste IP"
 msgid "Free IP"
 msgstr "Freie IP"
 
+msgid "Front"
+msgstr ""
+
 msgid "Get unused IP"
 msgstr "Erhalten Sie eine IP"
 
@@ -250,6 +271,9 @@ msgstr "IP-rechner"
 msgid "IP used"
 msgstr "IP verwendet"
 
+msgid "Ignore rackspace management when is empty"
+msgstr ""
+
 msgid "Import"
 msgstr "Importieren"
 
@@ -273,6 +297,9 @@ msgstr "Durchschnittslast"
 
 msgid "Loading"
 msgstr "Wird geladen"
+
+msgid "Location"
+msgstr ""
 
 msgid "Locked"
 msgstr "Gesperrt"
@@ -343,6 +370,9 @@ msgstr "Neues Gerät"
 msgid "New devices type"
 msgstr "Neues Endgerät"
 
+msgid "New rackspace"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr "Keine freie Adresse IP verfügbar !"
 
@@ -384,6 +414,30 @@ msgstr "Bitte validieren Sie den TOTP-Code!"
 
 msgid "Queues"
 msgstr "Warteschlangen"
+
+msgid "Rack Height"
+msgstr ""
+
+msgid "Rack anchor"
+msgstr ""
+
+msgid "Rackspace"
+msgstr ""
+
+msgid "Rackspace was successfully created."
+msgstr ""
+
+msgid "Rackspace was successfully destroyed."
+msgstr ""
+
+msgid "Rackspace was successfully updated."
+msgstr ""
+
+msgid "Rackspaces"
+msgstr ""
+
+msgid "Rear"
+msgstr ""
 
 msgid "Recovery codes"
 msgstr "Wiederherstellungscodes"
@@ -442,6 +496,9 @@ msgstr "Mit %{name} verknüpfte Abschnitte (#%{vid})"
 msgid "Setup"
 msgstr "Konfigurieren"
 
+msgid "Setup finished"
+msgstr ""
+
 msgid "Sidekiq"
 msgstr "Sidekiq"
 
@@ -460,6 +517,9 @@ msgstr "Gegenstand"
 msgid "Subject ID"
 msgstr "Gegenstand ID"
 
+msgid "To enable your instance, please reboot it !"
+msgstr ""
+
 msgid "Two Factor Auth"
 msgstr "Zwei-Faktor-Auth"
 
@@ -471,6 +531,12 @@ msgstr "Zwei-Faktor-Authentifizierungs-Manager"
 
 msgid "Type"
 msgstr "Typ"
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unit height"
+msgstr ""
 
 msgid "Unknown state"
 msgstr "Unbekannter Status"
@@ -552,4 +618,7 @@ msgstr "Ihre Adresse IP ist"
 
 msgid "every 24 hours"
 msgstr "alle 24 Stunden"
+
+msgid "is higher than Rackspace unit"
+msgstr ""
 
