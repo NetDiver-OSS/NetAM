@@ -6,7 +6,7 @@ class VlansController < ApplicationController
 
   # GET /vlans
   def index
-    @vlans = Vlan.all.filter { |vlan| can? :read, vlan }
+    @vlans = Vlan.accessible_by(current_ability).page params[:page]
   end
 
   # GET /vlans/1
