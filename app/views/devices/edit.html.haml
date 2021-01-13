@@ -1,4 +1,5 @@
 - page_title _('Edit device')
 
-= render 'form', device: @device
+%div.card{ class: dark_mode_class }
+  = render 'form', device: @device
 = render 'permissions/rbac', permission: @device, controller: DevicesController

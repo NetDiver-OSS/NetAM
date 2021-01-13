@@ -34,7 +34,7 @@ RSpec.describe API::V1::Devices, type: :request do
   context 'with POST /api/v1/devices' do
     it 'create and return device' do
       header 'Authorization', api_token
-      post('/api/v1/devices', { name: 'test device', device_type_id: device_type.id }.to_json, content_type_json)
+      post('/api/v1/devices', { name: 'test device', device_type_id: device_type.id, rack_height: 2 }.to_json, content_type_json)
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(201)
@@ -51,7 +51,7 @@ RSpec.describe API::V1::Devices, type: :request do
 
       expect(last_response.header['Content-Type']).to include 'application/json'
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq({ id: device.id, name: device.name, rack_height: nil, depth_type: nil, device_type_id: device.device_type_id }.to_json)
+      expect(last_response.body).to eq({ id: device.id, name: device.name, rack_height: device.rack_height, depth_type: 'small', device_type_id: device.device_type_id }.to_json)
     end
   end
 end

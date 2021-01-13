@@ -9,9 +9,36 @@
         %div.form-group
           = form.label _('Name')
           = form.text_field :name, class: "form-control #{dark_mode_class}"
-      %div.col-4
+      %div.col-6
         %div.form-group
           = form.label _('Type')
           = form.select :device_type_id, @device_types, {}, { class: "form-control #{dark_mode_class}" }
-      %div.col-2.mb-3.align-self-end
-        = form.submit _('Apply'), class: 'btn btn-primary'
+      %div.col-6
+        %div.form-group
+          = form.label _('Rack Height')
+          = form.number_field :rack_height, class: "form-control #{dark_mode_class}"
+      %div.col-6
+        %div.form-group
+          = form.label _('Depth Type')
+          = form.select :depth_type, Device.depth_types.keys, {}, { class: "form-control #{dark_mode_class}" }
+
+    = form.fields_for :rack_occupation do |rack_form|
+      %hr
+      - if action_name == 'edit'
+        %div.row
+          %div.col-6
+            %div.form-check.mt-2
+              = rack_form.check_box :_destroy, class: 'form-check-input'
+              = rack_form.label :_destroy, _('Delete Rackspace link'), class: 'form-check-label'
+      %div.row
+        %div.col-6
+          %div.form-group
+            = rack_form.label _('Rackspace')
+            = rack_form.select :rackspace_id, Rackspace.all.pluck(:name, :id), {}, { class: "form-control #{dark_mode_class}" }
+        %div.col-6
+          %div.form-group
+            = rack_form.label _('Rack anchor')
+            = rack_form.text_field :rack_anchor, placeholder: _('Ignore rackspace management when is empty'), class: "form-control #{dark_mode_class}"
+
+  %div.card-footer
+    = form.submit _('Apply'), class: 'btn btn-primary float-right'
