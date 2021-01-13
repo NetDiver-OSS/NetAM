@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-12-08 09:31\n"
+"PO-Revision-Date: 2021-01-13 16:28\n"
 
 msgid "Action"
 msgstr "Azione"
@@ -112,8 +112,23 @@ msgstr "Definisci come dispositivo"
 msgid "Delete"
 msgstr "Elimina"
 
+msgid "Delete Rackspace link"
+msgstr ""
+
+msgid "Depth Type"
+msgstr ""
+
+msgid "Depth type"
+msgstr ""
+
 msgid "Description"
 msgstr "Descrizione"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Device type"
+msgstr ""
 
 msgid "Device type was not destroyed."
 msgstr "Tipo di dispositivo non distrutto."
@@ -172,6 +187,9 @@ msgstr "Modifica dispositivo"
 msgid "Edit device type"
 msgstr "Modifica tipo dispositivo"
 
+msgid "Edit rackspace"
+msgstr ""
+
 msgid "Editing Permission"
 msgstr "Modifica Del Permesso"
 
@@ -220,6 +238,9 @@ msgstr "Primo IP"
 msgid "Free IP"
 msgstr "IP Libero"
 
+msgid "Front"
+msgstr ""
+
 msgid "Get unused IP"
 msgstr "Ottieni un IP"
 
@@ -250,6 +271,9 @@ msgstr "calcolatrice IP"
 msgid "IP used"
 msgstr "IP utilizzato"
 
+msgid "Ignore rackspace management when is empty"
+msgstr ""
+
 msgid "Import"
 msgstr "Importa"
 
@@ -273,6 +297,9 @@ msgstr "Media Carico"
 
 msgid "Loading"
 msgstr "Caricamento"
+
+msgid "Location"
+msgstr ""
 
 msgid "Locked"
 msgstr "Bloccato"
@@ -343,6 +370,9 @@ msgstr "Nuovo dispositivo"
 msgid "New devices type"
 msgstr "Tipo di nuovo dispositivo"
 
+msgid "New rackspace"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr "Nessun indirizzo IP disponibile!"
 
@@ -384,6 +414,30 @@ msgstr "Si prega di convalidare il codice TOTP !"
 
 msgid "Queues"
 msgstr "Code"
+
+msgid "Rack Height"
+msgstr ""
+
+msgid "Rack anchor"
+msgstr ""
+
+msgid "Rackspace"
+msgstr ""
+
+msgid "Rackspace was successfully created."
+msgstr ""
+
+msgid "Rackspace was successfully destroyed."
+msgstr ""
+
+msgid "Rackspace was successfully updated."
+msgstr ""
+
+msgid "Rackspaces"
+msgstr ""
+
+msgid "Rear"
+msgstr ""
 
 msgid "Recovery codes"
 msgstr "Codici di recupero"
@@ -442,6 +496,9 @@ msgstr "Sezioni collegate a %{name} (#%{vid})"
 msgid "Setup"
 msgstr "Configurazione"
 
+msgid "Setup finished"
+msgstr ""
+
 msgid "Sidekiq"
 msgstr "Sidekiq"
 
@@ -460,6 +517,9 @@ msgstr "Oggetto"
 msgid "Subject ID"
 msgstr "ID Oggetto"
 
+msgid "To enable your instance, please reboot it !"
+msgstr ""
+
 msgid "Two Factor Auth"
 msgstr "Autenticazione A Due Fattori"
 
@@ -471,6 +531,12 @@ msgstr "Gestore Autenticazione A Due Fattori"
 
 msgid "Type"
 msgstr "Tipo"
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unit height"
+msgstr ""
 
 msgid "Unknown state"
 msgstr "Stato sconosciuto"
@@ -552,4 +618,7 @@ msgstr "Il tuo indirizzo IP è"
 
 msgid "every 24 hours"
 msgstr "ogni 24 ore"
+
+msgid "is higher than Rackspace unit"
+msgstr ""
 
