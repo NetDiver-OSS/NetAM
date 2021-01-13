@@ -7,7 +7,7 @@ class DeviceTypesController < ApplicationController
 
   # GET /device_types
   def index
-    @device_types = DeviceType.accessible_by(current_ability)
+    @device_types = DeviceType.accessible_by(current_ability).page params[:page]
   end
 
   # GET /device_types/1
