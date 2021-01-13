@@ -7,7 +7,7 @@ class SectionsController < ApplicationController
 
   # GET /sections
   def index
-    @sections = Section.all.filter { |section| can? :read, section }
+    @sections = Section.accessible_by(current_ability).page params[:page]
   end
 
   # GET /sections/1
