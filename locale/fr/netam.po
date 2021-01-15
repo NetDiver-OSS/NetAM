@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-01-13 16:28\n"
+"PO-Revision-Date: 2021-01-15 10:45\n"
 
 msgid "Action"
 msgstr "Action"
@@ -113,22 +113,22 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete Rackspace link"
-msgstr ""
+msgstr "Supprimer de la baie"
 
 msgid "Depth Type"
-msgstr ""
+msgstr "Type de profondeur"
 
 msgid "Depth type"
-msgstr ""
+msgstr "Type de profondeur"
 
 msgid "Description"
 msgstr "Description"
 
 msgid "Destroy"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "Device type"
-msgstr ""
+msgstr "Type d'équipement"
 
 msgid "Device type was not destroyed."
 msgstr "Le type d'équipement n'a pas été supprimé."
@@ -188,7 +188,7 @@ msgid "Edit device type"
 msgstr "Éditer le type d'équipement"
 
 msgid "Edit rackspace"
-msgstr ""
+msgstr "Modifier la baie"
 
 msgid "Editing Permission"
 msgstr "Éditer les permissions"
@@ -239,7 +239,7 @@ msgid "Free IP"
 msgstr "IP libre"
 
 msgid "Front"
-msgstr ""
+msgstr "Avant"
 
 msgid "Get unused IP"
 msgstr "Obtenir une IP"
@@ -272,7 +272,7 @@ msgid "IP used"
 msgstr "IP utilisée"
 
 msgid "Ignore rackspace management when is empty"
-msgstr ""
+msgstr "Ignore la gestion de la baie quand elle est vide"
 
 msgid "Import"
 msgstr "Importer"
@@ -299,7 +299,7 @@ msgid "Loading"
 msgstr "Chargement"
 
 msgid "Location"
-msgstr ""
+msgstr "Emplacement"
 
 msgid "Locked"
 msgstr "Verrouillé"
@@ -371,7 +371,7 @@ msgid "New devices type"
 msgstr "Nouveau type d'équipement"
 
 msgid "New rackspace"
-msgstr ""
+msgstr "Nouvelle baie"
 
 msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
@@ -416,28 +416,28 @@ msgid "Queues"
 msgstr "File d'attente"
 
 msgid "Rack Height"
-msgstr ""
+msgstr "Hauteur de la baie"
 
 msgid "Rack anchor"
-msgstr ""
+msgstr "Ancrage sur la baie"
 
 msgid "Rackspace"
-msgstr ""
+msgstr "Baie"
 
 msgid "Rackspace was successfully created."
-msgstr ""
+msgstr "La baie a été mise à jour avec succès."
 
 msgid "Rackspace was successfully destroyed."
-msgstr ""
+msgstr "La baie a été supprimée avec succès."
 
 msgid "Rackspace was successfully updated."
-msgstr ""
+msgstr "La baie a été mise à jour avec succès."
 
 msgid "Rackspaces"
-msgstr ""
+msgstr "Baies"
 
 msgid "Rear"
-msgstr ""
+msgstr "Arrière"
 
 msgid "Recovery codes"
 msgstr "Code de récupération"
@@ -497,7 +497,7 @@ msgid "Setup"
 msgstr "Configuration"
 
 msgid "Setup finished"
-msgstr ""
+msgstr "Installation terminée"
 
 msgid "Sidekiq"
 msgstr "Sidekiq"
@@ -518,7 +518,7 @@ msgid "Subject ID"
 msgstr "ID de l'objet"
 
 msgid "To enable your instance, please reboot it !"
-msgstr ""
+msgstr "Pour activer votre instance, veuillez la redémarrer !"
 
 msgid "Two Factor Auth"
 msgstr "Authentification à deux facteurs"
@@ -533,10 +533,10 @@ msgid "Type"
 msgstr "Type"
 
 msgid "Unit"
-msgstr ""
+msgstr "Unité"
 
 msgid "Unit height"
-msgstr ""
+msgstr "Hauteur de l'unité"
 
 msgid "Unknown state"
 msgstr "État inconnu"
@@ -620,5 +620,5 @@ msgid "every 24 hours"
 msgstr "toutes les 24 heures"
 
 msgid "is higher than Rackspace unit"
-msgstr ""
+msgstr "dépassase la taille de la baie"
 
