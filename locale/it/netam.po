@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2020-11-21 21:06\n"
+"PO-Revision-Date: 2021-01-15 10:46\n"
 
 msgid "Action"
 msgstr "Azione"
@@ -94,6 +94,9 @@ msgstr "Scegli file"
 msgid "Close"
 msgstr "Chiudere"
 
+msgid "Color"
+msgstr "Colore"
+
 msgid "Concurrency jobs"
 msgstr "Processi di concorrenza"
 
@@ -103,11 +106,62 @@ msgstr "Collegato"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "Define as device"
+msgstr "Definisci come dispositivo"
+
 msgid "Delete"
 msgstr "Elimina"
 
+msgid "Delete Rackspace link"
+msgstr "Elimina collegamento Rackspace"
+
+msgid "Depth Type"
+msgstr "Tipo Di Profondità"
+
+msgid "Depth type"
+msgstr "Tipo di profondità"
+
 msgid "Description"
 msgstr "Descrizione"
+
+msgid "Destroy"
+msgstr "Distruggi"
+
+msgid "Device type"
+msgstr "Tipo dispositivo"
+
+msgid "Device type was not destroyed."
+msgstr "Tipo di dispositivo non distrutto."
+
+msgid "Device type was successfully created."
+msgstr "Tipo di dispositivo creato correttamente."
+
+msgid "Device type was successfully destroyed."
+msgstr "Tipo di dispositivo distrutto con successo."
+
+msgid "Device type was successfully updated."
+msgstr "Tipo di dispositivo aggiornato correttamente."
+
+msgid "Device was successfully created."
+msgstr "Il dispositivo è stato creato correttamente."
+
+msgid "Device was successfully destroyed."
+msgstr "Dispositivo distrutto con successo."
+
+msgid "Device was successfully updated."
+msgstr "Il dispositivo è stato aggiornato correttamente."
+
+msgid "Devices"
+msgstr "Dispositivo"
+
+msgid "Devices Type"
+msgstr "Tipo di dispositivo"
+
+msgid "Devices list"
+msgstr "Elenco dei dispositivi per"
+
+msgid "Devices type list"
+msgstr "Elenco tipi di dispositivi"
 
 msgid "Disable"
 msgstr "Disabilita"
@@ -126,6 +180,15 @@ msgstr "Modifica"
 
 msgid "Edit Address details"
 msgstr "Modifica i dettagli dell'indirizzo"
+
+msgid "Edit device"
+msgstr "Modifica dispositivo"
+
+msgid "Edit device type"
+msgstr "Modifica tipo dispositivo"
+
+msgid "Edit rackspace"
+msgstr "Modifica rackspace"
 
 msgid "Editing Permission"
 msgstr "Modifica Del Permesso"
@@ -175,6 +238,9 @@ msgstr "Primo IP"
 msgid "Free IP"
 msgstr "IP Libero"
 
+msgid "Front"
+msgstr "Frontale"
+
 msgid "Get unused IP"
 msgstr "Ottieni un IP"
 
@@ -205,6 +271,9 @@ msgstr "calcolatrice IP"
 msgid "IP used"
 msgstr "IP utilizzato"
 
+msgid "Ignore rackspace management when is empty"
+msgstr "Ignora la gestione del rackspace quando è vuoto"
+
 msgid "Import"
 msgstr "Importa"
 
@@ -228,6 +297,9 @@ msgstr "Media Carico"
 
 msgid "Loading"
 msgstr "Caricamento"
+
+msgid "Location"
+msgstr "Posizione"
 
 msgid "Locked"
 msgstr "Bloccato"
@@ -292,6 +364,15 @@ msgstr "Nuovo Vlan"
 msgid "New Worker"
 msgstr "Nuovo agente"
 
+msgid "New device"
+msgstr "Nuovo dispositivo"
+
+msgid "New devices type"
+msgstr "Tipo di nuovo dispositivo"
+
+msgid "New rackspace"
+msgstr "Nuovo rackspace"
+
 msgid "No free address IP available !"
 msgstr "Nessun indirizzo IP disponibile!"
 
@@ -300,6 +381,9 @@ msgstr "Nessun venditore corrispondente"
 
 msgid "No worker assigned"
 msgstr "Nessun agente assegnato"
+
+msgid "None"
+msgstr "Nessuno"
 
 msgid "Notice"
 msgstr "Nota"
@@ -330,6 +414,30 @@ msgstr "Si prega di convalidare il codice TOTP !"
 
 msgid "Queues"
 msgstr "Code"
+
+msgid "Rack Height"
+msgstr "Altezza Rack"
+
+msgid "Rack anchor"
+msgstr "Rack anchor"
+
+msgid "Rackspace"
+msgstr "Rackspace"
+
+msgid "Rackspace was successfully created."
+msgstr "Rackspace creato con successo."
+
+msgid "Rackspace was successfully destroyed."
+msgstr "Rackspace è stato distrutto con successo."
+
+msgid "Rackspace was successfully updated."
+msgstr "Rackspace è stato aggiornato correttamente."
+
+msgid "Rackspaces"
+msgstr "Rackspace"
+
+msgid "Rear"
+msgstr "Posteriore"
 
 msgid "Recovery codes"
 msgstr "Codici di recupero"
@@ -388,6 +496,9 @@ msgstr "Sezioni collegate a %{name} (#%{vid})"
 msgid "Setup"
 msgstr "Configurazione"
 
+msgid "Setup finished"
+msgstr "Configurazione completata"
+
 msgid "Sidekiq"
 msgstr "Sidekiq"
 
@@ -406,6 +517,9 @@ msgstr "Oggetto"
 msgid "Subject ID"
 msgstr "ID Oggetto"
 
+msgid "To enable your instance, please reboot it !"
+msgstr "Per abilitare la tua istanza, riavviala!"
+
 msgid "Two Factor Auth"
 msgstr "Autenticazione A Due Fattori"
 
@@ -414,6 +528,15 @@ msgstr "Autenticazione A Due Fattori"
 
 msgid "Two Factor Authentication Manager"
 msgstr "Gestore Autenticazione A Due Fattori"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Unit"
+msgstr "Unità"
+
+msgid "Unit height"
+msgstr "Altezza unità"
 
 msgid "Unknown state"
 msgstr "Stato sconosciuto"
@@ -495,4 +618,7 @@ msgstr "Il tuo indirizzo IP è"
 
 msgid "every 24 hours"
 msgstr "ogni 24 ore"
+
+msgid "is higher than Rackspace unit"
+msgstr "è superiore all'unità Rackspace"
 
