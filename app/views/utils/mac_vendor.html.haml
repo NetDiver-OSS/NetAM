@@ -2,24 +2,24 @@
 
 = render 'utils/formvendor'
 
-%div.card.mt-4{class: dark_mode_class}
+%div.card.mt-4{ class: dark_mode_class }
   %div.card-header
     %h3.card-title
-      = _('Requested MAC Prefix %{mac}') % { mac: params[:mac] }
+      = format(_('Requested MAC Prefix %{mac}'), { mac: params[:mac] })
   %div.card-body
-    - unless @mac_vendors.nil? || @mac_vendors.empty?
+    - if @mac_vendors.blank?
+      %div.alert.alert-default-warning
+        = _('No matching vendor')
+    - else
       - @mac_vendors.each do |mac_vendor|
         %div.row.pb-3
           %div.col-6
             %div.input-group
               %div.input-group-prepend
-                %span.input-group-text{class: dark_mode_class}= _('Mac Address Prefix')
-              %input.form-control{class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.mac}
+                %span.input-group-text{ class: dark_mode_class }= _('Mac Address Prefix')
+              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.mac }
           %div.col-6
             %div.input-group
               %div.input-group-prepend
-                %span.input-group-text{class: dark_mode_class}= _('Vendor')
-              %input.form-control{class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.vendor}
-    - else
-      %div.alert.alert-default-warning
-        = _('No matching vendor')
+                %span.input-group-text{ class: dark_mode_class }= _('Vendor')
+              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.vendor }

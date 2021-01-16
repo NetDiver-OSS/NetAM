@@ -2,7 +2,7 @@
 
 class ChangeUsagesStatusDefaultValue < ActiveRecord::Migration[6.0]
   def change
-    execute <<-SQL
+    execute <<-SQL.squish
       UPDATE usages
       SET state=1
       WHERE state=null

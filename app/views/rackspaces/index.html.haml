@@ -1,0 +1,22 @@
+- page_title _('Rackspaces')
+- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_rackspace_path })
+
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= _('Name')
+      %th= _('Unit height')
+      %th= _('Location')
+      %th.w-25
+  %tbody
+    - @rackspaces.each do |rackspace|
+      %tr
+        %td= rackspace.name
+        %td= rackspace.unit_height
+        %td= rackspace.location
+        %td
+          %div.btn-group
+            = link_to fa_icon_with_text('fas fa-eye', _('View')), rackspace_path(rackspace), class: 'btn btn-primary btn-sm' if can? :show, rackspace
+            = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_rackspace_path(rackspace), class: 'btn btn-info btn-sm' if can? :edit, rackspace
+            = link_to fa_icon_with_text('fas fa-trash', _('Destroy')), rackspace_path(rackspace), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, rackspace

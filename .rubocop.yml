@@ -5,6 +5,12 @@ require:
 
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  NewCops: enable
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 Style/SymbolArray:
   Enabled: true
 

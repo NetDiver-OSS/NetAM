@@ -3,20 +3,20 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.1",
-    "@rails/actioncable": "6.0.3",
-    "@rails/activestorage": "6.0.3",
-    "@rails/ujs": "6.0.3",
+    "@rails/actioncable": "6.1.1",
+    "@rails/activestorage": "6.1.1",
+    "@rails/ujs": "6.1.1",
     "@rails/webpacker": "5.2.1",
     "admin-lte": "3.0.5",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "js-cookie": "2.2.1",
     "vue": "2.6.12",
     "vue-fragment": "1.5.1",
-    "vue-loader": "15.9.5",
+    "vue-loader": "15.9.6",
     "vue-template-compiler": "2.6.12"
   },
   "version": "2.1.0-pre",
   "devDependencies": {
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.1"
   }
 }

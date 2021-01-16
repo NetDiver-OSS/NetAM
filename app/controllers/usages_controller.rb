@@ -42,7 +42,7 @@ class UsagesController < ApplicationController
 
     if @usage.save
       if @usage.define_device == '1' && @usage.fqdn.present?
-        @usage.update!(device: Device.create!(name: @usage.fqdn, device_type: DeviceType.find_by(name: 'None')))
+        @usage.update!(device: Device.create!(name: @usage.fqdn, rack_height: 1, device_type: DeviceType.find_by(name: 'None')))
         Permission.create!(
           {
             user_id: current_user.id,
@@ -62,7 +62,7 @@ class UsagesController < ApplicationController
   def update
     if @usage.update(usage_params)
       if @usage.define_device == '1' && @usage.fqdn.present?
-        @usage.update!(device: Device.create!(name: @usage.fqdn, device_type: DeviceType.find_by(name: 'None')))
+        @usage.update!(device: Device.create!(name: @usage.fqdn, rack_height: 1, device_type: DeviceType.find_by(name: 'None')))
         Permission.create!(
           {
             user_id: current_user.id,

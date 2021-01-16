@@ -9,14 +9,16 @@ RSpec.describe 'Devices', type: :request do
   let(:valid_attributes) do
     {
       name: 'device_test',
-      device_type: device_type
+      device_type: device_type,
+      rack_height: 2
     }
   end
 
   let(:invalid_attributes) do
     {
       name: nil,
-      device_type: device_type
+      device_type: device_type,
+      rack_height: '12'
     }
   end
 

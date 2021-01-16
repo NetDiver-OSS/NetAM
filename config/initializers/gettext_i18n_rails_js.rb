@@ -21,11 +21,11 @@ module GettextI18nRailsJs
         $stdout.puts "Run JavaScript analyser on: #{scan_file}"
 
         ::File.open(scan_file) do |f|
-          f.each_line.each_with_index.collect do |line, idx|
+          f.each_line.each_with_index.sum([]) do |line, idx|
             line.scan(invoke_regex).collect do |function, arguments|
               yield(function, arguments, idx + 1)
             end
-          end.inject([], :+).compact
+          end.compact
         end
       end
     end

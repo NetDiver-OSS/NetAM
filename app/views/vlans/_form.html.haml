@@ -2,7 +2,7 @@
   %div.card-body
     - if vlan.errors.any?
       - vlan.errors.full_messages.each do |message|
-        %div.callout.callout-danger{class: dark_mode_class}
+        %div.callout.callout-danger{ class: dark_mode_class }
           %p= message
     %div.row
       %div.col-6
@@ -18,7 +18,7 @@
       %div.col-12
         %div.form-group
           = form.label _('Description')
-          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: "5"
+          = form.text_area :description, placeholder: _('Description'), class: "form-control #{dark_mode_class}", rows: '5'
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

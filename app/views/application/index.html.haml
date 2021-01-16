@@ -3,7 +3,7 @@
 %h3= _('NetAM control node')
 %div.row
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
+    %div.info-box{ class: dark_mode_class }
       %span.info-box-icon.bg-info.elevation-1
         %i.fas.fa-microchip
 
@@ -12,7 +12,7 @@
         %span.info-box-number= @master_node[:cpu].length
 
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
+    %div.info-box{ class: dark_mode_class }
       %span.info-box-icon.bg-danger.elevation-1
         %i.fas.fa-memory
 
@@ -23,7 +23,7 @@
   %div.clearfix.hidden-md-up
 
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
+    %div.info-box{ class: dark_mode_class }
       %span.info-box-icon.bg-success.elevation-1
         %i.fas.fa-hourglass
 
@@ -32,18 +32,18 @@
         %span.info-box-number #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
 
   %div.col-12.col-sm-6.col-md-3
-    %div.info-box{class: dark_mode_class}
+    %div.info-box{ class: dark_mode_class }
       %span.info-box-icon.bg-warning.elevation-1
         %i.fas.fa-history
 
       %div.info-box-content
         %span.info-box-text= _('Boot time')
-        %span.info-box-number= distance_of_time_in_words(@master_node[:boot_time], Time.now)
+        %span.info-box-number= distance_of_time_in_words(@master_node[:boot_time], Time.zone.now)
 
 %h3= _('NetAM agent node')
 %div.row
   %div.col-12
-    %div.card{class: dark_mode_class}
+    %div.card{ class: dark_mode_class }
       %div.card-header
         %h3.card-title= _('Workers')
 
@@ -67,5 +67,5 @@
                 %td= process[:concurrency]
                 %td= process[:busy]
                 %td= process[:queues].join(' | ')
-                %td= distance_of_time_in_words(process[:started_at], Time.now)
-                %td= distance_of_time_in_words(process[:beat], Time.now)
+                %td= distance_of_time_in_words(process[:started_at], Time.zone.now)
+                %td= distance_of_time_in_words(process[:beat], Time.zone.now)

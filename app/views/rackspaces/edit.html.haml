@@ -1,0 +1,4 @@
+- page_title _('Edit rackspace')
+
+= render 'form', rackspace: @rackspace
+= render 'permissions/rbac', permission: @rackspace, controller: RackspacesController

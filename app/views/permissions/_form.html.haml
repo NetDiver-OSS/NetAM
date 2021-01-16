@@ -4,13 +4,13 @@
   %div.card-body
     - if permission.errors.any?
       - permission.errors.full_messages.each do |message|
-        %div.callout.callout-danger{class: dark_mode_class}
+        %div.callout.callout-danger{ class: dark_mode_class }
           %p= message
     %div.row
       %div.col-6
         %div.form-group
           = form.label :user_id
-          = form.select :user_id, @users, {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :user_id, @users, {}, { class: "form-control #{dark_mode_class}" }
       %div.col-6
         %div.form-group
           = form.label :name
@@ -27,7 +27,7 @@
       %div.col-4
         %div.form-group
           = form.label :action
-          = form.select :action, [:read, :manage], {}, {class: "form-control #{dark_mode_class}"}
+          = form.select :action, %i[read manage], {}, { class: "form-control #{dark_mode_class}" }
 
   %div.card-footer
     = form.submit nil, class: 'btn btn-primary float-right'

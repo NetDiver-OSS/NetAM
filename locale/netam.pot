@@ -112,7 +112,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Delete Rackspace link"
+msgstr ""
+
+msgid "Depth Type"
+msgstr ""
+
+msgid "Depth type"
+msgstr ""
+
 msgid "Description"
+msgstr ""
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Device type"
 msgstr ""
 
 msgid "Device type was not destroyed."
@@ -172,6 +187,9 @@ msgstr ""
 msgid "Edit device type"
 msgstr ""
 
+msgid "Edit rackspace"
+msgstr ""
+
 msgid "Editing Permission"
 msgstr ""
 
@@ -220,6 +238,9 @@ msgstr ""
 msgid "Free IP"
 msgstr ""
 
+msgid "Front"
+msgstr ""
+
 msgid "Get unused IP"
 msgstr ""
 
@@ -250,6 +271,9 @@ msgstr ""
 msgid "IP used"
 msgstr ""
 
+msgid "Ignore rackspace management when is empty"
+msgstr ""
+
 msgid "Import"
 msgstr ""
 
@@ -272,6 +296,9 @@ msgid "Load Average"
 msgstr ""
 
 msgid "Loading"
+msgstr ""
+
+msgid "Location"
 msgstr ""
 
 msgid "Locked"
@@ -343,6 +370,9 @@ msgstr ""
 msgid "New devices type"
 msgstr ""
 
+msgid "New rackspace"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr ""
 
@@ -383,6 +413,30 @@ msgid "Please validate TOTP code !"
 msgstr ""
 
 msgid "Queues"
+msgstr ""
+
+msgid "Rack Height"
+msgstr ""
+
+msgid "Rack anchor"
+msgstr ""
+
+msgid "Rackspace"
+msgstr ""
+
+msgid "Rackspace was successfully created."
+msgstr ""
+
+msgid "Rackspace was successfully destroyed."
+msgstr ""
+
+msgid "Rackspace was successfully updated."
+msgstr ""
+
+msgid "Rackspaces"
+msgstr ""
+
+msgid "Rear"
 msgstr ""
 
 msgid "Recovery codes"
@@ -442,6 +496,9 @@ msgstr ""
 msgid "Setup"
 msgstr ""
 
+msgid "Setup finished"
+msgstr ""
+
 msgid "Sidekiq"
 msgstr ""
 
@@ -460,6 +517,9 @@ msgstr ""
 msgid "Subject ID"
 msgstr ""
 
+msgid "To enable your instance, please reboot it !"
+msgstr ""
+
 msgid "Two Factor Auth"
 msgstr ""
 
@@ -470,6 +530,12 @@ msgid "Two Factor Authentication Manager"
 msgstr ""
 
 msgid "Type"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unit height"
 msgstr ""
 
 msgid "Unknown state"
@@ -551,4 +617,7 @@ msgid "Your address IP is"
 msgstr ""
 
 msgid "every 24 hours"
+msgstr ""
+
+msgid "is higher than Rackspace unit"
 msgstr ""

@@ -1,14 +1,14 @@
-%div.modal.fade#totp_to_valid{ data: {backdrop: 'static', keyboard: 'false'}, tabindex: '-1', aria: {labelledby: 'staticBackdropLabel' }}
+%div.modal.fade#totp-to-valid{ data: { backdrop: 'static', keyboard: 'false' }, tabindex: '-1', aria: { labelledby: 'staticBackdropLabel' } }
   %div.modal-dialog
-    %div.modal-content{class: dark_mode_class}
+    %div.modal-content{ class: dark_mode_class }
       = form_with(url: validate_account_two_factor_auths_path, local: true) do |form|
         %div.modal-header
           %h5.modal-title= _('Please validate TOTP code !')
         %div.modal-body
           %div.text-center.bg-light
-            = @qrcode.html_safe
+            = sanitize @qrcode, tags: %w[svg rect], attributes: %w[width height x y]
             %p
-              = _('Secret: %{otp_secret}') % { otp_secret: current_user.otp_secret }
+              = format(_('Secret: %{otp_secret}'), { otp_secret: current_user.otp_secret })
           %div.form-group
             = form.label _('OTP code')
             = form.text_field :otp_attempt, class: "form-control #{dark_mode_class}"

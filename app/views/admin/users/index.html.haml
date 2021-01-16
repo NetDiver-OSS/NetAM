@@ -1,10 +1,10 @@
 - page_title _('Users')
-- page_action({icon: '<i class="fas fa-plus-square"></i>', path: new_admin_user_path})
+- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_admin_user_path })
 
 %div.row.d-flex.align-items-stretch
   - @users.each do |user|
     %div.col-12.col-sm-6.col-md-4.d-flex.align-items-stretch
-      %div{class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100"}
+      %div{ class: "card  #{dark_mode? ? 'bg-dark text-white' : 'bg-light'} w-100" }
         %div.card-header.text-muted.border-bottom-0 ##{user.id}
         %div.card-body.pt-0
           %div.row
@@ -24,4 +24,4 @@
           %div.text-right
             = link_to fa_icon_with_text('fas fa-user', _('View')), admin_user_path(user), class: 'btn btn-primary btn-sm'
             = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_user_path(user), class: 'btn btn-info btn-sm'
-            = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_user_path(user), method: :delete, class: 'btn btn-danger btn-sm', data: {confirm: _('Are you sure?')}
+            = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_user_path(user), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: _('Are you sure?') }

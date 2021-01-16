@@ -22,7 +22,7 @@ import Vue from 'vue/dist/vue.esm'
 import request_ip from '../components/section/request_ip'
 
 jQuery(document).ready(function() {
-  $('#totp_to_valid').modal('show')
+  $('#totp-to-valid').modal('show')
 });
 
 Vue.component('btn-request-ip', request_ip)
