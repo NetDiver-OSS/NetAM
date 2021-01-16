@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def dark_mode?
-    cookies['dark_mode'] == 'true'
+    cookies['theme'] == 'dark'
   end
 
   def dark_mode_class

@@ -41,7 +41,7 @@ export default {
         })
         .finally(() => {
           this.loading = false
-          $('.modal').modal('show')
+          // $('.modal').modal('show')
         })
     }
   },

@@ -3,29 +3,35 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+
+
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
-import "bootstrap"
+import 'stylesheets/application'
 
 import '@fortawesome/fontawesome-free/js/all.min'
-import 'admin-lte/dist/js/adminlte.min'
-import 'admin-lte/plugins/chart.js/Chart.min'
+// import 'admin-lte/dist/js/adminlte.min'
+// import 'admin-lte/plugins/chart.js/Chart.min'
 
-import './dark_mode'
-import './datatable'
-import './select'
+// import './datatable'
+// import './select'
 
 /* VueJS imports */
 import Vue from 'vue/dist/vue.esm'
 /* Components imports */
 import request_ip from '../components/section/request_ip'
+import theme_switcher from '../components/theme_switcher'
+import slide_menu from "../components/slide_menu";
+import dropdown from '../components/dropdown'
+import alert from "../components/alert";
 
-jQuery(document).ready(function() {
-  $('#totp-to-valid').modal('show')
-});
 
 Vue.component('btn-request-ip', request_ip)
+Vue.component('theme-switcher', theme_switcher)
+Vue.component('dropdown', dropdown)
+Vue.component('slide-menu', slide_menu)
+Vue.component('alert', alert)
 
 window.addEventListener('load', () => {
   new Vue({ el: '[data-behavior="vue"]' })

@@ -11,10 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require @fortawesome/fontawesome-free
- *= require admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min
- *= require admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css
- *= require admin-lte
- *= require admin-lte/plugins/select2/css/select2.min
  */
 
 .flag-icon{background-size:contain;background-position:50%;background-repeat:no-repeat;position:relative;display:inline-block;width:1.33333333em;line-height:1em}
