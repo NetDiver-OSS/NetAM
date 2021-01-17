@@ -1,30 +1,38 @@
+:ruby
+  page_title _('Two Factor Authentication Manager')
+
+  page_action({ icon: fa_icon_with_text('fas fa-plus', _('Enable TOTP')), path: account_two_factor_auths_path, method: 'post' }) unless current_user.otp_required_for_login
+  page_action({ icon: fa_icon_with_text('fas fa-times', _('Disable TOTP')), path: account_two_factor_auths_path, method: 'delete' }) if current_user.otp_required_for_login
+
+
 = render 'validate_topt' if current_user.otp_pending?
 
-%div.row
-  %div.col-6
-    %div.card{ class: dark_mode_class }
-      %div.card-header
-        %h3.card-title= _('Two Factor Authentication')
-      %div.card-body.text-center
+%div{ class: 'md:grid md:grid-cols-3 md:gap-6' }
+  %div{ class: 'md:col-span-1' }
+    %div{ class: 'px-4 sm:px-0' }
+      %h3{ class: 'text-lg font-medium leading-6 text-gray-900 dark:text-gray-200' }= _('Two Factor Authentication')
+  %div{ class: 'mt-5 md:mt-0 md:col-span-2' }
+    %div{ class: 'shadow sm:rounded-md sm:overflow-hidden' }
+      %div{ class: 'px-4 py-5 bg-white dark:bg-gray-600 space-y-6 sm:p-6' }
         - if current_user.otp_required_for_login
-          = sanitize @qrcode, tags: %w[svg rect], attributes: %w[width height x y]
-          %div.text-center
-            = format(_('Secret: %{otp_secret}'), { otp_secret: current_user.otp_secret })
+          %div
+            %label{ class: 'block text-sm font-bold text-gray-700 dark:text-gray-200' }= _('Qrcode')
+            %div{ class: 'mt-1 flex justify-center' }
+              = sanitize @qrcode, tags: %w[svg rect], attributes: %w[width height x y]
+          %div
+            %label{ class: 'block text-sm font-bold text-gray-700 dark:text-gray-200' }= _('OTP Secret')
+            %div.mt-1
+              = current_user.otp_secret
 
-  %div.col-6
-    %div.card{ class: dark_mode_class }
-      %div.card-header
-        %h3.card-title= _('Two Factor Authentication Manager')
-      %div.card-body.text-center
-        - if current_user.otp_required_for_login
-          = link_to _('Disable TOTP'), account_two_factor_auths_path, method: :delete, class: 'btn btn-block btn-outline-danger'
-        - else
-          = link_to _('Enable TOTP'), account_two_factor_auths_path, method: :post, class: 'btn btn-block btn-outline-info'
-
-  - unless @codes.nil?
-    %div.col-12
-      %div.card{ class: dark_mode_class }
-        %div.card-header
-          %h3.card-title= _('Recovery codes')
-        %div.card-body
-          = render 'recovery_code', codes: @codes
+- unless @codes.nil?
+  %div{ class: 'mt-5 md:grid md:grid-cols-3 md:gap-6' }
+    %div{ class: 'md:col-span-1' }
+      %div{ class: 'px-4 sm:px-0' }
+        %h3{ class: 'text-lg font-medium leading-6 text-gray-900 dark:text-gray-200' }= _('Recovery codes')
+    %div{ class: 'mt-5 md:mt-0 md:col-span-2' }
+      %div{ class: 'shadow sm:rounded-md sm:overflow-hidden' }
+        %div{ class: 'px-4 py-5 bg-white dark:bg-gray-600 space-y-6 sm:p-6' }
+          - @codes.each_with_index do |code, index|
+            %div
+              %label{ class: 'block text-sm font-bold text-gray-700 dark:text-gray-200' }= format(_('Code #%{id}'), { id: index })
+              %div.mt-1= code
