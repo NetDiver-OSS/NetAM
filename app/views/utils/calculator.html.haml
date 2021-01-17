@@ -3,45 +3,34 @@
 = render 'utils/form'
 
 - if @address
-  %div.card.mt-4{ class: dark_mode_class }
-    %div.card-header
-      %h3.card-title= params[:ip]
-    %div.card-body
-      %div.row
-        %div.col-4
-          %div.input-group
-            %div.input-group-prepend
-              %span.input-group-text{ class: dark_mode_class }= _('Network')
-            %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: @address.network }
-        %div.col-4
-          %div.input-group
-            %div.input-group-prepend
-              %span.input-group-text{ class: dark_mode_class }= _('Mask')
-            %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: @address.mask }
-        %div.col-4
-          %div.input-group
-            %div.input-group-prepend
-              %span.input-group-text{ class: dark_mode_class }= _('Available IP')
-            %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: @address.nb_hosts }
+  %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+    %div{ class: 'px-4 py-5 sm:px-6' }
+      %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Network information')
 
-      %div.row.mt-3
-        - unless @address.broadcast.nil?
-          %div.col-4
-            %div.input-group
-              %div.input-group-prepend
-                %span.input-group-text{ class: dark_mode_class }= _('Broadcast')
-              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: @address.broadcast }
+    %dl
+      %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+        %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Network')
+        %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @address.network
 
-        - unless @address.first_address.nil?
-          %div.col-4
-            %div.input-group
-              %div.input-group-prepend
-                %span.input-group-text{ class: dark_mode_class }= _('First IP')
-              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: @address.first_address }
+      %div{ class: 'bg-white dark:bg-gray-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+        %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Mask')
+        %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @address.mask
 
-        - unless @address.last_address.nil?
-          %div.col-4
-            %div.input-group
-              %div.input-group-prepend
-                %span.input-group-text{ class: dark_mode_class }= _('Last IP')
-              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: @address.last_address }
+      %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+        %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Available IP')
+        %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= number_to_human @address.nb_hosts
+
+      - unless @address.broadcast.nil?
+        %div{ class: 'bg-white dark:bg-gray-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Broadcast')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @address.broadcast
+
+      - unless @address.first_address.nil?
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('First IP')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @address.first_address
+
+      - unless @address.last_address.nil?
+        %div{ class: 'bg-white dark:bg-gray-600 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Last IP')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @address.last_address
