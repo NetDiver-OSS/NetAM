@@ -9,10 +9,12 @@
     "@rails/webpacker": "5.2.1",
     "autoprefixer": "10.2.1",
     "axios": "0.21.1",
+    "chart.js": "2.9.4",
     "js-cookie": "2.2.1",
     "postcss": "8.2.4",
     "tailwindcss": "2.0.2",
     "vue": "2.6.12",
+    "vue-chartjs": "3.5.1",
     "vue-fragment": "1.5.1",
     "vue-loader": "15.9.6",
     "vue-template-compiler": "2.6.12"

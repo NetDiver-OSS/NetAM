@@ -2,15 +2,31 @@
 
 module NetAM
   class Section
+    def self.get_last_jid(section_id)
+      status = get_last_job(section_id)
+      return status['jid'] unless status.nil?
+
+      0
+    end
+
     def self.get_last_scan(section_id)
+      status = get_last_job(section_id)
+      return status['update_time'] unless status.nil?
+
+      0
+    end
+
+    private
+
+    def self.get_last_job(section_id)
       Sidekiq.redis do |conn|
-        conn.scan_each(match: 'sidekiq:status:*', count: 100).map do |key|
+        conn.scan_each(match: 'sidekiq:status:*', count: 100).reverse_each do |key|
           status = Sidekiq::Status.get_all(key.split(':').last)
-          return status['update_time'] if JSON.parse(status['args']).first['id'] == section_id
+          return status if JSON.parse(status['args']).first['id'] == section_id
         end
       end
 
-      0
+      nil
     end
   end
 end

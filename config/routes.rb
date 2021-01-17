@@ -74,6 +74,9 @@ Rails.application.routes.draw do
         resources :users
 
         resources :sidekiq, only: [:index]
+
+        get 'api/sections/:id', to: 'api/sections#usages'
+        get 'api/status/:jid', to: 'api/sections#status'
       end
 
       mount Sidekiq::Web => '/-/sidekiq'

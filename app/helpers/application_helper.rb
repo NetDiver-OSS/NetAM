@@ -24,7 +24,7 @@ module ApplicationHelper
     if actions.any?
       actions.each do |action|
         @page_action.push(
-          link_to(sanitize(action[:icon]), action[:path], class: 'btn btn-secondary btn-flat', method: action[:method] || 'get')
+          link_to(sanitize(action[:icon]), action[:path], class: 'btn', method: action[:method] || 'get')
         )
       end
     end
