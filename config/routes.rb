@@ -74,12 +74,6 @@ Rails.application.routes.draw do
         resources :users
 
         resources :sidekiq, only: [:index]
-
-        resources :jobs, only: [:index] do
-          member do
-            post :toggle
-          end
-        end
       end
 
       mount Sidekiq::Web => '/-/sidekiq'
