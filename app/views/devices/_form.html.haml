@@ -1,44 +1,46 @@
 = form_with(model: device, local: true) do |form|
-  %div.card-body
-    - if device.errors.any?
+  - if device.errors.any?
+    %div{ class: 'bg-red-100 border-l-4 border-orange-500 text-orange-700 p-4' }
       - device.errors.full_messages.each do |message|
-        %div.callout.callout-danger{ class: dark_mode_class }
-          %p= message
-    %div.row
-      %div.col-6
-        %div.form-group
-          = form.label _('Name')
-          = form.text_field :name, class: "form-control #{dark_mode_class}"
-      %div.col-6
-        %div.form-group
-          = form.label _('Type')
-          = form.select :device_type_id, @device_types, {}, { class: "form-control #{dark_mode_class}" }
-      %div.col-6
-        %div.form-group
-          = form.label _('Rack Height')
-          = form.number_field :rack_height, class: "form-control #{dark_mode_class}"
-      %div.col-6
-        %div.form-group
-          = form.label _('Depth Type')
-          = form.select :depth_type, Device.depth_types.keys, {}, { class: "form-control #{dark_mode_class}" }
+        %p= message
 
-    = form.fields_for :rack_occupation do |rack_form|
-      %hr
-      - if action_name == 'edit'
-        %div.row
-          %div.col-6
-            %div.form-check.mt-2
-              = rack_form.check_box :_destroy, class: 'form-check-input'
-              = rack_form.label :_destroy, _('Delete Rackspace link'), class: 'form-check-label'
-      %div.row
-        %div.col-6
-          %div.form-group
-            = rack_form.label _('Rackspace')
-            = rack_form.select :rackspace_id, Rackspace.all.pluck(:name, :id), {}, { class: "form-control #{dark_mode_class}" }
-        %div.col-6
-          %div.form-group
-            = rack_form.label _('Rack anchor')
-            = rack_form.text_field :rack_anchor, placeholder: _('Ignore rackspace management when is empty'), class: "form-control #{dark_mode_class}"
+  %div{ class: 'px-4 py-3 space-y-6 sm:p-6' }
+    %fieldset
+      %div.grid.grid-cols-6.gap-3
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label _('Name'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.text_field :name, class: 'input'
 
-  %div.card-footer
-    = form.submit _('Apply'), class: 'btn btn-primary float-right'
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label _('Type'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :device_type_id, @device_types, {}, { class: 'input' }
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label _('Rack Height'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.number_field :rack_height, class: 'input'
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label _('Depth Type'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :depth_type, Device.depth_types.keys, {}, { class: 'input' }
+
+    %fieldset
+      %legend{ class: 'text-base font-medium text-gray-900' }= _('Rack occupation management')
+      %p{ class: 'text-sm text-gray-500' }= _('You can skip rackspace management fields')
+
+      = form.fields_for :rack_occupation do |rack_form|
+        %div.grid.grid-cols-6.gap-3.py-5
+          - if action_name == 'edit'
+            %div.col-span-6
+              = rack_form.check_box :_destroy
+              = rack_form.label :_destroy, _('Delete Rackspace link')
+
+          %div{ class: 'col-span-6 sm:col-span-3' }
+            = rack_form.label _('Rackspace'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+            = rack_form.select :rackspace_id, Rackspace.all.pluck(:name, :id), {}, { class: 'input' }
+
+          %div{ class: 'col-span-6 sm:col-span-3' }
+            = rack_form.label _('Rack anchor'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+            = rack_form.text_field :rack_anchor, class: 'input'
+
+  %div{ class: 'px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
+    = form.submit _('Apply'), class: 'bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 cursor-pointer'
