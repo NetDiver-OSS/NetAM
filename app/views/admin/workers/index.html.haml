@@ -5,7 +5,7 @@
   = _('Worker "default" is not listed here. This worker manages all NetAM internal tasks as the backup.')
 
 %div.card-body.table-responsive
-  %table.table.table-striped.projects.datatable
+  %table.table.table-striped.projects
     %thead
       %tr
         %th= _('Worker name')
@@ -29,3 +29,5 @@
             %div.btn-group
               = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'
               = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: _('Are you sure?') }
+
+  = paginate @workers

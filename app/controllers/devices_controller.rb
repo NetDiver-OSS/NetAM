@@ -7,7 +7,7 @@ class DevicesController < ApplicationController
 
   # GET /devices
   def index
-    @devices = Device.accessible_by(current_ability)
+    @devices = Device.accessible_by(current_ability).page params[:page]
   end
 
   # GET /devices/1

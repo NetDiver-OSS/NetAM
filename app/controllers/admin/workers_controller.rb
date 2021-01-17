@@ -7,7 +7,7 @@ module Admin
 
     # GET /workers
     def index
-      @workers = Worker.all
+      @workers = Worker.all.page params[:page]
     end
 
     # GET /workers/new
