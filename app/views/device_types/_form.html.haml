@@ -1,17 +1,19 @@
 = form_with(model: device_type, local: true) do |form|
-  %div.card-body
-    - if device_type.errors.any?
+  - if device_type.errors.any?
+    %div{ class: 'bg-red-100 border-l-4 border-orange-500 text-orange-700 p-4' }
       - device_type.errors.full_messages.each do |message|
-        %div.callout.callout-danger{ class: dark_mode_class }
-          %p= message
-    %div.row
-      %div.col-6
-        %div.form-group
-          = form.label _('Name')
-          = form.text_field :name, class: "form-control #{dark_mode_class}"
-      %div.col-4
-        %div.form-group
-          = form.label _('Color')
-          = form.color_field :color, class: "form-control #{dark_mode_class}"
-      %div.col-2.mb-3.align-self-end
-        = form.submit _('Apply'), class: 'btn btn-primary'
+        %p= message
+
+  .overflow-hidden
+    %div{ class: 'px-4 py-5 bg-white dark:bg-gray-600 sm:p-6' }
+      %div.grid.grid-cols-6.gap-3
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :email, _('Name'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.text_field :name, class: 'input', placeholder: _('Name')
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :color, _('Color'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.color_field :color, class: 'input'
+
+  %div{ class: 'px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
+    = form.submit _('Apply'), class: 'bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 cursor-pointer'
