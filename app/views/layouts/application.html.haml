@@ -19,7 +19,7 @@
 
   %body{ class: 'bg-gray-100 dark:bg-gray-700 text-black dark:text-white' }
     %div{ 'data-behavior': 'vue' }
-      - if devise_controller?
+      - if (controller_name == 'sessions' || controller_name == 'registrations') && action_name == 'new'
         = yield
       - else
         = render partial: 'layouts/navbar'

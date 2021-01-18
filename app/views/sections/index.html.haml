@@ -4,7 +4,7 @@
 
 %div{ class: 'flex flex-wrap' }
   %div{ class: 'w-full my-5' }
-    %div{ class: 'relative flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full shadow-lg rounded' }
+    %div{ class: 'relative flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full shadow rounded' }
       %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
         %div{ class: 'flex flex-wrap items-center' }
           %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
@@ -30,10 +30,10 @@
                       %div{ style: "width: #{section.usages.dhcp.count * 100 / NetAM::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500' }
 
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }
-                  = link_to fa_icon_with_text('fas fa-folder', _('View')), section, class: 'w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm'
-                  = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_scan_path(section), method: :post, class: 'w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm' if can? :scan, section
+                  = link_to fa_icon_with_text('fas fa-folder', _('View')), section, class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_scan_path(section), method: :post, class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm' if can? :scan, section
 
-                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_path(section), class: 'w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:ml-3 sm:w-auto sm:text-sm' if can? :edit, section
-                  = link_to fa_icon_with_text('fas fa-trash', _('Delete')), section, method: :delete, class: 'w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') } if can? :destroy, section
+                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_path(section), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:ml-3 sm:w-auto sm:text-sm' if can? :edit, section
+                  = link_to fa_icon_with_text('fas fa-trash', _('Delete')), section, method: :delete, class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') } if can? :destroy, section
 
   = paginate @sections

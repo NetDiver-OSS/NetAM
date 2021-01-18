@@ -1,7 +1,6 @@
 <% if resource.errors.any? %>
-  <div class="callout callout-danger <%= dark_mode_class %>">
+  <div class="bg-red-500 text-white p-3 rounded shadow">
     <h5>
-      <i class="fas fa-exclamation"></i>
       <%= I18n.t("errors.messages.not_saved",
                  count: resource.errors.count,
                  resource: resource.class.model_name.human.downcase)
@@ -9,7 +8,7 @@
     </h5>
 
     <% resource.errors.full_messages.each do |message| %>
-      <p class="mb-0">- <%= message %></p>
+      <p>- <%= message %></p>
     <% end %>
   </div>
 <% end %>
