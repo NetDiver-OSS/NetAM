@@ -22,9 +22,9 @@
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= vlan.vid
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= vlan.name
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= vlan.description
-                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }
-                  = link_to fa_icon_with_text('fas fa-user', _('View')), vlan, class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm'
-                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_vlan_path(vlan), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:ml-3 sm:w-auto sm:text-sm'
-                  = link_to fa_icon_with_text('fas fa-trash', _('Delete')), vlan, method: :delete, class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                  = link_to fa_icon_with_text('fas fa-user', _('View')), vlan, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_vlan_path(vlan), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('fas fa-trash', _('Delete')), vlan, method: :delete, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
 
   = paginate @vlans
