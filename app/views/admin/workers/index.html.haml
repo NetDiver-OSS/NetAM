@@ -1,5 +1,5 @@
 - page_title _('Workers')
-- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_admin_worker_path })
+- page_action({ icon: fa_icon('solid', 'plus-square'), path: new_admin_worker_path })
 
 %div{ class: 'bg-blue-400 text-white font-bold p-4 rounded shadow' }
   = _('Worker "default" is not listed here. This worker manages all NetAM internal tasks as the backup.')
@@ -30,9 +30,12 @@
                     - worker.sections.pluck(:name).each do |name|
                       %li= name
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }
-                  = sanitize Sidekiq::ProcessSet.new(false).count { |a| a['queues'].include? "node:#{worker.uuid}" }.zero? ? '<i class="fas fa-times-circle"></i>' : '<i class="fas fa-check-circle"></i>'
+                  - if Sidekiq::ProcessSet.new(false).count { |a| a['queues'].include? "node:#{worker.uuid}" }.zero?
+                    %fa-icon{ type: 'solid', name: 'times-circle', size: 16 }
+                  - else
+                    %fa-icon{ type: 'solid', name: 'check-circle', size: 16 }
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
-                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm'
-                  = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
+                  = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
 
   = paginate @workers

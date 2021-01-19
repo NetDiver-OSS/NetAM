@@ -12,23 +12,23 @@
             %div{ class: 'absolute inset-0 px-4 sm:px-6' }
               %h4{ class: 'pt-2 uppercase text-xs font-light text-gray-600 dark:text-gray-100' } NetAM
               %div{ class: 'grid grid-cols-2 px-2 gap-2 py-2' }
-                = link_to fa_icon_with_text('fas fa-square', _('Sections')), sections_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-square', _('Vlans')), vlans_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-square', _('Devices')), devices_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-square', _('Devices Type')), device_types_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-square', _('Rackspaces')), rackspaces_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'square', _('Sections')), sections_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'square', _('Vlans')), vlans_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'square', _('Devices')), devices_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'square', _('Devices Type')), device_types_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'square', _('Rackspaces')), rackspaces_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
 
               %h4{ class: 'pt-2 uppercase text-xs font-light text-gray-600 dark:text-gray-100' }= _('Utils')
               %div{ class: 'grid grid-cols-2 px-2 gap-2 py-2' }
-                = link_to fa_icon_with_text('fas fa-server', _('IP Calculator')), utils_calculator_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-server', _('MAC Vendor')), utils_mac_vendor_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'server', _('IP Calculator')), utils_calculator_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'server', _('MAC Vendor')), utils_mac_vendor_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
 
               %h4{ class: 'pt-2 uppercase text-xs font-light text-gray-600 dark:text-gray-100' }= _('Admin Center')
               %div{ class: 'grid grid-cols-2 px-2 gap-2 py-2' }
-                = link_to fa_icon_with_text('fas fa-users', _('Users')), admin_users_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-save', _('Backups')), admin_backups_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-server', _('Workers')), admin_workers_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('fas fa-stream', _('Sidekiq')), admin_sidekiq_index_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'users', _('Users')), admin_users_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'save', _('Backups')), admin_backups_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'server', _('Workers')), admin_workers_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+                = link_to fa_icon_with_text('solid', 'stream', _('Sidekiq')), admin_sidekiq_index_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
 
       %div{ class: 'flex flex-grow items-center' }
         = link_to 'NetAM', root_path, class: 'text-white text-xl'
@@ -61,4 +61,4 @@
             %div{ class: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5' }
               = link_to _('My account'), edit_user_registration_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500'
               = link_to _('Two Factor Auth'), account_two_factor_auths_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500'
-              = link_to fa_icon_with_text('fas fa-sign-out-alt', _('Logout')), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-sm text-red-700 dark:text-red-400 hover:bg-red-100 dark:hover:text-gray-300 dark:hover:bg-red-400'
+              = link_to fa_icon_with_text('solid', 'sign-out-alt', _('Logout')), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-sm text-red-700 dark:text-red-400 hover:bg-red-100 dark:hover:text-gray-300 dark:hover:bg-red-400'

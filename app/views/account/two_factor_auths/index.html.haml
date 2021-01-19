@@ -1,8 +1,8 @@
 :ruby
   page_title _('Two Factor Authentication Manager')
 
-  page_action({ icon: fa_icon_with_text('fas fa-plus', _('Enable TOTP')), path: account_two_factor_auths_path, method: 'post' }) unless current_user.otp_required_for_login
-  page_action({ icon: fa_icon_with_text('fas fa-times', _('Disable TOTP')), path: account_two_factor_auths_path, method: 'delete' }) if current_user.otp_required_for_login
+  page_action({ icon: fa_icon_with_text('solid', 'plus', _('Enable TOTP')), path: account_two_factor_auths_path, method: 'post' }) unless current_user.otp_required_for_login
+  page_action({ icon: fa_icon_with_text('solid', 'times', _('Disable TOTP')), path: account_two_factor_auths_path, method: 'delete' }) if current_user.otp_required_for_login
 
 
 = render 'validate_topt' if current_user.otp_pending?

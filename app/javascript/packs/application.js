@@ -7,8 +7,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
 import 'stylesheets/application'
-
-import '@fortawesome/fontawesome-free/js/all.min'
+require.context('@fortawesome/fontawesome-free/sprites', true)
 
 // import './datatable'
 // import './select'
@@ -21,6 +20,7 @@ import theme_switcher from '../components/theme_switcher'
 import slide_menu from "../components/slide_menu";
 import dropdown from '../components/dropdown'
 import alert from "../components/alert";
+import fa_icon from "../components/icon";
 import section__pie_usage from "../components/section/pie_usage";
 import section__status_scan from "../components/section/status_scan";
 
@@ -30,6 +30,7 @@ Vue.component('theme-switcher', theme_switcher)
 Vue.component('dropdown', dropdown)
 Vue.component('slide-menu', slide_menu)
 Vue.component('alert', alert)
+Vue.component('fa-icon', fa_icon)
 Vue.component('section-usage', section__pie_usage)
 Vue.component('section-scan', section__status_scan)
 

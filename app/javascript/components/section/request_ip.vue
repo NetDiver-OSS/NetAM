@@ -3,6 +3,7 @@ import * as axios from "axios";
 import Cookies from 'js-cookie';
 import { Fragment } from 'vue-fragment'
 import Modal from "../modal";
+import FaIcon from "../icon";
 
 const AXIOS_HEADERS = {
   headers: {
@@ -12,7 +13,7 @@ const AXIOS_HEADERS = {
 
 export default {
   name: "request_ip",
-  components: {Modal, Fragment },
+  components: {FaIcon, Modal, Fragment },
   props: {
     section_id: {
       required: true,
@@ -65,7 +66,8 @@ export default {
 <template>
   <fragment>
     <a class="btn cursor-pointer mr-1" v-if="!loading" @click.prevent="requestIP">
-      <i class="fas fa-ethernet"></i> {{ fields.get_unused_ip }}
+      <fa-icon type="solid" name="ethernet" size="16" class-name="inline-flex items-center h-full mr-1" />
+      {{ fields.get_unused_ip }}
     </a>
 
     <a class="btn cursor-pointer mr-1" v-if="loading" disabled>

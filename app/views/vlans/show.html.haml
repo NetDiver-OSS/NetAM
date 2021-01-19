@@ -1,6 +1,6 @@
 - page_title "<strong>#{@vlan.name.upcase}</strong> - <small>#{@vlan.vid}</small>"
 
-- page_action({ icon: '<i class="fas fa-edit"></i> Edit', path: edit_vlan_path(@vlan) }) if can? :edit, @vlan
+- page_action({ icon: fa_icon_with_text('solid', 'edit', _('Edit')), path: edit_vlan_path(@vlan) }) if can? :edit, @vlan
 
 %div{ class: 'flex flex-wrap' }
   %div{ class: 'w-full my-5' }
@@ -24,4 +24,4 @@
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= section.network
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= section.description
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }
-                  = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_path(section), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:ml-3 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_section_path(section), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:ml-3 sm:w-auto sm:text-sm'

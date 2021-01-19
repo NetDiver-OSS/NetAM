@@ -5,28 +5,28 @@
   %div{ class: 'grid grid-cols-2 md:grid-cols-4 gap-2 p-2' }
     %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
       %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-blue-500 text-white rounded shadow' }
-        %i.fas.fa-microchip
+        %fa-icon{ type: 'solid', name: 'microchip', size: 24 }
       %div{ class: 'flex flex-col flex-grow justify-center px-3' }
         %p{ class: 'font-light text-sm' }= _('CPU')
         %p.font-bold= @master_node[:cpu].length
 
     %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
       %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-red-500 text-white rounded shadow' }
-        %i.fas.fa-memory
+        %fa-icon{ type: 'solid', name: 'memory', size: 24 }
       %div{ class: 'flex flex-col flex-grow justify-center px-3' }
         %p{ class: 'font-light text-sm' }= _('Memory')
         %p.font-bold #{number_to_human_size(@master_node[:memory].active_bytes)} / #{number_to_human_size(@master_node[:memory].total_bytes)}
 
     %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
       %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-green-500 text-white rounded shadow' }
-        %i.fas.fa-hourglass
+        %fa-icon{ type: 'solid', name: 'hourglass', size: 24 }
       %div{ class: 'flex flex-col flex-grow justify-center px-3' }
         %p{ class: 'font-light text-sm' }= _('Load Average')
         %p.font-bold #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
 
     %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
       %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-yellow-500 text-white rounded shadow' }
-        %i.fas.fa-history
+        %fa-icon{ type: 'solid', name: 'history', size: 24 }
       %div{ class: 'flex flex-col flex-grow justify-center px-3' }
         %p{ class: 'font-light text-sm' }= _('Boot time')
         %p.font-bold= distance_of_time_in_words(@master_node[:boot_time], Time.zone.now)
