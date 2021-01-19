@@ -16,8 +16,6 @@ module NetAM
       0
     end
 
-    private
-
     def self.get_last_job(section_id)
       Sidekiq.redis do |conn|
         conn.scan_each(match: 'sidekiq:status:*', count: 100).reverse_each do |key|
