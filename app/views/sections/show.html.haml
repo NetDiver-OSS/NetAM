@@ -76,64 +76,57 @@
     %div{ class: 'flex justify-center items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
       %section-usage{ id: @section.id }
 
-%div{ class: 'flex flex-wrap' }
-  %div{ class: 'w-full my-5' }
-    %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full shadow rounded' }
-      %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
-        %div{ class: 'flex flex-wrap items-center' }
-          %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
-            %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Address Table')
-      %div{ class: 'block w-full overflow-x-auto' }
-        %table{ class: 'items-center w-full bg-transparent border-collapse' }
-          %thead
+%tabs
+  %tab{ title: _('Address Table') }
+    %div{ class: 'block w-full overflow-x-auto' }
+      %table{ class: 'items-center w-full bg-transparent border-collapse' }
+        %thead
+          %tr
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('FQDN')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('IP Address')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Description')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('State')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold w-2/6' }
+        %tbody
+          - @usages.each do |usage|
             %tr
-              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('FQDN')
-              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('IP Address')
-              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Description')
-              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('State')
-              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold w-2/6' }
-          %tbody
-            - @usages.each do |usage|
-              %tr
-                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= usage.fqdn
-                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.ip_used
-                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.description
-                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
-                  = usage&.state&.capitalize
-                  - if usage.nil?
-                    %fa-icon.inline-flex{ type: 'solid', name: 'question-circle', size: 16 }
-                  - elsif usage.state == 'locked'
-                    %fa-icon.inline-flex{ type: 'solid', name: 'lock', size: 16 }
-                  - elsif usage.state == 'actived'
-                    %fa-icon.inline-flex{ type: 'solid', name: 'check-circle', size: 16 }
-                  - elsif usage.state == 'down'
-                    %fa-icon.inline-flex{ type: 'solid', name: 'times-circle', size: 16 }
-                  - elsif usage.state == 'dhcp'
-                    %fa-icon.inline-flex{ type: 'solid', name: 'random', size: 16 }
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= usage.fqdn
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.ip_used
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.description
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                = usage&.state&.capitalize
+                - if usage.nil?
+                  %fa-icon.inline-flex{ type: 'solid', name: 'question-circle', size: 16 }
+                - elsif usage.state == 'locked'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'lock', size: 16 }
+                - elsif usage.state == 'actived'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'check-circle', size: 16 }
+                - elsif usage.state == 'down'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'times-circle', size: 16 }
+                - elsif usage.state == 'dhcp'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'random', size: 16 }
 
-                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
-                  = link_to fa_icon_with_text('solid', 'search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm' if can? :scan, @section
-                  = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm' if can? :edit, @section
-                  = link_to fa_icon_with_text('solid', 'trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm' if can? :destroy, @section
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                = link_to fa_icon_with_text('solid', 'search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm' if can? :scan, @section
+                = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm' if can? :edit, @section
+                = link_to fa_icon_with_text('solid', 'trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm' if can? :destroy, @section
     = paginate @usages
 
-- if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
-  %div{ class: 'bg-white dark:bg-gray-600 p-3 rounded shadow' }
-    %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Address Matrix')
-
-    %div{ class: 'flex flex-wrap py-2' }
-      - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
-        - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-        %a.text-center.w-8{ href: ip_usage.nil? ? new_section_usage_path(@section.id, { ip: address }) : edit_section_usage_path(@section, ip_usage[0]) }
-          %small= NetAM::Network::Range.clean_display(address)
-          %br
-          - if ip_usage.nil?
-            %fa-icon{ type: 'solid', name: 'question-circle', size: 16, class: 'inline-flex text-gray-400' }
-          - elsif ip_usage[2] == 'locked'
-            %fa-icon{ type: 'solid', name: 'lock', size: 16, class: 'inline-flex text-blue-400' }
-          - elsif ip_usage[2] == 'actived'
-            %fa-icon{ type: 'solid', name: 'check-circle', size: 16, class: 'inline-flex text-green-400' }
-          - elsif ip_usage[2] == 'down'
-            %fa-icon{ type: 'solid', name: 'times-circle', size: 16, class: 'inline-flex text-red-400' }
-          - elsif ip_usage[2] == 'dhcp'
-            %fa-icon{ type: 'solid', name: 'random', size: 16, class: 'inline-flex text-purple-400' }
+  - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+    %tab{ title: _('Address Matrix') }
+      %div{ class: 'flex flex-wrap py-2' }
+        - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
+          - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
+          %a.text-center.w-8{ href: ip_usage.nil? ? new_section_usage_path(@section.id, { ip: address }) : edit_section_usage_path(@section, ip_usage[0]) }
+            %small= NetAM::Network::Range.clean_display(address)
+            %br
+            - if ip_usage.nil?
+              %fa-icon{ type: 'solid', name: 'question-circle', size: 16, class: 'inline-flex text-gray-400' }
+            - elsif ip_usage[2] == 'locked'
+              %fa-icon{ type: 'solid', name: 'lock', size: 16, class: 'inline-flex text-blue-400' }
+            - elsif ip_usage[2] == 'actived'
+              %fa-icon{ type: 'solid', name: 'check-circle', size: 16, class: 'inline-flex text-green-400' }
+            - elsif ip_usage[2] == 'down'
+              %fa-icon{ type: 'solid', name: 'times-circle', size: 16, class: 'inline-flex text-red-400' }
+            - elsif ip_usage[2] == 'dhcp'
+              %fa-icon{ type: 'solid', name: 'random', size: 16, class: 'inline-flex text-purple-400' }

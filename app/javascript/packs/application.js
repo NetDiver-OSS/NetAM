@@ -24,7 +24,8 @@ import alert from "../components/alert";
 import fa_icon from "../components/icon";
 import section__pie_usage from "../components/section/pie_usage";
 import section__status_scan from "../components/section/status_scan";
-
+import tab from "../components/tab";
+import tabs from "../components/section/tabs";
 
 Vue.component('btn-request-ip', request_ip)
 Vue.component('theme-switcher', theme_switcher)
@@ -34,6 +35,9 @@ Vue.component('alert', alert)
 Vue.component('fa-icon', fa_icon)
 Vue.component('section-usage', section__pie_usage)
 Vue.component('section-scan', section__status_scan)
+Vue.component('tab', tab)
+Vue.component('tabs', tabs)
+
 
 window.addEventListener('load', () => {
   new Vue({ el: '[data-behavior="vue"]' })
