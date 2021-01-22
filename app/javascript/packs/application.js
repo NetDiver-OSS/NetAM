@@ -6,11 +6,12 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 
+
 import 'stylesheets/application'
 require.context('@fortawesome/fontawesome-free/sprites', true)
 
 // import './datatable'
-// import './select'
+import 'select2'
 
 /* VueJS imports */
 import Vue from 'vue/dist/vue.esm'
@@ -36,4 +37,9 @@ Vue.component('section-scan', section__status_scan)
 
 window.addEventListener('load', () => {
   new Vue({ el: '[data-behavior="vue"]' })
+
+  $('.select2').select2({
+    closeOnSelect: false,
+    width: '100%'
+  });
 })
