@@ -1,6 +1,6 @@
 = form_with(url: params[:id] ? admin_user_path : admin_users_path, model: user, local: true) do |form|
   - if user.errors.any?
-    %div{ class: 'bg-red-100 border-l-4 border-orange-500 text-orange-700 p-4' }
+    %div{ class: 'bg-red-100 dark:bg-red-400 border-l-4 border-orange-500 text-orange-700 p-4' }
       - user.errors.full_messages.each do |message|
         %p= message
 

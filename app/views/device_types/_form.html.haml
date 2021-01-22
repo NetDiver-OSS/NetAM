@@ -1,6 +1,6 @@
 = form_with(model: device_type, local: true) do |form|
   - if device_type.errors.any?
-    %div{ class: 'bg-red-100 border-l-4 border-orange-500 text-orange-700 p-4' }
+    %div{ class: 'bg-red-100 dark:bg-red-400 border-l-4 border-orange-500 text-orange-700 p-4' }
       - device_type.errors.full_messages.each do |message|
         %p= message
 
@@ -13,7 +13,7 @@
 
         %div{ class: 'col-span-6 sm:col-span-3' }
           = form.label :color, _('Color'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
-          = form.color_field :color, class: 'input'
+          = form.color_field :color, class: 'input py-4 pb-5'
 
   %div{ class: 'px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
     = form.submit _('Apply'), class: 'bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow outline-none focus:outline-none mr-1 mb-1 cursor-pointer'

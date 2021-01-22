@@ -1,6 +1,6 @@
 = form_with(model: rackspace, local: true) do |form|
   - if rackspace.errors.any?
-    %div{ class: 'bg-red-100 border-l-4 border-orange-500 text-orange-700 p-4' }
+    %div{ class: 'bg-red-100 dark:bg-red-400 border-l-4 border-orange-500 text-orange-700 p-4' }
       - rackspace.errors.full_messages.each do |message|
         %p= message
 

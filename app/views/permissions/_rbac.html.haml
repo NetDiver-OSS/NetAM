@@ -18,9 +18,9 @@
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= user.email
                 - controller.action_methods.sort.each do |method|
                   - if Ability.new(user).can? method.to_sym, permission
-                    %td{ class: 'bg-green-300 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= _('YES')
+                    %td{ class: 'bg-green-300 text-gray-700 dark:text-gray-700 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= _('YES')
                   - else
-                    %td{ class: 'bg-red-300 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= _('NO')
+                    %td{ class: 'bg-red-300 text-gray-700 dark:text-gray-700 border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= _('NO')
 
 %div{ class: 'flex flex-wrap' }
   %div{ class: 'w-full my-5' }
