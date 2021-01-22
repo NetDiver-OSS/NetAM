@@ -30,3 +30,5 @@ RSpec/FilePath:
   CustomTransform:
     NetAM: netam
 
+Rails/ContentTag:
+  Enabled: false

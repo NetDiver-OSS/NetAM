@@ -1,5 +1,5 @@
 !!! 5
-%html{ lang: I18n.locale }
+%html{ lang: I18n.locale, class: dark_mode? ? 'dark' : '' }
   %head
     %meta{ charset: 'utf-8' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -13,44 +13,24 @@
     = csp_meta_tag
 
     = stylesheet_link_tag 'application', media: 'all'
-    = stylesheet_link_tag 'dark_mode', media: 'all' if dark_mode?
     = javascript_include_tag 'application'
     = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application'
 
-    %link{ href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700', rel: 'stylesheet' }
+  %body{ class: 'bg-gray-100 dark:bg-gray-700 text-black dark:text-white' }
+    %div{ 'data-behavior': 'vue' }
+      - if controller_name == 'setup' || %w[sessions registrations].include?(controller_name) && action_name == 'new'
+        = yield
+      - else
+        = render partial: 'layouts/navbar'
+        = render partial: 'layouts/header'
 
-  %body{ class: "hold-transition #{devise_controller? ? 'login-page' : 'layout-top-nav'}" }
-    - if devise_controller?
-      = yield
-    - else
-      %div.wrapper
-        = render partial: 'layouts/parts/navbar'
+        - if notice
+          %alert{ color: 'green', message: notice }
+        - if alert
+          %alert{ color: 'red', message: alert }
 
-        %div.content-wrapper{ class: dark_mode_class }
-          %div.content-header
+        %main{ class: 'max-w-7xl mx-auto py-6 sm:px-6 lg:px-8' }
+          = yield
 
-            %div.container
-              - unless notice.nil?
-                %div.alert.alert-info.alert-dismissible
-                  %button.close{ type: 'button', data: { dismiss: 'alert' }, aria: { hidden: 'true' } } ×
-                  %h5
-                    %i.icon.fas.fa-info
-                    = _('Notice')
-                  = notice
-
-
-              - unless alert.nil?
-                %div.alert.alert-danger.alert-dismissible
-                  %button.close{ type: 'button', data: { dismiss: 'alert' }, aria: { hidden: 'true' } } ×
-                  %h5
-                    %i.icon.fas.fa-ban
-                    = _('Error')
-                  = alert
-
-            = render partial: 'layouts/parts/actions'
-
-          %div.content
-            %div.container
-              = yield
-
-        = render partial: 'layouts/parts/footer'
+        = render partial: 'layouts/footer'

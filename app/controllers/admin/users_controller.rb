@@ -12,6 +12,10 @@ module Admin
       @user = User.new
     end
 
+    def show
+      @controllers = %w[SectionsController VlansController DevicesController DeviceTypesController RackspacesController]
+    end
+
     def create
       @user = User.new(user_params)
       if @user.save

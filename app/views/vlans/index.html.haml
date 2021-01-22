@@ -1,24 +1,30 @@
 - page_title _('Vlans')
-- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_vlan_path })
+- page_action({ icon: fa_icon('solid', 'plus-square'), path: new_vlan_path })
 
-%section
-  %table.table.table-striped.projects
-    %thead
-      %tr
-        %th{ style: 'width: 10%' }= _('Vlan ID')
-        %th{ style: 'width: 20%' }= _('Name')
-        %th{ style: 'width: 40%' }= _('Description')
-        %th{ style: 'width: 30%' }
-    %tbody
-      - @vlans.each do |vlan|
-        %tr
-          %td= vlan.vid
-          %td= vlan.name
-          %td= vlan.description
-          %td.project-actions.text-right
-            %div.btn-group
-              = link_to fa_icon_with_text('fas fa-folder', _('View')), vlan, class: 'btn btn-primary btn-sm'
-              = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_vlan_path(vlan), class: 'btn btn-info btn-sm' if can? :edit, vlan
-              = link_to fa_icon_with_text('fas fa-trash', _('Delete')), vlan, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: _('Are you sure?') } if can? :destroy, vlan
+%div{ class: 'flex flex-wrap' }
+  %div{ class: 'w-full my-5' }
+    %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full shadow rounded' }
+      %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
+        %div{ class: 'flex flex-wrap items-center' }
+          %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
+            %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Vlans')
+      %div{ class: 'block w-full overflow-x-auto' }
+        %table{ class: 'items-center w-full bg-transparent border-collapse' }
+          %thead
+            %tr
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Vlan ID')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Name')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Description')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold w-2/6' }
+          %tbody
+            - @vlans.each do |vlan|
+              %tr
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= vlan.vid
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= vlan.name
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= vlan.description
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                  = link_to fa_icon_with_text('solid', 'folder', _('View')), vlan, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_vlan_path(vlan), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'trash', _('Delete')), vlan, method: :delete, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
 
   = paginate @vlans

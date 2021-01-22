@@ -1,13 +1,12 @@
 = form_with(url: '', method: :get, local: true) do |form|
-  %div.row
-    %div.form-group.col-6
-      = form.label :ip, _('Network')
-      = form.text_field :ip, class: "form-control #{dark_mode_class}", placeholder: '192.168.1.50', value: params[:ip]
+  %div.grid.grid-cols-7.gap-3
+    %div{ class: 'col-span-7 sm:col-span-3' }
+      = form.label :ip, _('Network'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+      = form.text_field :ip, class: 'input', placeholder: '192.168.1.50', value: params[:ip]
 
-    %div.form-group.col-6
-      = form.label :subnet, _('Hosts per Subnet')
-      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, { selected: params[:subnet].to_i }, { class: "form-control #{dark_mode_class}" }
+    %div{ class: 'col-span-7 sm:col-span-3' }
+      = form.label :subnet, _('Hosts per Subnet'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, { selected: params[:subnet].to_i }, { class: 'input' }
 
-  %div.d-flex.justify-content-center
-    %div.col-4
-      = form.button _('Calculate'), class: 'btn btn-block btn-info align-bottom'
+    %div{ class: 'col-span-7 sm:col-span-1 flex items-center justify-center sm:mt-5' }
+      = form.button _('Calculate'), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm'

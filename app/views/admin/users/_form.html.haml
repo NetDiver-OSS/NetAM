@@ -1,36 +1,27 @@
 = form_with(url: params[:id] ? admin_user_path : admin_users_path, model: user, local: true) do |form|
-  %div.card-body
-    - if user.errors.any?
+  - if user.errors.any?
+    %div{ class: 'bg-red-100 dark:bg-red-400 border-l-4 border-orange-500 text-orange-700 p-4' }
       - user.errors.full_messages.each do |message|
-        %div.callout.callout-danger{ class: dark_mode_class }
-          %p= message
-    %div.row
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{ class: dark_mode_class }
-              %i.fas.fa-envelope
-          = form.text_field :email, placeholder: _('Email'), class: "form-control #{dark_mode_class}"
-      %div.col-6
-        %div.form-group
-          %div.custom-control.custom-switch
-            = form.check_box :admin, class: "custom-control-input #{dark_mode_class}"
-            = form.label :admin, class: 'custom-control-label'
+        %p= message
 
-    %div.row
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{ class: dark_mode_class }
-              %i.fas.fa-key
-          = form.password_field :password, placeholder: _('Password'), class: "form-control #{dark_mode_class}"
+  .overflow-hidden
+    %div{ class: 'px-4 py-5 bg-white dark:bg-gray-600 sm:p-6' }
+      %div.grid.grid-cols-6.gap-3
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :email, _('Email'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.text_field :email, class: 'input', placeholder: _('Email')
 
-      %div.col-6
-        %div.input-group.mb-3
-          %div.input-group-prepend
-            %span.input-group-text{ class: dark_mode_class }
-              %i.fas.fa-key
-          = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: "form-control #{dark_mode_class}"
+        %div{ class: 'col-span-6 sm:col-span-3 inline-flex items-end p-3' }
+          = form.check_box :admin, class: 'mb-1'
+          = form.label :admin, _('Admin'), class: 'ml-2 text-sm font-semibold text-gray-700 dark:text-gray-100'
 
-  %div.card-footer
-    = form.submit nil, class: 'btn btn-primary float-right'
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :password, _('Password'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.password_field :password, placeholder: _('Password'), class: 'input'
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :password_confirmation, _('Password confirmation'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.password_field :password_confirmation, placeholder: _('Password confirmation'), class: 'input'
+
+  %div{ class: 'px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
+    = form.submit nil, class: 'bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow outline-none focus:outline-none mr-1 mb-1 cursor-pointer'

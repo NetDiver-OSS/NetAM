@@ -1,71 +1,64 @@
 - page_title _('Homepage')
 
-%h3= _('NetAM control node')
-%div.row
-  %div.col-12.col-sm-6.col-md-3
-    %div.info-box{ class: dark_mode_class }
-      %span.info-box-icon.bg-info.elevation-1
-        %i.fas.fa-microchip
+%section.py-3
+  %h3.text-xl= _('NetAM control node')
+  %div{ class: 'grid grid-cols-2 md:grid-cols-4 gap-2 p-2' }
+    %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-blue-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'microchip', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('CPU')
+        %p.font-bold= @master_node[:cpu].length
 
-      %div.info-box-content
-        %span.info-box-text= _('CPU')
-        %span.info-box-number= @master_node[:cpu].length
+    %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-red-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'memory', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Memory')
+        %p.font-bold #{number_to_human_size(@master_node[:memory].active_bytes)} / #{number_to_human_size(@master_node[:memory].total_bytes)}
 
-  %div.col-12.col-sm-6.col-md-3
-    %div.info-box{ class: dark_mode_class }
-      %span.info-box-icon.bg-danger.elevation-1
-        %i.fas.fa-memory
+    %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-green-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'hourglass', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Load Average')
+        %p.font-bold #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
 
-      %div.info-box-content
-        %span.info-box-text= _('Memory')
-        %span.info-box-number #{number_to_human_size(@master_node[:memory].active_bytes)} / #{number_to_human_size(@master_node[:memory].total_bytes)}
+    %div{ class: 'flex bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-yellow-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'history', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Boot time')
+        %p.font-bold= distance_of_time_in_words(@master_node[:boot_time], Time.zone.now)
 
-  %div.clearfix.hidden-md-up
+%section.py-3
+  %h3.text-xl= _('NetAM agent node')
 
-  %div.col-12.col-sm-6.col-md-3
-    %div.info-box{ class: dark_mode_class }
-      %span.info-box-icon.bg-success.elevation-1
-        %i.fas.fa-hourglass
-
-      %div.info-box-content
-        %span.info-box-text= _('Load Average')
-        %span.info-box-number #{number_to_human(@master_node[:load_average].one_minute)} / #{number_to_human(@master_node[:load_average].five_minutes)} / #{number_to_human(@master_node[:load_average].fifteen_minutes)}
-
-  %div.col-12.col-sm-6.col-md-3
-    %div.info-box{ class: dark_mode_class }
-      %span.info-box-icon.bg-warning.elevation-1
-        %i.fas.fa-history
-
-      %div.info-box-content
-        %span.info-box-text= _('Boot time')
-        %span.info-box-number= distance_of_time_in_words(@master_node[:boot_time], Time.zone.now)
-
-%h3= _('NetAM agent node')
-%div.row
-  %div.col-12
-    %div.card{ class: dark_mode_class }
-      %div.card-header
-        %h3.card-title= _('Workers')
-
-      %div.card-body.table-responsive
-        %table.table.table-striped.projects.datatable
-          %thead
-            %tr
-              %th= _('Worker name')
-              %th= _('Hostname')
-              %th= _('Concurrency jobs')
-              %th= _('Busy jobs')
-              %th= _('Queues')
-              %th= _('Started from')
-              %th= _('Heartbeat')
-
-          %tbody
-            - @sidekiq_processes.each do |process|
+  %div{ class: 'flex flex-wrap' }
+    %div{ class: 'w-full my-5 px-2' }
+      %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full mb-6 shadow rounded' }
+        %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
+          %div{ class: 'flex flex-wrap items-center' }
+            %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
+              %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Workers')
+        %div{ class: 'block w-full overflow-x-auto' }
+          %table{ class: 'items-center w-full bg-transparent border-collapse' }
+            %thead
               %tr
-                %td= process[:worker]
-                %td= process[:hostname]
-                %td= process[:concurrency]
-                %td= process[:busy]
-                %td= process[:queues].join(' | ')
-                %td= distance_of_time_in_words(process[:started_at], Time.zone.now)
-                %td= distance_of_time_in_words(process[:beat], Time.zone.now)
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left' }= _('Worker name')
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-center' }= _('Hostname')
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-center' }= _('Concurrency jobs')
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-center' }= _('Busy jobs')
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-center' }= _('Queues')
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-center' }= _('Started from')
+                %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-center' }= _('Heartbeat')
+            %tbody
+              - @sidekiq_processes.each do |process|
+                %tr
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-left' }= process[:worker]
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= process[:hostname]
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= process[:concurrency]
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= process[:busy]
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= process[:queues].join(' | ')
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= distance_of_time_in_words(process[:started_at], Time.zone.now)
+                  %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= distance_of_time_in_words(process[:beat], Time.zone.now)

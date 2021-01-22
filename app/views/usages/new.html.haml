@@ -1,7 +1,42 @@
 - page_title _('New Usage')
 
-%div.card{ class: dark_mode_class }
-  = render 'form', usage: @usage
+%div{ class: 'container mx-auto' }
+  %div{ class: 'flex flex-wrap' }
+    %div{ class: 'w-full px-4' }
+      %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full mb-6 shadow rounded' }
+        %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
+          %div{ class: 'flex flex-wrap items-center' }
+            %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
+              %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('New Usage')
+        %div{ class: 'block w-full overflow-x-auto' }
+          %div{ class: 'mt-10 sm:mt-0' }
+            = render 'form', usage: @usage
 
-%div.card{ class: dark_mode_class }
-  = render 'import', usage: @usage
+%div{ class: 'hidden sm:block', 'aria-hidden': 'true' }
+  %div.py-5
+    %div{ class: 'border-t border-gray-200' }
+
+%div{ class: 'mt-10 sm:mt-0' }
+  %div{ class: 'md:grid md:grid-cols-3 md:gap-6' }
+    %div{ class: 'md:col-span-1' }
+      %div{ class: 'px-4 sm:px-0' }
+        %h3{ class: 'text-lg font-medium leading-6 text-gray-900 dark:text-gray-100' }= _('Import usages with CSV')
+        %p{ class: 'mt-1 text-sm text-gray-600 dark:text-gray-400' }
+          = _('Massive import usages by csv injections. You must have CSV formated with the following header :')
+          %strong hostname,ip,description,state
+
+    %div{ class: 'mt-5 md:mt-0 md:col-span-2' }
+      = form_with(url: import_section_usages_path(@section), local: true, multipart: true) do |form|
+        %div{ class: 'shadow overflow-hidden sm:rounded-md' }
+          %div{ class: 'px-4 py-5 bg-white dark:bg-gray-600 sm:p-6' }
+            %div{ class: 'grid grid-cols-6 gap-6' }
+              %div{ class: 'col-span-6 sm:col-span-3' }
+                %p{ class: 'block text-sm font-medium text-gray-700 dark:text-gray-200' }= _('State available are :')
+                %p ACTIVED | DOWN | DHCP | LOCKED
+
+              %div{ class: 'col-span-6 sm:col-span-3' }
+                = form.label :file, _('Choose file'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+                = form.file_field :file, accept: 'text/csv', class: 'input'
+
+          %div{ class: 'px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
+            = form.submit _('Import'), class: 'inline-flex justify-center py-2 px-4 border border-transparent shadow text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'

@@ -1,22 +1,30 @@
 - page_title _('Rackspaces')
-- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_rackspace_path })
+- page_action({ icon: fa_icon('solid', 'plus-square'), path: new_rackspace_path })
 
+%div{ class: 'flex flex-wrap' }
+  %div{ class: 'w-full my-5' }
+    %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full shadow rounded' }
+      %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
+        %div{ class: 'flex flex-wrap items-center' }
+          %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
+            %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Rackspaces')
+      %div{ class: 'block w-full overflow-x-auto' }
+        %table{ class: 'items-center w-full bg-transparent border-collapse' }
+          %thead
+            %tr
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Name')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Unit height')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Location')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold w-2/6' }
+          %tbody
+            - @rackspaces.each do |rackspace|
+              %tr
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= rackspace.name
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= rackspace.unit_height
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= rackspace.location
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                  = link_to fa_icon_with_text('solid', 'folder', _('View')), rackspace, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_rackspace_path(rackspace), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'trash', _('Delete')), rackspace, method: :delete, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th= _('Name')
-      %th= _('Unit height')
-      %th= _('Location')
-      %th.w-25
-  %tbody
-    - @rackspaces.each do |rackspace|
-      %tr
-        %td= rackspace.name
-        %td= rackspace.unit_height
-        %td= rackspace.location
-        %td
-          %div.btn-group
-            = link_to fa_icon_with_text('fas fa-eye', _('View')), rackspace_path(rackspace), class: 'btn btn-primary btn-sm' if can? :show, rackspace
-            = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_rackspace_path(rackspace), class: 'btn btn-info btn-sm' if can? :edit, rackspace
-            = link_to fa_icon_with_text('fas fa-trash', _('Destroy')), rackspace_path(rackspace), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, rackspace
+  = paginate @rackspaces

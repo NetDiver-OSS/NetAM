@@ -6,7 +6,7 @@ class RackspacesController < ApplicationController
 
   # GET /rackspaces
   def index
-    @rackspaces = Rackspace.accessible_by(current_ability)
+    @rackspaces = Rackspace.accessible_by(current_ability).page params[:page]
   end
 
   # GET /rackspaces/1

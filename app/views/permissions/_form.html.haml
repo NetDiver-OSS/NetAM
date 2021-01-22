@@ -1,33 +1,35 @@
 = form_with(model: permission, local: true) do |form|
   - permission[:subject_class] = params[:subject_class] unless params[:subject_class].nil?
   - permission[:subject_id] = params[:subject_id] unless params[:subject_id].nil?
-  %div.card-body
-    - if permission.errors.any?
-      - permission.errors.full_messages.each do |message|
-        %div.callout.callout-danger{ class: dark_mode_class }
-          %p= message
-    %div.row
-      %div.col-6
-        %div.form-group
-          = form.label :user_id
-          = form.select :user_id, @users, {}, { class: "form-control #{dark_mode_class}" }
-      %div.col-6
-        %div.form-group
-          = form.label :name
-          = form.text_field :name, class: "form-control #{dark_mode_class}"
-    %div.row
-      %div.col-4
-        %div.form-group
-          = form.label :subject_class
-          = form.text_field :subject_class, readonly: 'disabled', class: "form-control #{dark_mode_class}"
-      %div.col-4
-        %div.form-group
-          = form.label :subject_id
-          = form.text_field :subject_id, readonly: 'disabled', class: "form-control #{dark_mode_class}"
-      %div.col-4
-        %div.form-group
-          = form.label :action
-          = form.select :action, %i[read manage], {}, { class: "form-control #{dark_mode_class}" }
 
-  %div.card-footer
-    = form.submit nil, class: 'btn btn-primary float-right'
+  - if permission.errors.any?
+    %div{ class: 'bg-red-100 dark:bg-red-400 border-l-4 border-orange-500 text-orange-700 p-4' }
+      - permission.errors.full_messages.each do |message|
+        %p= message
+
+  .overflow-hidden
+    %div{ class: 'px-4 py-5 bg-white dark:bg-gray-600 sm:p-6' }
+      %div.grid.grid-cols-6.gap-3
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :name, class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.text_field :name, class: 'input'
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :user_id, class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :user_id, @users, {}, { class: 'input' }
+
+        %div{ class: 'col-span-6 sm:col-span-2' }
+          = form.label :subject_class, class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.text_field :subject_class, readonly: 'disabled', class: 'input'
+
+        %div{ class: 'col-span-6 sm:col-span-2' }
+          = form.label :subject_id, class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.text_field :subject_id, readonly: 'disabled', class: 'input'
+
+        %div{ class: 'col-span-6 sm:col-span-2' }
+          = form.label :action, class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :action, %i[read manage], {}, { class: 'input' }
+
+    %div{ class: 'px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
+      = form.submit nil, class: 'bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow outline-none focus:outline-none mr-1 mb-1 cursor-pointer'

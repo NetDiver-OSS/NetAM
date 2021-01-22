@@ -1,20 +1,6 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require @fortawesome/fontawesome-free
- *= require admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min
- *= require admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css
- *= require admin-lte
- *= require admin-lte/plugins/select2/css/select2.min
+ *= require select2/dist/css/select2.min
+ *= require_self
  */
 
 .flag-icon{background-size:contain;background-position:50%;background-repeat:no-repeat;position:relative;display:inline-block;width:1.33333333em;line-height:1em}

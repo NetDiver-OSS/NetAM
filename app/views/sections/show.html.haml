@@ -1,169 +1,132 @@
 :ruby
-  page_title "<strong>#{@section.name.upcase}</strong> - <small>#{@section.network}</small>"
+  page_title "#{@section.name.upcase} - #{@section.network}"
 
-  page_action({ icon: fa_icon_with_text('fas fa-edit', _('Edit')), path: edit_section_path(@section) }) if can? :edit, @section
-  page_action({ icon: fa_icon_with_text('fas fa-search', _('Scan')), path: section_scan_path(@section), method: 'post' }) if can? :scan, @section
-  page_action({ icon: fa_icon_with_text('fas fa-download', _('Export')), path: section_export_path(@section.id), method: 'post' }) if can? :export, @section
-  page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_section_usage_path(@section.id) }) if can? :edit, @section
+  page_action({ icon: fa_icon_with_text('solid', 'edit', _('Edit')), path: edit_section_path(@section) }) if can? :edit, @section
+  page_action({ icon: fa_icon_with_text('solid', 'search', _('Scan')), path: section_scan_path(@section), method: 'post' }) if can? :scan, @section
+  page_action({ icon: fa_icon_with_text('solid', 'download', _('Export')), path: section_export_path(@section.id), method: 'post' }) if can? :export, @section
+  page_action({ icon: fa_icon('solid', 'plus-square'), path: new_section_usage_path(@section.id) }) if can? :edit, @section
 
 
-- if params[:scan_id]
-  - status = NetAM::Scanner.status(params[:scan_id])
-  - unless status.nil?
-    %div.content-header
-      - case status
-      - when :queued
-        = render partial: 'sections/status/notification', locals: { type: 'dark', title: _('Scan Queued'), message: '' }
-      - when :working
-        = render partial: 'sections/status/notification', locals: { type: 'info', title: _('Scan in progress'), message: '' }
-      - when :complete
-        = render partial: 'sections/status/notification', locals: { type: 'success', title: _('Scan complete'), message: '' }
-      -  else
-        = render partial: 'sections/status/notification', locals: { type: 'warning', title: _('Unknown state'), message: '' }
+%section-scan{ jid: params[:scan_id] || NetAM::Section.get_last_jid(@section.id) }
 
-%div.row
+%div{ class: 'grid grid-cols-6 gap-3' }
   - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
-  %div{ class: last_scan.zero? ? 'col-6' : 'col-4' }
-    %div.info-box.mt-4{ class: dark_mode_class }
-      %div.info-box-content
-        %span.info-box-text
-          = _('Section VLAN')
-        %span.info-box-number
-          = format('%{name} (VID %{vid})', { name: @section.vlan_name, vid: @section.vlan_vid })
-  %div{ class: last_scan.zero? ? 'col-6' : 'col-4' }
-    %div.info-box.mt-4{ class: dark_mode_class }
-      %div.info-box-content
-        %spam.info-box-text
-          = _('Affected worker')
-        %span.info-box-number
-          - if @section.worker.nil?
-            = _('No worker assigned')
-          - else
-            = @section.worker_name
+
+  %div{ class: "col-span-6 sm:col-span-#{last_scan.zero? ? '3' : '2'}" }
+    %div{ class: 'bg-white dark:bg-gray-600 text-center p-3 rounded shadow' }
+      %h3.font-bold= _('Section VLAN')
+      %p.pt-2= format('%{name} (VID %{vid})', { name: @section.vlan_name, vid: @section.vlan_vid })
+
+  %div{ class: "col-span-6 sm:col-span-#{last_scan.zero? ? '3' : '2'}" }
+    %div{ class: 'bg-white dark:bg-gray-600 text-center p-3 rounded shadow' }
+      %h3.font-bold= _('Affected worker')
+      %p.pt-2
+        - if @section.worker.nil?
+          = _('No worker assigned')
+        - else
+          = @section.worker_name
 
   - unless last_scan.zero?
-    %div.col-4
-      %div.info-box.mt-4{ class: dark_mode_class }
-        %div.info-box-content
-          %span.info-box-text
-            = _('Last scan time')
-          %span.info-box-number
-            = Time.zone.at(last_scan)
+    %div{ class: 'col-span-6 sm:col-span-2' }
+      %div{ class: 'bg-white dark:bg-gray-600 text-center p-3 rounded shadow' }
+        %h3.font-bold= _('Last scan time')
+        %p.pt-2= Time.zone.at(last_scan)
 
-  %div.col-6
-    %div.row
-      %div.col-6
-        %div.info-box{ class: dark_mode_class }
-          %span.info-box-icon.bg-blue
-            %i.fas.fa-lock
+%div{ class: 'grid grid-cols-1 sm:grid-cols-2 gap-3' }
+  %div.grid.grid-cols-2.gap-3.py-3
+    %div{ class: 'flex items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-blue-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'lock', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Locked')
+        %p.font-bold= number_with_delimiter @ip_locked
 
-          %div.info-box-content
-            %span.info-box-text= _('Locked')
-            %span.info-box-number= number_with_delimiter @ip_locked
-      %div.col-6
-        %div.info-box{ class: dark_mode_class }
-          %span.info-box-icon.bg-green
-            %i.fas.fa-check-circle
+    %div{ class: 'flex items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-green-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'check-circle', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Activated')
+        %p.font-bold= number_with_delimiter @ip_activated
 
-          %div.info-box-content
-            %span.info-box-text= _('Activated')
-            %span.info-box-number= number_with_delimiter @ip_activated
-      %div.col-6
-        %div.info-box{ class: dark_mode_class }
-          %span.info-box-icon.bg-red
-            %i.fas.fa-times-circle
+    %div{ class: 'flex items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-red-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'times-circle', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Down')
+        %p.font-bold= number_with_delimiter @ip_down
 
-          %div.info-box-content
-            %span.info-box-text= _('Down')
-            %span.info-box-number= number_with_delimiter @ip_down
-      %div.col-6
-        %div.info-box{ class: dark_mode_class }
-          %span.info-box-icon.bg-purple
-            %i.fas.fa-random
+    %div{ class: 'flex items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-purple-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'random', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('DHCP')
+        %p.font-bold= number_with_delimiter @ip_dhcp
 
-          %div.info-box-content
-            %span.info-box-text= _('DHCP')
-            %span.info-box-number= number_with_delimiter @ip_dhcp
-    %div.row
-      %div.col-12
-        %div.info-box.bg-gradient-info
-          %span.info-box-icon
-            %i.fas.fa-check
+    %div{ class: 'col-span-2 flex items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %div{ class: 'flex items-center justify-center text-2xl h-16 w-16 bg-gray-500 text-white rounded shadow' }
+        %fa-icon{ type: 'solid', name: 'check', size: 24 }
+      %div{ class: 'flex flex-col flex-grow justify-center px-3' }
+        %p{ class: 'font-light text-sm' }= _('Free IP')
+        %p.font-bold= number_with_delimiter @ip_free
+        %div{ class: 'relative pt-1' }
+          %div{ class: 'overflow-hidden h-2 text-xs flex rounded bg-gray-200' }
+            %div{ style: "width: #{@ip_free * 100 / IPAddress(@section.network).size}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-400' }
 
-          %div.info-box-content
-            %span.info-box-text= _('Free IP')
-            %span.info-box-number= number_with_delimiter @ip_free
+  %div.col-6.py-3
+    %div{ class: 'flex justify-center items-center bg-white dark:bg-gray-600 p-2 rounded shadow' }
+      %section-usage{ id: @section.id }
 
-            %div.progress
-              %div.progress-bar{ style: "width: #{@ip_free * 100 / IPAddress(@section.network).size}%" }
-            %span.progress-description #{@ip_free * 100 / IPAddress(@section.network).size}%
+%tabs
+  %tab{ title: _('Address Table') }
+    %div{ class: 'block w-full overflow-x-auto' }
+      %table{ class: 'items-center w-full bg-transparent border-collapse' }
+        %thead
+          %tr
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('FQDN')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('IP Address')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Description')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('State')
+            %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold w-2/6' }
+        %tbody
+          - @usages.each do |usage|
+            %tr
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= usage.fqdn
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.ip_used
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.description
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                = usage&.state&.capitalize
+                - if usage.nil?
+                  %fa-icon.inline-flex{ type: 'solid', name: 'question-circle', size: 16 }
+                - elsif usage.state == 'locked'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'lock', size: 16 }
+                - elsif usage.state == 'actived'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'check-circle', size: 16 }
+                - elsif usage.state == 'down'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'times-circle', size: 16 }
+                - elsif usage.state == 'dhcp'
+                  %fa-icon.inline-flex{ type: 'solid', name: 'random', size: 16 }
 
-  %div.col-6
-    %canvas#donut-chart{ style: 'height:230px; min-height:230px' }
+              %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                = link_to fa_icon_with_text('solid', 'search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm' if can? :scan, @section
+                = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm' if can? :edit, @section
+                = link_to fa_icon_with_text('solid', 'trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm' if can? :destroy, @section
+    = paginate @usages
 
-%div.row.mt-4
-  %div.card.card-info.card-outline.card-outline-tabs.w-100
-    %div.card-header.p-0.border-bottom-0
-      %ul.nav.nav-tabs#custom-tabs-three-tab{ class: dark_mode_class, role: 'tablist' }
-        %li.nav-item
-          %a.nav-link.active#address-table-tab{ class: dark_mode_class, role: 'tab', href: '#address-table', data: { toggle: 'pill' }, aria: { controls: 'address-table', selected: 'false' } }= _('Address Table')
-        - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
-          %li.nav-item
-            %a.nav-link#address-matrix-tab{ class: dark_mode_class, role: 'tab', href: '#address-matrix', data: { toggle: 'pill' }, aria: { controls: 'address-matrix', selected: 'true' } }= _('Address Matrix')
-
-    %div.card-body{ class: dark_mode_class }
-      %div.tab-content
-        - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
-          %div.tab-pane.fade#address-matrix{ role: 'tabpanel', aria: { labelledby: 'address-matrix-tab' } }
-            %div.d-flex.flex-wrap.justify-content-between
-            - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
-              - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
-              %a.btn.btn-flat.text-center{ class: dark_mode_class, style: 'padding: 0;width: 30px', href: ip_usage.nil? ? new_section_usage_path(@section.id, { ip: address }) : edit_section_usage_path(@section, ip_usage[0]) }
-                %small= NetAM::Network::Range.clean_display(address)
-                %br
-                %i{ class: "fas fa-circle text-#{ip_usage.nil? ? 'grey' : usage_color(ip_usage[2])}" }
-
-        %div.tab-pane.fade.show.active#address-table{ role: 'tabpanel', aria: { labelledby: 'address-table-tab' } }
-          %table.table.table-bordered.table-striped
-            %thead
-              %tr
-                %th= _('FQDN')
-                %th= _('IP Address')
-                %th= _('Description')
-                %th= _('State')
-                %th.w-25
-            %tbody
-              - @section.usages.order('inet(ip_used) ASC').each do |usage|
-                %tr
-                  %td= usage.fqdn
-                  %td= usage.ip_used
-                  %td= usage.description
-                  %td #{usage&.state&.capitalize} #{usage_icon(usage&.state)}
-                  %td
-                    %div.btn-group
-                      = link_to fa_icon_with_text('fas fa-search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'btn btn-primary btn-sm' if can? :scan, @section
-                      = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'btn btn-info btn-sm', data: { content: 'Edit' } if can? :edit, @section
-                      = link_to fa_icon_with_text('fas fa-trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'btn btn-danger btn-sm' if can? :destroy, @section
-
-:javascript
-    var donutChartCanvas = document.getElementById('donut-chart').getContext('2d')
-    var donutData = {
-      labels: #{@chart_label},
-      datasets: [
-        {
-          data: #{@chart_data},
-          backgroundColor: #{@chart_color},
-        }
-      ]
-    }
-    var donutOptions = {
-      maintainAspectRatio: false,
-      responsive: true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    var donutChart = new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions
-    })
+  - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
+    %tab{ title: _('Address Matrix') }
+      %div{ class: 'flex flex-wrap py-2' }
+        - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
+          - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
+          %a.text-center.w-8{ href: ip_usage.nil? ? new_section_usage_path(@section.id, { ip: address }) : edit_section_usage_path(@section, ip_usage[0]) }
+            %small= NetAM::Network::Range.clean_display(address)
+            %br
+            - if ip_usage.nil?
+              %fa-icon{ type: 'solid', name: 'question-circle', size: 16, class: 'inline-flex text-gray-400' }
+            - elsif ip_usage[2] == 'locked'
+              %fa-icon{ type: 'solid', name: 'lock', size: 16, class: 'inline-flex text-blue-400' }
+            - elsif ip_usage[2] == 'actived'
+              %fa-icon{ type: 'solid', name: 'check-circle', size: 16, class: 'inline-flex text-green-400' }
+            - elsif ip_usage[2] == 'down'
+              %fa-icon{ type: 'solid', name: 'times-circle', size: 16, class: 'inline-flex text-red-400' }
+            - elsif ip_usage[2] == 'dhcp'
+              %fa-icon{ type: 'solid', name: 'random', size: 16, class: 'inline-flex text-purple-400' }

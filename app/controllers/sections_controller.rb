@@ -12,6 +12,8 @@ class SectionsController < ApplicationController
 
   # GET /sections/1
   def show
+    @usages = @section.usages.order('inet(ip_used) ASC').page params[:page]
+
     @all_ip_used = IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24 ? Usage.where(section_id: params[:id]).pluck(:id, :ip_used, :state) : []
 
     @ip_locked = @section.usages.locked.count
@@ -20,10 +22,6 @@ class SectionsController < ApplicationController
     @ip_dhcp = @section.usages.dhcp.count
 
     @ip_free = NetAM::Network::Range.new(@section.network).free_ips - @section.usages.where(state: 0..3).count
-
-    @chart_label = "[\"#{_('Locked')}\", \"#{_('Activated')}\", \"#{_('Down')}\", \"#{_('Free IP')}\", \"#{_('DHCP')}\"]".html_safe # rubocop:disable Rails/OutputSafety
-    @chart_data = [@ip_locked, @ip_activated, @ip_down, @ip_free, @ip_dhcp]
-    @chart_color = '["#2185d0", "#16ab39", "#db2828", "#838383", "#9627ba"]'.html_safe
   end
 
   # POST /sections/1/scan

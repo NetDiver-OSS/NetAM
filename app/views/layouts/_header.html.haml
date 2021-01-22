@@ -1,0 +1,9 @@
+%header
+  %div{ class: 'flex justify-between items-center max-w-7xl mx-auto pt-6 px-4 sm:px-6 lg:px-8' }
+    %h1{ class: 'text-3xl font-bold leading-tight text-gray-900 dark:text-gray-200' }
+      = sanitize page_title
+
+    %div
+      - if controller_name == 'sections' && action_name == 'show' && can?(:edit, @section)
+        %btn-request-ip{ ':section_id': params[:id] }
+      = page_action.html_safe # rubocop:disable Rails/OutputSafety

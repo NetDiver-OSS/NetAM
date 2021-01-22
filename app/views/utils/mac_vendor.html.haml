@@ -2,24 +2,14 @@
 
 = render 'utils/formvendor'
 
-%div.card.mt-4{ class: dark_mode_class }
-  %div.card-header
-    %h3.card-title
-      = format(_('Requested MAC Prefix %{mac}'), { mac: params[:mac] })
-  %div.card-body
-    - if @mac_vendors.blank?
-      %div.alert.alert-default-warning
-        = _('No matching vendor')
-    - else
-      - @mac_vendors.each do |mac_vendor|
-        %div.row.pb-3
-          %div.col-6
-            %div.input-group
-              %div.input-group-prepend
-                %span.input-group-text{ class: dark_mode_class }= _('Mac Address Prefix')
-              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.mac }
-          %div.col-6
-            %div.input-group
-              %div.input-group-prepend
-                %span.input-group-text{ class: dark_mode_class }= _('Vendor')
-              %input.form-control{ class: dark_mode_class, disabled: true, type: 'text', value: mac_vendor.vendor }
+
+- if @mac_vendors.present?
+  %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+    %div{ class: 'px-4 py-5 sm:px-6' }
+      %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Requested MAC Prefix')
+
+    %dl
+      - @mac_vendors.each do |vendor|
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= vendor.mac
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= vendor.vendor

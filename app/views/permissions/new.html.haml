@@ -1,4 +1,11 @@
-%div.card{ class: dark_mode_class }
-  %div.card-header
-    %h3.card-title= _('Add Permission')
-  = render 'form', permission: @permission
+%div{ class: 'container mx-auto' }
+  %div{ class: 'flex flex-wrap' }
+    %div{ class: 'w-full px-4' }
+      %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full mb-6 shadow rounded' }
+        %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
+          %div{ class: 'flex flex-wrap items-center' }
+            %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
+              %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Add Permission')
+        %div{ class: 'block w-full overflow-x-auto' }
+          %div{ class: 'mt-10 sm:mt-0' }
+            = render 'form', permission: @permission

@@ -1,8 +1,8 @@
 = form_with(url: '', method: :get, local: true) do |form|
-  %div.d-flex.justify-content-center
-    %div.form-group.col-10
-      = form.label :mac, _('MAC Address')
-      = form.text_field :mac, class: "form-control #{dark_mode_class}", placeholder: 'FF:FF:FF:FF:FF:FF', value: params[:mac]
+  %div.grid.grid-cols-5.gap-3
+    %div{ class: 'col-span-5 sm:col-span-4' }
+      = form.label :mac, _('MAC Address'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+      = form.text_field :mac, class: 'input', placeholder: 'FF:FF:FF:FF:FF:FF', value: params[:mac]
 
-    %div.col-2.mb-3.align-self-end
-      = form.button _('Lookup'), class: 'btn btn-block btn-info'
+    %div{ class: 'col-span-7 sm:col-span-1 flex items-center justify-center sm:mt-5' }
+      = form.button _('Lookup'), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm'

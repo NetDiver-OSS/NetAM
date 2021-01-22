@@ -1,33 +1,41 @@
 - page_title _('Workers')
-- page_action({ icon: '<i class="fas fa-plus-square"></i>', path: new_admin_worker_path })
+- page_action({ icon: fa_icon('solid', 'plus-square'), path: new_admin_worker_path })
 
-%div.alert.alert-info
+%div{ class: 'bg-blue-400 text-white font-bold p-4 rounded shadow' }
   = _('Worker "default" is not listed here. This worker manages all NetAM internal tasks as the backup.')
 
-%div.card-body.table-responsive
-  %table.table.table-striped.projects
-    %thead
-      %tr
-        %th= _('Worker name')
-        %th= _('Queues')
-        %th= _('Affected sections')
-        %th= _('Connected')
-        %th.text-center
-          = _('Actions')
-    %tbody
-      - @workers.each do |worker|
-        %tr
-          %td= worker.name
-          %td= worker.uuid
-          %td
-            %ul
-              - worker.sections.pluck(:name).each do |name|
-                %li= name
-          %td.text-center
-            = sanitize Sidekiq::ProcessSet.new(false).count { |a| a['queues'].include? "node:#{worker.uuid}" }.zero? ? '<i class="fas fa-times-circle"></i>' : '<i class="fas fa-check-circle"></i>'
-          %td.project-actions.text-center
-            %div.btn-group
-              = link_to fa_icon_with_text('fas fa-pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'btn btn-info btn-sm'
-              = link_to fa_icon_with_text('fas fa-trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: _('Are you sure?') }
+%div{ class: 'flex flex-wrap' }
+  %div{ class: 'w-full my-5' }
+    %div{ class: 'flex flex-col min-w-0 break-words bg-white dark:bg-gray-600 w-full shadow rounded' }
+      %div{ class: 'rounded-t mb-0 px-4 py-3 border-0' }
+        %div{ class: 'flex flex-wrap items-center' }
+          %div{ class: 'relative w-full max-w-full flex-grow flex-1' }
+            %h3{ class: 'font-semibold text-base text-gray-800 dark:text-gray-100' }= _('Workers')
+      %div{ class: 'block w-full overflow-x-auto' }
+        %table{ class: 'items-center w-full bg-transparent border-collapse' }
+          %thead
+            %tr
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Worker name')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Queues')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Affected sections')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Connected')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Actions')
+          %tbody
+            - @workers.each do |worker|
+              %tr
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= worker.name
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= worker.uuid
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4' }
+                  %ul.list-disc
+                    - worker.sections.pluck(:name).each do |name|
+                      %li= name
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }
+                  - if Sidekiq::ProcessSet.new(false).count { |a| a['queues'].include? "node:#{worker.uuid}" }.zero?
+                    %fa-icon{ type: 'solid', name: 'times-circle', size: 16 }
+                  - else
+                    %fa-icon{ type: 'solid', name: 'check-circle', size: 16 }
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
+                  = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_admin_worker_path(worker), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm'
+                  = link_to fa_icon_with_text('solid', 'trash', _('Delete')), admin_worker_path(worker), method: :delete, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm', data: { confirm: _('Are you sure?') }
 
   = paginate @workers

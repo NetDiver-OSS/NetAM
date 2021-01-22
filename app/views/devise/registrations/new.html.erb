@@ -1,49 +1,39 @@
-<div class="login-box">
-  <div class="login-logo">
-    <%= link_to 'NetAM', root_path %>
-  </div>
-
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="input-group mb-3">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address', class: "form-control" %>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class: "form-control" %>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password (Confirmation)', class: "form-control" %>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
-          </div>
-        </div>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Register to NetAM
+      </h2>
+      <%- if controller_name != 'sessions' %>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          Or
+          <%= link_to "log in", new_session_path(resource_name), class: 'font-medium text-indigo-600 hover:text-indigo-500' %>
+        </p>
       <% end %>
-
-      <%= render "devise/shared/omniauth" %>
-
-      <%= render "devise/shared/links" %>
     </div>
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'mt-8 space-y-6' }) do |f| %>
+      <input type="hidden" name="remember" value="true">
+      <div class="rounded shadow -space-y-px">
+        <div>
+          <%= f.label :email, 'Email address', class: "sr-only" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email address', class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+        <div>
+          <%= f.label :password, 'Password', class: "sr-only" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password (#{@minimum_password_length} characters minimum)", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+        <div>
+          <%= f.label :password, 'Password', class: "sr-only" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Password (Confirmation)', class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.button "Sign up", class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
+    <% end %>
   </div>
 </div>
