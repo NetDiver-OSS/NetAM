@@ -93,7 +93,7 @@
               %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('State')
               %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold w-2/6' }
           %tbody
-            - @section.usages.order('inet(ip_used) ASC').each do |usage|
+            - @usages.each do |usage|
               %tr
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= usage.fqdn
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= usage.ip_used
@@ -115,6 +115,7 @@
                   = link_to fa_icon_with_text('solid', 'search', _('Scan')), section_usage_scan_path(@section, usage), method: :post, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm' if can? :scan, @section
                   = link_to fa_icon_with_text('solid', 'pencil-alt', _('Edit')), edit_section_usage_path(@section, usage), class: 'w-full rounded-md border border-transparent shadow p-2 bg-yellow-600 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 sm:w-auto sm:text-sm' if can? :edit, @section
                   = link_to fa_icon_with_text('solid', 'trash', _('Release')), section_usage_path(@section, usage), method: :delete, data: { confirm: _('Are you sure?') }, class: 'w-full rounded-md border border-transparent shadow p-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm' if can? :destroy, @section
+    = paginate @usages
 
 - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
   %div{ class: 'bg-white dark:bg-gray-600 p-3 rounded shadow' }

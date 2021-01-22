@@ -1,10 +1,11 @@
 = paginator.render do
   %nav{ class: 'inline-flex w-full justify-center mt-3 -space-x-px' }
     = prev_page_tag unless current_page.first?
+
     - each_page do |page|
       - if page.left_outer? || page.right_outer? || page.inside_window?
         = page_tag page
       - elsif !page.was_truncated?
-        = link_to t('views.pagination.truncate'), '#', class: 'relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700'
+        = gap_tag
 
     = next_page_tag unless current_page.last?
