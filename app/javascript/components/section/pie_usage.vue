@@ -18,8 +18,7 @@ export default {
         labels: {
           fontColor: "#6B7280"
         },
-        align: "end",
-        position: "bottom"
+        position: "right"
       },
       tooltips: {
         mode: "index",
@@ -38,10 +37,19 @@ export default {
     }).catch((e) => {
       console.error(e)
     })
+  },
+  computed: {
+    styles () {
+      return {
+        height: '350px',
+        width: '350px',
+        margin: '-50px'
+      }
+    }
   }
 }
 </script>
 
 <template>
-  <doughnut-chart v-if="loaded" :chartdata="chartdata" :options="options" />
+  <doughnut-chart v-if="loaded" :chartdata="chartdata" :options="options" :styles="styles"/>
 </template>
