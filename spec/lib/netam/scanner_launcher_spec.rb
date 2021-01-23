@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe NetAM::Scanner do
+RSpec.describe NetAM::ScannerLauncher do
   let(:vlan) { create(:vlan) }
 
   describe 'run' do

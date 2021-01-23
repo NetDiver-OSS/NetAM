@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'net/ping'
 require 'resolv'
 
 class ScanNetworkWithPingWorker
@@ -34,7 +33,7 @@ class ScanNetworkWithPingWorker
         next
       end
 
-      scanner = { ping: Net::Ping::External.new(address.to_s, nil, 1).ping? }
+      scanner = { ping: NetAM::Scanner::Ping.new(address.to_s).scan! }
 
       current_usage = { identifier: "#{section[:id]}_#{address}", ip_used: address.to_s, section_id: section[:id] }
 

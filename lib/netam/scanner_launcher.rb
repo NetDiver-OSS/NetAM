@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module NetAM
-  class Scanner
+  class ScannerLauncher
     # @param [string] job
     def initialize(job)
       @job = job.constantize
