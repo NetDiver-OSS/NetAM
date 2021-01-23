@@ -29,7 +29,7 @@ gem 'rails-i18n', '~> 6.0'
 gem 'ruby_parser', '~> 3.15', require: false
 
 # Rails Delayed Jobs
-gem 'sidekiq', '= 6.1.2'
+gem 'sidekiq', '6.1.3'
 gem 'sidekiq-cron', '= 1.2'
 gem 'sidekiq-status', '= 1.1.4'
 
@@ -94,7 +94,7 @@ group :development do
   gem 'better_errors', '2.9.1'
   gem 'binding_of_caller', '~> 1.0.0'
 
-  gem 'listen', '3.4.0'
+  gem 'listen', '3.4.1'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
