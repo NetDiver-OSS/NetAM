@@ -34,7 +34,9 @@ class ScanNetworkWorker
         next
       end
 
-      scanner = { ping: "NetAM::Scanner::#{section[:scan_type].to_s.titleize.delete(' ')}".constantize.new(address.to_s).scan! }
+      scanner = {
+        ping: "NetAM::Scanner::#{section[:scan_type].to_s.titleize.delete(' ')}".constantize.new(address.to_s, Section.find(section[:id]).settings(:scanner).port).scan!
+      }
 
       if scanner[:ping]
         Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"

@@ -14,9 +14,10 @@ class Section < ApplicationRecord
   delegate :vid, :name, to: :vlan, prefix: true
   delegate :name, to: :worker, prefix: true, allow_nil: true
 
-  attr_accessor :run_scan, :notification_run_scan
+  attr_accessor :scanner_port, :run_scan, :notification_run_scan
 
   has_settings do |s|
+    s.key :scanner, defaults: { port: nil }
     s.key :notification, defaults: { on_run: false }
   end
 
