@@ -15,13 +15,17 @@
           = form.label :network, _('Network'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.text_field :network, class: 'input', placeholder: '192.168.1.0/24'
 
-        %div{ class: 'col-span-6 sm:col-span-3' }
+        %div{ class: 'col-span-6 sm:col-span-2' }
           = form.label :schedule, _('Schedule'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.text_field :schedule, class: 'input', placeholder: _('every 24 hours')
 
-        %div{ class: 'col-span-6 sm:col-span-3' }
+        %div{ class: 'col-span-6 sm:col-span-2' }
           = form.label :vlan_id, _('Vlan'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.select :vlan_id, @vlan_list, {}, { class: 'input' }
+
+        %div{ class: 'col-span-6 sm:col-span-2' }
+          = form.label :scan_type, _('Scan Type'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :scan_type, Section.scan_types, {}, { class: 'input' }
 
         %div.col-span-6
           = form.label :description, _('Description'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'

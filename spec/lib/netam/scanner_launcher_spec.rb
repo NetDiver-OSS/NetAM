@@ -13,8 +13,8 @@ RSpec.describe NetAM::ScannerLauncher do
     end
 
     it 'should return job_id' do
-      expect(described_class.new('ScanNetworkWithPingWorker').run(section.id, section.network)).to be_a(String)
-      expect(described_class.new('ScanNetworkWithPingWorker').run(section.id, section.network)).to match(/[a-z0-9]/)
+      expect(described_class.new('ScanNetworkWorker').run(section.id, section.network)).to be_a(String)
+      expect(described_class.new('ScanNetworkWorker').run(section.id, section.network)).to match(/[a-z0-9]/)
     end
   end
 

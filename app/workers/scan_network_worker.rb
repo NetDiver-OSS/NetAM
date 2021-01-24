@@ -2,7 +2,7 @@
 
 require 'resolv'
 
-class ScanNetworkWithPingWorker
+class ScanNetworkWorker
   include Sidekiq::Worker
   include Sidekiq::Status::Worker
   include StatusExpiration
@@ -14,6 +14,7 @@ class ScanNetworkWithPingWorker
 
     section = {
       id: args[0][:id] || args[0]['id'],
+      scan_type: args[0][:scan_type] || args[0]['scan_type'],
       network: IPAddr.new(args[0][:network] || args[0]['network'])
     }
 
@@ -33,7 +34,7 @@ class ScanNetworkWithPingWorker
         next
       end
 
-      scanner = { ping: NetAM::Scanner::Ping.new(address.to_s).scan! }
+      scanner = { ping: "NetAM::Scanner::#{section[:scan_type].to_s.titleize.delete(' ')}".constantize.new(address.to_s).scan! }
 
       current_usage = { identifier: "#{section[:id]}_#{address}", ip_used: address.to_s, section_id: section[:id] }
 
