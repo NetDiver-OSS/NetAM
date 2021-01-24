@@ -5,6 +5,8 @@ class Section < ApplicationRecord
   belongs_to :vlan
   belongs_to :worker, optional: true
 
+  enum scan_type: { ping: 'ping', tcp: 'tcp', udp: 'udp' }
+
   validates_associated :usages
   validates :name, :network, :vlan, presence: true
   validate :network_must_be_valid, :schedule_must_be_cron
@@ -26,9 +28,9 @@ class Section < ApplicationRecord
       Sidekiq::Cron::Job.new(
         name: schedule_name,
         queue: section.worker.nil? ? 'default' : "node:#{section.worker.uuid}",
-        class: 'ScanNetworkWithPingWorker',
+        class: 'ScanNetworkWorker',
         cron: Fugit.parse(section.schedule).to_cron_s,
-        args: [{ id: section.id, network: section.network }]
+        args: [{ id: section.id, network: section.network, scan_type: section.scan_type }]
       ).save
     end
   end

@@ -21,9 +21,13 @@
             = link_to '?', 'https://crontab.guru', target: '_blank', rel: 'noopener', class: 'bg-gray-100 dark:bg-gray-400 text-sm font-medium text-gray-700 dark:text-gray-700 px-1.5 rounded-full'
           = form.text_field :schedule, class: 'input', placeholder: 'every hour OR 0 * * * *'
 
-        %div{ class: 'col-span-6 sm:col-span-3' }
+        %div{ class: 'col-span-6 sm:col-span-2' }
           = form.label :vlan_id, _('Vlan'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.select :vlan_id, @vlan_list, {}, { class: 'input' }
+
+        %div{ class: 'col-span-6 sm:col-span-2' }
+          = form.label :scan_type, _('Scan Type'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :scan_type, Section.scan_types, {}, { class: 'input' }
 
         %div.col-span-6
           = form.label :description, _('Description'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
