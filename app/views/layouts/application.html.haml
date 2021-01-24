@@ -17,7 +17,7 @@
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application'
 
-  %body{ class: 'bg-gray-100 dark:bg-gray-700 text-black dark:text-white' }
+  %body{ class: 'bg-gray-100 dark:bg-gray-700 font-body text-black dark:text-white' }
     %div{ 'data-behavior': 'vue' }
       - if controller_name == 'setup' || %w[sessions registrations].include?(controller_name) && action_name == 'new'
         = yield
