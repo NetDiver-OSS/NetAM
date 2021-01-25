@@ -23,12 +23,12 @@ export default {
         this.toggleClassSlide()
         setTimeout(() => {
           this.open = !this.open
-        }, 500)
+        }, 300)
       } else {
         this.open = !this.open
         setTimeout(() => {
           this.toggleClassSlide()
-        }, 200)
+        }, 100)
       }
     }
   }
@@ -41,7 +41,7 @@ export default {
       <div class="absolute inset-0 overflow-hidden">
         <div class="absolute inset-0 bg-black bg-opacity-75 transition-opacity ease-in-out duration-200 opacity-0" ref="slide_background" aria-hidden="true" @click="toggleSlide"></div>
         <section class="absolute inset-y-0 left-0 max-w-full flex" aria-labelledby="slide-over-heading">
-          <div class="relative w-screen max-w-md transform transition ease-in-out duration-700 -translate-x-full" ref="slide_menu">
+          <div class="relative w-screen max-w-md transform transition ease-in-out duration-200 -translate-x-full" ref="slide_menu">
             <div class="h-full flex flex-col py-6 bg-white dark:bg-gray-700 shadow-xl overflow-y-scroll">
               <div class="flex flex-row justify-between px-4 sm:px-6">
                 <h2 id="slide-over-heading" class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ title }}</h2>
