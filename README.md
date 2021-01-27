@@ -3,7 +3,8 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=security_rating)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=alert_status)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)  
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=alert_status)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNetaM-OSC%2FNetAM.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNetaM-OSC%2FNetAM?ref=badge_shield)
+ 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=bugs)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=coverage)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
@@ -71,3 +72,6 @@ By design, application run on port 3000. Application can be accessed by [http://
 ## License
 
 This software is written under BSD 3-Clause license.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNetaM-OSC%2FNetAM.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNetaM-OSC%2FNetAM?ref=badge_large)
