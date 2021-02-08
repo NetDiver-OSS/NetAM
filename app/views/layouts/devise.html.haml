@@ -17,17 +17,11 @@
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application'
 
-  %body{ class: 'bg-gray-100 dark:bg-gray-700 font-body text-black dark:text-white' }
-    %div{ 'data-behavior': 'vue' }
-      = render partial: 'layouts/navbar'
-      = render partial: 'layouts/header'
+  %body{ class: 'bg-gray-50 dark:bg-gray-700 font-body text-black dark:text-gray-100' }
+    - if notice
+      %alert{ color: 'green', message: notice }
+    - if alert
+      %alert{ color: 'red', message: alert }
 
-      - if notice
-        %alert{ color: 'green', message: notice }
-      - if alert
-        %alert{ color: 'red', message: alert }
-
-      %main{ class: 'max-w-7xl mx-auto py-6 sm:px-6 lg:px-8' }
-        = yield
-
-      = render partial: 'layouts/footer'
+    %div{ class: 'min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8' }
+      = yield

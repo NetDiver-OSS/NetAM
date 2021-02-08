@@ -143,7 +143,6 @@ Style/Documentation:
 Style/RescueModifier:
   Exclude:
     - 'app/controllers/utils_controller.rb'
-    - 'config/initializers/instance_setup_mode.rb'
 
 # Offense count: 44
 # Cop supports --auto-correct.

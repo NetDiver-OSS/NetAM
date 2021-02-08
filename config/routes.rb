@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       unlock: 'unblock',
       registration: 'register',
       sign_up: ''
-    }, controllers: { omniauth_callbacks: 'callbacks' }
+    }, controllers: { omniauth_callbacks: 'callbacks', sessions: :sessions }
 
     use_doorkeeper do
       skip_controllers :applications, :authorized_applications
@@ -56,13 +56,6 @@ Rails.application.routes.draw do
     namespace :utils do
       get :calculator
       get :mac_vendor
-    end
-
-    if Rails.application.config.setup_mode
-      namespace :setup do
-        get :install
-        post :create
-      end
     end
 
     mount GrapeSwaggerRails::Engine => '/docs'

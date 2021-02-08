@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   validates_associated :permissions
 
+  scope :admins, -> { where(admin: true) }
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -29,5 +31,15 @@ class User < ApplicationRecord
 
   def otp_pending?
     !otp_secret.nil? && otp_required_for_login != true
+  end
+
+  def generate_reset_token
+    @reset_token, enc = Devise.token_generator.generate(self.class, :reset_password_token)
+
+    self.reset_password_token   = enc
+    self.reset_password_sent_at = Time.current.utc
+    save(validate: false)
+
+    @reset_token
   end
 end

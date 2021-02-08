@@ -1,0 +1,16 @@
+%div{ class: 'max-w-md w-full space-y-8' }
+  %div
+    %h2{ class: 'mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100' }
+      = _('You forgot your password? Here you can easily retrieve a new password.')
+
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'mt-8 space-y-6' }) do |f|
+    = render 'devise/shared/error_messages', resource: resource
+
+    = f.hidden_field :reset_password_token
+    %div{ class: 'rounded shadow -space-y-px' }
+      %div
+        = f.label :email, _('Email'), class: 'sr-only'
+        = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: _('Email address'), class: 'bg-white dark:bg-gray-600 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 placeholder-gray-500 text-gray-900 dark:text-gray-300 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+
+    %div
+      = f.button _('Send me reset password instructions'), class: 'group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'

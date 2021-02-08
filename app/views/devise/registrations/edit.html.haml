@@ -18,7 +18,7 @@
 
               %div{ class: 'col-span-6 sm:col-span-3' }
                 = form.label :password, _('Current Password'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
-                = form.password_field :current_password, placeholder: '(we need your current password to confirm your changes)', autocomplete: 'current-password', class: 'input'
+                = form.password_field :current_password, placeholder: _('(we need your current password to confirm your changes)'), autocomplete: 'current-password', class: 'input'
 
               %div{ class: 'col-span-6 sm:col-span-3' }
                 = form.label :password, _('Password'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
