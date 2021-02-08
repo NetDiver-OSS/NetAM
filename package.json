@@ -12,7 +12,7 @@
     "chart.js": "2.9.4",
     "jquery": "3.5.1",
     "js-cookie": "2.2.1",
-    "postcss": "8.2.4",
+    "postcss": "8.2.5",
     "select2": "4.0.13",
     "tailwindcss": "2.0.2",
     "vue": "2.6.12",
