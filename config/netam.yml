@@ -35,6 +35,12 @@ default: &default
     threads: <%= ENV.fetch("SIDEKIQ_MAX_THREADS") { 5 } %>
     parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 20 } %>
 
+  typesense:
+    protocol: <%= ENV.fetch("TYPESENSE_PROTOCOL") { 'http' } %>
+    host: <%= ENV.fetch("TYPESENSE_HOST") { 'localhost' } %>
+    port: <%= ENV.fetch("TYPESENSE_PORT") { 8108 } %>
+    api_key: <%= ENV.fetch("TYPESENSE_PORT") { 'managementkey' } %>
+
   otp:
     secret: <%= ENV.fetch("OTP_SECRET") { 'ch@ngeMech@ngeMech@ngeMech@ngeMe' } %>
 

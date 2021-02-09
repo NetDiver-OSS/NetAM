@@ -21,6 +21,9 @@ gem 'rqrcode', '~> 1.2'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.2.0'
 
+# Search engine
+gem 'typesense', '0.10.0'
+
 # I18n
 gem 'gettext', '~> 3.3', require: false, group: :development
 gem 'gettext_i18n_rails', '~> 1.8.1'
