@@ -11,4 +11,8 @@ class Vlan < ApplicationRecord
   after_destroy do |vlan|
     Permission.where(subject_class: 'Vlan', subject_id: vlan.id).delete_all
   end
+
+  def saved?
+    id && persisted?
+  end
 end
