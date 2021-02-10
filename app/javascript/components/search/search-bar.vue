@@ -27,7 +27,8 @@ export default {
       search: '',
       collections: [
         'sections',
-        'vlans'
+        'vlans',
+        'rackspaces'
       ],
       result: {},
     };
