@@ -26,6 +26,7 @@ export default {
     return {
       search: '',
       collections: [
+        'device_types',
         'devices',
         'rackspaces',
         'sections',

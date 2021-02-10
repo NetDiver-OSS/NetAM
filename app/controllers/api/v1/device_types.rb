@@ -25,16 +25,7 @@ module API
           requires :color, type: String
         end
         post '', root: 'device_type' do
-          device_type = DeviceType.create!(declared_params(include_missing: false))
-          Permission.create!(
-            {
-              user_id: current_user.id,
-              subject_class: 'DeviceType',
-              subject_id: device_type.id,
-              action: 'manage'
-            }
-          )
-          device_type
+          ::DeviceTypes::CreateService.new(current_user, declared_params(include_missing: false)).execute
         end
 
         desc 'Return a device type'
