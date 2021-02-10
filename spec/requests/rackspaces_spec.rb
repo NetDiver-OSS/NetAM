@@ -109,7 +109,7 @@ RSpec.describe 'Rackspaces', type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         rackspace = Rackspace.create! valid_attributes
         patch rackspace_url(rackspace), params: { rackspace: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to redirect_to(rackspace_url(rackspace))
       end
     end
   end

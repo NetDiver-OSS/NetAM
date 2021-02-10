@@ -20,7 +20,7 @@ module Sections
           {
             id: @section.id.to_s,
             name: @section.name,
-            description: @section.description,
+            description: @section.description.to_s,
             network: @section.network,
             created_at: @section.created_at.to_i
           }

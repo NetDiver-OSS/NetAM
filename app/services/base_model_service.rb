@@ -20,7 +20,7 @@ class BaseModelService
     {
       name: @ts_collection_name,
       fields: @ts_collection_fields.map do |n, t|
-        { name: n, type: t }
+        { name: n, type: t, optional: n != 'name' }
       end.push(
         {
           name: 'created_at',

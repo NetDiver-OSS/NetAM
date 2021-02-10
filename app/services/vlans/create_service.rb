@@ -21,7 +21,7 @@ module Vlans
           {
             id: @vlan.id.to_s,
             name: @vlan.name,
-            description: @vlan.description,
+            description: @vlan.description.to_s,
             vid: @vlan.vid,
             created_at: @vlan.created_at.to_i
           }
