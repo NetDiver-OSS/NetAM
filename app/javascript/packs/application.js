@@ -24,6 +24,7 @@ import alert from "../components/alert";
 import fa_icon from "../components/icon";
 import section__pie_usage from "../components/section/pie_usage";
 import section__status_scan from "../components/section/status_scan";
+import search_bar from "../components/search/search-bar";
 import tab from "../components/tab";
 import tabs from "../components/section/tabs";
 
@@ -35,6 +36,7 @@ Vue.component('alert', alert)
 Vue.component('fa-icon', fa_icon)
 Vue.component('section-usage', section__pie_usage)
 Vue.component('section-scan', section__status_scan)
+Vue.component('search-bar', search_bar)
 Vue.component('tab', tab)
 Vue.component('tabs', tabs)
 
