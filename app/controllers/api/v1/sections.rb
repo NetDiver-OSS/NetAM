@@ -30,16 +30,7 @@ module API
           optional :description, type: String
         end
         post '', root: 'section' do
-          section = Section.create!(declared_params(include_missing: false))
-          Permission.create!(
-            {
-              user_id: current_user.id,
-              subject_class: 'Section',
-              subject_id: section.id,
-              action: 'manage'
-            }
-          )
-          section
+          ::Sections::CreateService.new(current_user, declared_params(include_missing: false)).execute
         end
 
         desc 'Return a section'

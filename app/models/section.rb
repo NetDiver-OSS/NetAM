@@ -16,6 +16,10 @@ class Section < ApplicationRecord
 
   attr_accessor :scanner_port, :run_scan, :notification_run_scan
 
+  def saved?
+    id && persisted?
+  end
+
   has_settings do |s|
     s.key :scanner, defaults: { port: nil }
     s.key :notification, defaults: { on_run: false }

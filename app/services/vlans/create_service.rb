@@ -17,6 +17,7 @@ module Vlans
         grant_permissions
 
         typesense_document_update_or_create(
+          @vlan.id,
           {
             id: @vlan.id.to_s,
             name: @vlan.name,

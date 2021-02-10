@@ -31,8 +31,8 @@ class BaseModelService
     }
   end
 
-  def typesense_document_update_or_create(document)
-    TYPESENSE.collections[@ts_collection_name].documents[@vlan.id.to_s].update(document)
+  def typesense_document_update_or_create(id, document)
+    TYPESENSE.collections[@ts_collection_name].documents[id.to_s].update(document)
   rescue Typesense::Error::ObjectNotFound
     TYPESENSE.collections[@ts_collection_name].documents.create(document)
   end

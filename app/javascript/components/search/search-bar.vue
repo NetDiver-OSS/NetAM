@@ -26,6 +26,7 @@ export default {
     return {
       search: '',
       collections: [
+        'sections',
         'vlans'
       ],
       result: {},

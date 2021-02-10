@@ -16,6 +16,7 @@ module Vlans
 
       if @vlan.update(params)
         typesense_document_update_or_create(
+          @vlan.id,
           {
             id: @vlan.id.to_s,
             name: @vlan.name,
