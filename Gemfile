@@ -7,7 +7,7 @@ ruby '2.7.2'
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
-gem 'puma', '5.2.0'
+gem 'puma', '5.2.1'
 gem 'rails', '= 6.0.3.4'
 
 # Database
@@ -81,10 +81,10 @@ group :development, :test do
 
   gem 'factory_bot_rails', '~> 6.1'
 
-  gem 'rubocop', '1.8.1'
+  gem 'rubocop', '1.9.1'
   gem 'rubocop-performance', '~> 1.9'
   gem 'rubocop-rails', '~> 2.9'
-  gem 'rubocop-rspec', '~> 2.1'
+  gem 'rubocop-rspec', '~> 2.2'
 
   gem 'haml_lint', '~> 0.37.0', require: false
 end
