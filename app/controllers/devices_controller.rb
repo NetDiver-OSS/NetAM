@@ -28,18 +28,9 @@ class DevicesController < ApplicationController
 
   # POST /devices
   def create
-    @device = Device.new(device_params)
+    @device = ::Devices::CreateService.new(current_user, device_params).execute
 
     if @device.save
-      Permission.create!(
-        {
-          user_id: current_user.id,
-          subject_class: 'Device',
-          subject_id: @device.id,
-          action: 'manage'
-        }
-      )
-
       redirect_to devices_path, notice: _('Device was successfully created.')
     else
       render :new
@@ -48,7 +39,7 @@ class DevicesController < ApplicationController
 
   # PATCH/PUT /devices/1
   def update
-    if @device.update(device_params)
+    if ::Devices::UpdateService.new(current_user, device_params.merge(device: @device)).execute
       redirect_to devices_path, notice: _('Device was successfully updated.')
     else
       render :edit
@@ -57,7 +48,7 @@ class DevicesController < ApplicationController
 
   # DELETE /devices/1
   def destroy
-    @device.destroy
+    ::Devices::DestroyService.new(current_user, device: @device).execute
     redirect_to devices_url, notice: _('Device was successfully destroyed.')
   end
 

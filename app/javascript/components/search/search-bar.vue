@@ -26,9 +26,10 @@ export default {
     return {
       search: '',
       collections: [
+        'devices',
+        'rackspaces',
         'sections',
-        'vlans',
-        'rackspaces'
+        'vlans'
       ],
       result: {},
     };
