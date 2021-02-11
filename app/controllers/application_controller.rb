@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  layout :layout_configuration
+
   before_action :set_gettext_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :setup_required
-  before_action :authenticate_user
+  before_action :authenticate_user!
   protect_from_forgery
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -49,11 +50,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def authenticate_user
-    authenticate_user! unless params[:controller] == 'setup'
-  end
-
-  def setup_required
-    redirect_to setup_install_path if Rails.application.config.setup_mode && params[:controller] != 'setup'
+  def layout_configuration
+    if devise_controller?
+      'devise'
+    else
+      'devise' if controller_name == 'devise/registrations' && action_name == 'edit'
+      'application'
+    end
   end
 end

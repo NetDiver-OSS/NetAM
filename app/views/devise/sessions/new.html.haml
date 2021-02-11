@@ -1,0 +1,33 @@
+%div{ class: 'max-w-md w-full space-y-8' }
+  %div
+    %h2{ class: 'mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-100' }= _('Sign in to NetAM')
+    - if devise_mapping.registerable? && controller_name != 'registrations'
+      %p{ class: 'mt-2 text-center text-sm text-gray-600 dark:text-gray-400' }
+        = _('Or')
+        = link_to _('create an account'), new_registration_path(resource_name), class: 'font-medium text-indigo-600 dark:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-600'
+
+  - if alert
+    %div{ class: 'bg-red-500 text-white p-3 rounded shadow' }
+      = alert
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'mt-8 space-y-6' }) do |f|
+
+    = f.hidden_field :remember, value: true
+    %div{ class: 'rounded shadow -space-y-px' }
+      %div
+        = f.label :email, _('Email address'), class: 'sr-only'
+        = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: _('Email address'), class: 'bg-white dark:bg-gray-600 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 placeholder-gray-500 text-gray-900 dark:text-gray-300 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+      %div
+        = f.label :password, _('Password'), class: 'sr-only'
+        = f.password_field :password, autocomplete: 'current-password', placeholder: _('Password'), class: 'bg-white dark:bg-gray-600 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 placeholder-gray-500 text-gray-900 dark:text-gray-300 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+
+    %div{ class: 'flex items-center justify-between' }
+      %div
+        = f.password_field :otp_attempt, placeholder: _('TOTP (if enabled)'), class: 'input'
+      - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+        .text-sm
+          = link_to _('Forgot your password?'), new_password_path(resource_name), class: 'font-medium text-indigo-600 dark:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-600'
+
+    %div
+      = f.button _('Log in with Email'), class: 'group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+      = render 'devise/shared/omniauth'

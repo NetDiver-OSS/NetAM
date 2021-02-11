@@ -16,6 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+msgid "(we need your current password to confirm your changes)"
+msgstr ""
+
+msgid "Account management"
+msgstr ""
+
 msgid "Action"
 msgstr ""
 
@@ -37,13 +43,13 @@ msgstr ""
 msgid "Address Table"
 msgstr ""
 
+msgid "Admin"
+msgstr ""
+
 msgid "Admin Backups"
 msgstr ""
 
 msgid "Admin Center"
-msgstr ""
-
-msgid "Admin Jobs"
 msgstr ""
 
 msgid "Affected sections"
@@ -88,10 +94,19 @@ msgstr ""
 msgid "Calculate"
 msgstr ""
 
+msgid "Change my password"
+msgstr ""
+
+msgid "Change your password"
+msgstr ""
+
 msgid "Choose file"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "Code #%{id}"
 msgstr ""
 
 msgid "Color"
@@ -100,10 +115,22 @@ msgstr ""
 msgid "Concurrency jobs"
 msgstr ""
 
+msgid "Confirm new password"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
 msgid "Connected"
 msgstr ""
 
+msgid "Current Password"
+msgstr ""
+
 msgid "DHCP"
+msgstr ""
+
+msgid "Danger zone"
 msgstr ""
 
 msgid "Define as device"
@@ -122,9 +149,6 @@ msgid "Depth type"
 msgstr ""
 
 msgid "Description"
-msgstr ""
-
-msgid "Destroy"
 msgstr ""
 
 msgid "Device type"
@@ -160,16 +184,13 @@ msgstr ""
 msgid "Devices list"
 msgstr ""
 
+msgid "Devices type"
+msgstr ""
+
 msgid "Devices type list"
 msgstr ""
 
-msgid "Disable"
-msgstr ""
-
 msgid "Disable TOTP"
-msgstr ""
-
-msgid "Disabled"
 msgstr ""
 
 msgid "Down"
@@ -211,16 +232,10 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-msgid "Enable"
+msgid "Email address"
 msgstr ""
 
 msgid "Enable TOTP"
-msgstr ""
-
-msgid "Enabled"
-msgstr ""
-
-msgid "Error"
 msgstr ""
 
 msgid "Export"
@@ -229,10 +244,10 @@ msgstr ""
 msgid "FQDN"
 msgstr ""
 
-msgid "File"
+msgid "First IP"
 msgstr ""
 
-msgid "First IP"
+msgid "Forgot your password?"
 msgstr ""
 
 msgid "Free IP"
@@ -271,25 +286,19 @@ msgstr ""
 msgid "IP used"
 msgstr ""
 
-msgid "Ignore rackspace management when is empty"
-msgstr ""
-
 msgid "Import"
 msgstr ""
 
 msgid "Import usages with CSV"
 msgstr ""
 
-msgid "Job"
-msgstr ""
-
-msgid "Jobs"
-msgstr ""
-
 msgid "Last IP"
 msgstr ""
 
 msgid "Last scan time"
+msgstr ""
+
+msgid "Last sign in"
 msgstr ""
 
 msgid "Load Average"
@@ -302,6 +311,9 @@ msgid "Location"
 msgstr ""
 
 msgid "Locked"
+msgstr ""
+
+msgid "Log in with Email"
 msgstr ""
 
 msgid "Logout"
@@ -319,9 +331,6 @@ msgstr ""
 msgid "MAC Vendor Lookup"
 msgstr ""
 
-msgid "Mac Address Prefix"
-msgstr ""
-
 msgid "Mask"
 msgstr ""
 
@@ -331,7 +340,7 @@ msgstr ""
 msgid "Memory"
 msgstr ""
 
-msgid "My home network"
+msgid "My account"
 msgstr ""
 
 msgid "NO"
@@ -347,6 +356,9 @@ msgid "NetAM control node"
 msgstr ""
 
 msgid "Network"
+msgstr ""
+
+msgid "Network information"
 msgstr ""
 
 msgid "New Section"
@@ -370,13 +382,16 @@ msgstr ""
 msgid "New devices type"
 msgstr ""
 
+msgid "New password"
+msgstr ""
+
 msgid "New rackspace"
 msgstr ""
 
-msgid "No free address IP available !"
+msgid "Next"
 msgstr ""
 
-msgid "No matching vendor"
+msgid "No free address IP available !"
 msgstr ""
 
 msgid "No worker assigned"
@@ -385,13 +400,22 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-msgid "Notice"
+msgid "OTP Secret"
 msgstr ""
 
 msgid "OTP code"
 msgstr ""
 
+msgid "Or"
+msgstr ""
+
 msgid "Password"
+msgstr ""
+
+msgid "Password (%{password_length} characters minimum)"
+msgstr ""
+
+msgid "Password Again "
 msgstr ""
 
 msgid "Password confirmation"
@@ -409,7 +433,16 @@ msgstr ""
 msgid "Permission was successfully updated."
 msgstr ""
 
+msgid "Please create a password for your new account."
+msgstr ""
+
 msgid "Please validate TOTP code !"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Qrcode"
 msgstr ""
 
 msgid "Queues"
@@ -419,6 +452,9 @@ msgid "Rack Height"
 msgstr ""
 
 msgid "Rack anchor"
+msgstr ""
+
+msgid "Rack occupation management"
 msgstr ""
 
 msgid "Rackspace"
@@ -442,16 +478,13 @@ msgstr ""
 msgid "Recovery codes"
 msgstr ""
 
+msgid "Register to NetAM"
+msgstr ""
+
 msgid "Release"
 msgstr ""
 
-msgid "Requested MAC Prefix %{mac}"
-msgstr ""
-
-msgid "Requirements"
-msgstr ""
-
-msgid "Reserved"
+msgid "Requested MAC Prefix"
 msgstr ""
 
 msgid "Run notification on run_scan"
@@ -478,6 +511,9 @@ msgstr ""
 msgid "Schedule"
 msgstr ""
 
+msgid "Search..."
+msgstr ""
+
 msgid "Secret: %{otp_secret}"
 msgstr ""
 
@@ -493,13 +529,16 @@ msgstr ""
 msgid "Sections linked to %{name} (#%{vid})"
 msgstr ""
 
-msgid "Setup"
-msgstr ""
-
-msgid "Setup finished"
+msgid "Send me reset password instructions"
 msgstr ""
 
 msgid "Sidekiq"
+msgstr ""
+
+msgid "Sign in to NetAM"
+msgstr ""
+
+msgid "Sign up"
 msgstr ""
 
 msgid "Started from"
@@ -517,7 +556,7 @@ msgstr ""
 msgid "Subject ID"
 msgstr ""
 
-msgid "To enable your instance, please reboot it !"
+msgid "TOTP (if enabled)"
 msgstr ""
 
 msgid "Two Factor Auth"
@@ -538,9 +577,6 @@ msgstr ""
 msgid "Unit height"
 msgstr ""
 
-msgid "Unknown state"
-msgstr ""
-
 msgid "Usage"
 msgstr ""
 
@@ -551,9 +587,6 @@ msgid "Usage was successfully destroyed."
 msgstr ""
 
 msgid "Usage was successfully updated."
-msgstr ""
-
-msgid "Used"
 msgstr ""
 
 msgid "User Email"
@@ -568,10 +601,10 @@ msgstr ""
 msgid "Validate"
 msgstr ""
 
-msgid "Vendor"
+msgid "View"
 msgstr ""
 
-msgid "View"
+msgid "Vlan"
 msgstr ""
 
 msgid "Vlan ID"
@@ -610,13 +643,16 @@ msgstr ""
 msgid "YES"
 msgstr ""
 
-msgid "Youhou !"
+msgid "You can skip rackspace management fields"
+msgstr ""
+
+msgid "You forgot your password? Here you can easily retrieve a new password."
 msgstr ""
 
 msgid "Your address IP is"
 msgstr ""
 
-msgid "every 24 hours"
+msgid "create an account"
 msgstr ""
 
 msgid "is higher than Rackspace unit"
