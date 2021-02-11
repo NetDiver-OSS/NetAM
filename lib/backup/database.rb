@@ -8,10 +8,10 @@ module Backup
     def initialize
       @config = YAML.load(ERB.new(File.read(Rails.root.join('config/database.yml'))).result)[Rails.env] # rubocop:disable Security/YAMLLoad
       {
-        'username': 'PGUSER',
-        'host': 'PGHOST',
-        'port': 'PGPORT',
-        'password': 'PGPASSWORD'
+        username: 'PGUSER',
+        host: 'PGHOST',
+        port: 'PGPORT',
+        password: 'PGPASSWORD'
       }.each { |opt, arg| ENV[arg] = config[opt.to_s].to_s if config[opt.to_s] }
     end
 
