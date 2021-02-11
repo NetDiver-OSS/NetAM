@@ -27,16 +27,7 @@ module API
           optional :depth_type, type: String
         end
         post '', root: 'device' do
-          device = Device.create!(declared_params(include_missing: false))
-          Permission.create!(
-            {
-              user_id: current_user.id,
-              subject_class: 'Device',
-              subject_id: device.id,
-              action: 'manage'
-            }
-          )
-          device
+          ::Devices::CreateService.new(current_user, declared_params(include_missing: false)).execute
         end
 
         desc 'Return a device'

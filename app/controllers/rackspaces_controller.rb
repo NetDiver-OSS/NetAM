@@ -39,7 +39,7 @@ class RackspacesController < ApplicationController
 
   # POST /rackspaces
   def create
-    @rackspace = Rackspace.new(rackspace_params)
+    @rackspace = ::Rackspaces::CreateService.new(current_user, rackspace_params).execute
 
     if @rackspace.save
       Permission.create!(
@@ -59,7 +59,7 @@ class RackspacesController < ApplicationController
 
   # PATCH/PUT /rackspaces/1
   def update
-    if @rackspace.update(rackspace_params)
+    if ::Rackspaces::UpdateService.new(current_user, rackspace_params.merge(rackspace: @rackspace)).execute
       redirect_to @rackspace, notice: _('Rackspace was successfully updated.')
     else
       render :edit
@@ -68,7 +68,7 @@ class RackspacesController < ApplicationController
 
   # DELETE /rackspaces/1
   def destroy
-    @rackspace.destroy
+    ::Rackspaces::DestroyService.new(current_user, rackspace: @rackspace).execute
     redirect_to rackspaces_url, notice: _('Rackspace was successfully destroyed.')
   end
 

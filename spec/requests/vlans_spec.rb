@@ -109,7 +109,7 @@ RSpec.describe '/vlans', type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         vlan = Vlan.create! valid_attributes
         patch vlan_url(vlan), params: { vlan: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to redirect_to(vlan_url(vlan))
       end
     end
   end

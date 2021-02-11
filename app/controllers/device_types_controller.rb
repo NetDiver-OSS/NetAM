@@ -27,18 +27,9 @@ class DeviceTypesController < ApplicationController
 
   # POST /device_types
   def create
-    @device_type = DeviceType.new(device_type_params)
+    @device_type = ::DeviceTypes::CreateService.new(current_user, device_type_params).execute
 
     if @device_type.save
-      Permission.create!(
-        {
-          user_id: current_user.id,
-          subject_class: 'DeviceType',
-          subject_id: @device_type.id,
-          action: 'manage'
-        }
-      )
-
       redirect_to device_types_path, notice: _('Device type was successfully created.')
     else
       render :new
@@ -47,7 +38,7 @@ class DeviceTypesController < ApplicationController
 
   # PATCH/PUT /device_types/1
   def update
-    if @device_type.update(device_type_params)
+    if ::DeviceTypes::UpdateService.new(current_user, device_type_params.merge(device_type: @device_type)).execute
       redirect_to device_types_path, notice: _('Device type was successfully updated.')
     else
       render :edit
@@ -56,7 +47,7 @@ class DeviceTypesController < ApplicationController
 
   # DELETE /device_types/1
   def destroy
-    if @device_type.destroy
+    if ::DeviceTypes::DestroyService.new(current_user, device_type: @device_type).execute
       redirect_to device_types_url, notice: _('Device type was successfully destroyed.')
     else
       redirect_to device_types_url, alert: _('Device type was not destroyed.')

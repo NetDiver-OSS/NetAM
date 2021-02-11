@@ -26,16 +26,7 @@ module API
           optional :description, type: String
         end
         post '', root: 'vlan' do
-          vlan = Vlan.create!(declared_params(include_missing: false))
-          Permission.create!(
-            {
-              user_id: current_user.id,
-              subject_class: 'Vlan',
-              subject_id: vlan.id,
-              action: 'manage'
-            }
-          )
-          vlan
+          ::Vlans::CreateService.new(current_user, declared_params(include_missing: false)).execute
         end
 
         desc 'Return a vlan'

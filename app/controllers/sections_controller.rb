@@ -45,18 +45,9 @@ class SectionsController < ApplicationController
 
   # POST /sections
   def create
-    @section = Section.new(section_params)
+    @section = ::Sections::CreateService.new(current_user, section_params).execute
 
-    if @section.save
-      Permission.create!(
-        {
-          user_id: current_user.id,
-          subject_class: 'Section',
-          subject_id: @section.id,
-          action: 'manage'
-        }
-      )
-
+    if @section.saved?
       @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
       @section.settings(:scanner).update!(port: @section.scanner_port)
 
@@ -69,7 +60,7 @@ class SectionsController < ApplicationController
 
   # PATCH/PUT /sections/1
   def update
-    if @section.update(section_params)
+    if ::Sections::UpdateService.new(current_user, section_params.merge(section: @section)).execute
       @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
       @section.settings(:scanner).update!(port: @section.scanner_port)
 
@@ -81,7 +72,7 @@ class SectionsController < ApplicationController
 
   # DELETE /sections/1
   def destroy
-    @section.destroy
+    ::Sections::DestroyService.new(current_user, section: @section).execute
     redirect_to sections_url, notice: 'Section was successfully destroyed.'
   end
 

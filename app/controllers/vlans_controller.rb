@@ -26,18 +26,9 @@ class VlansController < ApplicationController
 
   # POST /vlans
   def create
-    @vlan = Vlan.new(vlan_params)
+    @vlan = ::Vlans::CreateService.new(current_user, vlan_params).execute
 
-    if @vlan.save
-      Permission.create!(
-        {
-          user_id: current_user.id,
-          subject_class: 'Vlan',
-          subject_id: @vlan.id,
-          action: 'manage'
-        }
-      )
-
+    if @vlan.saved?
       redirect_to @vlan, notice: _('Vlan was successfully created.')
     else
       render :new
@@ -46,7 +37,7 @@ class VlansController < ApplicationController
 
   # PATCH/PUT /vlans/1
   def update
-    if @vlan.update(vlan_params)
+    if ::Vlans::UpdateService.new(current_user, vlan_params.merge(vlan: @vlan)).execute
       redirect_to @vlan, notice: _('Vlan was successfully updated.')
     else
       render :edit
@@ -55,7 +46,7 @@ class VlansController < ApplicationController
 
   # DELETE /vlans/1
   def destroy
-    @vlan.destroy
+    ::Vlans::DestroyService.new(current_user, vlan: @vlan).execute
     redirect_to vlans_url, notice: _('Vlan was successfully destroyed.')
   end
 

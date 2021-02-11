@@ -26,16 +26,7 @@ module API
           requires :location, type: String
         end
         post '', root: 'rackspace' do
-          rackspace = Rackspace.create!(declared_params(include_missing: false))
-          Permission.create!(
-            {
-              user_id: current_user.id,
-              subject_class: 'Rackspace',
-              subject_id: rackspace.id,
-              action: 'manage'
-            }
-          )
-          rackspace
+          ::Rackspaces::CreateService.new(current_user, declared_params(include_missing: false)).execute
         end
 
         desc 'Return a rackspace'
