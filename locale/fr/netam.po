@@ -14,7 +14,13 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-01-15 10:45\n"
+"PO-Revision-Date: 2021-02-11 20:37\n"
+
+msgid "(we need your current password to confirm your changes)"
+msgstr ""
+
+msgid "Account management"
+msgstr ""
 
 msgid "Action"
 msgstr "Action"
@@ -37,14 +43,14 @@ msgstr "Matrice d'adresses"
 msgid "Address Table"
 msgstr "Table d'adresses"
 
+msgid "Admin"
+msgstr ""
+
 msgid "Admin Backups"
 msgstr "Administration des Sauvegardes"
 
 msgid "Admin Center"
 msgstr "Centre d'administration"
-
-msgid "Admin Jobs"
-msgstr "Administration des tâches"
 
 msgid "Affected sections"
 msgstr "Sections affectées"
@@ -88,11 +94,20 @@ msgstr "CPU"
 msgid "Calculate"
 msgstr "Calculer"
 
+msgid "Change my password"
+msgstr ""
+
+msgid "Change your password"
+msgstr ""
+
 msgid "Choose file"
 msgstr "Choisir un fichier"
 
 msgid "Close"
 msgstr "Fermer"
+
+msgid "Code #%{id}"
+msgstr ""
 
 msgid "Color"
 msgstr "Couleur"
@@ -100,11 +115,23 @@ msgstr "Couleur"
 msgid "Concurrency jobs"
 msgstr "Tâches Concurrentes"
 
+msgid "Confirm new password"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
 msgid "Connected"
 msgstr "Connecté"
 
+msgid "Current Password"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
+
+msgid "Danger zone"
+msgstr ""
 
 msgid "Define as device"
 msgstr "Définir comme équipement"
@@ -123,9 +150,6 @@ msgstr "Type de profondeur"
 
 msgid "Description"
 msgstr "Description"
-
-msgid "Destroy"
-msgstr "Supprimer"
 
 msgid "Device type"
 msgstr "Type d'équipement"
@@ -160,17 +184,14 @@ msgstr "Type d'équipements"
 msgid "Devices list"
 msgstr "Liste d'équipements"
 
+msgid "Devices type"
+msgstr ""
+
 msgid "Devices type list"
 msgstr "Liste de types d'équipement"
 
-msgid "Disable"
-msgstr "Désactiver"
-
 msgid "Disable TOTP"
 msgstr "Désactiver le TOTP"
-
-msgid "Disabled"
-msgstr "Désactivé"
 
 msgid "Down"
 msgstr "Inactif"
@@ -211,17 +232,11 @@ msgstr "Éditer Agent"
 msgid "Email"
 msgstr "E-mail"
 
-msgid "Enable"
-msgstr "Activer"
+msgid "Email address"
+msgstr ""
 
 msgid "Enable TOTP"
 msgstr "Activer le TOTP"
-
-msgid "Enabled"
-msgstr "Activé"
-
-msgid "Error"
-msgstr "Erreur"
 
 msgid "Export"
 msgstr "Exporter"
@@ -229,11 +244,11 @@ msgstr "Exporter"
 msgid "FQDN"
 msgstr "FQDN"
 
-msgid "File"
-msgstr "Fichier"
-
 msgid "First IP"
 msgstr "Première IP"
+
+msgid "Forgot your password?"
+msgstr ""
 
 msgid "Free IP"
 msgstr "IP libre"
@@ -271,26 +286,20 @@ msgstr "Calculateur d'IP"
 msgid "IP used"
 msgstr "IP utilisée"
 
-msgid "Ignore rackspace management when is empty"
-msgstr "Ignore la gestion de la baie quand elle est vide"
-
 msgid "Import"
 msgstr "Importer"
 
 msgid "Import usages with CSV"
 msgstr "Importer les utilisations au format CSV"
 
-msgid "Job"
-msgstr "Tâche"
-
-msgid "Jobs"
-msgstr "Tâches"
-
 msgid "Last IP"
 msgstr "Dernière IP"
 
 msgid "Last scan time"
 msgstr "Dernière analyse effectuée"
+
+msgid "Last sign in"
+msgstr ""
 
 msgid "Load Average"
 msgstr "Charge moyenne"
@@ -303,6 +312,9 @@ msgstr "Emplacement"
 
 msgid "Locked"
 msgstr "Verrouillé"
+
+msgid "Log in with Email"
+msgstr ""
 
 msgid "Logout"
 msgstr "Déconnecter"
@@ -319,9 +331,6 @@ msgstr "Constructeur MAC"
 msgid "MAC Vendor Lookup"
 msgstr "Recherche par adresse MAC"
 
-msgid "Mac Address Prefix"
-msgstr "Préfixe d'adresse MAC"
-
 msgid "Mask"
 msgstr "Masque"
 
@@ -331,8 +340,8 @@ msgstr "Import en masse par fichiers CSV. Vous devez avoir un format CSV avec l'
 msgid "Memory"
 msgstr "Mémoire"
 
-msgid "My home network"
-msgstr "Mon réseau personnel"
+msgid "My account"
+msgstr ""
 
 msgid "NO"
 msgstr "NON"
@@ -348,6 +357,9 @@ msgstr "Noeud de contrôle NetAM"
 
 msgid "Network"
 msgstr "Réseau"
+
+msgid "Network information"
+msgstr ""
 
 msgid "New Section"
 msgstr "Nouvelle Section"
@@ -370,14 +382,17 @@ msgstr "Nouvel équipement"
 msgid "New devices type"
 msgstr "Nouveau type d'équipement"
 
+msgid "New password"
+msgstr ""
+
 msgid "New rackspace"
 msgstr "Nouvelle baie"
 
+msgid "Next"
+msgstr ""
+
 msgid "No free address IP available !"
 msgstr "Aucune adresse IP disponible !"
-
-msgid "No matching vendor"
-msgstr "Pas de constructeur correspondant"
 
 msgid "No worker assigned"
 msgstr "Aucun agent assigné"
@@ -385,14 +400,23 @@ msgstr "Aucun agent assigné"
 msgid "None"
 msgstr "Aucun"
 
-msgid "Notice"
-msgstr "Remarque"
+msgid "OTP Secret"
+msgstr ""
 
 msgid "OTP code"
 msgstr "Code OTP"
 
+msgid "Or"
+msgstr ""
+
 msgid "Password"
 msgstr "Mot de passe"
+
+msgid "Password (%{password_length} characters minimum)"
+msgstr ""
+
+msgid "Password Again "
+msgstr ""
 
 msgid "Password confirmation"
 msgstr "Confirmation du mot de passe"
@@ -409,8 +433,17 @@ msgstr "La permission a été supprimée avec succès."
 msgid "Permission was successfully updated."
 msgstr "La permission a bien été mise à jour."
 
+msgid "Please create a password for your new account."
+msgstr ""
+
 msgid "Please validate TOTP code !"
 msgstr "Veuillez valider le code TOTP !"
+
+msgid "Previous"
+msgstr ""
+
+msgid "Qrcode"
+msgstr ""
 
 msgid "Queues"
 msgstr "File d'attente"
@@ -420,6 +453,9 @@ msgstr "Hauteur de la baie"
 
 msgid "Rack anchor"
 msgstr "Ancrage sur la baie"
+
+msgid "Rack occupation management"
+msgstr ""
 
 msgid "Rackspace"
 msgstr "Baie"
@@ -442,17 +478,14 @@ msgstr "Arrière"
 msgid "Recovery codes"
 msgstr "Code de récupération"
 
+msgid "Register to NetAM"
+msgstr ""
+
 msgid "Release"
 msgstr "Libérer"
 
-msgid "Requested MAC Prefix %{mac}"
-msgstr "Préfixe MAC demandé : %{mac}"
-
-msgid "Requirements"
-msgstr "Prérequis"
-
-msgid "Reserved"
-msgstr "Réservée"
+msgid "Requested MAC Prefix"
+msgstr ""
 
 msgid "Run notification on run_scan"
 msgstr "Notifier lors d'un scan"
@@ -478,6 +511,9 @@ msgstr "Le scan a été planifié avec succès."
 msgid "Schedule"
 msgstr "Planifier"
 
+msgid "Search..."
+msgstr ""
+
 msgid "Secret: %{otp_secret}"
 msgstr "Secret : %{otp_secret}"
 
@@ -493,14 +529,17 @@ msgstr "Sections"
 msgid "Sections linked to %{name} (#%{vid})"
 msgstr "Sections liées à %{name} (#%{vid})"
 
-msgid "Setup"
-msgstr "Configuration"
-
-msgid "Setup finished"
-msgstr "Installation terminée"
+msgid "Send me reset password instructions"
+msgstr ""
 
 msgid "Sidekiq"
 msgstr "Sidekiq"
+
+msgid "Sign in to NetAM"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
 
 msgid "Started from"
 msgstr "Démarré depuis"
@@ -517,8 +556,8 @@ msgstr "Objet"
 msgid "Subject ID"
 msgstr "ID de l'objet"
 
-msgid "To enable your instance, please reboot it !"
-msgstr "Pour activer votre instance, veuillez la redémarrer !"
+msgid "TOTP (if enabled)"
+msgstr ""
 
 msgid "Two Factor Auth"
 msgstr "Authentification à deux facteurs"
@@ -538,9 +577,6 @@ msgstr "Unité"
 msgid "Unit height"
 msgstr "Hauteur de l'unité"
 
-msgid "Unknown state"
-msgstr "État inconnu"
-
 msgid "Usage"
 msgstr "Utilisation"
 
@@ -552,9 +588,6 @@ msgstr "L'utilisation a été supprimée avec succès."
 
 msgid "Usage was successfully updated."
 msgstr "L'utilisation a été mise à jour avec succès."
-
-msgid "Used"
-msgstr "Utilisé"
 
 msgid "User Email"
 msgstr "E-mail de l'utilisateur"
@@ -568,11 +601,11 @@ msgstr "Outils"
 msgid "Validate"
 msgstr "Valider"
 
-msgid "Vendor"
-msgstr "Constructeur"
-
 msgid "View"
 msgstr "Voir"
+
+msgid "Vlan"
+msgstr ""
 
 msgid "Vlan ID"
 msgstr "ID du Vlan"
@@ -610,14 +643,17 @@ msgstr "Agents"
 msgid "YES"
 msgstr "OUI"
 
-msgid "Youhou !"
-msgstr "Youhou !"
+msgid "You can skip rackspace management fields"
+msgstr ""
+
+msgid "You forgot your password? Here you can easily retrieve a new password."
+msgstr ""
 
 msgid "Your address IP is"
 msgstr "Votre adresse IP est"
 
-msgid "every 24 hours"
-msgstr "toutes les 24 heures"
+msgid "create an account"
+msgstr ""
 
 msgid "is higher than Rackspace unit"
 msgstr "dépassase la taille de la baie"
