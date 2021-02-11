@@ -20,16 +20,16 @@ TYPESENSE = Typesense::Client.new(
 
 begin
   frontend_key_id = TYPESENSE.keys.retrieve['keys'].filter { |k| k['description'] == 'netam_frontend_key' }
-
   TYPESENSE.keys[frontend_key_id.first['id']].delete
+
+  TYPESENSE_FRONTEND_KEY = TYPESENSE.keys.create(
+    {
+      description: 'netam_frontend_key',
+      actions: %w[collections:* documents:search],
+      collections: ['*']
+    }
+  )['value']
 rescue StandardError
-  # Ignored
+  TYPESENSE_FRONTEND_KEY = nil
 end
 
-TYPESENSE_FRONTEND_KEY = TYPESENSE.keys.create(
-  {
-    description: 'netam_frontend_key',
-    actions: %w[collections:* documents:search],
-    collections: ['*']
-  }
-)['value']
