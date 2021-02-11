@@ -18,13 +18,13 @@ module Notifications
           "@type": 'MessageCard',
           "@context": 'http://schema.org/extensions',
           summary: 'NetAM Notif',
-          "themeColor": '118811',
+          themeColor: '118811',
           title: 'Notification from NetAM',
           sections: [
             {
-              "activityTitle": '',
-              "activitySubtitle": '',
-              "activityText": ''
+              activityTitle: '',
+              activitySubtitle: '',
+              activityText: ''
             },
             {
               title: @notification[:message],
