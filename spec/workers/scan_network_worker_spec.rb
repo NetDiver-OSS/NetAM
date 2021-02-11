@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'sidekiq/testing'
 
-RSpec.describe ScanNetworkWithPingWorker, type: :worker do
+RSpec.describe ScanNetworkWorker, type: :worker do
   let(:section) { create(:section) }
 
   it 'should fail if multiple network is given' do
@@ -13,6 +13,6 @@ RSpec.describe ScanNetworkWithPingWorker, type: :worker do
   end
 
   it 'should scan public range' do
-    expect { described_class.new.perform({ id: section.id, network: section.network }) }.not_to raise_error
+    expect { described_class.new.perform({ id: section.id, network: section.network, scan_type: section.scan_type }) }.not_to raise_error
   end
 end

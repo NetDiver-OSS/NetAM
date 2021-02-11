@@ -10,7 +10,7 @@ module Admin
 
       # /status
       def status
-        render json: NetAM::Scanner.status(params[:jid])
+        render json: NetAM::ScannerLauncher.status(params[:jid])
       end
 
       private

@@ -28,7 +28,7 @@ class SectionsController < ApplicationController
   def scan
     @section = Section.find(params[:section_id])
 
-    job_id = NetAM::Scanner.new('ScanNetworkWithPingWorker').run(@section.id, @section.network)
+    job_id = NetAM::ScannerLauncher.new('ScanNetworkWorker').run(@section.id, @section.network)
 
     redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
   end
@@ -57,9 +57,10 @@ class SectionsController < ApplicationController
         }
       )
 
-      job_id = NetAM::Scanner.new('ScanNetworkWithPingWorker').run(@section.id, @section.network) if @section.run_scan == '1'
       @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
+      @section.settings(:scanner).update!(port: @section.scanner_port)
 
+      job_id = NetAM::ScannerLauncher.new('ScanNetworkWorker').run(@section.id, @section.network) if @section.run_scan == '1'
       redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
     else
       render :new
@@ -70,6 +71,8 @@ class SectionsController < ApplicationController
   def update
     if @section.update(section_params)
       @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
+      @section.settings(:scanner).update!(port: @section.scanner_port)
+
       redirect_to @section, notice: 'Section was successfully updated.'
     else
       render :edit
@@ -101,6 +104,6 @@ class SectionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def section_params
-    params.require(:section).permit(:name, :description, :network, :schedule, :vlan_id, :run_scan, :notification_run_scan)
+    params.require(:section).permit(:name, :description, :network, :schedule, :vlan_id, :scan_type, :scanner_port, :run_scan, :notification_run_scan)
   end
 end

@@ -25,6 +25,14 @@
           = form.label :vlan_id, _('Vlan'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.select :vlan_id, @vlan_list, {}, { class: 'input' }
 
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :scan_type, _('Scanner type'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.select :scan_type, Section.scan_types, {}, { class: 'input' }
+
+        %div{ class: 'col-span-6 sm:col-span-3' }
+          = form.label :scanner_port, _('Scanner port'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+          = form.number_field :scanner_port, class: 'input', value: section.settings(:scanner).port
+
         %div.col-span-6
           = form.label :description, _('Description'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.text_area :description, placeholder: _('Description'), class: 'input', rows: '5'
