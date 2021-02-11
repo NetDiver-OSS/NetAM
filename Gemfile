@@ -8,7 +8,7 @@ ruby '2.7.2'
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
 gem 'puma', '5.2.1'
-gem 'rails', '= 6.0.3.4'
+gem 'rails', '6.0.3.5'
 
 # Database
 gem 'ledermann-rails-settings', '~> 2.5'
