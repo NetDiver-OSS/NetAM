@@ -12,19 +12,26 @@ export default {
   },
   data: function () {
     return {
-      message: undefined
+      state: undefined,
+      oldSate: undefined
     }
   },
   methods: {
     fetchData() {
       axios.get('/admin/api/status/' + this.jid)
         .then((response) => {
-          this.message = response.data
+          this.state = response.data
         })
 
-      if (this.message === 'complete' || this.message == null) {
+      if (this.state === 'complete' || this.state == null) {
         clearInterval(this.$timer)
       }
+
+      if (this.oldSate === 'working' && this.state === 'complete') {
+        document.location.reload()
+      }
+
+      this.oldSate = this.state
     }
   },
   mounted() {
@@ -51,8 +58,8 @@ export default {
 
 <template>
   <div>
-    <callout v-if="message === 'queued'" :message="fields.queued" color="red" />
-    <callout v-if="message === 'working'" :message="fields.working" color="yellow" />
-    <callout v-if="message === 'complete'" :message="fields.complete" color="green" />
+    <callout v-if="state === 'queued'" :message="fields.queued" color="red" />
+    <callout v-if="state === 'working'" :message="fields.working" color="yellow" />
+    <callout v-if="state === 'complete'" :message="fields.complete" color="green" />
   </div>
 </template>
