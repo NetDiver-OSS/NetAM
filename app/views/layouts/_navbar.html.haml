@@ -33,7 +33,8 @@
       %div{ class: 'flex flex-grow items-center' }
         = link_to 'NetAM', root_path, class: 'text-white text-xl'
         %div.flex-grow
-          %search-bar{ 'typesense-protocol': Rails.configuration.netam.dig(:typesense, :protocol), 'typesense-host': Rails.configuration.netam.dig(:typesense, :host), 'typesense-port': Rails.configuration.netam.dig(:typesense, :port), 'typesense-api-key': TYPESENSE_FRONTEND_KEY }
+          - if Rails.configuration.netam.dig(:typesense, :enabled)
+            %search-bar{ 'typesense-protocol': Rails.configuration.netam.dig(:typesense, :protocol), 'typesense-host': Rails.configuration.netam.dig(:typesense, :host), 'typesense-port': Rails.configuration.netam.dig(:typesense, :port), 'typesense-api-key': TYPESENSE_FRONTEND_KEY }
 
       %div{ class: 'flex items-center' }
         %theme-switcher

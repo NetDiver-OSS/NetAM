@@ -11,6 +11,8 @@ class BaseModelService
   private
 
   def ensure_typesense_collections_exist
+    return unless Rails.configuration.netam.dig(:typesense, :enabled)
+
     TYPESENSE.collections[@ts_collection_name].retrieve
   rescue Typesense::Error::ObjectNotFound
     TYPESENSE.collections.create(typesense_collections)
@@ -32,12 +34,16 @@ class BaseModelService
   end
 
   def typesense_document_update_or_create(id, document)
+    return unless Rails.configuration.netam.dig(:typesense, :enabled)
+
     TYPESENSE.collections[@ts_collection_name].documents[id.to_s].update(document)
   rescue Typesense::Error::ObjectNotFound
     TYPESENSE.collections[@ts_collection_name].documents.create(document)
   end
 
   def typesense_document_delete(id)
+    return unless Rails.configuration.netam.dig(:typesense, :enabled)
+
     TYPESENSE.collections[@ts_collection_name].documents[id.to_s].delete
   rescue Typesense::Error::ObjectNotFound
     nil

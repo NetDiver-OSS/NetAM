@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+return unless Rails.configuration.netam.dig(:typesense, :enabled)
+
 # Create a client
 TYPESENSE = Typesense::Client.new(
   nodes: [
@@ -20,16 +22,16 @@ TYPESENSE = Typesense::Client.new(
 
 begin
   frontend_key_id = TYPESENSE.keys.retrieve['keys'].filter { |k| k['description'] == 'netam_frontend_key' }
-  TYPESENSE.keys[frontend_key_id.first['id']].delete
 
-  TYPESENSE_FRONTEND_KEY = TYPESENSE.keys.create(
-    {
-      description: 'netam_frontend_key',
-      actions: %w[collections:* documents:search],
-      collections: ['*']
-    }
-  )['value']
+  TYPESENSE.keys[frontend_key_id.first['id']].delete
 rescue StandardError
-  TYPESENSE_FRONTEND_KEY = nil
+  # Ignored
 end
 
+TYPESENSE_FRONTEND_KEY = TYPESENSE.keys.create(
+  {
+    description: 'netam_frontend_key',
+    actions: %w[collections:* documents:search],
+    collections: ['*']
+  }
+)['value']

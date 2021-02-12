@@ -36,6 +36,7 @@ default: &default
     parallel: <%= ENV.fetch("SIDEKIQ_PARALLEL") { 20 } %>
 
   typesense:
+    enabled: <%= ENV.fetch("TYPESENSE_ENABLED") { true } %>
     protocol: <%= ENV.fetch("TYPESENSE_PROTOCOL") { 'http' } %>
     host: <%= ENV.fetch("TYPESENSE_HOST") { 'localhost' } %>
     port: <%= ENV.fetch("TYPESENSE_PORT") { 8108 } %>
