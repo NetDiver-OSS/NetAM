@@ -1,0 +1,4 @@
+---
+type: changed
+title: switch from raven to new sentry library
+merge_request: 304

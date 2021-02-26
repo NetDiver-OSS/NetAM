@@ -37,7 +37,7 @@ pidfile ENV.fetch('PIDFILE', 'tmp/pids/server.pid')
 # preload_app!
 
 lowlevel_error_handler do |ex, env|
-  Raven.capture_exception(
+  Sentry.capture_exception(
     ex,
     message: ex.message,
     extra: { puma: env },
