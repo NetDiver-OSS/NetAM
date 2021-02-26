@@ -28,8 +28,8 @@ export default {
 <template>
   <div class="divide-y divide-gray-200 dark:divide-gray-700">
     <a :href="resourceURL(item.document.id)" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-400" v-for="item in items">
-      <div class="inline-flex divide-x divide-gray-200">
-        <div class="pr-3 flex items-center capitalize">
+      <div class="w-full inline-flex divide-x divide-gray-200">
+        <div class="pr-3 w-1/6 flex items-center capitalize">
           {{ fields.resource }}
         </div>
         <div class="pl-3">
