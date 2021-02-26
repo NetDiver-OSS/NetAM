@@ -4505,12 +4505,7 @@ lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.1
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
-loglevel@^1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.8.tgz#8a25fb75d092230ecd4457270d80b54e28011171"
-  integrity sha512-bsU7+gc9AJ2SqpzxwU3+1fedl8zAntbtC5XYlt3s2j1hJcn2PsXSmgN8TaLG/J1/2mod4+cE/3vNL70/c1RNCA==
-
-loglevel@^1.7.1:
+loglevel@^1.6.8, loglevel@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.7.1.tgz#005fde2f5e6e47068f935ff28573e125ef72f197"
   integrity sha512-Hesni4s5UkWkwCGJMQGAh71PaLUmKFM60dHvq0zi/vDhhrzuk+4GgNbTXJ12YYQJn6ZKBDNIjYcuQGKudvqrIw==
@@ -7571,10 +7566,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typesense@0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/typesense/-/typesense-0.10.1.tgz#c40745281d3be48207c4a20f3067db5425650c9f"
-  integrity sha512-N+UquKiKiWtSswbE6xHCqKFh3Yg0pHm6w5WVa7eECH7X8UI1LEcZrIe8F4uACmIOSBT9H+ag/FNSTPnKCTiINA==
+typesense@0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/typesense/-/typesense-0.11.1.tgz#61ba772b743044e3caa19b292dad3aef1d686c0e"
+  integrity sha512-vQswMl+OCpmIKpSxSGUPY3EYIGBFBUhRSAucmXdZcO7j4aw0VOHA0IkO490jr+arUc0lWh05LC+gT4PW4+kelg==
   dependencies:
     axios "^0.21.1"
     loglevel "^1.7.1"
