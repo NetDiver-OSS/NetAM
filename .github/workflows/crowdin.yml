@@ -16,7 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@master
         with:
-          ruby-version: '2.7.2'
+          ruby-version: '3.0.0'
           bundler-cache: true
       - name: Run tests
         run: |
