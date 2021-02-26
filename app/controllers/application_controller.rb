@@ -52,9 +52,8 @@ class ApplicationController < ActionController::Base
 
   def layout_configuration
     if devise_controller?
-      'devise'
+      controller_name == 'registrations' && action_name == 'edit' ? 'application' : 'devise'
     else
-      'devise' if controller_name == 'devise/registrations' && action_name == 'edit'
       'application'
     end
   end
