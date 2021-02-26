@@ -8,8 +8,123 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  test:
+  danger:
+    name: Danger
     runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '1000000'
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@master
+        with:
+          ruby-version: '2.7.2'
+      - name: Run Danger
+        run: |
+          gem install danger rubocop danger-rubocop
+          danger --verbose
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+
+
+  brakeman-scan:
+    name: Brakeman Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      - name: Setup Brakeman
+        env:
+          BRAKEMAN_VERSION: '4.10' # SARIF support is provided in Brakeman version 4.10+
+        run: |
+          gem install brakeman --version $BRAKEMAN_VERSION
+
+      - name: Scan
+        continue-on-error: true
+        run: |
+          brakeman -f sarif -o output.sarif.json .
+
+      - name: Upload SARIF
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: output.sarif.json
+
+
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby 2.7
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+
+      - name: Install Code Scanning integration
+        run: bundle add code-scanning-rubocop --version 0.4.0 --skip-install
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Rubocop run
+        run: |
+          bash -c "
+            bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
+            [[ $? -ne 2 ]]
+          "
+
+      - name: Upload Sarif output
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: rubocop.sarif
+
+
+  haml-lint:
+    name: Haml Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.7
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Cache gems
+        uses: actions/cache@v2.1.4
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-haml-lint-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-haml-lint-
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle config set without 'default'
+          bundle install --jobs 4 --retry 3
+      - name: Run haml-lint
+        run: bundle exec haml-lint --parallel
+
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs:
+      - danger
+      - brakeman-scan
+      - rubocop
+      - haml-lint
 
     services:
       postgres:
@@ -67,35 +182,13 @@ jobs:
           name: code-coverage-report
           path: coverage
 
-  haml-lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby 2.7
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.2
-      - name: Cache gems
-        uses: actions/cache@v2.1.4
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-haml-lint-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-haml-lint-
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle config set without 'default'
-          bundle install --jobs 4 --retry 3
-      - name: Run haml-lint
-        run: bundle exec haml-lint --parallel
 
   sonarCloudTrigger:
-    needs:
-      - test
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
+    needs:
+      - test
+
     steps:
       - name: Clone Repository
         uses: actions/checkout@master
