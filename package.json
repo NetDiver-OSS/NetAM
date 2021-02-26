@@ -18,7 +18,7 @@
     "typesense": "0.10.1",
     "vue": "2.6.12",
     "vue-chartjs": "3.5.1",
-    "vue-fragment": "1.5.1",
+    "vue-fragment": "1.5.2",
     "vue-loader": "15.9.6",
     "vue-template-compiler": "2.6.12"
   },
