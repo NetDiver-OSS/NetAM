@@ -1,6 +1,7 @@
 <script>
 import { Client } from 'typesense'
-import SearchItem from "./search-item";
+import SearchItem from "./search-item"
+import { queryBuilder } from './search_query'
 
 export default {
   components: {SearchItem},
@@ -25,13 +26,6 @@ export default {
   data() {
     return {
       search: '',
-      collections: [
-        'device_types',
-        'devices',
-        'rackspaces',
-        'sections',
-        'vlans'
-      ],
       result: {},
     };
   },
@@ -55,16 +49,8 @@ export default {
       })
     },
     typeSenseQuery() {
-      let searchParameters = {
-        'q'         : this.search,
-        'query_by'  : 'name',
-        'per_page'  : 3
-      }
-
-      this.collections.forEach((collection) => {
-        this.typesenseClient().collections(collection).documents().search(searchParameters).then((searchResults) => {
-          this.result[collection] = searchResults.hits
-        })
+      this.typesenseClient().multiSearch.perform(queryBuilder(this.search)).then((result) => {
+        this.result = result.results.filter(i => i.hits !== undefined)
       })
     }
   }
@@ -74,12 +60,12 @@ export default {
 <template>
   <div class="px-4 sm:px-6 lg:px-8">
     <form action="">
-      <input type="search" @keypress="typeSenseQuery()" v-model="search" :placeholder="fields.search" class="bg-gray-700 text-white focus:outline-none px-3 h-10 w-full rounded" />
+      <input type="search" @keyup="typeSenseQuery()" v-model="search" :placeholder="fields.search" class="bg-gray-700 text-white focus:outline-none px-3 h-10 w-full rounded" />
     </form>
 
     <div v-if="search !== '' && result !== []" class="relative top-15">
       <div class="absolute z-10 w-full bg-white dark:bg-gray-600 divide-y divide-gray-200 dark:divide-gray-700 shadow rounded-b">
-        <search-item v-for="(items, resource) in this.result" :resource="resource" :items="items" />
+        <search-item v-for="item in this.result" :resource="item.request_params.collection_name" :items="item.hits" />
       </div>
     </div>
   </div>
