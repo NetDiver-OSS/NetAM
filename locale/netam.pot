@@ -46,9 +46,6 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-msgid "Admin"
-msgstr ""
-
 msgid "Admin Backups"
 msgstr ""
 
@@ -112,9 +109,6 @@ msgstr ""
 msgid "Code #%{id}"
 msgstr ""
 
-msgid "Code #%{id}"
-msgstr ""
-
 msgid "Color"
 msgstr ""
 
@@ -128,9 +122,6 @@ msgid "Confirm password"
 msgstr ""
 
 msgid "Connected"
-msgstr ""
-
-msgid "Current Password"
 msgstr ""
 
 msgid "Current Password"
@@ -310,9 +301,6 @@ msgstr ""
 msgid "Last sign in"
 msgstr ""
 
-msgid "Last sign in"
-msgstr ""
-
 msgid "Load Average"
 msgstr ""
 
@@ -404,10 +392,6 @@ msgid "Next"
 msgstr ""
 
 msgid "No free address IP available !"
-msgid "Next"
-msgstr ""
-
-msgid "No free address IP available !"
 msgstr ""
 
 msgid "No worker assigned"
@@ -426,9 +410,6 @@ msgid "Or"
 msgstr ""
 
 msgid "Password"
-msgstr ""
-
-msgid "Password Again "
 msgstr ""
 
 msgid "Password (%{password_length} characters minimum)"
@@ -504,7 +485,6 @@ msgid "Release"
 msgstr ""
 
 msgid "Requested MAC Prefix"
-msgid "Requested MAC Prefix"
 msgstr ""
 
 msgid "Run notification on run_scan"
@@ -543,9 +523,6 @@ msgstr ""
 msgid "Search..."
 msgstr ""
 
-msgid "Search..."
-msgstr ""
-
 msgid "Secret: %{otp_secret}"
 msgstr ""
 
@@ -562,7 +539,6 @@ msgid "Sections linked to %{name} (#%{vid})"
 msgstr ""
 
 msgid "Send me reset password instructions"
-msgid "Setup NetAM"
 msgstr ""
 
 msgid "Sidekiq"
