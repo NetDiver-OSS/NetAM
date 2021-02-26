@@ -22,7 +22,7 @@ jobs:
         ports:
           - 5432:5432
       typesense:
-        image: typesense/typesense:0.18.0
+        image: typesense/typesense:0.19.0
         env:
           TYPESENSE_DATA_DIR: /data
           TYPESENSE_API_KEY: managementkey

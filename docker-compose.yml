@@ -45,7 +45,7 @@ services:
       - db:/var/lib/postgresql/data
 
   typesense:
-    image: typesense/typesense:0.18.0
+    image: typesense/typesense:0.19.0
     restart: always
     ports:
       - "8108:8108"
