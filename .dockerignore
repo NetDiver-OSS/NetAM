@@ -1,0 +1,25 @@
+# Ignore all files
+*
+
+# Exclude applciation
+!app
+!bin
+!config
+!db
+!docker
+!lib
+!locale
+!public
+!.browserslistrc
+!.ruby-version
+!babel.config.js
+!config.ru
+!Gemfile
+!Gemfile.lock
+!LICENSE
+!package.json
+!postcss.config.js
+!Rakefile
+!tailwind.config.js
+!VERSION
+!yarn.lock
