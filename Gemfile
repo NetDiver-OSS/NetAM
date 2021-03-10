@@ -80,7 +80,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   gem 'rspec_junit_formatter', '~> 0.4.1'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 5.0'
   # Don't upgrade simplecov due to bug in sonarcloud !
   gem 'simplecov', '0.21.2'
 
