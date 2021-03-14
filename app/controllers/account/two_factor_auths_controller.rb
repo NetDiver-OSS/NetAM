@@ -48,7 +48,9 @@ module Account
     private
 
     def generate_totp_qrcode
-      uri = current_user.otp_provisioning_uri("NetAM:#{current_user.email}", issuer: 'NetAM')
+      # FIXME: waiting for gem update :'(
+      # uri = current_user.otp_provisioning_uri("NetAM:#{current_user.email}", issuer: 'NetAM')
+      uri = "otpauth://totp/NetAM:#{current_user.email}?secret=#{current_user.otp_secret}&issuer=NetAM"
       @qrcode = RQRCode::QRCode.new(uri).as_svg(standalone: true, module_size: 5)
     end
   end

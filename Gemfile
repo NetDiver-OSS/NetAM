@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.0.0'
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
@@ -61,8 +61,8 @@ gem 'grape-swagger', '~> 1.3'
 gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
-gem 'sentry-ruby', '4.2.2'
 gem 'sentry-rails', '4.2.2'
+gem 'sentry-ruby', '4.2.2'
 gem 'sentry-sidekiq', '4.2.1'
 
 # Logs management

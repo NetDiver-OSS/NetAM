@@ -345,6 +345,7 @@ Doorkeeper.configure do
   #
   # grant_flows %w[authorization_code client_credentials]
   grant_flows %w[password]
+  skip_client_authentication_for_password_grant true
 
   # Allows to customize OAuth grant flows that +each+ application support.
   # You can configure a custom block (or use a class respond to `#call`) that must
@@ -483,6 +484,5 @@ Doorkeeper.configure do
   # like nginx to forbid the request.
 
   # WWW-Authenticate Realm (default: "Doorkeeper").
-  #
-  # realm "Doorkeeper"
+  realm 'NetAM'
 end
