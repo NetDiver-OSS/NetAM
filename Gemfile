@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
-gem 'puma', '5.2.1'
+gem 'puma', '5.2.2'
 gem 'rails', '6.0.3.5'
 
 # Database
@@ -40,7 +40,7 @@ gem 'redis-rack-cache'
 # Authentification
 gem 'cancancan', '~> 3.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
+gem 'devise-i18n', '~> 1.9'
 gem 'devise-two-factor', '~> 3.1'
 gem 'doorkeeper', '~> 5.4'
 gem 'omniauth-ldap', '~> 2.0'
@@ -60,11 +60,11 @@ gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
 gem 'sentry-rails', '4.3.2'
-gem 'sentry-ruby', '4.3.0'
+gem 'sentry-ruby', '4.3.1'
 gem 'sentry-sidekiq', '4.3.0'
 
 # Logs management
-gem 'amazing_print', '= 1.2.2'
+gem 'amazing_print', '1.3.0'
 gem 'rails_semantic_logger', '4.5.0'
 
 gem 'logstash-logger', '= 0.26.1'
@@ -78,13 +78,13 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   gem 'rspec_junit_formatter', '~> 0.4.1'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 5.0'
   # Don't upgrade simplecov due to bug in sonarcloud !
   gem 'simplecov', '0.21.2'
 
   gem 'factory_bot_rails', '~> 6.1'
 
-  gem 'rubocop', '1.10.0'
+  gem 'rubocop', '1.12.0'
   gem 'rubocop-performance', '~> 1.10'
   gem 'rubocop-rails', '~> 2.9'
   gem 'rubocop-rspec', '~> 2.2'
@@ -97,7 +97,7 @@ group :development do
   gem 'better_errors', '2.9.1'
   gem 'binding_of_caller', '~> 1.0.0'
 
-  gem 'listen', '3.4.1'
+  gem 'listen', '3.5.0'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
