@@ -25,4 +25,8 @@ class UtilsController < ApplicationController
 
     @dns_resolutions = NetAM::Network::Dns.resolution(params[:entry], params[:type]) rescue nil
   end
+
+  def whois
+    @whois = Whois.where(lookup: params[:ip]) rescue nil
+  end
 end

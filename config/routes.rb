@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       get :network_splitter
       get :ptr_resolution
       get :dns_resolver
+      get :whois
     end
 
     mount GrapeSwaggerRails::Engine => '/docs'
