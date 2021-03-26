@@ -7,3 +7,7 @@
   %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
     %div{ class: 'px-4 py-5 sm:px-6' }
       %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Whois result')
+
+    %dl
+      %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+        %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= @whois

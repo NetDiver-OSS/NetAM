@@ -27,6 +27,6 @@ class UtilsController < ApplicationController
   end
 
   def whois
-    @whois = Whois.where(lookup: params[:ip]) rescue nil
+    @whois = Whois.lookup(params[:domain]) rescue nil
   end
 end
