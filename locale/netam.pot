@@ -409,6 +409,12 @@ msgstr ""
 msgid "Or"
 msgstr ""
 
+msgid "PTR Resolution"
+msgstr ""
+
+msgid "PTR Resolver"
+msgstr ""
+
 msgid "Password"
 msgstr ""
 
@@ -485,6 +491,9 @@ msgid "Release"
 msgstr ""
 
 msgid "Requested MAC Prefix"
+msgstr ""
+
+msgid "Resolve"
 msgstr ""
 
 msgid "Run notification on run_scan"
