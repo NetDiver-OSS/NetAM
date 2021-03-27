@@ -19,4 +19,10 @@ class UtilsController < ApplicationController
   def ptr_resolution
     @ptr_resolutions = NetAM::Network::Dns.reverse_dns(params[:address]) rescue nil
   end
+
+  def dns_resolver
+    return if params[:entry].nil? || params[:type].nil?
+
+    @dns_resolutions = NetAM::Network::Dns.resolution(params[:entry], params[:type]) rescue nil
+  end
 end
