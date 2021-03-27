@@ -1,6 +1,10 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 
+.input.invalid {
+  @apply border-red-500 dark:border-red-500 focus:border-red-500 dark:focus:border-red-500;
+}
+
 .input {
   @apply block mt-1 w-full py-2 px-3 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
 }
