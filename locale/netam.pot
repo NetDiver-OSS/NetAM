@@ -358,7 +358,13 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
+msgid "Network Splitter"
+msgstr ""
+
 msgid "Network information"
+msgstr ""
+
+msgid "Network splitting result"
 msgstr ""
 
 msgid "New Section"
@@ -638,6 +644,9 @@ msgid "Vlan was successfully updated."
 msgstr ""
 
 msgid "Vlans"
+msgstr ""
+
+msgid "Wanted subnets"
 msgstr ""
 
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
