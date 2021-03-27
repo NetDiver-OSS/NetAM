@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     namespace :utils do
       get :calculator
       get :mac_vendor
+      get :network_splitter
       get :ptr_resolution
     end
 
