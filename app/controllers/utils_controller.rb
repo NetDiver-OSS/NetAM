@@ -10,7 +10,8 @@ class UtilsController < ApplicationController
   end
 
   def network_splitter
-    return if params[:network].nil?
+    return if params[:network].nil? || param[:split_count].nil?
+
     network_range = IPAddress(params[:network].to_s)
     @networks = network_range / params[:split_count].to_i
   end
