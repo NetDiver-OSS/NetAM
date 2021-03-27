@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-02-26 20:06\n"
+"PO-Revision-Date: 2021-03-27 09:15\n"
 
 msgid "(we need your current password to confirm your changes)"
 msgstr ""
@@ -409,6 +409,12 @@ msgstr "Code OTP"
 msgid "Or"
 msgstr ""
 
+msgid "PTR Resolution"
+msgstr ""
+
+msgid "PTR Resolver"
+msgstr ""
+
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -485,6 +491,9 @@ msgid "Release"
 msgstr "Libérer"
 
 msgid "Requested MAC Prefix"
+msgstr ""
+
+msgid "Resolve"
 msgstr ""
 
 msgid "Run notification on run_scan"
