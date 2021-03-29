@@ -133,6 +133,9 @@ msgstr ""
 msgid "DHCP"
 msgstr ""
 
+msgid "DNS Resolver"
+msgstr ""
+
 msgid "Danger zone"
 msgstr ""
 
@@ -242,6 +245,9 @@ msgid "Email address"
 msgstr ""
 
 msgid "Enable TOTP"
+msgstr ""
+
+msgid "Entry"
 msgstr ""
 
 msgid "Export"
@@ -502,10 +508,16 @@ msgstr ""
 msgid "Release"
 msgstr ""
 
+msgid "Request"
+msgstr ""
+
 msgid "Requested MAC Prefix"
 msgstr ""
 
 msgid "Resolve"
+msgstr ""
+
+msgid "Result"
 msgstr ""
 
 msgid "Run notification on run_scan"

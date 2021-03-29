@@ -30,6 +30,8 @@ module NetAM
           when 'SOA'
             records = dns.getresources(entry, Resolv::DNS::Resource::IN::SOA)
             records.empty? ? [] : records.map { |r| "Serial : #{r.serial}, Host : #{r.mname}, Maintainer : #{r.rname}" }
+          else
+            nil
           end
         end
 
@@ -38,6 +40,8 @@ module NetAM
           type: type,
           result: result
         }
+      rescue Resolv::ResolvError
+        nil
       end
     end
   end
