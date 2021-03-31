@@ -22,14 +22,35 @@ RSpec.describe NetAM::Network::Dns do
       expect(described_class.resolution('', '')).to include(entry: '', result: nil, type: '')
     end
 
-    it 'should return array if params is valid' do
+    it 'should return array if entry and type A is valid' do
       expect(described_class.resolution('dns.google.com', 'A')[:result]).to be_an_instance_of(Array)
+    end
+
+    it 'should return array if entry and type AAAA is valid' do
       expect(described_class.resolution('dns.google.com', 'AAAA')[:result]).to be_an_instance_of(Array)
+    end
+
+    it 'should return array if entry and type CNAME is valid' do
       expect(described_class.resolution('dns.google.com', 'CNAME')).to eq(entry: 'dns.google.com', result: [], type: 'CNAME')
+    end
+
+    it 'should return array if entry and type MX is valid' do
       expect(described_class.resolution('dns.google.com', 'MX')[:result]).to be_an_instance_of(Array)
+    end
+
+    it 'should return array if entry and type TXT is valid' do
       expect(described_class.resolution('dns.google.com', 'TXT')[:result]).to be_an_instance_of(Array)
+    end
+
+    it 'should return array if entry and type SRV is valid' do
       expect(described_class.resolution('dns.google.com', 'SRV')).to eq(entry: 'dns.google.com', result: [], type: 'SRV')
+    end
+
+    it 'should return array if entry and type NS is valid' do
       expect(described_class.resolution('dns.google.com', 'NS')[:result]).to be_an_instance_of(Array)
+    end
+
+    it 'should return array if entry and type SOA is valid' do
       expect(described_class.resolution('dns.google.com', 'SOA')[:result]).to be_an_instance_of(Array)
     end
   end
