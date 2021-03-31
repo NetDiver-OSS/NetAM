@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-03-27 09:58\n"
+"PO-Revision-Date: 2021-03-31 08:36\n"
 
 msgid "(we need your current password to confirm your changes)"
 msgstr ""
@@ -57,6 +57,9 @@ msgstr "Betroffene Abschnitte"
 
 msgid "Affected worker"
 msgstr "Betroffener Agent"
+
+msgid "All Jobs"
+msgstr ""
 
 msgid "All Permissions"
 msgstr "Alle Berechtigungen"
@@ -131,6 +134,9 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "Danger zone"
+msgstr ""
+
+msgid "Datetime"
 msgstr ""
 
 msgid "Define as device"
@@ -523,6 +529,9 @@ msgstr ""
 msgid "Scan in progress"
 msgstr "Scan läuft"
 
+msgid "Scan type"
+msgstr ""
+
 msgid "Scan was successfully scheduled."
 msgstr "Der Scan wurde erfolgreich geplant."
 
@@ -573,6 +582,9 @@ msgstr "Zustand"
 
 msgid "State available are :"
 msgstr "Der verfügbare Status ist:"
+
+msgid "Status"
+msgstr ""
 
 msgid "Subject"
 msgstr "Gegenstand"
