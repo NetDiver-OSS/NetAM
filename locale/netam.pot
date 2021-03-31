@@ -58,6 +58,9 @@ msgstr ""
 msgid "Affected worker"
 msgstr ""
 
+msgid "All Jobs"
+msgstr ""
+
 msgid "All Permissions"
 msgstr ""
 
@@ -131,6 +134,9 @@ msgid "DHCP"
 msgstr ""
 
 msgid "Danger zone"
+msgstr ""
+
+msgid "Datetime"
 msgstr ""
 
 msgid "Define as device"
@@ -523,6 +529,9 @@ msgstr ""
 msgid "Scan in progress"
 msgstr ""
 
+msgid "Scan type"
+msgstr ""
+
 msgid "Scan was successfully scheduled."
 msgstr ""
 
@@ -572,6 +581,9 @@ msgid "State"
 msgstr ""
 
 msgid "State available are :"
+msgstr ""
+
+msgid "Status"
 msgstr ""
 
 msgid "Subject"

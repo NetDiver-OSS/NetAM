@@ -6,12 +6,13 @@
   page_action({ icon: fa_icon_with_text('solid', 'download', _('Export')), path: section_export_path(@section.id), method: 'post' }) if can? :export, @section
   page_action({ icon: fa_icon('solid', 'plus-square'), path: new_section_usage_path(@section.id) }) if can? :edit, @section
 
+  last_scan = NetAM::Section.get_last_scan(@section.id).to_i
+  all_jobs = NetAM::Section.get_all_jobs(@section.id)
+
 
 %section-scan{ jid: params[:scan_id] || NetAM::Section.get_last_jid(@section.id) }
 
 %div{ class: 'grid grid-cols-6 gap-3' }
-  - last_scan = NetAM::Section.get_last_scan(@section.id).to_i
-
   %div{ class: "col-span-6 sm:col-span-#{last_scan.zero? ? '3' : '2'}" }
     %div{ class: 'bg-white dark:bg-gray-600 text-center p-3 rounded shadow' }
       %h3.font-bold= _('Section VLAN')
@@ -130,3 +131,19 @@
               %fa-icon{ type: 'solid', name: 'times-circle', size: 16, class: 'inline-flex text-red-400' }
             - elsif ip_usage[2] == 'dhcp'
               %fa-icon{ type: 'solid', name: 'random', size: 16, class: 'inline-flex text-purple-400' }
+
+  - unless all_jobs.empty?
+    %tab{ title: _('All Jobs') }
+      %div{ class: 'block w-full overflow-x-auto' }
+        %table{ class: 'items-center w-full bg-transparent border-collapse' }
+          %thead
+            %tr
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Datetime')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Status')
+              %th{ class: 'px-6 bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-600 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold' }= _('Scan type')
+          %tbody
+            - all_jobs.each do |job|
+              %tr
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 font-bold text-center' }= Time.zone.at(job['update_time'].to_i)
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= job['status']
+                %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }= JSON.parse(job['args']).first['scan_type']
