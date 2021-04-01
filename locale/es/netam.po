@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-03-31 08:36\n"
+"PO-Revision-Date: 2021-04-01 19:50\n"
 
 msgid "(we need your current password to confirm your changes)"
 msgstr ""
@@ -133,6 +133,9 @@ msgstr ""
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "DNS Resolver"
+msgstr ""
+
 msgid "Danger zone"
 msgstr ""
 
@@ -243,6 +246,9 @@ msgstr ""
 
 msgid "Enable TOTP"
 msgstr "Habilitar TOTP"
+
+msgid "Entry"
+msgstr ""
 
 msgid "Export"
 msgstr "Exportar"
@@ -502,10 +508,16 @@ msgstr ""
 msgid "Release"
 msgstr "Olvidar"
 
+msgid "Request"
+msgstr ""
+
 msgid "Requested MAC Prefix"
 msgstr ""
 
 msgid "Resolve"
+msgstr ""
+
+msgid "Result"
 msgstr ""
 
 msgid "Run notification on run_scan"
