@@ -2,12 +2,112 @@
 
 = render 'utils/formwhois'
 
-
 - if @whois.present?
   %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
     %div{ class: 'px-4 py-5 sm:px-6' }
       %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Whois result')
 
     %dl
-      %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
-        %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= @whois
+      - if @whois.property_any_supported? :nameservers
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Nameserver')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+            - @whois.nameservers.each do |nameserver|
+              %dl
+              = nameserver.name
+
+
+      - if @whois.property_any_supported? :nameservers
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv4')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.nameservers.first.ipv4
+
+      - if @whois.property_any_supported? :nameservers
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv6')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.nameservers.first.ipv6
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('ID')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.id
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Type')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.type
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Name')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.name
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Organization')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.organization
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Address')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.address
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('City')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.city
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Zip')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.zip
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('State')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.state
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Country')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.country
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Country Code')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.country_code
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Phone')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.phone
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Fax')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.fax
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Email')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.email
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Phone')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.fax
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('URL')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.url
+
+      - if @whois
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Created on')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.created_on
+
+      - if @whois
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Updated on')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.updated_on

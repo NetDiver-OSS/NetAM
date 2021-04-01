@@ -49,7 +49,7 @@ gem 'omniauth-ldap', '~> 2.0'
 gem 'ipaddress', '~> 0.8.3'
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
 gem 'parallel', '~> 1.20'
-gem 'whois', '~> 5.0.2'
+gem 'whois-parser', '~> 1.2'
 
 # API
 gem 'grape', '~> 1.5'
