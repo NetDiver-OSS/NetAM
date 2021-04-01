@@ -22,4 +22,11 @@ describe 'Util', type: :request do
       expect(response).to be_successful
     end
   end
+
+  describe 'GET /utils/dns_resolver' do
+    it 'renders a successful response' do
+      get utils_dns_resolver_url
+      expect(response).to be_successful
+    end
+  end
 end
