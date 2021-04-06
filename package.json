@@ -16,7 +16,7 @@
     "postcss": "8.2.9",
     "select2": "4.0.13",
     "tailwindcss": "2.0.4",
-    "typesense": "0.11.1",
+    "typesense": "0.11.2",
     "vue": "2.6.12",
     "vue-chartjs": "3.5.1",
     "vue-fragment": "1.5.2",
