@@ -19,7 +19,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@master
         with:
-          ruby-version: '3.0.0'
+          ruby-version: '3.0.1'
       - name: Run Danger
         run: |
           gem install danger rubocop danger-rubocop
@@ -36,10 +36,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.0'
+          ruby-version: 3.0.1
 
       - name: Setup Brakeman
         env:
@@ -69,7 +69,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.1
           bundler-cache: true
 
       - name: Install Code Scanning integration
@@ -100,7 +100,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.1
       - name: Cache gems
         uses: actions/cache@v2.1.4
         with:
@@ -155,7 +155,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.1
       - name: Cache gems
         uses: actions/cache@v2.1.4
         with:
