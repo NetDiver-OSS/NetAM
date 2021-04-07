@@ -3,139 +3,122 @@
 = render 'utils/formwhois'
 
 - if @whois
-  %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
-    %div{ class: 'px-4 py-5 sm:px-6' }
-      %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Whois result')
+  - if @whois.property_any_supported? :nameservers
+    %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+      %div{ class: 'px-4 py-5 sm:px-6' }
+        %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Nameserver')
 
-    %dl
-      - if @whois.property_any_supported? :nameservers
+      %dl
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Nameserver')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+          %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
             - @whois.nameservers.each do |nameserver|
-              %dl
-              = nameserver.name
+              %li= nameserver.name
 
-
-      - if @whois.property_any_supported? :nameservers
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv4')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.nameservers.first.ipv4
+          %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+            - @whois.nameservers.map(&:ipv4).compact.each do |ip|
+              %li= ip
 
-      - if @whois.property_any_supported? :nameservers
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv6')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.nameservers.first.ipv6
+          %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+            - @whois.nameservers.map(&:ipv6).compact.each do |ip|
+              %li= ip
 
-      %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
-        %div{ class: 'px-4 py-5 sm:px-6' }
-          %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Contacts')
+  - @whois.contacts.each_with_index do |contact, index|
+    %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+      %div{ class: 'px-4 py-5 sm:px-6' }
+        %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' } #{_('Contacts')} ##{index}
 
-      - if @whois
+      %dl
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('ID')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.id
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.id
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Type')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.type
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.type
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Name')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.name
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.name
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Organization')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.organization
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.organization
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Address')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.address
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.address
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('City')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.city
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.city
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Zip')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.zip
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.zip
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('State')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.state
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.state
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Country')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.country
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.country
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Country Code')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.country_code
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.country_code
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Phone')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.phone
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.phone
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Fax')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.fax
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.fax
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Email')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.email
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.email
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Phone')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.fax
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.fax
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('URL')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.url
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.url
 
-      - if @whois
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Created on')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.created_on
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.created_on
 
-      - if @whois
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Updated on')
-          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.contacts.first.updated_on
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.updated_on
 
-      %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
-        %div{ class: 'px-4 py-5 sm:px-6' }
-          %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Registrar')
+  - if @whois.property_any_supported? :registrar
+    %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+      %div{ class: 'px-4 py-5 sm:px-6' }
+        %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Registrar')
 
-      - if @whois.property_any_supported? :registrar
+      %dl
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('ID')
           %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.id
 
-      - if @whois.property_any_supported? :registrar
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Name')
           %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.name
 
-      - if @whois.property_any_supported? :registrar
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Organization')
           %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.organization
 
-      - if @whois.property_any_supported? :registrar
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('URL')
           %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.url
