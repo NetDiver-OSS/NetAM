@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-04-01 19:50\n"
+"PO-Revision-Date: 2021-04-08 07:21\n"
 
 msgid "(we need your current password to confirm your changes)"
 msgstr ""
@@ -36,6 +36,9 @@ msgstr "Añadir permiso"
 
 msgid "Add permission"
 msgstr "Añadir permiso"
+
+msgid "Address"
+msgstr ""
 
 msgid "Address Matrix"
 msgstr "Matrimonio de dirección"
@@ -106,6 +109,9 @@ msgstr ""
 msgid "Choose file"
 msgstr "Elegir archivo"
 
+msgid "City"
+msgstr ""
+
 msgid "Close"
 msgstr "Cerrar"
 
@@ -126,6 +132,18 @@ msgstr ""
 
 msgid "Connected"
 msgstr "Conectado"
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Country Code"
+msgstr ""
+
+msgid "Created on"
+msgstr ""
 
 msgid "Current Password"
 msgstr ""
@@ -256,6 +274,9 @@ msgstr "Exportar"
 msgid "FQDN"
 msgstr "FQDN"
 
+msgid "Fax"
+msgstr ""
+
 msgid "First IP"
 msgstr "Primera IP"
 
@@ -283,6 +304,9 @@ msgstr "Nombre de host"
 msgid "Hosts per Subnet"
 msgstr "Hosts por subred"
 
+msgid "ID"
+msgstr ""
+
 msgid "IP Address"
 msgstr "Dirección IP"
 
@@ -297,6 +321,12 @@ msgstr "Calculadora de IP"
 
 msgid "IP used"
 msgstr "IP usada"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Import"
 msgstr "Importar"
@@ -360,6 +390,9 @@ msgstr "NO"
 
 msgid "Name"
 msgstr "Nombre"
+
+msgid "Nameserver"
+msgstr ""
 
 msgid "NetAM agent node"
 msgstr "Nodo agente NetAM"
@@ -427,6 +460,9 @@ msgstr "Código OTP"
 msgid "Or"
 msgstr ""
 
+msgid "Organization"
+msgstr ""
+
 msgid "PTR Resolution"
 msgstr ""
 
@@ -456,6 +492,9 @@ msgstr "El permiso se destruyó con éxito."
 
 msgid "Permission was successfully updated."
 msgstr "El permiso se actualizó correctamente."
+
+msgid "Phone"
+msgstr ""
 
 msgid "Please create a password for your new account."
 msgstr ""
@@ -503,6 +542,9 @@ msgid "Recovery codes"
 msgstr "Codigos de recuperación"
 
 msgid "Register to NetAM"
+msgstr ""
+
+msgid "Registrar"
 msgstr ""
 
 msgid "Release"
@@ -619,11 +661,17 @@ msgstr "Administrador de Autenticación de Dos Factores"
 msgid "Type"
 msgstr "Tipo"
 
+msgid "URL"
+msgstr ""
+
 msgid "Unit"
 msgstr "Unidad"
 
 msgid "Unit height"
 msgstr "Altura de unidad"
+
+msgid "Updated on"
+msgstr ""
 
 msgid "Usage"
 msgstr "Uso"
@@ -673,6 +721,9 @@ msgstr "Vlans"
 msgid "Wanted subnets"
 msgstr ""
 
+msgid "Whois"
+msgstr ""
+
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
 msgstr "El agente \"predeterminado\" no aparece aquí. Este agente gestiona todas las tareas internas de NetAM como respaldo."
 
@@ -702,6 +753,9 @@ msgstr ""
 
 msgid "Your address IP is"
 msgstr "Su dirección IP es"
+
+msgid "Zip"
+msgstr ""
 
 msgid "create an account"
 msgstr ""
