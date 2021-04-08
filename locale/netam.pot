@@ -37,6 +37,9 @@ msgstr ""
 msgid "Add permission"
 msgstr ""
 
+msgid "Address"
+msgstr ""
+
 msgid "Address Matrix"
 msgstr ""
 
@@ -106,6 +109,9 @@ msgstr ""
 msgid "Choose file"
 msgstr ""
 
+msgid "City"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
@@ -125,6 +131,18 @@ msgid "Confirm password"
 msgstr ""
 
 msgid "Connected"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Country Code"
+msgstr ""
+
+msgid "Created on"
 msgstr ""
 
 msgid "Current Password"
@@ -256,6 +274,9 @@ msgstr ""
 msgid "FQDN"
 msgstr ""
 
+msgid "Fax"
+msgstr ""
+
 msgid "First IP"
 msgstr ""
 
@@ -283,6 +304,9 @@ msgstr ""
 msgid "Hosts per Subnet"
 msgstr ""
 
+msgid "ID"
+msgstr ""
+
 msgid "IP Address"
 msgstr ""
 
@@ -296,6 +320,12 @@ msgid "IP calculator"
 msgstr ""
 
 msgid "IP used"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
 msgstr ""
 
 msgid "Import"
@@ -359,6 +389,9 @@ msgid "NO"
 msgstr ""
 
 msgid "Name"
+msgstr ""
+
+msgid "Nameserver"
 msgstr ""
 
 msgid "NetAM agent node"
@@ -427,6 +460,9 @@ msgstr ""
 msgid "Or"
 msgstr ""
 
+msgid "Organization"
+msgstr ""
+
 msgid "PTR Resolution"
 msgstr ""
 
@@ -455,6 +491,9 @@ msgid "Permission was successfully destroyed."
 msgstr ""
 
 msgid "Permission was successfully updated."
+msgstr ""
+
+msgid "Phone"
 msgstr ""
 
 msgid "Please create a password for your new account."
@@ -503,6 +542,9 @@ msgid "Recovery codes"
 msgstr ""
 
 msgid "Register to NetAM"
+msgstr ""
+
+msgid "Registrar"
 msgstr ""
 
 msgid "Release"
@@ -619,10 +661,16 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
+msgid "URL"
+msgstr ""
+
 msgid "Unit"
 msgstr ""
 
 msgid "Unit height"
+msgstr ""
+
+msgid "Updated on"
 msgstr ""
 
 msgid "Usage"
@@ -673,6 +721,9 @@ msgstr ""
 msgid "Wanted subnets"
 msgstr ""
 
+msgid "Whois"
+msgstr ""
+
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
 msgstr ""
 
@@ -701,6 +752,9 @@ msgid "You forgot your password? Here you can easily retrieve a new password."
 msgstr ""
 
 msgid "Your address IP is"
+msgstr ""
+
+msgid "Zip"
 msgstr ""
 
 msgid "create an account"

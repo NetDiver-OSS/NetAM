@@ -502,6 +502,10 @@ GEM
     websocket-driver (0.7.3-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whois (5.0.2)
+    whois-parser (1.2.0)
+      activesupport (>= 4)
+      whois (>= 4.0.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
@@ -579,6 +583,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 5.2.0)
+  whois-parser (~> 1.2)
 
 BUNDLED WITH
    2.2.3

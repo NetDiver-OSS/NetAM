@@ -1,0 +1,124 @@
+- page_title _('Whois')
+
+= render 'utils/formwhois'
+
+- if @whois
+  - if @whois.property_any_supported? :nameservers
+    %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+      %div{ class: 'px-4 py-5 sm:px-6' }
+        %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Nameserver')
+
+      %dl
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Nameserver')
+          %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+            - @whois.nameservers.each do |nameserver|
+              %li= nameserver.name
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv4')
+          %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+            - @whois.nameservers.map(&:ipv4).compact.each do |ip|
+              %li= ip
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv6')
+          %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
+            - @whois.nameservers.map(&:ipv6).compact.each do |ip|
+              %li= ip
+
+  - @whois.contacts.each_with_index do |contact, index|
+    %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+      %div{ class: 'px-4 py-5 sm:px-6' }
+        %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' } #{_('Contacts')} ##{index}
+
+      %dl
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('ID')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.id
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Type')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.type
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Name')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.name
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Organization')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.organization
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Address')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.address
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('City')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.city
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Zip')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.zip
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('State')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.state
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Country')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.country
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Country Code')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.country_code
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Phone')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.phone
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Fax')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.fax
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Email')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.email
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Phone')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.fax
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('URL')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.url
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Created on')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.created_on
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Updated on')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= contact.updated_on
+
+  - if @whois.property_any_supported? :registrar
+    %div{ class: 'bg-white dark:bg-gray-600 my-8 shadow overflow-hidden sm:rounded-lg' }
+      %div{ class: 'px-4 py-5 sm:px-6' }
+        %h3{ class: 'text-lg leading-6 font-medium text-gray-900 dark:text-gray-200' }= _('Registrar')
+
+      %dl
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('ID')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.id
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Name')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.name
+
+        %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('Organization')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.organization
+
+        %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
+          %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('URL')
+          %dd{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }= @whois.registrar.url
