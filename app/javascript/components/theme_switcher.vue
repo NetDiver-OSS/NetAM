@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <button @click="switchTheme()" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none">
+  <button @click="switchTheme()" class="text-gray-700 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-500 p-1 rounded-full focus:outline-none">
     <span class="sr-only">Switch theme</span>
 
     <svg v-if="theme === 'light'" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

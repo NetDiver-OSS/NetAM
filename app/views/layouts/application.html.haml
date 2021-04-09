@@ -17,17 +17,20 @@
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application'
 
-  %body{ class: 'bg-gray-100 dark:bg-gray-700 font-body text-black dark:text-white' }
-    %div{ 'data-behavior': 'vue' }
-      = render partial: 'layouts/navbar'
-      = render partial: 'layouts/header'
+  %body{ class: 'h-screen flex overflow-hidden bg-gray-100 dark:bg-gray-600 text-black dark:text-white' }
+    = render 'layouts/sidebar'
 
-      - if notice
-        %alert{ color: 'green', message: notice }
-      - if alert
-        %alert{ color: 'red', message: alert }
+    %div{ class: 'flex flex-col w-0 flex-1 overflow-hidden', 'data-behavior': 'vue' }
+      = render 'layouts/navbar'
+      %main{ class: 'flex-1 relative overflow-y-auto focus:outline-none' }
+        .py-6
+          = render 'layouts/header'
+          %div{ class: 'max-w-7xl mx-auto px-4 sm:px-6 md:px-8' }
+            - if notice
+              %alert{ color: 'green', message: notice }
+            - if alert
+              %alert{ color: 'red', message: alert }
+            .py-4
+              = yield
 
-      %main{ class: 'max-w-7xl mx-auto py-6 sm:px-6 lg:px-8' }
-        = yield
-
-      = render partial: 'layouts/footer'
+              = render 'layouts/footer'
