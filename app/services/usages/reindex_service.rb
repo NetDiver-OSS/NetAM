@@ -8,7 +8,7 @@ module Usages
       @usage = params
       super
       @ts_collection_name = 'usages'
-      @ts_collection_fields = { description: 'string', fqdn: 'string', ip_used: 'string', state: 'string' }
+      @ts_collection_fields = { description: 'string', fqdn: 'string', ip_used: 'string', state: 'string', section_id: 'int64' }
     end
 
     def execute
@@ -21,6 +21,7 @@ module Usages
           fqdn: @usage.fqdn.to_s,
           description: @usage.description.to_s,
           state: @usage.state.to_s,
+          section_id: @usage.section_id,
           created_at: Time.zone.now.to_i
         }
       )

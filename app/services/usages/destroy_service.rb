@@ -8,7 +8,7 @@ module Usages
       @usage = params.delete(:section)
       super
       @ts_collection_name = 'usage'
-      @ts_collection_fields = { description: 'string', fqdn: 'string', ip_used: 'string', state: 'string' }
+      @ts_collection_fields = { description: 'string', fqdn: 'string', ip_used: 'string', state: 'string', section_id: 'int64' }
     end
 
     def execute
