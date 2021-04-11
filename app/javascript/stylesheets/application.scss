@@ -6,7 +6,7 @@
 }
 
 .input {
-  @apply block mt-1 w-full py-2 px-3 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+  @apply block mt-1 w-full py-2 px-3 bg-white dark:bg-gray-500 text-gray-700 dark:text-gray-200 placeholder-gray-400 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
 }
 
 select.input {
@@ -34,8 +34,7 @@ select.input {
 @import 'tailwindcss/utilities';
 
 
-.select2-container--default .select2-search--dropdown .select2-search__field,
-.input {
+.select2-container--default .select2-search--dropdown .select2-search__field {
   @apply bg-white dark:bg-gray-600 text-gray-700 dark:text-gray-300 placeholder-gray-400 dark:placeholder-gray-500 border border-gray-400 dark:border-gray-700 outline-none;
 }
 
