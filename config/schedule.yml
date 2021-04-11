@@ -2,3 +2,7 @@
 update_oui_data:
   cron: "0 1 * * *"
   class: "LoadMacAddressTableWorker"
+
+reindex_typesense:
+  cron: "0 1 * * * *"
+  class: "ReindexTypesense"

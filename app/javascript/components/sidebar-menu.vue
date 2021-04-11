@@ -10,7 +10,7 @@ export default {
   },
   data: function () {
     return {
-      open: (this.props !== undefined) ? this.props.opened || false : false
+      open: (this.$props !== undefined) ? this.$props.opened || false : false
     }
   },
   mounted() {
@@ -36,11 +36,11 @@ export default {
 <template>
   <div :class="container_class">
     <div @click="toggleMenu" ref="button">
-      <slot name="button" />
+      <slot name="button"/>
     </div>
 
     <div v-if="open" ref="menu">
-      <slot  name="menu" />
+      <slot name="menu"/>
     </div>
   </div>
 </template>
