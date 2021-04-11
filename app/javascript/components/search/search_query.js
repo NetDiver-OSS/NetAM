@@ -50,7 +50,6 @@ function queryBuilder(search) {
       'q': search,
     }
   )
-  // Add fqdn, description and state for usages
 
   return query
 }

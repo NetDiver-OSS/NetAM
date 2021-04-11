@@ -37,7 +37,7 @@ export default {
         </div>
         <div class="pl-3">
           <h3 v-if="resource === 'usages'" class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 uppercase">
-            {{ item.document.ip_used }}
+            {{ item.document.section_name }} - {{ item.document.ip_used }}
           </h3>
           <h3 v-else class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 uppercase">
             {{ item.document.name }}

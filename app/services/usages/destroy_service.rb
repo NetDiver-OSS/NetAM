@@ -5,7 +5,7 @@ module Usages
     attr_reader :usage
 
     def initialize(current_user = nil, params = nil)
-      @usage = params.delete(:section)
+      @usage = params.delete(:usage)
       super
       @ts_collection_name = 'usage'
       @ts_collection_fields = { description: 'string', fqdn: 'string', ip_used: 'string', state: 'string', section_id: 'int64' }

@@ -20,6 +20,10 @@ class ReindexTypesense
       ::Sections::ReindexService.new(nil, section).execute
     end
 
+    Usage.all.each do |usage|
+      ::Usages::ReindexService.new(nil, usage).execute
+    end
+
     Vlan.all.each do |vlan|
       ::Vlans::ReindexService.new(nil, vlan).execute
     end
