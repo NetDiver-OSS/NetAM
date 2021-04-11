@@ -1,7 +1,7 @@
 <script>
 export default {
   props: {
-    open: {
+    opened: {
       type: Boolean,
     },
     container_class: {
@@ -10,7 +10,7 @@ export default {
   },
   data: function () {
     return {
-      open: this.props.open || false
+      open: (this.props !== undefined) ? this.props.opened || false : false
     }
   },
   mounted() {
