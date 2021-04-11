@@ -11,6 +11,9 @@
 
 [![Crowdin](https://badges.crowdin.net/netam/localized.svg)](https://crowdin.com/project/netam)
 
+## Join Us
+[![Slack](https://cdn.brandfolder.io/5H442O3W/at/pl546j-7le8zk-btwjnu/Slack_RGB.png?height=205&width=500)](https://join.slack.com/t/netcore-oss/shared_invite/zt-p0jkj2qo-cnvwVXJrx659D2upP_iXDg)
+
 ## Indroduction
 
 NetAM (a.k.a. Network Address Manager) is a network address management tool.  
