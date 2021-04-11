@@ -30,7 +30,7 @@ export default {
 
 <template>
   <div class="divide-y divide-gray-200 dark:divide-gray-700">
-    <a :href="resourceURL(item.document)" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-400" v-for="item in items">
+    <a :href="resourceURL(item.document)" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-500" v-for="item in items">
       <div class="w-full inline-flex divide-x divide-gray-200">
         <div class="pr-3 w-1/6 flex items-center capitalize">
           {{ fields.resource }}
@@ -42,10 +42,10 @@ export default {
           <h3 v-else class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100 uppercase">
             {{ item.document.name }}
           </h3>
-          <p v-if="resource === 'usages'" class="mt-1 text-sm text-gray-500">
+          <p v-if="resource === 'usages'" class="mt-1 text-sm text-gray-500 dark:text-gray-300">
             {{ item.document.fqdn }}
           </p>
-          <p class="mt-1 text-sm text-gray-500" v-if="item.document.description !== ''">
+          <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" v-if="item.document.description !== ''">
             {{ item.document.description }}
           </p>
         </div>
