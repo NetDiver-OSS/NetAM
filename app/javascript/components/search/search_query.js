@@ -43,6 +43,15 @@ function queryBuilder(search) {
     }
   )
 
+  query.searches.push(
+    {
+      'collection': 'usages',
+      'query_by': 'ip_used, fqdn, description, state',
+      'q': search,
+    }
+  )
+  // Add fqdn, description and state for usages
+
   return query
 }
 

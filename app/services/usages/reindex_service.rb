@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+module Usages
+  class ReindexService < BaseModelService
+    attr_reader :usage
+
+    def initialize(current_user = nil, params = nil)
+      @usage = params
+      super
+      @ts_collection_name = 'usages'
+      @ts_collection_fields = { description: 'string', fqdn: 'string', ip_used: 'string', state: 'string' }
+    end
+
+    def execute
+      ensure_typesense_collections_exist
+      typesense_document_update_or_create(
+        @usage.id,
+        {
+          id: @usage.id.to_s,
+          ip_used: @usage.ip_used.to_s,
+          fqdn: @usage.fqdn.to_s,
+          description: @usage.description.to_s,
+          state: @usage.state.to_s,
+          created_at: Time.zone.now.to_i
+        }
+      )
+    end
+  end
+end

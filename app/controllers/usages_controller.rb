@@ -60,7 +60,7 @@ class UsagesController < ApplicationController
 
   # PATCH/PUT /usages/1
   def update
-    if @usage.update(usage_params)
+    if ::Usages::UpdateService.new(current_user, usage_params.merge(usage: @usage)).execute
       if @usage.define_device == '1' && @usage.fqdn.present?
         @usage.update!(device: Device.create!(name: @usage.fqdn, rack_height: 1, device_type: DeviceType.find_by(name: 'None')))
         Permission.create!(
