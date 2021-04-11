@@ -10,7 +10,7 @@
               = fa_icon('solid', 'home', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
               = _('Dashboard')
 
-          %sidebar-menu{ container_class: 'space-y-1', open: %w[sections vlans devices device_types rackspaces].include?(controller_name) }
+          %sidebar-menu{ container_class: 'space-y-1', opened: %w[sections vlans devices device_types rackspaces].include?(controller_name) }
             %template.hidden{ 'v-slot:button': 'button' }
               %button.sidebar-link{ type: 'button', 'aria-expanded': 'false' }
                 = fa_icon('solid', 'server', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
@@ -27,7 +27,7 @@
                 = link_to _('Rackspaces'), rackspaces_path, class: "sidebar-sublink #{'current' if controller_name == 'rackspaces'}"
 
 
-          %sidebar-menu{ container_class: 'space-y-1', open: controller_name == 'utils' }
+          %sidebar-menu{ container_class: 'space-y-1', opened: controller_name == 'utils' }
             %template.hidden{ 'v-slot:button': 'button' }
               %button.sidebar-link{ type: 'button', 'aria-expanded': 'false' }
                 = fa_icon('solid', 'tools', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
@@ -45,7 +45,7 @@
                 = link_to _('Whois'), utils_whois_path, class: "sidebar-sublink #{'current' if current_page?(utils_whois_path)}"
 
           - if current_user.admin?
-            %sidebar-menu{ container_class: 'space-y-1', open: %w[users backups workers sidekiq].include?(controller_name) }
+            %sidebar-menu{ container_class: 'space-y-1', opened: %w[users backups workers sidekiq].include?(controller_name) }
               %template.hidden{ 'v-slot:button': 'button' }
                 %button.sidebar-link{ type: 'button', 'aria-expanded': 'false' }
                   = fa_icon('solid', 'cogs', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")

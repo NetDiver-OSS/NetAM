@@ -1,28 +1,10 @@
 <script>
-import { Client } from 'typesense'
 import SearchItem from "./search-item"
 import { queryBuilder } from './search_query'
+import axios from "axios";
 
 export default {
   components: {SearchItem},
-  props: {
-    typesenseProtocol: {
-      type: String,
-      required: true
-    },
-    typesenseHost: {
-      type: String,
-      required: true
-    },
-    typesensePort: {
-      type: String,
-      required: true
-    },
-    typesenseApiKey: {
-      type: String,
-      required: true
-    },
-  },
   data() {
     return {
       search: '',
@@ -37,20 +19,9 @@ export default {
     }
   },
   methods: {
-    typesenseClient() {
-      return new Client({
-        'nodes': [{
-          'protocol': this.typesenseProtocol,
-          'host': this.typesenseHost,
-          'port': this.typesensePort
-        }],
-        'apiKey': this.typesenseApiKey,
-        'connectionTimeoutSeconds': 2
-      })
-    },
     typeSenseQuery() {
-      this.typesenseClient().multiSearch.perform(queryBuilder(this.search)).then((result) => {
-        this.result = result.results.filter(i => i.hits !== undefined)
+      axios.post('/api/v1/search', queryBuilder(this.search)).then((result) => {
+        this.result = result.data.results.filter(i => i.hits !== undefined)
       })
     }
   }
