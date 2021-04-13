@@ -13,7 +13,7 @@ gem 'ledermann-rails-settings', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 
 # HTML
-gem 'hamlit', '~> 2.14'
+gem 'hamlit', '~> 2.15'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'rqrcode', '~> 1.2'
 gem 'sass-rails', '>= 6'
