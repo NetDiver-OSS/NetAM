@@ -102,7 +102,7 @@ jobs:
         with:
           ruby-version: 3.0.1
       - name: Cache gems
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-haml-lint-${{ hashFiles('**/Gemfile.lock') }}
@@ -157,7 +157,7 @@ jobs:
         with:
           ruby-version: 3.0.1
       - name: Cache gems
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-test-${{ hashFiles('**/Gemfile.lock') }}
