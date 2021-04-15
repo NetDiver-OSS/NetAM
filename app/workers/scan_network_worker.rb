@@ -55,11 +55,11 @@ class ScanNetworkWorker
         current_usage[:state] = :down
       end
 
-      if current_usage.length > 2
-        usaged = Usage.find_or_create_by(identifier: "#{section[:id]}_#{address}")
-        usaged.update!(current_usage)
-        ::Usages::ReindexService.new(nil, usaged).execute
-      end
+      next unless current_usage.length > 2
+
+      usaged = Usage.find_or_create_by(identifier: "#{section[:id]}_#{address}")
+      usaged.update!(current_usage)
+      ::Usages::ReindexService.new(nil, usaged).execute
     end
 
     send_notification(section)
