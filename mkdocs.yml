@@ -1,0 +1,34 @@
+# Documentation site configuration
+site_name: NetAM-OSC
+site_url: https://netam-osc.github.io/NetAM/
+site_description: Documentation for Network Address Manager software
+site_author: NetAM-OSC
+
+# Documentation repository configuration
+repo_name: GitHub
+repo_url: https://github.com/NetAM-OSC/NetAM/
+edit_uri: edit/dev/docs/
+
+# Theme configuration
+theme:
+  name: flatly
+
+# Markdown extensions configurations
+markdown_extensions:
+  - smarty
+  - toc:
+      permalink: True
+      separator: "_"
+  - sane_lists
+
+# Plugins configurations
+plugins:
+  - search:
+      min_search_lenght: 2
+
+# Navigation configuration
+nav:
+  - Home: index.md
+  - Versions:
+      - dev: dev/index.md
+  - License: license.md
