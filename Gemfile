@@ -6,21 +6,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
 gem 'puma', '5.2.2'
-gem 'rails', '6.0.3.6'
+gem 'rails', '6.1.3.1'
 
 # Database
 gem 'ledermann-rails-settings', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 
 # HTML
-gem 'hamlit', '~> 2.14'
+gem 'hamlit', '~> 2.15'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'rqrcode', '~> 1.2'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.2.0'
 
 # Search engine
-gem 'typesense', '0.11.0'
+gem 'typesense', '0.11.1'
 
 # I18n
 gem 'gettext', '~> 3.3', require: false, group: :development
