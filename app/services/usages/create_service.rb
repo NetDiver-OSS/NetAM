@@ -12,7 +12,8 @@ module Usages
         state: 'string',
         section_id: 'int64',
         section_name: 'string'
-      }    end
+      }
+    end
 
     def execute
       @usage = Usage.new(params)
