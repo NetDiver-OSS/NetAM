@@ -25,7 +25,7 @@
           = form.label :description, _('Description'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.text_area :description, placeholder: _('Description'), class: 'input', rows: '5'
 
-    %div{ class: 'flex justify-between px-4 py-3 bg-gray-50 dark:bg-gray-500 text-right sm:px-6' }
+    %div{ class: 'flex justify-between px-4 py-3 text-right sm:px-6' }
       %div
         = form.check_box :define_device, checked: usage.device_id.present?, class: 'form-check-input'
         = form.label :define_device, _('Define as device'), class: 'form-check-label'

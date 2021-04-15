@@ -38,7 +38,7 @@
           = form.label :description, _('Description'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
           = form.text_area :description, placeholder: _('Description'), class: 'input', rows: '5'
 
-  %div{ class: 'flex justify-between px-4 py-3 bg-gray-50 dark:bg-gray-500 sm:px-6' }
+  %div{ class: 'flex justify-between px-4 py-3 sm:px-6' }
     %div
       %div
         = form.check_box :notification_run_scan, checked: section.settings(:notification).on_run
