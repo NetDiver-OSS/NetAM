@@ -29,6 +29,11 @@ plugins:
 # Navigation configuration
 nav:
   - Home: index.md
-  - Versions:
-      - dev: dev/index.md
+  - NetAM:
+    - Architecture: architecture/index.md
+    - Configuration: configuration/index.md
+    - Usage: usage/index.md
+    - Administration: admin/index.md
+    - API: api/index.md
+
   - License: license.md
