@@ -85,7 +85,6 @@ After creating your section, you will return on the section page.
 # Vlans
 -------
 
-
 ![vlans](img/vlans/vlans.png)
 
 This is where you can see all of your vlans created with info, button for View, Edit or Delete vlan.
@@ -185,9 +184,42 @@ In this page, you can see all of your section using your vlan.
 ## Users
 
 ![users](img/users/users.png)
+
+## Create Users
+
 ![users_create](img/users/users_create.png)
+
+## Edit Users
+
 ![users_edit](img/users/users_edit.png)
+
+## View Users
+
 ![users_view](img/users/users_view.png)
 
 
+# Backups
+---------
+
+![backups](img/backups/backups.png)
+
+Click on the save button on the top right to start a backup.
+
+# Workers
+---------
+
+![workers](img/workers/workers.png)
+
+## Create Workers
+
+![workers_create](img/workers/workers_create.png)
+
+## Edit Workers
+
+![workers_edit](img/workers/workers_edit.png)
+
+# Background Jobs
+-----------------
+
+![jobs](img/jobs/jobs.png)
 
