@@ -6,21 +6,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
 gem 'puma', '5.2.2'
-gem 'rails', '6.0.3.5'
+gem 'rails', '6.1.3.1'
 
 # Database
 gem 'ledermann-rails-settings', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 
 # HTML
-gem 'hamlit', '~> 2.14'
+gem 'hamlit', '~> 2.15'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'rqrcode', '~> 1.2'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.2.0'
 
 # Search engine
-gem 'typesense', '0.11.0'
+gem 'typesense', '0.11.1'
 
 # I18n
 gem 'gettext', '~> 3.3', require: false, group: :development
@@ -30,7 +30,7 @@ gem 'rails-i18n', '~> 6.0'
 gem 'ruby_parser', '~> 3.15', require: false
 
 # Rails Delayed Jobs
-gem 'sidekiq', '6.2.0'
+gem 'sidekiq', '6.2.1'
 gem 'sidekiq-cron', '= 1.2'
 gem 'sidekiq-status', '= 1.1.4'
 
@@ -41,14 +41,15 @@ gem 'redis-rack-cache'
 gem 'cancancan', '~> 3.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'devise-i18n', '~> 1.9'
-gem 'devise-two-factor', '~> 3.1'
-gem 'doorkeeper', '~> 5.4'
+gem 'devise-two-factor', '~> 4.0'
+gem 'doorkeeper', '~> 5.5'
 gem 'omniauth-ldap', '~> 2.0'
 
 # Jobs dependencies
 gem 'ipaddress', '~> 0.8.3'
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
 gem 'parallel', '~> 1.20'
+gem 'whois-parser', '~> 1.2'
 
 # API
 gem 'grape', '~> 1.5'
@@ -59,8 +60,8 @@ gem 'grape-swagger', '~> 1.4'
 gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
-gem 'sentry-rails', '4.3.2'
-gem 'sentry-ruby', '4.3.1'
+gem 'sentry-rails', '4.3.4'
+gem 'sentry-ruby', '4.3.2'
 gem 'sentry-sidekiq', '4.3.0'
 
 # Logs management
@@ -84,8 +85,8 @@ group :development, :test do
 
   gem 'factory_bot_rails', '~> 6.1'
 
-  gem 'rubocop', '1.12.0'
-  gem 'rubocop-performance', '~> 1.10'
+  gem 'rubocop', '1.13.0'
+  gem 'rubocop-performance', '~> 1.11'
   gem 'rubocop-rails', '~> 2.9'
   gem 'rubocop-rspec', '~> 2.2'
 
@@ -97,7 +98,7 @@ group :development do
   gem 'better_errors', '2.9.1'
   gem 'binding_of_caller', '~> 1.0.0'
 
-  gem 'listen', '3.5.0'
+  gem 'listen', '3.5.1'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

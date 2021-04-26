@@ -10,9 +10,10 @@ Sidekiq.configure_server do |config|
       cron_settings.merge!(
         {
           "section:#{section.id}": {
-            class: 'ScanNetworkWithPingJob',
+            queue: section.worker.nil? ? 'default' : "node:#{section.worker.uuid}",
+            class: 'ScanNetworkWorker',
             cron: Fugit.parse(section.schedule).to_cron_s,
-            args: [{ id: section.id, network: section.network }]
+            args: [{ id: section.id, network: section.network, scan_type: section.scan_type }]
           }
         }
       )

@@ -1,66 +1,45 @@
-%nav.bg-gray-800
-  %div{ class: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' }
-    %div{ class: 'flex items-center justify-between h-16' }
-      %div{ class: 'mx-2 flex' }
-        %slide-menu{ title: 'Menu' }
-          %template.hidden{ 'v-slot:button': 'button' }
-            %button{ class: 'bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' }
-              %svg{ class: 'block h-6 w-6', xmlns: 'http://www.w3.org/2000/svg', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }
-                %path{ 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M4 6h16M4 12h16M4 18h16' }
+%div{ class: 'relative z-10 flex-shrink-0 flex h-16 bg-white dark:bg-gray-700 shadow' }
+  -# <button class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+       <span class="sr-only">Open sidebar</span>
+       <!-- Heroicon name: outline/menu-alt-2 -->
+       <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+       </svg>
+     </button>
+  %div{ class: 'flex-1 px-4 flex justify-between' }
+    %div{ class: 'flex-1 flex' }
+      - if Rails.configuration.netam.dig(:typesense, :enabled)
+        %form{ class: 'w-full flex md:ml-0' }
+          %label.sr-only{ for: 'search_field' } Search
+          %div{ class: 'relative self-center w-full text-gray-400 focus-within:text-gray-600' }
+            %div{ class: 'absolute inset-y-0 left-0 flex items-center pointer-events-none' }
+              %svg{ class: 'h-5 w-5', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 20 20', fill: 'currentColor', 'aria-hidden': 'true' }
+                %path{ 'fill-rule': 'evenodd', d: 'M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z', 'clip-rule': 'evenodd' }
+            %search-bar
 
-          %template.hidden{ 'v-slot:content': 'content' }
-            %div{ class: 'absolute inset-0 px-4 sm:px-6' }
-              %h4{ class: 'pt-2 uppercase text-xs font-light text-gray-600 dark:text-gray-100' } NetAM
-              %div{ class: 'grid grid-cols-2 px-2 gap-2 py-2' }
-                = link_to fa_icon_with_text('solid', 'square', _('Sections')), sections_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'square', _('Vlans')), vlans_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'square', _('Devices')), devices_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'square', _('Devices Type')), device_types_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'square', _('Rackspaces')), rackspaces_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+    %div{ class: 'ml-4 flex items-center md:ml-6' }
+      %theme-switcher
 
-              %h4{ class: 'pt-2 uppercase text-xs font-light text-gray-600 dark:text-gray-100' }= _('Utils')
-              %div{ class: 'grid grid-cols-2 px-2 gap-2 py-2' }
-                = link_to fa_icon_with_text('solid', 'server', _('IP Calculator')), utils_calculator_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'server', _('MAC Vendor')), utils_mac_vendor_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'server', _('Network Splitter')), utils_network_splitter_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'server', _('PTR Resolver')), utils_ptr_resolution_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+      %dropdown{ container_class: 'ml-3 relative' }
+        %template.hidden{ 'v-slot:button': 'button' }
+          %button{ class: 'max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none' }
+            %i.flag-icon{ class: "flag-icon-#{I18n.locale}" }
 
-              %h4{ class: 'pt-2 uppercase text-xs font-light text-gray-600 dark:text-gray-100' }= _('Admin Center')
-              %div{ class: 'grid grid-cols-2 px-2 gap-2 py-2' }
-                = link_to fa_icon_with_text('solid', 'users', _('Users')), admin_users_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'save', _('Backups')), admin_backups_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'server', _('Workers')), admin_workers_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
-                = link_to fa_icon_with_text('solid', 'stream', _('Sidekiq')), admin_sidekiq_index_path, class: 'bg-white dark:bg-gray-500 dark:text-gray-50 border-1 border-gray-200 hover:bg-blue-400 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white px-5 py-3 rounded shadow'
+        %template.hidden{ 'v-slot:menu': 'menu' }
+          %div{ class: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5' }
+            - NetAM::Translation::AVAILABLE_LOCALE.each do |code, name|
+              %a.dropdown-item{ class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500', href: url_for({ locale: code }) }
+                %i.flag-icon.mr-2{ class: "flag-icon-#{code}" }
+                = _(name)
 
-      %div{ class: 'flex flex-grow items-center' }
-        = link_to 'NetAM', root_path, class: 'text-white text-xl'
-        %div.flex-grow
-          - if Rails.configuration.netam.dig(:typesense, :enabled)
-            %search-bar{ 'typesense-protocol': Rails.configuration.netam.dig(:typesense, :protocol), 'typesense-host': Rails.configuration.netam.dig(:typesense, :host), 'typesense-port': Rails.configuration.netam.dig(:typesense, :port), 'typesense-api-key': TYPESENSE_FRONTEND_KEY }
+      %dropdown{ container_class: 'ml-3 relative' }
+        %template.hidden{ 'v-slot:button': 'button' }
+          %button{ class: 'max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' }
+            %span.sr-only Open user menu
+            = image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(current_user&.email)}", class: 'h-8 w-8 rounded-full'
 
-      %div{ class: 'flex items-center' }
-        %theme-switcher
-
-        %dropdown{ container_class: 'ml-3 relative' }
-          %template.hidden{ 'v-slot:button': 'button' }
-            %button{ class: 'max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none' }
-              %i.flag-icon{ class: "flag-icon-#{I18n.locale}" }
-
-          %template.hidden{ 'v-slot:menu': 'menu' }
-            %div{ class: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5' }
-              - NetAM::Translation::AVAILABLE_LOCALE.each do |code, name|
-                %a.dropdown-item{ class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500', href: url_for({ locale: code }) }
-                  %i.flag-icon.mr-2{ class: "flag-icon-#{code}" }
-                  = _(name)
-
-        %dropdown{ container_class: 'ml-3 relative' }
-          %template.hidden{ 'v-slot:button': 'button' }
-            %button{ class: 'max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' }
-              %span.sr-only Open user menu
-              = image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(current_user&.email)}", class: 'h-8 w-8 rounded-full'
-
-          %template.hidden{ 'v-slot:menu': 'menu' }
-            %div{ class: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5' }
-              = link_to _('My account'), edit_user_registration_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500'
-              = link_to _('Two Factor Auth'), account_two_factor_auths_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500'
-              = link_to fa_icon_with_text('solid', 'sign-out-alt', _('Logout')), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-sm text-red-700 dark:text-red-400 hover:bg-red-100 dark:hover:text-gray-300 dark:hover:bg-red-400'
+        %template.hidden{ 'v-slot:menu': 'menu' }
+          %div{ class: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5' }
+            = link_to _('My account'), edit_user_registration_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500'
+            = link_to _('Two Factor Auth'), account_two_factor_auths_path, class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500'
+            = link_to fa_icon_with_text('solid', 'sign-out-alt', _('Logout')), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-sm text-red-700 dark:text-red-400 hover:bg-red-100 dark:hover:text-gray-300 dark:hover:bg-red-400'

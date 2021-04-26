@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def fa_icon(type, name, size: 16)
-    content_tag('fa-icon', '', { type: type, name: name, size: size, class: 'inline-flex' })
+  def fa_icon(type, name, size: 16, class_name: 'inline-flex')
+    content_tag('fa-icon', '', { type: type, name: name, size: size, class: class_name })
   end
 
   def fa_icon_with_text(type, name, text)

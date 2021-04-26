@@ -10,7 +10,7 @@ class UtilsController < ApplicationController
   end
 
   def network_splitter
-    return if params[:network].nil? || param[:split_count].nil?
+    return if params[:network].nil? || params[:split_count].nil?
 
     network_range = IPAddress(params[:network].to_s)
     @networks = network_range / params[:split_count].to_i
@@ -18,5 +18,15 @@ class UtilsController < ApplicationController
 
   def ptr_resolution
     @ptr_resolutions = NetAM::Network::Dns.reverse_dns(params[:address]) rescue nil
+  end
+
+  def dns_resolver
+    return if params[:entry].nil? || params[:type].nil?
+
+    @dns_resolutions = NetAM::Network::Dns.resolution(params[:entry], params[:type]) rescue nil
+  end
+
+  def whois
+    @whois = Whois.whois(params[:domain]).parser rescue nil
   end
 end

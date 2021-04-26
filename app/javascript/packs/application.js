@@ -26,6 +26,7 @@ import section__cron_validator from '../components/section/cron_validator';
 import section__pie_usage from "../components/section/pie_usage";
 import section__status_scan from "../components/section/status_scan";
 import search_bar from "../components/search/search-bar";
+import sidebar_menu from "../components/sidebar-menu";
 import tab from "../components/tab";
 import tabs from "../components/section/tabs";
 
@@ -39,11 +40,13 @@ Vue.component('cron-validator', section__cron_validator)
 Vue.component('section-usage', section__pie_usage)
 Vue.component('section-scan', section__status_scan)
 Vue.component('search-bar', search_bar)
+Vue.component('sidebar-menu', sidebar_menu)
 Vue.component('tab', tab)
 Vue.component('tabs', tabs)
 
 
 window.addEventListener('load', () => {
+  new Vue({ el: '[data-behavior="vue-sidebar"]' })
   new Vue({ el: '[data-behavior="vue"]' })
 
   $('.select2').select2({

@@ -19,7 +19,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@master
         with:
-          ruby-version: '3.0.0'
+          ruby-version: '3.0.1'
       - name: Run Danger
         run: |
           gem install danger rubocop danger-rubocop
@@ -36,10 +36,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.0'
+          ruby-version: 3.0.1
 
       - name: Setup Brakeman
         env:
@@ -69,26 +69,15 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.1
           bundler-cache: true
-
-      - name: Install Code Scanning integration
-        run: bundle add code-scanning-rubocop --version 0.4.0 --skip-install
 
       - name: Install dependencies
         run: bundle install
 
       - name: Rubocop run
         run: |
-          bash -c "
-            bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
-            [[ $? -ne 2 ]]
-          "
-
-      - name: Upload Sarif output
-        uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: rubocop.sarif
+          bundle exec rubocop
 
 
   haml-lint:
@@ -100,9 +89,9 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.1
       - name: Cache gems
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-haml-lint-${{ hashFiles('**/Gemfile.lock') }}
@@ -117,6 +106,16 @@ jobs:
         run: bundle exec haml-lint --parallel
 
 
+  semgrep:
+    name: SAST
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          config: p/ci
+
+
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -125,6 +124,7 @@ jobs:
       - brakeman-scan
       - rubocop
       - haml-lint
+      - semgrep
 
     services:
       postgres:
@@ -155,9 +155,9 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0.0
+          ruby-version: 3.0.1
       - name: Cache gems
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-test-${{ hashFiles('**/Gemfile.lock') }}
