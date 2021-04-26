@@ -151,3 +151,35 @@ In this page, you can see all of your section using your vlan.
 ## View Rackspaces
 
 ![rackspaces_view](img/rackspaces_view.png)
+
+# Utils
+-------
+
+## IP Calculator
+
+![ip_calculator](img/ip_calculator.png)
+
+## MAC Vendor
+
+![mac_vendor](img/mac_vendor.png)
+
+## Network Splitter
+
+![network_splitter](img/network_splitter.png)
+
+## PTR Resolver
+
+![ptr_resolver](img/ptr_resolver.png)
+
+## DNS Resolver
+
+![dns_resolver](img/dns_resolver.png)
+
+## Whois
+
+![whois](img/whois.png)
+
+# Admin Center
+--------------
+
+
