@@ -130,3 +130,17 @@ In this page, you can see all of your section using your vlan.
 ![devices_type_edit](img/devices_type_edit.png)
 
 # Rackspaces
+
+![rackspaces](img/rackspaces.png)
+
+## Create Rackspaces
+
+![rackspaces_create](img/rackspaces_create.png)
+
+## Edit Rackspaces
+
+![rackspaces_edit](img/rackspaces_edit.png)
+
+## View Rackspaces
+
+![rackspaces_view](img/rackspaces_view.png)
