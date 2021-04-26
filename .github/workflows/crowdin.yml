@@ -23,6 +23,7 @@ jobs:
           bundle exec rake gettext:po_to_json
         env:
           RAILS_ENV: test
+          TYPESENSE_ENABLED: false
       - name: Commit files
         continue-on-error: true
         run: |
