@@ -83,7 +83,19 @@ After creating your section, you will return on the section page.
 
 ![vlans](img/vlans.png)
 
+This is where you can see all of your vlans created with info, button for View, Edit or Delete vlan.
+
 Note : The default vlan here has been manually created.
+
+## Vlan view
+
+![vlan_view](img/vlans_view.png)
+
+In this page, you can see all of your section using your vlan.
+
+## Vlan edit
+
+![vlan_view](img/vlans_edit.png)
 
 ## Create Vlan
 
@@ -91,8 +103,19 @@ Note : The default vlan here has been manually created.
 
 * Vlan ID (Vid)
 * Name of your vlan
+* Description
 
-## Devices
+# Devices
+
+![devices](img/devices.png)
+
+## Create Device
+
+![devices](img/devices_create.png)
+
+## Edit Device
+
+![devices](img/devices_edit.png)
 
 ## Devices Type
 
