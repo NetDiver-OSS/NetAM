@@ -13,10 +13,3 @@ In addition, you can create and visualize rackspace usage in NetAM.
 
 NetAM provides an option to run scan worker individually.
 With this option you can split your scan load and increase VLAN isolation.
-
-## Documentation categories
-### [Architecture](architecture)
-### [Configuration](configuration)
-### [Usage](usage)
-### [Administration](admin)
-### [API](api)
