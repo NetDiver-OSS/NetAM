@@ -11,7 +11,7 @@ This is where you login after creating an account or using your LDAP server.
 
 When you don't use your LDAP server, you will create your account here.
 
-We recommend use a strong password.
+We recommend using a strong password.
 
 # Main
 ------
@@ -20,7 +20,7 @@ After login , you will be redirected on the main page.
 
 ![main](img/main/main.png)
 
-On the top center, you will have the search bar where you can find all of your sections and 
+On the top center, you will have the search bar where you can find all your sections and access them.
 
 On the center, you will have all the information of :
 
@@ -31,26 +31,26 @@ On the center, you will have all the information of :
     * Uptime
 *  Agent node
 
-On the top right you can change the theme (light / dark), change your language and user settings.
+On the top right, you can change the theme (light / dark), change your language and user settings.
 
-On the left, you have all the tools purposed by NetAM.
+On the left, you have all the tools proposed by NetAM.
 
 # Section
 ---------
 
 ![section](img/section/section.png)
 
-This is where you can see all of your sections created with usage info, button for View, Scan, Edit or Delete a section
+This is where you can see all of your sections created with usage info, buttons to View, Scan, Edit or Delete a section
 
 ## View Section
 
 ![section](img/section/section_view.png)
 
-In the View page, you have all the information of your network :
+On the View page, you have all the information of your network :
 
 * Section VLAN
 * Affected worker
-* last scan time
+* Last scan time
 
 Network information :
 
@@ -60,7 +60,7 @@ Network information :
 * DHCP IP
 * Free IP
 
-On the bottom, you have 3 tabs where you can see your network in a different view
+On the bottom, you have 3 tabs where you can see your network in a different view.
 
 ### Address table
 
@@ -74,7 +74,7 @@ On the bottom, you have 3 tabs where you can see your network in a different vie
 
 ![section](img/section/section_view_jobs.png)
 
-It's logs for job executed on this network.
+Here are some logs for each job executed on this network.
 
 ## Create Section
 
@@ -95,7 +95,7 @@ Note : The default vlan here has been manually created.
 
 ![vlan_view](img/vlans/vlans_view.png)
 
-In this page, you can see all of your section using your vlan.
+On this page, you can see all sections using a chosen vlan.
 
 ## Vlan edit
 
@@ -114,7 +114,7 @@ In this page, you can see all of your section using your vlan.
 
 ![devices](img/devices/devices.png)
 
-Define a devices and you can edit it for :
+Define a device. You can edit their:
 
 * Type (cf. [device_type](#devices_type)) of your devices
 * Rack Height
@@ -186,7 +186,7 @@ Found a vendor with a Mac Address.
 
 ![network_splitter](img/utils/network_splitter.png)
 
-Split a network by subnet.
+Split a network range by a number of subnet.
 
 ## PTR Resolver
 
