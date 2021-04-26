@@ -111,12 +111,22 @@ In this page, you can see all of your section using your vlan.
 
 ## Create Device
 
-![devices](img/devices_create.png)
+![devices_create](img/devices_create.png)
 
 ## Edit Device
 
-![devices](img/devices_edit.png)
+![devices_edit](img/devices_edit.png)
 
-## Devices Type
+# Devices Type
 
-## Rackspaces
+![devices_type](img/devices_type.png)
+
+## Create Device Type
+
+![devices_type_create](img/devices_type_create.png)
+
+## Edit Device Type
+
+![devices_type_edit](img/devices_type_edit.png)
+
+# Rackspaces
