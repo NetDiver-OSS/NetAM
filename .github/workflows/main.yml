@@ -117,6 +117,24 @@ jobs:
         run: bundle exec haml-lint --parallel
 
 
+  semgrep:
+    name: SAST
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          config: p/ci
+          # Never fail the build due to findings on pushes, but collect findings data
+          #auditOn: push
+          generateSarif: "1"
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: semgrep.sarif
+        if: always()
+
+
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -125,6 +143,7 @@ jobs:
       - brakeman-scan
       - rubocop
       - haml-lint
+      - semgrep
 
     services:
       postgres:
