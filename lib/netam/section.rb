@@ -18,10 +18,10 @@ module NetAM
 
     def self.get_all_jobs(section_id)
       Sidekiq.redis do |conn|
-        conn.scan_each(match: 'sidekiq:status:*').map do |key|
+        conn.scan_each(match: 'sidekiq:status:*').filter_map do |key|
           job = Sidekiq::Status.get_all(key.split(':').last)
           job if JSON.parse(job['args']).first['id'] == section_id
-        end.compact
+        end
       end
     end
 

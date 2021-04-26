@@ -18,13 +18,13 @@
         %div{ class: 'bg-white-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv4')
           %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
-            - @whois.nameservers.map(&:ipv4).compact.each do |ip|
+            - @whois.nameservers.filter_map(&:ipv4).each do |ip|
               %li= ip
 
         %div{ class: 'bg-gray-50 dark:bg-gray-500 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6' }
           %dt{ class: 'text-sm font-medium text-gray-500 dark:text-gray-300' }= _('IPv6')
           %ul{ class: 'mt-1 text-sm text-gray-900 dark:text-gray-100 sm:mt-0 sm:col-span-2' }
-            - @whois.nameservers.map(&:ipv6).compact.each do |ip|
+            - @whois.nameservers.filter_map(&:ipv6).each do |ip|
               %li= ip
 
   - @whois.contacts.each_with_index do |contact, index|
