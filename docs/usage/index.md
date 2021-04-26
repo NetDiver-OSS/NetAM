@@ -1,6 +1,7 @@
 # Usage guide
 
 ## Login / Register
+-------------------
 
 ![Login](img/login.png)
 
@@ -13,6 +14,7 @@ When you don't use your LDAP server, you will create your account here.
 We recommend use a strong password.
 
 # Main
+------
 
 After login , you will be redirected on the main page.
 
@@ -34,6 +36,7 @@ On the top right you can change the theme (light / dark), change your language a
 On the left, you have all the tools purposed by NetAM.
 
 # Section
+---------
 
 ![section](img/section.png)
 
@@ -80,6 +83,8 @@ It's logs for job executed on this network.
 After creating your section, you will return on the section page.
 
 # Vlans
+-------
+
 
 ![vlans](img/vlans.png)
 
@@ -106,6 +111,7 @@ In this page, you can see all of your section using your vlan.
 * Description
 
 # Devices
+---------
 
 ![devices](img/devices.png)
 
@@ -130,6 +136,7 @@ In this page, you can see all of your section using your vlan.
 ![devices_type_edit](img/devices_type_edit.png)
 
 # Rackspaces
+------------
 
 ![rackspaces](img/rackspaces.png)
 
