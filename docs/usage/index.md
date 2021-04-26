@@ -114,6 +114,17 @@ In this page, you can see all of your section using your vlan.
 
 ![devices](img/devices/devices.png)
 
+Define a devices and you can edit it for :
+
+* Type (cf. [device_type](#devices_type)) of your devices
+* Rack Height
+* Depth Type
+    * Small
+    * Half
+    * Full
+* Rackspace
+* Rack anchor
+
 ## Create Device
 
 ![devices_create](img/devices/devices_create.png)
@@ -123,8 +134,11 @@ In this page, you can see all of your section using your vlan.
 ![devices_edit](img/devices/devices_edit.png)
 
 # Devices Type
+--------------
 
 ![devices_type](img/devices_type/devices_type.png)
+
+Define a type of devices, you can change the color of the devices.
 
 ## Create Device Type
 
@@ -138,6 +152,8 @@ In this page, you can see all of your section using your vlan.
 ------------
 
 ![rackspaces](img/rackspaces/rackspaces.png)
+
+Rackspace section where you can create your rackspace for organization.
 
 ## Create Rackspaces
 
@@ -158,23 +174,35 @@ In this page, you can see all of your section using your vlan.
 
 ![ip_calculator](img/utils/ip_calculator.png)
 
+Calculate network range per subnet.
+
 ## MAC Vendor
 
 ![mac_vendor](img/utils/mac_vendor.png)
+
+Found a vendor with a Mac Address.
 
 ## Network Splitter
 
 ![network_splitter](img/utils/network_splitter.png)
 
+Split a network by subnet.
+
 ## PTR Resolver
 
 ![ptr_resolver](img/utils/ptr_resolver.png)
+
+Resolve a PTR
 
 ## DNS Resolver
 
 ![dns_resolver](img/utils/dns_resolver.png)
 
+Resolve a DNS information
+
 ## Whois
 
 ![whois](img/utils/whois.png)
+
+Whois tools for DNS / IP address info.
 
