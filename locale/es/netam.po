@@ -14,7 +14,13 @@ msgstr ""
 "X-Crowdin-Language: es-ES\n"
 "X-Crowdin-File: /dev/locale/netam.pot\n"
 "X-Crowdin-File-ID: 12\n"
-"PO-Revision-Date: 2021-01-15 10:46\n"
+"PO-Revision-Date: 2021-04-26 21:02\n"
+
+msgid "(we need your current password to confirm your changes)"
+msgstr "(necesitamos tu contraseña actual para confirmar tus cambios)"
+
+msgid "Account management"
+msgstr "Gestión de cuentas"
 
 msgid "Action"
 msgstr "Acción"
@@ -31,11 +37,17 @@ msgstr "Añadir permiso"
 msgid "Add permission"
 msgstr "Añadir permiso"
 
+msgid "Address"
+msgstr "Dirección"
+
 msgid "Address Matrix"
 msgstr "Matrimonio de dirección"
 
 msgid "Address Table"
 msgstr "Tabla de direcciones"
+
+msgid "Admin"
+msgstr "Admin"
 
 msgid "Admin Backups"
 msgstr "Copias de seguridad de admin"
@@ -43,14 +55,14 @@ msgstr "Copias de seguridad de admin"
 msgid "Admin Center"
 msgstr "Centro Admin"
 
-msgid "Admin Jobs"
-msgstr "Trabajos de Admin"
-
 msgid "Affected sections"
 msgstr "Secciones afectadas"
 
 msgid "Affected worker"
 msgstr "Agente afectado"
+
+msgid "All Jobs"
+msgstr "Todos los trabajos"
 
 msgid "All Permissions"
 msgstr "Todos los permisos"
@@ -88,11 +100,23 @@ msgstr "CPU"
 msgid "Calculate"
 msgstr "Calcular"
 
+msgid "Change my password"
+msgstr "Cambiar mi contraseña"
+
+msgid "Change your password"
+msgstr "Cambiar mi contraseña"
+
 msgid "Choose file"
 msgstr "Elegir archivo"
 
+msgid "City"
+msgstr "Ciudad"
+
 msgid "Close"
 msgstr "Cerrar"
+
+msgid "Code #%{id}"
+msgstr "Código #%{id}"
 
 msgid "Color"
 msgstr "Color"
@@ -100,11 +124,41 @@ msgstr "Color"
 msgid "Concurrency jobs"
 msgstr "Trabajos de concurrencia"
 
+msgid "Confirm new password"
+msgstr "Confirmar contraseña nueva"
+
+msgid "Confirm password"
+msgstr "Confirmar la contraseña"
+
 msgid "Connected"
 msgstr "Conectado"
 
+msgid "Contacts"
+msgstr "Contactos"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Country Code"
+msgstr "Código de país"
+
+msgid "Created on"
+msgstr "Creado en"
+
+msgid "Current Password"
+msgstr "Contraseña actual"
+
 msgid "DHCP"
 msgstr "DHCP"
+
+msgid "DNS Resolver"
+msgstr "Resolver DNS"
+
+msgid "Danger zone"
+msgstr "Zona de peligro"
+
+msgid "Datetime"
+msgstr "Fecha y hora"
 
 msgid "Define as device"
 msgstr "Definir como dispositivo"
@@ -123,9 +177,6 @@ msgstr "Tipo de Profundidad"
 
 msgid "Description"
 msgstr "Descripción"
-
-msgid "Destroy"
-msgstr "Destruir"
 
 msgid "Device type"
 msgstr "Tipo de dispositivo"
@@ -160,17 +211,14 @@ msgstr "Tipo de dispositivo"
 msgid "Devices list"
 msgstr "Lista de dispositivos"
 
+msgid "Devices type"
+msgstr "Tipo de dispositivo"
+
 msgid "Devices type list"
 msgstr "Lista de tipos de dispositivos"
 
-msgid "Disable"
-msgstr "Desactivar"
-
 msgid "Disable TOTP"
 msgstr "Desactivar TOTP"
-
-msgid "Disabled"
-msgstr "Deshabilitado"
 
 msgid "Down"
 msgstr "Abajo"
@@ -211,17 +259,14 @@ msgstr "Agente de edición"
 msgid "Email"
 msgstr "E-mail"
 
-msgid "Enable"
-msgstr "Activar"
+msgid "Email address"
+msgstr "Email"
 
 msgid "Enable TOTP"
 msgstr "Habilitar TOTP"
 
-msgid "Enabled"
-msgstr "Activado"
-
-msgid "Error"
-msgstr "Error"
+msgid "Entry"
+msgstr "Entrada"
 
 msgid "Export"
 msgstr "Exportar"
@@ -229,11 +274,14 @@ msgstr "Exportar"
 msgid "FQDN"
 msgstr "FQDN"
 
-msgid "File"
-msgstr "Archivo"
+msgid "Fax"
+msgstr "Fax"
 
 msgid "First IP"
 msgstr "Primera IP"
+
+msgid "Forgot your password?"
+msgstr "Olvidaste tu contraseña?"
 
 msgid "Free IP"
 msgstr "IP gratis"
@@ -256,6 +304,9 @@ msgstr "Nombre de host"
 msgid "Hosts per Subnet"
 msgstr "Hosts por subred"
 
+msgid "ID"
+msgstr "ID"
+
 msgid "IP Address"
 msgstr "Dirección IP"
 
@@ -271,8 +322,11 @@ msgstr "Calculadora de IP"
 msgid "IP used"
 msgstr "IP usada"
 
-msgid "Ignore rackspace management when is empty"
-msgstr "Ignorar la gestión del rackspace cuando está vacío"
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
 
 msgid "Import"
 msgstr "Importar"
@@ -280,17 +334,14 @@ msgstr "Importar"
 msgid "Import usages with CSV"
 msgstr "Importar usos con CSV"
 
-msgid "Job"
-msgstr "Trabajo"
-
-msgid "Jobs"
-msgstr "Trabajos"
-
 msgid "Last IP"
 msgstr "Última IP"
 
 msgid "Last scan time"
 msgstr "Fecha del último análisis"
+
+msgid "Last sign in"
+msgstr "Último inicio"
 
 msgid "Load Average"
 msgstr "Promedio de carga"
@@ -303,6 +354,9 @@ msgstr "Posición"
 
 msgid "Locked"
 msgstr "Bloqueado"
+
+msgid "Log in with Email"
+msgstr "Iniciar sesión con Email"
 
 msgid "Logout"
 msgstr "Cerrar sesión"
@@ -319,9 +373,6 @@ msgstr "Vendedor MAC"
 msgid "MAC Vendor Lookup"
 msgstr "Búsqueda del vendedor MAC"
 
-msgid "Mac Address Prefix"
-msgstr "Prefijo de dirección Mac"
-
 msgid "Mask"
 msgstr "Máscara"
 
@@ -331,14 +382,17 @@ msgstr "Uso masivo de importación por inyecciones csv. Debe tener formato CSV c
 msgid "Memory"
 msgstr "Memoria"
 
-msgid "My home network"
-msgstr "Mi red doméstica"
+msgid "My account"
+msgstr "Mi cuenta"
 
 msgid "NO"
 msgstr "NO"
 
 msgid "Name"
 msgstr "Nombre"
+
+msgid "Nameserver"
+msgstr "Nameserver"
 
 msgid "NetAM agent node"
 msgstr "Nodo agente NetAM"
@@ -348,6 +402,15 @@ msgstr "Nodo de control NetAM"
 
 msgid "Network"
 msgstr "Red"
+
+msgid "Network Splitter"
+msgstr "Divididor de red"
+
+msgid "Network information"
+msgstr "Información de la red"
+
+msgid "Network splitting result"
+msgstr "Resultado de división de red"
 
 msgid "New Section"
 msgstr "Nueva sección"
@@ -370,14 +433,17 @@ msgstr "Nuevo dispositivo"
 msgid "New devices type"
 msgstr "Nuevo tipo de dispositivo"
 
+msgid "New password"
+msgstr "Nueva Contraseña"
+
 msgid "New rackspace"
 msgstr "Nuevo rackspace"
 
+msgid "Next"
+msgstr "Siguiente"
+
 msgid "No free address IP available !"
 msgstr "¡No hay dirección IP disponible!"
-
-msgid "No matching vendor"
-msgstr "No hay proveedor coincidente"
 
 msgid "No worker assigned"
 msgstr "Ningún agente asignado"
@@ -385,14 +451,32 @@ msgstr "Ningún agente asignado"
 msgid "None"
 msgstr "Ninguna"
 
-msgid "Notice"
-msgstr "Aviso"
+msgid "OTP Secret"
+msgstr "OTP secreto"
 
 msgid "OTP code"
 msgstr "Código OTP"
 
+msgid "Or"
+msgstr "O"
+
+msgid "Organization"
+msgstr "Organización"
+
+msgid "PTR Resolution"
+msgstr "Resolución PTR"
+
+msgid "PTR Resolver"
+msgstr "Resolver PTR"
+
 msgid "Password"
 msgstr "Contraseña"
+
+msgid "Password (%{password_length} characters minimum)"
+msgstr "Contraseña (mínimo%{password_length} caracteres)"
+
+msgid "Password Again "
+msgstr "Repetir contraseña "
 
 msgid "Password confirmation"
 msgstr "Confirmación de contraseña"
@@ -409,8 +493,20 @@ msgstr "El permiso se destruyó con éxito."
 msgid "Permission was successfully updated."
 msgstr "El permiso se actualizó correctamente."
 
+msgid "Phone"
+msgstr "Teléfono"
+
+msgid "Please create a password for your new account."
+msgstr "Por favor, cree una nueva contraseña para su cuenta."
+
 msgid "Please validate TOTP code !"
 msgstr "¡Por favor valida el código TOTP!"
+
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Qrcode"
+msgstr "QrCode"
 
 msgid "Queues"
 msgstr "Colas"
@@ -420,6 +516,9 @@ msgstr "Altura de rack"
 
 msgid "Rack anchor"
 msgstr "Ancla de Rack"
+
+msgid "Rack occupation management"
+msgstr "Manejo de la ocupación"
 
 msgid "Rackspace"
 msgstr "Rackspace"
@@ -442,17 +541,26 @@ msgstr "Trasero"
 msgid "Recovery codes"
 msgstr "Codigos de recuperación"
 
+msgid "Register to NetAM"
+msgstr "Registrarse en NetAM"
+
+msgid "Registrar"
+msgstr "Registrar"
+
 msgid "Release"
 msgstr "Olvidar"
 
-msgid "Requested MAC Prefix %{mac}"
-msgstr "Prefijo MAC solicitado %{mac}"
+msgid "Request"
+msgstr "Solicitud"
 
-msgid "Requirements"
-msgstr "Requisitos"
+msgid "Requested MAC Prefix"
+msgstr "Prefijo MAC solicitado"
 
-msgid "Reserved"
-msgstr "Reservado"
+msgid "Resolve"
+msgstr "Resolver"
+
+msgid "Result"
+msgstr "Resultado"
 
 msgid "Run notification on run_scan"
 msgstr "Notificar durante un escaneo"
@@ -469,14 +577,29 @@ msgstr "Escanear en cola"
 msgid "Scan complete"
 msgstr "Escaneo completo"
 
+msgid "Scan finished !"
+msgstr "¡Escaneo finalizado!"
+
 msgid "Scan in progress"
 msgstr "Escaneo en progreso"
+
+msgid "Scan type"
+msgstr "Tipo de escaneo"
 
 msgid "Scan was successfully scheduled."
 msgstr "El análisis se programó correctamente."
 
+msgid "Scanner port"
+msgstr "Puerto de escáner"
+
+msgid "Scanner type"
+msgstr "Tipo de escáner"
+
 msgid "Schedule"
 msgstr "Calendario"
+
+msgid "Search..."
+msgstr "Buscar..."
 
 msgid "Secret: %{otp_secret}"
 msgstr "Comunicación: %{otp_secret}"
@@ -493,14 +616,17 @@ msgstr "Secciones"
 msgid "Sections linked to %{name} (#%{vid})"
 msgstr "Secciones enlazadas a %{name} (#%{vid})"
 
-msgid "Setup"
-msgstr "Configurar"
-
-msgid "Setup finished"
-msgstr "Instalación terminada"
+msgid "Send me reset password instructions"
+msgstr "Envíame instrucciones para restablecer la contraseña"
 
 msgid "Sidekiq"
 msgstr "Sidekiq"
+
+msgid "Sign in to NetAM"
+msgstr "Iniciar sesión en NetAM"
+
+msgid "Sign up"
+msgstr "Regístrate"
 
 msgid "Started from"
 msgstr "Comenzó desde"
@@ -511,14 +637,17 @@ msgstr "Estado"
 msgid "State available are :"
 msgstr "El estado disponible son:"
 
+msgid "Status"
+msgstr "Estado"
+
 msgid "Subject"
 msgstr "Asunto"
 
 msgid "Subject ID"
 msgstr "Asunto ID"
 
-msgid "To enable your instance, please reboot it !"
-msgstr "Para habilitar su instancia, por favor reinicie !"
+msgid "TOTP (if enabled)"
+msgstr "TOTP (si está habilitado)"
 
 msgid "Two Factor Auth"
 msgstr "Autor de dos Factores"
@@ -532,14 +661,17 @@ msgstr "Administrador de Autenticación de Dos Factores"
 msgid "Type"
 msgstr "Tipo"
 
+msgid "URL"
+msgstr "URL"
+
 msgid "Unit"
 msgstr "Unidad"
 
 msgid "Unit height"
 msgstr "Altura de unidad"
 
-msgid "Unknown state"
-msgstr "Estado desconocido"
+msgid "Updated on"
+msgstr "Actualizado el"
 
 msgid "Usage"
 msgstr "Uso"
@@ -553,9 +685,6 @@ msgstr "El uso se destruyó con éxito."
 msgid "Usage was successfully updated."
 msgstr "El uso se actualizó correctamente."
 
-msgid "Used"
-msgstr "Usado"
-
 msgid "User Email"
 msgstr "Email de usuario"
 
@@ -568,11 +697,11 @@ msgstr "Utils"
 msgid "Validate"
 msgstr "Validate"
 
-msgid "Vendor"
-msgstr "Vendedor"
-
 msgid "View"
 msgstr "Ver"
+
+msgid "Vlan"
+msgstr "Vlan"
 
 msgid "Vlan ID"
 msgstr "ID Vlan"
@@ -588,6 +717,12 @@ msgstr "Vlan se actualizó correctamente."
 
 msgid "Vlans"
 msgstr "Vlans"
+
+msgid "Wanted subnets"
+msgstr "Subredes deseadas"
+
+msgid "Whois"
+msgstr "Whois"
 
 msgid "Worker \"default\" is not listed here. This worker manages all NetAM internal tasks as the backup."
 msgstr "El agente \"predeterminado\" no aparece aquí. Este agente gestiona todas las tareas internas de NetAM como respaldo."
@@ -610,14 +745,20 @@ msgstr "Agentes"
 msgid "YES"
 msgstr "SI"
 
-msgid "Youhou !"
-msgstr "Youhou !"
+msgid "You can skip rackspace management fields"
+msgstr "Puedes omitir los campos de administración de espacio"
+
+msgid "You forgot your password? Here you can easily retrieve a new password."
+msgstr "¿Has olvidado tu contraseña? Aquí puedes recuperar fácilmente una nueva contraseña."
 
 msgid "Your address IP is"
 msgstr "Su dirección IP es"
 
-msgid "every 24 hours"
-msgstr "cada 24 horas"
+msgid "Zip"
+msgstr "Zip"
+
+msgid "create an account"
+msgstr "crear una cuenta"
 
 msgid "is higher than Rackspace unit"
 msgstr "es mayor que la unidad Rackspace"
