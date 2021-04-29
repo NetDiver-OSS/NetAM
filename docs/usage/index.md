@@ -70,6 +70,8 @@ On the bottom, you have 3 tabs where you can see your network in a different vie
 
 ![section](img/section/section_view_matrix.png)
 
+Note: The address matrix will only be displayed for IPv4 ranges with less than 255 addresses.
+
 ### All Jobs
 
 ![section](img/section/section_view_jobs.png)
@@ -89,7 +91,7 @@ After creating your section, you will return on the section page.
 
 This is where you can see all of your vlans created with info, button for View, Edit or Delete vlan.
 
-Note : The default vlan here has been manually created.
+Note : The default vlan here has been automatically created during installation.
 
 ## Vlan view
 
@@ -119,9 +121,9 @@ Define a device. You can edit their:
 * Type (cf. [device_type](#devices_type)) of your devices
 * Rack Height
 * Depth Type
-    * Small
-    * Half
-    * Full
+    * Small : For small sized equipments only attached on one side of rack
+    * Half : For medium sized equipments
+    * Full : For full rack length sized equipments attached on both sides of rack
 * Rackspace
 * Rack anchor
 
