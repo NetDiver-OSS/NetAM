@@ -1,0 +1,34 @@
+name: Deployment image Docker [latest]
+
+on:
+  push:
+    branches:
+      - dev
+
+env:
+  IMAGE_NAME: netam
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Push image latest
+        run: |
+          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+          docker tag $IMAGE_NAME $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
+
+          echo "${{ secrets.DOCKER_HUB_SECRET }}" | docker login -u sdeu --password-stdin
+          docker tag $IMAGE_NAME netam/netam:latest
+          docker push netam/netam:latest
