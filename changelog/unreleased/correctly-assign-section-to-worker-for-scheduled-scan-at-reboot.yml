@@ -1,4 +1,0 @@
----
-type: fixed
-title: Correctly assign section to worker for scheduled scan at reboot
-merge_request: 374

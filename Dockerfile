@@ -8,7 +8,7 @@ ENV \
   SECRET_KEY_BASE=1234
 
 RUN \
-  apk add --no-cache build-base nodejs npm yarn postgresql-dev linux-headers zlib-dev tzdata &&\
+  apk add --no-cache libcurl build-base nodejs npm yarn postgresql-dev linux-headers zlib-dev tzdata &&\
   rm -rf /var/cache/apk/* &&\
   mkdir -p /app /app/config /app/log/
 
@@ -32,12 +32,14 @@ ENV \
   RAILS_LOG_TO_STDOUT=true
 
 RUN \
-  apk add --no-cache nodejs libpq ca-certificates tzdata xz-libs postgresql-client &&\
+  apk add --no-cache libcurl nodejs libpq ca-certificates tzdata xz-libs postgresql-client &&\
   rm -rf /var/cache/apk/* &&\
   mkdir -p /app
 
 COPY --from=build /usr/local/bin/gem /usr/local/bin/gem
+RUN true
 COPY --from=build /usr/local/bundle/ /usr/local/bundle/
+RUN true
 COPY --from=build /app/ /app/
 COPY docker/entrypoint.sh /entrypoint.sh
 
