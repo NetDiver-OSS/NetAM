@@ -1,4 +1,0 @@
----
-type: changed
-title: replace javascript datatable pagination with real pagination gem
-merge_request: 237
