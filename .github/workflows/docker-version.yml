@@ -1,4 +1,4 @@
-name: Deployment image Docker
+name: Deployment image Docker [version]
 
 on:
   push:
@@ -21,17 +21,15 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: Push image latest
-        run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-
-          docker tag $IMAGE_NAME $IMAGE_ID:latest
-          docker push $IMAGE_ID:latest
-
       - name: Push image version
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+
+          echo "${{ secrets.DOCKER_HUB_SECRET }}" | docker login -u sdeu --password-stdin
+          docker tag $IMAGE_NAME netam/netam:$VERSION
+          docker push netam/netam:$VERSION
