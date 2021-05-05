@@ -60,9 +60,9 @@ gem 'grape-swagger', '~> 1.4'
 gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
-gem 'sentry-rails', '4.3.4'
-gem 'sentry-ruby', '4.3.2'
-gem 'sentry-sidekiq', '4.3.0'
+gem 'sentry-rails', '4.4.0'
+gem 'sentry-ruby', '4.4.0'
+gem 'sentry-sidekiq', '4.4.0'
 
 # Logs management
 gem 'amazing_print', '1.3.0'
