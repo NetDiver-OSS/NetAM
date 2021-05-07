@@ -15,7 +15,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # HTML
 gem 'hamlit', '~> 2.15'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
-gem 'rqrcode', '~> 1.2'
+gem 'rqrcode', '~> 2.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.3.0'
 
