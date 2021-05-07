@@ -9,6 +9,8 @@ x-aliases:
     environment:
       SECRET_KEY_BASE: v1jFMms5qurpiYdw
       DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+      TYPESENSE_HOST: typesense
+      TYPESENSE_API_KEY: managementkey
       SENTRY_DSN: ''
       REDIS_HOST: redis
       DB_HOST: db
@@ -47,12 +49,10 @@ services:
   typesense:
     image: typesense/typesense:0.19.0
     restart: always
-    ports:
-      - "8108:8108"
     environment:
       TYPESENSE_DATA_DIR: /data
       TYPESENSE_API_KEY: managementkey
-      TYPESENSE_ENABLE_CORS: true
+      TYPESENSE_ENABLE_CORS: 'true'
     volumes:
       - typesense:/data
 
