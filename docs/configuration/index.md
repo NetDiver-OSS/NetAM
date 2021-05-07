@@ -78,6 +78,16 @@ All application configuration is set into `config/netam.yml`
 | -------------- | -------------------- | ----------------- |
 | slack webhook  | SLACK_WEBHOOK        | Slack webhook URL |
 
+## Typesense
+| name           | environment variable | default value | description                      |
+| -------------- | -------------------- | ------------- | -------------------------------- |
+| enabled        | TYPESENSE_ENABLED    | true          | Typesense search switch          |
+| protocol       | TYPESENSE_PROTOCOL   | http          | Typesense protocol               |
+| host           | TYPESENSE_HOST       | localhost     | Typesense hostname               |
+| port           | TYPESENSE_PORT       | 8108          | Typesense port                   |
+| api_key        | TYPESENSE_API_KEY    | managementkey | Typesense API key for management |
+
+
 ## Mail
 
 | environment variable | description       |
