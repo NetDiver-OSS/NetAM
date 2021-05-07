@@ -66,7 +66,7 @@ gem 'sentry-sidekiq', '4.4.0'
 
 # Logs management
 gem 'amazing_print', '1.3.0'
-gem 'rails_semantic_logger', '4.5.0'
+gem 'rails_semantic_logger', '4.5.1'
 
 gem 'logstash-logger', '= 0.26.1'
 gem 'net_tcp_client', '= 2.2'
