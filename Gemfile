@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
 gem 'puma', '5.2.2'
-gem 'rails', '6.1.3.1'
+gem 'rails', '6.1.3.2'
 
 # Database
 gem 'ledermann-rails-settings', '~> 2.5'
