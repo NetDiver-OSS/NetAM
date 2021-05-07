@@ -1,0 +1,4 @@
+---
+type: fixed
+title: Use right environment variable for TYPESENSE_API_KEY
+merge_request: 431
