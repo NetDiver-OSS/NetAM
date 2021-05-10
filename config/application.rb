@@ -10,8 +10,13 @@ Bundler.require(*Rails.groups)
 
 module NetAM
   class Application < Rails::Application
+    require_dependency Rails.root.join('lib/netdiver/module_register')
     require_dependency Rails.root.join('lib/netam')
     require_dependency Rails.root.join('lib/netam/translation')
+
+    Dir[Rails.root.join('lib/*/module.rb')].each do |path|
+      require_dependency path
+    end
 
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app/api/*')]

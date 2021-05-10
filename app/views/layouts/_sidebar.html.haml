@@ -15,39 +15,19 @@
               = fa_icon('solid', 'home', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
               = _('Dashboard')
 
-          %sidebar-menu{ container_class: 'space-y-1', ':opened': %w[sections vlans devices device_types rackspaces].include?(controller_name) }
-            %template.hidden{ 'v-slot:button': 'button' }
-              %button.sidebar-link{ type: 'button', 'aria-expanded': 'false' }
-                = fa_icon('solid', 'server', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
-                NetAM
-                %svg{ class: 'text-gray-300 ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150', viewBox: '0 0 20 20', 'aria-hidden': 'true' }
-                  %path{ d: 'M6 6L14 10L6 14V6Z', fill: 'currentColor' }
+          - NetDiver::ModuleLoader.load_sidebar.each do |entry|
+            %sidebar-menu{ container_class: 'space-y-1', ':opened': entry[:controllers].include?(controller_name) }
+              %template.hidden{ 'v-slot:button': 'button' }
+                %button.sidebar-link{ type: 'button', 'aria-expanded': 'false' }
+                  = fa_icon(entry[:icon][0], entry[:icon][1], class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
+                  = _(entry[:name])
+                  %svg{ class: 'text-gray-300 ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150', viewBox: '0 0 20 20', 'aria-hidden': 'true' }
+                    %path{ d: 'M6 6L14 10L6 14V6Z', fill: 'currentColor' }
 
-            %template.hidden{ 'v-slot:menu': 'menu' }
-              .space-y-1
-                = link_to _('Sections'), sections_path, class: "sidebar-sublink #{'current' if controller_name == 'sections'}"
-                = link_to _('Vlans'), vlans_path, class: "sidebar-sublink #{'current' if controller_name == 'vlans'}"
-                = link_to _('Devices'), devices_path, class: "sidebar-sublink #{'current' if controller_name == 'devices'}"
-                = link_to _('Devices Type'), device_types_path, class: "sidebar-sublink #{'current' if controller_name == 'device_types'}"
-                = link_to _('Rackspaces'), rackspaces_path, class: "sidebar-sublink #{'current' if controller_name == 'rackspaces'}"
-
-
-          %sidebar-menu{ container_class: 'space-y-1', ':opened': controller_name == 'utils' }
-            %template.hidden{ 'v-slot:button': 'button' }
-              %button.sidebar-link{ type: 'button', 'aria-expanded': 'false' }
-                = fa_icon('solid', 'tools', class_name: "mr-3 w-6 #{current_page?(root_path) ? 'text-gray-500 dark:text-gray-300' : 'text-gray-400 hover:text-gray-300'}")
-                = _('Utils')
-                %svg{ class: 'text-gray-300 ml-auto h-5 w-5 transform group-hover:text-gray-400 transition-colors ease-in-out duration-150', viewBox: '0 0 20 20', 'aria-hidden': 'true' }
-                  %path{ d: 'M6 6L14 10L6 14V6Z', fill: 'currentColor' }
-
-            %template.hidden{ 'v-slot:menu': 'menu' }
-              .space-y-1
-                = link_to _('IP Calculator'), utils_calculator_path, class: "sidebar-sublink #{'current' if current_page?(utils_calculator_path)}"
-                = link_to _('MAC Vendor'), utils_mac_vendor_path, class: "sidebar-sublink #{'current' if current_page?(utils_mac_vendor_path)}"
-                = link_to _('Network Splitter'), utils_network_splitter_path, class: "sidebar-sublink #{'current' if current_page?(utils_network_splitter_path)}"
-                = link_to _('PTR Resolver'), utils_ptr_resolution_path, class: "sidebar-sublink #{'current' if current_page?(utils_ptr_resolution_path)}"
-                = link_to _('DNS Resolver'), utils_dns_resolver_path, class: "sidebar-sublink #{'current' if current_page?(utils_dns_resolver_path)}"
-                = link_to _('Whois'), utils_whois_path, class: "sidebar-sublink #{'current' if current_page?(utils_whois_path)}"
+              %template.hidden{ 'v-slot:menu': 'menu' }
+                .space-y-1
+                  - entry[:links].each do |link|
+                    = link_to link[:name], link[:url], class: "sidebar-sublink #{'current' if current_page?(link[:url])}"
 
           - if current_user.admin?
             %sidebar-menu{ container_class: 'space-y-1', ':opened': %w[users backups workers sidekiq].include?(controller_name) }
