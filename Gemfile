@@ -83,7 +83,7 @@ group :development, :test do
   # Don't upgrade simplecov due to bug in sonarcloud !
   gem 'simplecov', '0.21.2'
 
-  gem 'factory_bot_rails', '~> 6.1'
+  gem 'factory_bot_rails', '~> 6.2'
 
   gem 'rubocop', '1.14.0'
   gem 'rubocop-performance', '~> 1.11'
