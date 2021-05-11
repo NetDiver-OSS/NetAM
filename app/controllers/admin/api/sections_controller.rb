@@ -17,24 +17,31 @@ module Admin
 
       def last_viewers(section)
         {
-          labels: [
-            _('Locked'),
-            _('Activated'),
-            _('Down'),
-            _('Free IP'),
-            _('DHCP')
-          ],
-          datasets: [
+          data: [
             {
-              label: _('Locked'),
-              backgroundColor: %w[#3B82F6 #10B981 #EF4444 #6B7280 #8B5CF6],
-              data: [
-                section.usages.locked.count,
-                section.usages.actived.count,
-                section.usages.down.count,
-                NetAM::Network::Range.new(section.network).free_ips - section.usages.where(state: 0..3).count,
-                section.usages.dhcp.count
-              ]
+              name: _('Locked'),
+              value: section.usages.locked.count,
+              itemStyle: { color: '#3B82F6' }
+            },
+            {
+              name: _('Activated'),
+              value: section.usages.actived.count,
+              itemStyle: { color: '#10B981' }
+            },
+            {
+              name: _('Down'),
+              value: section.usages.down.count,
+              itemStyle: { color: '#EF4444' }
+            },
+            {
+              name: _('Free IP'),
+              value: NetAM::Network::Range.new(section.network).free_ips - section.usages.where(state: 0..3).count,
+              itemStyle: { color: '#6B7280' }
+            },
+            {
+              name: _('DHCP'),
+              value: section.usages.dhcp.count,
+              itemStyle: { color: '#8B5CF6' }
             }
           ]
         }

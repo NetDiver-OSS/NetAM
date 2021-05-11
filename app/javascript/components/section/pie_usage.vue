@@ -1,6 +1,15 @@
 <script>
-import DoughnutChart from '../charts/pieChart'
+import * as echarts from 'echarts/core';
+import { TooltipComponent, LegendComponent } from 'echarts/components';
+import { PieChart } from 'echarts/charts';
+import { CanvasRenderer } from 'echarts/renderers';
+
+echarts.use(
+  [TooltipComponent, LegendComponent, PieChart, CanvasRenderer]
+);
+
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default {
   props: {
@@ -9,47 +18,58 @@ export default {
       required: true
     }
   },
-  components: { DoughnutChart },
-  data: () => ({
-    loaded: false,
-    chartdata: null,
-    options: {
-      legend: {
-        labels: {
-          fontColor: "#6B7280"
+  mounted() {
+    axios.get(`/admin/api/sections/${this.id}`).then((response) => {
+      const option = {
+        darkMode: Cookies.get('theme') === 'dark',
+        tooltip: {
+          trigger: 'item'
         },
-        position: "right"
-      },
-      tooltips: {
-        mode: "index",
-        intersect: false
-      },
-      hover: {
-        mode: "nearest",
-        intersect: true
-      }
-    }
-  }),
-  async mounted () {
-    axios.get('/admin/api/sections/' + this.id).then((response) => {
-      this.chartdata = response.data
-      this.loaded = true
+        legend: {
+          top: '5%',
+          left: 'center',
+          textStyle: {
+            color: Cookies.get('theme') === 'dark' ? '#B9B8CE' : '#737382'
+          }
+        },
+        series: [
+          {
+            name: `Section ${this.id}`,
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderWidth: 2
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '26'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data: response.data.data
+          }
+        ]
+      };
+
+      const myChart = echarts.init(this.$refs.chart);
+      myChart.setOption(option);
+
     }).catch((e) => {
       console.error(e)
     })
-  },
-  computed: {
-    styles () {
-      return {
-        height: '350px',
-        width: '350px',
-        margin: '-50px'
-      }
-    }
   }
 }
 </script>
 
 <template>
-  <doughnut-chart v-if="loaded" :chartdata="chartdata" :options="options" :styles="styles"/>
+  <div ref="chart" style="height: 350px; width: 350px" />
 </template>
