@@ -2,7 +2,12 @@
   %div{ class: 'flex flex-col w-64' }
     %div{ class: 'flex flex-col flex-grow border-r border-gray-200 dark:border-gray-600 pt-5 pb-4 bg-white dark:bg-gray-700 overflow-y-auto' }
       %div{ class: 'flex items-center justify-center flex-shrink-0 px-4' }
-        = link_to 'NetAM', root_path, class: 'text-gray-700 dark:text-gray-100 text-2xl font-semibold'
+        %span{ class: 'text-gray-700 dark:text-gray-100 text-2xl font-semibold' }
+          - if Rails.configuration.netam.dig(:app, :name).present?
+            = Rails.configuration.netam.dig(:app, :name)
+            %small{ class: 'text-xs align-top' } with NetAM
+          - else
+            NetAM
       %div{ class: 'mt-5 flex-grow flex flex-col' }
         %nav{ class: 'flex-1 px-2 bg-white dark:bg-gray-700 space-y-1' }
           %div

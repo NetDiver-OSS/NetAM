@@ -6,8 +6,13 @@ All application configuration is set into `config/netam.yml`
 
 # Environment variables
 
-## Authentication
+## Application
+| name       | environment variable  | description                    |
+| ---------- | --------------------- | ------------------------------ |
+| name       | APP_NAME              | Override application name      |
 
+
+## Authentication
 ### LDAP
 
 | name       | environment variable  | default value              | description                    |
