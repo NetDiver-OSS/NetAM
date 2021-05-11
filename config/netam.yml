@@ -1,5 +1,8 @@
 ---
 default: &default
+  app:
+    name: <%= ENV.fetch("APP_NAME") { nil } %>
+
   auth:
     default_account_email: <%= ENV.fetch("AUTH_DEFAULT_ACCOUNT_EMAIL") { 'manager@netam.local' } %>
     ldap:
