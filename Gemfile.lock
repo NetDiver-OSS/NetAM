@@ -408,8 +408,8 @@ GEM
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.4)
-    ruby_parser (3.15.1)
-      sexp_processor (~> 4.9)
+    ruby_parser (3.16.0)
+      sexp_processor (~> 4.15, >= 4.15.1)
     rubyntlm (0.6.3)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -442,7 +442,7 @@ GEM
       faraday
     sentry-sidekiq (4.4.0)
       sentry-ruby-core (~> 4.4.0.pre.beta)
-    sexp_processor (4.15.2)
+    sexp_processor (4.15.3)
     sidekiq (6.2.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -570,7 +570,7 @@ DEPENDENCIES
   rubocop-performance (~> 1.11)
   rubocop-rails (~> 2.9)
   rubocop-rspec (~> 2.3)
-  ruby_parser (~> 3.15)
+  ruby_parser (~> 3.16)
   sass-rails (>= 6)
   selenium-webdriver
   sentry-rails (= 4.4.0)
