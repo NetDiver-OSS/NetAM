@@ -17,7 +17,7 @@ gem 'hamlit', '~> 2.15'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'rqrcode', '~> 2.0'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.3.0'
+gem 'webpacker', '~> 5.4.0'
 
 # Search engine
 gem 'typesense', '0.12.0'
