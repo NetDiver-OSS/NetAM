@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
-gem 'puma', '5.3.1'
+gem 'puma', '5.3.2'
 gem 'rails', '6.1.3.2'
 
 # Database
@@ -17,7 +17,7 @@ gem 'hamlit', '~> 2.15'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'rqrcode', '~> 2.0'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.3.0'
+gem 'webpacker', '~> 5.4.0'
 
 # Search engine
 gem 'typesense', '0.12.0'
@@ -27,7 +27,7 @@ gem 'gettext', '~> 3.3', require: false, group: :development
 gem 'gettext_i18n_rails', '~> 1.8.1'
 gem 'gettext_i18n_rails_js', '~> 1.3'
 gem 'rails-i18n', '~> 6.0'
-gem 'ruby_parser', '~> 3.15', require: false
+gem 'ruby_parser', '~> 3.16', require: false
 
 # Rails Delayed Jobs
 gem 'sidekiq', '6.2.1'
@@ -60,9 +60,9 @@ gem 'grape-swagger', '~> 1.4'
 gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
-gem 'sentry-rails', '4.4.0'
-gem 'sentry-ruby', '4.4.2'
-gem 'sentry-sidekiq', '4.4.0'
+gem 'sentry-rails', '4.5.1'
+gem 'sentry-ruby', '4.5.1'
+gem 'sentry-sidekiq', '4.5.1'
 
 # Logs management
 gem 'amazing_print', '1.3.0'
@@ -85,10 +85,10 @@ group :development, :test do
 
   gem 'factory_bot_rails', '~> 6.2'
 
-  gem 'rubocop', '1.14.0'
+  gem 'rubocop', '1.16.1'
   gem 'rubocop-performance', '~> 1.11'
   gem 'rubocop-rails', '~> 2.9'
-  gem 'rubocop-rspec', '~> 2.3'
+  gem 'rubocop-rspec', '~> 2.4'
 
   gem 'haml_lint', '~> 0.37.0', require: false
 end

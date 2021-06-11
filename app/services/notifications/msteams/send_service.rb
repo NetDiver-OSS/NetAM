@@ -15,8 +15,8 @@ module Notifications
 
       def payload
         {
-          "@type": 'MessageCard',
-          "@context": 'http://schema.org/extensions',
+          '@type': 'MessageCard',
+          '@context': 'http://schema.org/extensions',
           summary: 'NetAM Notif',
           themeColor: '118811',
           title: 'Notification from NetAM',
