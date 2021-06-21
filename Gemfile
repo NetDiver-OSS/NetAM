@@ -38,7 +38,7 @@ gem 'redis', '~> 4.2'
 gem 'redis-rack-cache'
 
 # Authentification
-gem 'cancancan', '~> 3.2'
+gem 'cancancan', '~> 3.3'
 gem 'devise', '~> 4.8'
 gem 'devise-i18n', '~> 1.9'
 gem 'devise-two-factor', '~> 4.0'
