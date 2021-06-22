@@ -40,7 +40,7 @@ gem 'redis-rack-cache'
 # Authentification
 gem 'cancancan', '~> 3.2'
 gem 'devise', '~> 4.8'
-gem 'devise-i18n', '~> 1.9'
+gem 'devise-i18n', '~> 1.10'
 gem 'devise-two-factor', '~> 4.0'
 gem 'doorkeeper', '~> 5.5'
 gem 'omniauth-ldap', '~> 2.0'
