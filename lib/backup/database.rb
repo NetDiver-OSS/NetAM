@@ -12,7 +12,7 @@ module Backup
         host: 'PGHOST',
         port: 'PGPORT',
         password: 'PGPASSWORD'
-      }.each { |opt, arg| ENV[arg] = config[opt.to_s].to_s if config[opt.to_s] } # rubocop:disable Rails/EnvironmentVariableAccess
+      }.each { |opt, arg| ENV[arg] = config[opt.to_s].to_s if config[opt.to_s] }
     end
 
     def dump
