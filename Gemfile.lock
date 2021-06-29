@@ -450,7 +450,7 @@ GEM
     sentry-ruby-core (4.5.1)
       concurrent-ruby
       faraday
-    sentry-sidekiq (4.5.1)
+    sentry-sidekiq (4.5.2)
       sentry-ruby-core (~> 4.5.0)
     sexp_processor (4.15.3)
     sidekiq (6.2.1)
@@ -585,7 +585,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails (= 4.5.2)
   sentry-ruby (= 4.5.1)
-  sentry-sidekiq (= 4.5.1)
+  sentry-sidekiq (= 4.5.2)
   sidekiq (= 6.2.1)
   sidekiq-cron (= 1.2)
   sidekiq-status (= 2.0.0)
