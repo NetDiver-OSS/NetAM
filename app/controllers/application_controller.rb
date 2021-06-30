@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-    @master_node = {
+    @main_node = {
       cpu: Vmstat.cpu,
       memory: Vmstat.memory,
       load_average: Vmstat.load_average,
