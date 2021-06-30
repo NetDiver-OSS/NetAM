@@ -65,7 +65,7 @@ class DeviceTypesController < ApplicationController
     @device_type = DeviceType.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
+  # Only allow a trusted parameter
   def device_type_params
     params.require(:device_type).permit(:name, :color)
   end

@@ -8,6 +8,10 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   NewCops: enable
 
+Naming/InclusiveLanguage:
+  Exclude:
+    - config/**/*.rb
+
 Style/FormatStringToken:
   EnforcedStyle: template
 

@@ -78,7 +78,7 @@ class RackspacesController < ApplicationController
     @permissions = Permission.where(subject_class: 'Rackspace', subject_id: @rackspace.id)
   end
 
-  # Only allow a trusted parameter "white list" through.
+  # Only allow a trusted parameter
   def rackspace_params
     params.require(:rackspace).permit(:name, :unit_height, :location)
   end
