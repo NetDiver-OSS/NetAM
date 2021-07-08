@@ -460,7 +460,7 @@ GEM
     sidekiq-cron (1.2.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
-    sidekiq-status (2.0.1)
+    sidekiq-status (2.0.2)
       chronic_duration
       sidekiq (>= 5.0)
     simplecov (0.21.2)
@@ -588,7 +588,7 @@ DEPENDENCIES
   sentry-sidekiq (= 4.5.2)
   sidekiq (= 6.2.1)
   sidekiq-cron (= 1.2)
-  sidekiq-status (= 2.0.1)
+  sidekiq-status (= 2.0.2)
   simplecov (= 0.21.2)
   spring
   spring-watcher-listen (~> 2.0.0)
