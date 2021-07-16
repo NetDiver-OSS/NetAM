@@ -18,6 +18,7 @@
 # end
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'NetDiver'
   inflect.acronym 'NetAM'
   inflect.acronym 'API'
   inflect.acronym 'IP'
