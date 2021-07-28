@@ -360,7 +360,7 @@ GEM
       csv (>= 3.0.5)
       rexml
       rubyzip
-    redis (4.3.1)
+    redis (4.4.0)
     redis-rack-cache (2.2.1)
       rack-cache (>= 1.10, < 2)
       redis-store (>= 1.6, < 2)
@@ -571,7 +571,7 @@ DEPENDENCIES
   rails (= 6.1.4)
   rails-i18n (~> 6.0)
   rails_semantic_logger (= 4.6.0)
-  redis (~> 4.3)
+  redis (~> 4.4)
   redis-rack-cache
   rqrcode (~> 2.0)
   rspec-rails (~> 5.0)
