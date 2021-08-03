@@ -1,4 +1,4 @@
-FROM ruby:3.0.1-alpine as build
+FROM ruby:3.0.2-alpine as build
 WORKDIR /app
 
 ENV \
@@ -21,7 +21,7 @@ RUN \
   bin/rails assets:precompile
 
 
-FROM ruby:3.0.1-alpine
+FROM ruby:3.0.2-alpine
 WORKDIR /app
 
 ENV \
