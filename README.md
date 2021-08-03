@@ -12,7 +12,9 @@
 [![Crowdin](https://badges.crowdin.net/netam/localized.svg)](https://crowdin.com/project/netam)
 
 ## Join Us
-[![Slack](https://cdn.brandfolder.io/5H442O3W/at/pl546j-7le8zk-btwjnu/Slack_RGB.png?height=205&width=500)](https://join.slack.com/t/netcore-oss/shared_invite/zt-p0jkj2qo-cnvwVXJrx659D2upP_iXDg)
+
+You could join us onto our slack channel :  
+[![Slack](https://cdn.brandfolder.io/5H442O3W/at/pl546j-7le8zk-btwjnu/Slack_RGB.png?height=30)](https://join.slack.com/t/netcore-oss/shared_invite/zt-p0jkj2qo-cnvwVXJrx659D2upP_iXDg)
 
 ## Indroduction
 
@@ -41,19 +43,6 @@ Core product is developed in ruby on rails and is fully designed to run in Docke
 NetAM usage documented [here](https://docs.netam.site/)
 
 ## Usage
-
-### Demo / test
-
-1. Clone this repository : `git clone https://git.app.svk.gs/development/netam.git`
-2. Startup docker containers : `cd netam && docker-compose up -d redis redis-commander db`
-3. Perform gems and node module installation : `bundle install && yarn`
-4. Perform database init : `rake db:migrate`
-5. Update configuration file (`config/netam.yml`) or use environment variables with your requirements or use environment variables described [here](https://docs.netam.site)
-6. Start rails server : `rails s --environment=development`
-7. Connect to interface : `http://localhost:3000`
-8. Setup local administrator
-9. Restart rails server
-10. Enjoy ! 
 
 ### Production
 
