@@ -1,4 +1,0 @@
----
-type: fixed
-title: delete vue-fragment who cause Node insert failure on get_ip component
-merge_request: 531
