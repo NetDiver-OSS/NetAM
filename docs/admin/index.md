@@ -1,12 +1,12 @@
 # Administration guide
-In this guide we will see how to administrate the NetAM stack
+In this guide we will see how to administrate the NetDiver stack
 
 ## Users
 In Admin Center you have the capability to create, edit or remove users.
 
 ![Users](images/users.png)
 
-When you are on the user page, you can also see its permissions on different NetAM module. 
+When you are on the user page, you can also see its permissions on different NetDiver module. 
 
 ![User permission](images/user-permission.png)
 
@@ -18,16 +18,16 @@ You can launch a database backup directly from the interface.
 ## Workers
 To allow you to split load between multiple workers, we provide a worker registration space.
 
-The default worker is installed on the same host as NetAM manager and cannot be managed, it is used only for internal tasks.
+The default worker is installed on the same host as NetDiver manager and cannot be managed, it is used only for internal tasks.
 
 ![Workers](images/workers.png)
 
-### How to add worker to NetAM
+### How to add worker to NetDiver
 When you have created your worker with their name, and their affected section, you can launch it.
 
 ![Worker](images/worker-add.png)
 
-To start your new NetAM worker, you can use [docker-compose](https://github.com/NetaM-OSC/NetAM/blob/dev/docker-compose.worker.yml) located on GitHub.
+To start your new NetDiver worker, you can use [docker-compose](https://github.com/NetDiver/NetDiver/blob/dev/docker-compose.worker.yml) located on GitHub.
 ```yaml
 version: '3.7'
 
@@ -36,13 +36,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: netam/netam
+    image: netdiver/netdiver
     environment:
       SECRET_KEY_BASE: v1jFMms5qurpiYdw
       SENTRY_DSN: ''
       REDIS_HOST: 10.0.0.10
       DB_HOST: 10.0.0.10
-      DB_NAME: netam
+      DB_NAME: netdiver
       DB_USER: admin
       DB_PASS: _PASSWORD_
     restart: always
@@ -57,7 +57,7 @@ If you are an advanced user of Sidekiq, you have direct access to Sidekiq dashbo
 
 ## Stack management
 ### Upgrade stack
-After you have installed the NetAM stack, you can update with two commands:
+After you have installed the NetDiver stack, you can update with two commands:
 
 ```shell
 docker-compose pull 

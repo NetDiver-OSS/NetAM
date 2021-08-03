@@ -33,7 +33,7 @@ On the center, you will have all the information of :
 
 On the top right, you can change the theme (light / dark), change your language and user settings.
 
-On the left, you have all the tools proposed by NetAM.
+On the left, you have all the tools proposed by NetDiver.
 
 # Section
 ---------

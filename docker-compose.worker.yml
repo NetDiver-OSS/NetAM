@@ -5,13 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: netam/netam
+    image: netdiver/netdiver
     environment:
       SECRET_KEY_BASE: v1jFMms5qurpiYdw
       SENTRY_DSN: ''
       REDIS_HOST: 10.0.0.10
       DB_HOST: 10.0.0.10
-      DB_NAME: netam
+      DB_NAME: netdiver
       DB_USER: admin
       DB_PASS: _PASSWORD_
     restart: always

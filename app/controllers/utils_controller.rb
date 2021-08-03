@@ -2,7 +2,7 @@
 
 class UtilsController < ApplicationController
   def calculator
-    @address = NetAM::Utils::IPCalculator.new(params[:ip], params[:subnet].to_i) rescue nil
+    @address = NetDiver::Utils::IPCalculator.new(params[:ip], params[:subnet].to_i) rescue nil
   end
 
   def mac_vendor
@@ -17,13 +17,13 @@ class UtilsController < ApplicationController
   end
 
   def ptr_resolution
-    @ptr_resolutions = NetAM::Network::Dns.reverse_dns(params[:address]) rescue nil
+    @ptr_resolutions = NetDiver::Network::Dns.reverse_dns(params[:address]) rescue nil
   end
 
   def dns_resolver
     return if params[:entry].nil? || params[:type].nil?
 
-    @dns_resolutions = NetAM::Network::Dns.resolution(params[:entry], params[:type]) rescue nil
+    @dns_resolutions = NetDiver::Network::Dns.resolution(params[:entry], params[:type]) rescue nil
   end
 
   def whois

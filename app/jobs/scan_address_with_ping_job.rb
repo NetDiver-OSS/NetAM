@@ -16,7 +16,7 @@ class ScanAddressWithPingJob < ApplicationJob
       return
     end
 
-    ping = NetAM::Scanner::Ping.new(args[0][:ip_used].to_s).scan!
+    ping = NetDiver::Scanner::Ping.new(args[0][:ip_used].to_s).scan!
 
     Sidekiq.logger.info "IP #{args[0][:ip_used]} is #{ping ? 'active' : 'inactive'}"
 

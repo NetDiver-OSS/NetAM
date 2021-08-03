@@ -6,7 +6,7 @@
 
     %div{ class: 'col-span-7 sm:col-span-3' }
       = form.label :subnet, _('Hosts per Subnet'), class: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
-      = form.select :subnet, NetAM::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, { selected: params[:subnet].to_i }, { class: 'input' }
+      = form.select :subnet, NetDiver::Utils::IPCalculator::PREFIX_TO_HOSTS_AVAILABLE, { selected: params[:subnet].to_i }, { class: 'input' }
 
     %div{ class: 'col-span-7 sm:col-span-1 flex items-center justify-center sm:mt-5' }
       = form.button _('Calculate'), class: 'w-full rounded-md border border-transparent shadow px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm'

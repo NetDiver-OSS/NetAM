@@ -1,6 +1,6 @@
 # Architecture documentation
 
-Actual NetAM architecture is similar to monolithic pattern. 
+Actual NetDiver architecture is similar to monolithic pattern. 
 We have two services (control node and worker node) around two databases (Redis and PostgreSQL).
 
 For the moment these two services contacts the twice databases. 
@@ -23,10 +23,10 @@ At the end of the scan Sidekiq sends all datas to PostgreSQL database.
 
 ## Databases
 ### PostgreSQL
-PostgreSQL database was used to store permanently all datas of NetAM.
+PostgreSQL database was used to store permanently all datas of NetDiver.
 We use it to store and link section, vlan and usages.
 In addition, PostgreSQL was also used to store permissions and users information.
 
 ### Redis
-In NetAM use Redis database only for Sidekiq usage.
+In NetDiver use Redis database only for Sidekiq usage.
 This database give to sidekiq an ability to retry, order and queue jobs.

@@ -1,12 +1,12 @@
 # API documentation
 
 All API except token generation are automatically documented directly inside application throught swagger.  
-Internal documentation is accessible throught the url `http://<netam_host>/docs` when you're logged in.
+Internal documentation is accessible throught the url `http://<netdiver_host>/docs` when you're logged in.
 
 ## Get token
 
-NetAM use oauth mechanism to provide tokens.  
-To request token, you must send POST request to endpoint `http://<netam_host>/oauth/token` and fill form datas :
+NetDiver use oauth mechanism to provide tokens.  
+To request token, you must send POST request to endpoint `http://<netdiver_host>/oauth/token` and fill form datas :
 
 - username : <mail_address\>
 - password : <associated_password\>
@@ -48,7 +48,7 @@ You could retrieve a list of all sections you was granted in software.
 | Type   | Value                                 |
 | ------ | ------------------------------------- |
 | Method | GET                                   |
-| URL    | http://<netam_server\>/api/v1/sections |
+| URL    | http://<netdiver_server\>/api/v1/sections |
 
 #### Request answer
 
@@ -75,7 +75,7 @@ You could retrieve a list of all sections you was granted in software.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/sections' \
+     -XGET 'http://<netdiver_host>/api/v1/sections' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -86,7 +86,7 @@ You could create sections through API if account as required ability.
 | Type   | Value                                 |
 | ------ | ------------------------------------- |
 | Method | POST                                  |
-| URL    | http://<netam_server\>/api/v1/sections |
+| URL    | http://<netdiver_server\>/api/v1/sections |
 
 #### Request answer
 
@@ -104,7 +104,7 @@ You could create sections through API if account as required ability.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/sections' \
+     -XGET 'http://<netdiver_host>/api/v1/sections' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
      -d '{
        "id": 3,
@@ -122,7 +122,7 @@ You could retrieve details of specific section.
 | Type   | Value                                                |
 | ------ | ---------------------------------------------------- |
 | Method | GET                                                  |
-| URL    | http://<netam_server\>/api/v1/sections/<section_id\> |
+| URL    | http://<netdiver_server\>/api/v1/sections/<section_id\> |
 
 #### Request answer
 
@@ -142,7 +142,7 @@ You could retrieve details of specific section.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/sections/1' \
+     -XGET 'http://<netdiver_host>/api/v1/sections/1' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -153,7 +153,7 @@ You could launch section scan.
 | Type   | Value                                                     |
 | ------ | --------------------------------------------------------- |
 | Method | POST                                                      |
-| URL    | http://<netam_server\>/api/v1/sections/<section_id\>/scan |
+| URL    | http://<netdiver_server\>/api/v1/sections/<section_id\>/scan |
 
 #### Request answer
 
@@ -167,7 +167,7 @@ You could launch section scan.
 
 ```bash
 curl --location \
-     -XPOST 'http://<netam_host>/api/v1/sections/1/scan' \
+     -XPOST 'http://<netdiver_host>/api/v1/sections/1/scan' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -178,7 +178,7 @@ You could perform section csv export.
 | Type   | Value                                                       |
 | ------ | ----------------------------------------------------------- |
 | Method | GET                                                         |
-| URL    | http://<netam_server\>/api/v1/sections/<section_id\>/export |
+| URL    | http://<netdiver_server\>/api/v1/sections/<section_id\>/export |
 
 #### Request answer
 
@@ -193,7 +193,7 @@ ID,Section,Address,FQDN,Description,State
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/sections/1/export' \
+     -XGET 'http://<netdiver_host>/api/v1/sections/1/export' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -204,7 +204,7 @@ You could get section usage.
 | Type   | Value                                                       |
 | ------ | ----------------------------------------------------------- |
 | Method | GET                                                         |
-| URL    | http://<netam_server\>/api/v1/sections/<section_id\>/usages |
+| URL    | http://<netdiver_server\>/api/v1/sections/<section_id\>/usages |
 
 #### Request answer
 
@@ -232,7 +232,7 @@ You could get section usage.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/sections/1/usages' \
+     -XGET 'http://<netdiver_host>/api/v1/sections/1/usages' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -243,7 +243,7 @@ You could create section usage.
 | Type   | Value                                                       |
 | ------ | ----------------------------------------------------------- |
 | Method | POST                                                        |
-| URL    | http://<netam_server\>/api/v1/sections/<section_id\>/usages |
+| URL    | http://<netdiver_server\>/api/v1/sections/<section_id\>/usages |
 
 #### Request answer
 
@@ -261,7 +261,7 @@ You could create section usage.
 
 ```bash
 curl --location \
-     -XPOST 'http://<netam_host>/api/v1/sections/1/usages' \
+     -XPOST 'http://<netdiver_host>/api/v1/sections/1/usages' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
      -d '{
        "ip_used": "127.0.0.1",
@@ -277,7 +277,7 @@ You could create section usage.
 | Type   | Value                                                           |
 | ------ | --------------------------------------------------------------- |
 | Method | POST                                                            |
-| URL    | http://<netam_server\>/api/v1/sections/<section_id\>/request_ip |
+| URL    | http://<netdiver_server\>/api/v1/sections/<section_id\>/request_ip |
 
 #### Request answer
 
@@ -295,7 +295,7 @@ You could create section usage.
 
 ```bash
 curl --location \
-     -XPOST 'http://<netam_host>/api/v1/sections/1/request_ip' \
+     -XPOST 'http://<netdiver_host>/api/v1/sections/1/request_ip' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -309,7 +309,7 @@ You could retrieve a list of all vlans you was granted in software.
 | Type   | Value                                  |
 | ------ | -------------------------------------- |
 | Method | GET                                    |
-| URL    | http://<netam_server\>/api/v1/vlans    | 
+| URL    | http://<netdiver_server\>/api/v1/vlans    | 
 
 #### Request answer
 
@@ -328,7 +328,7 @@ You could retrieve a list of all vlans you was granted in software.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/vlans' \
+     -XGET 'http://<netdiver_host>/api/v1/vlans' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -339,7 +339,7 @@ You could retrieve a list of all vlans you was granted in software.
 | Type   | Value                                  |
 | ------ | -------------------------------------- |
 | Method | GET                                    |
-| URL    | http://<netam_server\>/api/v1/vlans/1  | 
+| URL    | http://<netdiver_server\>/api/v1/vlans/1  | 
 
 #### Request answer
 
@@ -356,7 +356,7 @@ You could retrieve a list of all vlans you was granted in software.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/vlans/1' \
+     -XGET 'http://<netdiver_host>/api/v1/vlans/1' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
 ```
 
@@ -367,7 +367,7 @@ You could create sections through API if account as required ability.
 | Type   | Value                                  |
 | ------ | -------------------------------------- |
 | Method | POST                                   |
-| URL    | http://<netam_server\>/api/v1/vlans    |
+| URL    | http://<netdiver_server\>/api/v1/vlans    |
 
 #### Request answer
 
@@ -384,7 +384,7 @@ You could create sections through API if account as required ability.
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/vlans' \
+     -XGET 'http://<netdiver_host>/api/v1/vlans' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
      -d '{
        "vid": 3,
@@ -402,7 +402,7 @@ You could list backups through API if account as required ability
 | Type   | Value                                  |
 | ------ | -------------------------------------- |
 | Method | GET                                    |
-| URL    | http://<netam_server\>/api/v1/backups  |
+| URL    | http://<netdiver_server\>/api/v1/backups  |
 
 #### Request answer
 
@@ -419,7 +419,7 @@ You could list backups through API if account as required ability
 
 ```bash
 curl --location \
-     -XGET 'http://<netam_host>/api/v1/backups' \
+     -XGET 'http://<netdiver_host>/api/v1/backups' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
 ```
 
@@ -430,7 +430,7 @@ You could create backups through API if account as required ability
 | Type   | Value                                  |
 | ------ | -------------------------------------- |
 | Method | POST                                   |
-| URL    | http://<netam_server\>/api/v1/backups  |
+| URL    | http://<netdiver_server\>/api/v1/backups  |
 
 #### Request answer
 
@@ -442,6 +442,6 @@ You could create backups through API if account as required ability
 
 ```bash
 curl --location \
-     -XPOST 'http://<netam_host>/api/v1/backups' \
+     -XPOST 'http://<netdiver_host>/api/v1/backups' \
      --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
 ```

@@ -484,5 +484,5 @@ Doorkeeper.configure do
   # like nginx to forbid the request.
 
   # WWW-Authenticate Realm (default: "Doorkeeper").
-  realm 'NetAM'
+  realm 'NetDiver'
 end

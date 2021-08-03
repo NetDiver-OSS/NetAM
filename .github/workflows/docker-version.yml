@@ -6,7 +6,7 @@ on:
       - '*'
 
 env:
-  IMAGE_NAME: netam
+  IMAGE_NAME: netdiver
 
 jobs:
   push:
@@ -31,5 +31,5 @@ jobs:
           docker push $IMAGE_ID:$VERSION
 
           echo "${{ secrets.DOCKER_HUB_SECRET }}" | docker login -u sdeu --password-stdin
-          docker tag $IMAGE_NAME netam/netam:$VERSION
-          docker push netam/netam:$VERSION
+          docker tag $IMAGE_NAME netdiver/netdiver:$VERSION
+          docker push netdiver/netdiver:$VERSION

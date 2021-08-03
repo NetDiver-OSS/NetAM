@@ -22,7 +22,7 @@ class ScanNetworkWorker
 
     @section_usage = Usage.where(section_id: section[:id]).select(:ip_used, :state, :fqdn).to_a
 
-    Parallel.each(section[:network].to_range, in_threads: Rails.configuration.netam[:sidekiq][:parallel]) do |address|
+    Parallel.each(section[:network].to_range, in_threads: Rails.configuration.netdiver[:sidekiq][:parallel]) do |address|
       current_usage = { ip_used: address.to_s, section_id: section[:id] }
       usage = {
         state: @section_usage.filter_map { |entry| entry.state if entry.ip_used.to_s == address.to_s },
@@ -35,14 +35,14 @@ class ScanNetworkWorker
       end
 
       scanner = {
-        ping: "NetAM::Scanner::#{section[:scan_type].to_s.titleize.delete(' ')}".constantize.new(address.to_s, Section.find(section[:id]).settings(:scanner).port).scan!
+        ping: "NetDiver::Scanner::#{section[:scan_type].to_s.titleize.delete(' ')}".constantize.new(address.to_s, Section.find(section[:id]).settings(:scanner).port).scan!
       }
 
       if scanner[:ping]
         Sidekiq.logger.info usage[:state].count.positive? ? "Known active IP: #{address}" : "Found new active IP: #{address}"
 
         current_usage[:state] = :actived
-        scanner[:reverse] = NetAM::Network::Dns.reverse_dns(address)
+        scanner[:reverse] = NetDiver::Network::Dns.reverse_dns(address)
 
         unless scanner[:reverse].nil?
           Sidekiq.logger.info "Found PTR for IP #{address}: #{scanner[:reverse]}"

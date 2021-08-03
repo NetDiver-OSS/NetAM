@@ -21,14 +21,14 @@ class SectionsController < ApplicationController
     @ip_down = @section.usages.down.count
     @ip_dhcp = @section.usages.dhcp.count
 
-    @ip_free = NetAM::Network::Range.new(@section.network).free_ips - @section.usages.where(state: 0..3).count
+    @ip_free = NetDiver::Network::Range.new(@section.network).free_ips - @section.usages.where(state: 0..3).count
   end
 
   # POST /sections/1/scan
   def scan
     @section = Section.find(params[:section_id])
 
-    job_id = NetAM::ScannerLauncher.new('ScanNetworkWorker').run(@section.id, @section.network)
+    job_id = NetDiver::ScannerLauncher.new('ScanNetworkWorker').run(@section.id, @section.network)
 
     redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
   end
@@ -51,7 +51,7 @@ class SectionsController < ApplicationController
       @section.settings(:notification).update!(on_run: @section.notification_run_scan == '1')
       @section.settings(:scanner).update!(port: @section.scanner_port)
 
-      job_id = NetAM::ScannerLauncher.new('ScanNetworkWorker').run(@section.id, @section.network) if @section.run_scan == '1'
+      job_id = NetDiver::ScannerLauncher.new('ScanNetworkWorker').run(@section.id, @section.network) if @section.run_scan == '1'
       redirect_to section_path(@section, scan_id: job_id), notice: 'Scan was successfully scheduled.'
     else
       render :new

@@ -8,11 +8,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module NetAM
+module NetDiver
   class Application < Rails::Application
     require_dependency Rails.root.join('lib/netdiver/module_register')
-    require_dependency Rails.root.join('lib/netam')
-    require_dependency Rails.root.join('lib/netam/translation')
+    require_dependency Rails.root.join('lib/netdiver')
+    require_dependency Rails.root.join('lib/netdiver/translation')
 
     Dir[Rails.root.join('lib/*/module.rb')].each do |path|
       require_dependency path
@@ -22,7 +22,7 @@ module NetAM
     config.autoload_paths += Dir[Rails.root.join('app/api/*')]
 
     # Load custom configuration file
-    config.netam = config_for(:netam)
+    config.netdiver = config_for(:netdiver)
 
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq

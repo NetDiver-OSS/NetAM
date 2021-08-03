@@ -8,7 +8,7 @@
      </button>
   %div{ class: 'flex-1 px-4 flex justify-between' }
     %div{ class: 'flex-1 flex' }
-      - if Rails.configuration.netam.dig(:typesense, :enabled)
+      - if Rails.configuration.netdiver.dig(:typesense, :enabled)
         %form{ class: 'w-full flex md:ml-0' }
           %label.sr-only{ for: 'search_field' } Search
           %div{ class: 'relative self-center w-full text-gray-400 focus-within:text-gray-600' }
@@ -27,7 +27,7 @@
 
         %template.hidden{ 'v-slot:menu': 'menu' }
           %div{ class: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow py-1 bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5' }
-            - NetAM::Translation::AVAILABLE_LOCALE.each do |code, name|
+            - NetDiver::Translation::AVAILABLE_LOCALE.each do |code, name|
               %a.dropdown-item{ class: 'block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-500', href: url_for({ locale: code }) }
                 %i.flag-icon.mr-2{ class: "flag-icon-#{code}" }
                 = _(name)

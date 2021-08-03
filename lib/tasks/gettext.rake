@@ -11,16 +11,16 @@ namespace :gettext do
     Dir.glob("{#{folders}}/**/*.{#{exts}}")
   end
 
-  desc 'Regenerate netam.pot file'
+  desc 'Regenerate netdiver.pot file'
   task :regenerate do
-    pot_file = 'locale/netam.pot'
+    pot_file = 'locale/netdiver.pot'
     FileUtils.rm_f pot_file
 
     Rake::Task['gettext:find'].invoke
 
     # leave only the required changes.
-    unless system('git', '-c', 'core.hooksPath=/dev/null', 'checkout', '--', 'locale/*/netam.po') # rubocop:disable Style/IfUnlessModifier
-      raise 'failed to cleanup generated locale/*/netam.po files'
+    unless system('git', '-c', 'core.hooksPath=/dev/null', 'checkout', '--', 'locale/*/netdiver.po') # rubocop:disable Style/IfUnlessModifier
+      raise 'failed to cleanup generated locale/*/netdiver.po files'
     end
 
     # Remove timestamps from the pot file

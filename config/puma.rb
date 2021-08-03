@@ -6,13 +6,13 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum; this matches the default thread size of Active Record.
 #
-max_threads_count = Rails.configuration.netam[:puma][:max_thread]
-min_threads_count = Rails.configuration.netam[:puma][:min_thread]
+max_threads_count = Rails.configuration.netdiver[:puma][:max_thread]
+min_threads_count = Rails.configuration.netdiver[:puma][:min_thread]
 threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        Rails.configuration.netam[:puma][:port]
+port        Rails.configuration.netdiver[:puma][:port]
 
 # Specifies the `environment` that Puma will run in.
 #

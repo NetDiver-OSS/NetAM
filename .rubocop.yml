@@ -28,7 +28,7 @@ Style/SpecialGlobalVars:
 # rubocop-rspec
 RSpec/FilePath:
   CustomTransform:
-    NetAM: netam
+    NetDiver: netdiver
 
 Rails/ContentTag:
   Enabled: false

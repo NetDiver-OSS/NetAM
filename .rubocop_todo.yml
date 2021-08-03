@@ -43,7 +43,7 @@ Metrics/PerceivedComplexity:
 # Configuration parameters: Max.
 RSpec/ExampleLength:
   Exclude:
-    - 'spec/lib/netam/utils/ip_calculator_spec.rb'
+    - 'spec/lib/netdiver/utils/ip_calculator_spec.rb'
 
 # Offense count: 50
 # Cop supports --auto-correct.
@@ -138,7 +138,7 @@ Style/Documentation:
 # SupportedStyles: empty, nil, both
 Style/EmptyElse:
   Exclude:
-    - 'lib/netam/network/dns.rb'
+    - 'lib/netdiver/network/dns.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.

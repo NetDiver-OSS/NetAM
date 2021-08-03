@@ -3,12 +3,12 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= Rails.configuration.netam[:db][:pool] %>
-  host: <%= Rails.configuration.netam[:db][:host] %>
-  port: <%= Rails.configuration.netam[:db][:port] %>
-  username: <%= Rails.configuration.netam[:db][:username] %>
-  password: <%= Rails.configuration.netam[:db][:password] %>
-  database: <%= Rails.configuration.netam[:database] %>
+  pool: <%= Rails.configuration.netdiver[:db][:pool] %>
+  host: <%= Rails.configuration.netdiver[:db][:host] %>
+  port: <%= Rails.configuration.netdiver[:db][:port] %>
+  username: <%= Rails.configuration.netdiver[:db][:username] %>
+  password: <%= Rails.configuration.netdiver[:db][:password] %>
+  database: <%= Rails.configuration.netdiver[:database] %>
 
 
 development:

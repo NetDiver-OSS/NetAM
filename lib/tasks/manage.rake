@@ -2,9 +2,9 @@
 
 require 'io/console'
 
-namespace :netam do
+namespace :netdiver do
   namespace :manage do
-    desc 'Manage administrator of NetAM instance'
+    desc 'Manage administrator of NetDiver instance'
     task :admins do
       unless User.where(admin: true).empty?
         warn 'You already have administrator !'

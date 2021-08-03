@@ -30,9 +30,9 @@ module SimpleCovEnv
       track_files '{app,lib}/**/*.rb'
 
       add_filter 'config/'
-      add_filter 'lib/netam.rb'
+      add_filter 'lib/netdiver.rb'
       add_filter 'lib/backup.rb'
-      add_filter 'lib/netam/section.rb'
+      add_filter 'lib/netdiver/section.rb'
       add_filter 'app/jobs/application_job.rb'
       add_filter 'app/controllers/setup_controller.rb'
       add_filter 'app/controllers/callbacks_controller.rb'

@@ -1,11 +1,11 @@
 version: '3.7'
 
 x-aliases:
-  netam: &netam
+  netdiver: &netdiver
     build:
       context: .
       dockerfile: Dockerfile
-    image: netam/netam
+    image: netdiver/netdiver
     environment:
       SECRET_KEY_BASE: v1jFMms5qurpiYdw
       DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
@@ -14,19 +14,19 @@ x-aliases:
       SENTRY_DSN: ''
       REDIS_HOST: redis
       DB_HOST: db
-      DB_NAME: netam
+      DB_NAME: netdiver
       DB_USER: admin
       DB_PASS: __CH@NG3_ME__
 
 services:
   web:
-    <<: *netam
+    <<: *netdiver
     restart: always
     ports:
       - "3000:3000"
 
   worker:
-    <<: *netam
+    <<: *netdiver
     restart: always
     command: sidekiq
 
@@ -42,7 +42,7 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: __CH@NG3_ME__
-      POSTGRES_DB: netam
+      POSTGRES_DB: netdiver
     volumes:
       - db:/var/lib/postgresql/data
 

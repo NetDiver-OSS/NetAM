@@ -1,0 +1,765 @@
+# Italian translations for netdiver package.
+# Copyright (C) 2021 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the netdiver package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: netdiver 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-08-03 20:53+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+msgid "(we need your current password to confirm your changes)"
+msgstr ""
+
+msgid "Account management"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Activated"
+msgstr ""
+
+msgid "Add Permission"
+msgstr ""
+
+msgid "Add permission"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Address Matrix"
+msgstr ""
+
+msgid "Address Table"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Admin Backups"
+msgstr ""
+
+msgid "Admin Center"
+msgstr ""
+
+msgid "Affected sections"
+msgstr ""
+
+msgid "Affected worker"
+msgstr ""
+
+msgid "All Jobs"
+msgstr ""
+
+msgid "All Permissions"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Available IP"
+msgstr ""
+
+msgid "Background jobs"
+msgstr ""
+
+msgid "Backup list"
+msgstr ""
+
+msgid "Backups"
+msgstr ""
+
+msgid "Boot time"
+msgstr ""
+
+msgid "Broadcast"
+msgstr ""
+
+msgid "Busy jobs"
+msgstr ""
+
+msgid "CPU"
+msgstr ""
+
+msgid "Calculate"
+msgstr ""
+
+msgid "Change my password"
+msgstr ""
+
+msgid "Change your password"
+msgstr ""
+
+msgid "Choose file"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Code #%{id}"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Concurrency jobs"
+msgstr ""
+
+msgid "Confirm new password"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
+msgid "Connected"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Country Code"
+msgstr ""
+
+msgid "Created on"
+msgstr ""
+
+msgid "Current Password"
+msgstr ""
+
+msgid "DHCP"
+msgstr ""
+
+msgid "DNS Resolver"
+msgstr ""
+
+msgid "Danger zone"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Datetime"
+msgstr ""
+
+msgid "Define as device"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete Rackspace link"
+msgstr ""
+
+msgid "Depth Type"
+msgstr ""
+
+msgid "Depth type"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Device type"
+msgstr ""
+
+msgid "Device type was not destroyed."
+msgstr ""
+
+msgid "Device type was successfully created."
+msgstr ""
+
+msgid "Device type was successfully destroyed."
+msgstr ""
+
+msgid "Device type was successfully updated."
+msgstr ""
+
+msgid "Device was successfully created."
+msgstr ""
+
+msgid "Device was successfully destroyed."
+msgstr ""
+
+msgid "Device was successfully updated."
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Devices Type"
+msgstr ""
+
+msgid "Devices list"
+msgstr ""
+
+msgid "Devices type"
+msgstr ""
+
+msgid "Devices type list"
+msgstr ""
+
+msgid "Disable TOTP"
+msgstr ""
+
+msgid "Down"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Edit Address details"
+msgstr ""
+
+msgid "Edit device"
+msgstr ""
+
+msgid "Edit device type"
+msgstr ""
+
+msgid "Edit rackspace"
+msgstr ""
+
+msgid "Editing Permission"
+msgstr ""
+
+msgid "Editing Section"
+msgstr ""
+
+msgid "Editing Usage"
+msgstr ""
+
+msgid "Editing User"
+msgstr ""
+
+msgid "Editing Vlan"
+msgstr ""
+
+msgid "Editing Worker"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Enable TOTP"
+msgstr ""
+
+msgid "Entry"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "FQDN"
+msgstr ""
+
+msgid "Fax"
+msgstr ""
+
+msgid "First IP"
+msgstr ""
+
+msgid "Forgot your password?"
+msgstr ""
+
+msgid "Free IP"
+msgstr ""
+
+msgid "Front"
+msgstr ""
+
+msgid "Get unused IP"
+msgstr ""
+
+msgid "Heartbeat"
+msgstr ""
+
+msgid "Homepage"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "Hosts per Subnet"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "IP Address"
+msgstr ""
+
+msgid "IP Calculator"
+msgstr ""
+
+msgid "IP address Request"
+msgstr ""
+
+msgid "IP calculator"
+msgstr ""
+
+msgid "IP used"
+msgstr ""
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import usages with CSV"
+msgstr ""
+
+msgid "Last IP"
+msgstr ""
+
+msgid "Last scan time"
+msgstr ""
+
+msgid "Last sign in"
+msgstr ""
+
+msgid "Load Average"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Locked"
+msgstr ""
+
+msgid "Log in with Email"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Lookup"
+msgstr ""
+
+msgid "MAC Address"
+msgstr ""
+
+msgid "MAC Vendor"
+msgstr ""
+
+msgid "MAC Vendor Lookup"
+msgstr ""
+
+msgid "Mask"
+msgstr ""
+
+msgid "Massive import usages by csv injections. You must have CSV formated with the following header :"
+msgstr ""
+
+msgid "Memory"
+msgstr ""
+
+msgid "My account"
+msgstr ""
+
+msgid "NO"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Nameserver"
+msgstr ""
+
+msgid "NetDiver agent node"
+msgstr ""
+
+msgid "NetDiver control node"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "Network Splitter"
+msgstr ""
+
+msgid "Network information"
+msgstr ""
+
+msgid "Network splitting result"
+msgstr ""
+
+msgid "New Section"
+msgstr ""
+
+msgid "New Usage"
+msgstr ""
+
+msgid "New User"
+msgstr ""
+
+msgid "New Vlan"
+msgstr ""
+
+msgid "New Worker"
+msgstr ""
+
+msgid "New device"
+msgstr ""
+
+msgid "New devices type"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "New rackspace"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "No free address IP available !"
+msgstr ""
+
+msgid "No worker assigned"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "OTP Secret"
+msgstr ""
+
+msgid "OTP code"
+msgstr ""
+
+msgid "Or"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "PTR Resolution"
+msgstr ""
+
+msgid "PTR Resolver"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password (%{password_length} characters minimum)"
+msgstr ""
+
+msgid "Password Again "
+msgstr ""
+
+msgid "Password confirmation"
+msgstr ""
+
+msgid "Permission for %{name}"
+msgstr ""
+
+msgid "Permission was successfully created."
+msgstr ""
+
+msgid "Permission was successfully destroyed."
+msgstr ""
+
+msgid "Permission was successfully updated."
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Please create a password for your new account."
+msgstr ""
+
+msgid "Please validate TOTP code !"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Qrcode"
+msgstr ""
+
+msgid "Queues"
+msgstr ""
+
+msgid "Rack Height"
+msgstr ""
+
+msgid "Rack anchor"
+msgstr ""
+
+msgid "Rack occupation management"
+msgstr ""
+
+msgid "Rackspace"
+msgstr ""
+
+msgid "Rackspace was successfully created."
+msgstr ""
+
+msgid "Rackspace was successfully destroyed."
+msgstr ""
+
+msgid "Rackspace was successfully updated."
+msgstr ""
+
+msgid "Rackspaces"
+msgstr ""
+
+msgid "Rear"
+msgstr ""
+
+msgid "Recovery codes"
+msgstr ""
+
+msgid "Register to NetDiver"
+msgstr ""
+
+msgid "Registrar"
+msgstr ""
+
+msgid "Release"
+msgstr ""
+
+msgid "Request"
+msgstr ""
+
+msgid "Requested MAC Prefix"
+msgstr ""
+
+msgid "Resolve"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Run notification on run_scan"
+msgstr ""
+
+msgid "Run scan after creation"
+msgstr ""
+
+msgid "Scan"
+msgstr ""
+
+msgid "Scan Queued"
+msgstr ""
+
+msgid "Scan complete"
+msgstr ""
+
+msgid "Scan finished !"
+msgstr ""
+
+msgid "Scan in progress"
+msgstr ""
+
+msgid "Scan type"
+msgstr ""
+
+msgid "Scan was successfully scheduled."
+msgstr ""
+
+msgid "Scanner port"
+msgstr ""
+
+msgid "Scanner type"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Search..."
+msgstr ""
+
+msgid "Secret: %{otp_secret}"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Section VLAN"
+msgstr ""
+
+msgid "Sections"
+msgstr ""
+
+msgid "Sections linked to %{name} (#%{vid})"
+msgstr ""
+
+msgid "Send me reset password instructions"
+msgstr ""
+
+msgid "Sidekiq"
+msgstr ""
+
+msgid "Sign in to NetDiver"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "Started from"
+msgstr ""
+
+msgid "State"
+msgstr ""
+
+msgid "State available are :"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Subject ID"
+msgstr ""
+
+msgid "TOTP (if enabled)"
+msgstr ""
+
+msgid "Two Factor Auth"
+msgstr ""
+
+msgid "Two Factor Authentication"
+msgstr ""
+
+msgid "Two Factor Authentication Manager"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Unit"
+msgstr ""
+
+msgid "Unit height"
+msgstr ""
+
+msgid "Updated on"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Usage was successfully created."
+msgstr ""
+
+msgid "Usage was successfully destroyed."
+msgstr ""
+
+msgid "Usage was successfully updated."
+msgstr ""
+
+msgid "User Email"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Validate"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Vlan"
+msgstr ""
+
+msgid "Vlan ID"
+msgstr ""
+
+msgid "Vlan was successfully created."
+msgstr ""
+
+msgid "Vlan was successfully destroyed."
+msgstr ""
+
+msgid "Vlan was successfully updated."
+msgstr ""
+
+msgid "Vlans"
+msgstr ""
+
+msgid "Wanted subnets"
+msgstr ""
+
+msgid "Whois"
+msgstr ""
+
+msgid "Worker \"default\" is not listed here. This worker manages all NetDiver internal tasks as the backup."
+msgstr ""
+
+msgid "Worker name"
+msgstr ""
+
+msgid "Worker was successfully created."
+msgstr ""
+
+msgid "Worker was successfully destroyed."
+msgstr ""
+
+msgid "Worker was successfully updated."
+msgstr ""
+
+msgid "Workers"
+msgstr ""
+
+msgid "YES"
+msgstr ""
+
+msgid "You can skip rackspace management fields"
+msgstr ""
+
+msgid "You forgot your password? Here you can easily retrieve a new password."
+msgstr ""
+
+msgid "Your address IP is"
+msgstr ""
+
+msgid "Zip"
+msgstr ""
+
+msgid "create an account"
+msgstr ""
+
+msgid "is higher than Rackspace unit"
+msgstr ""

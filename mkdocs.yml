@@ -29,7 +29,7 @@ plugins:
 # Navigation configuration
 nav:
   - Home: index.md
-  - NetAM:
+  - NetDiver:
     - Architecture: architecture/index.md
     - Configuration: configuration/index.md
     - Usage: usage/index.md

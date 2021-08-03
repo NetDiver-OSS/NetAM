@@ -1,8 +1,8 @@
 # Configuration
 
-NetAM is designed to use environment variables and/or configuration file.
+NetDiver is designed to use environment variables and/or configuration file.
 
-All application configuration is set into `config/netam.yml`
+All application configuration is set into `config/netdiver.yml`
 
 # Environment variables
 
@@ -60,7 +60,7 @@ All application configuration is set into `config/netam.yml`
 | port     | DB_PORT              | 5432          | Database post                |
 | username | DB_USER              | admin         | Database username            |
 | password | DB_PASS              | password      | Database password            |
-| database | DB_NAME              | netam         | Database name                |
+| database | DB_NAME              | netdiver      | Database name                |
 
 ## Puma
 

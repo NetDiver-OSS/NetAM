@@ -8,7 +8,7 @@ module Notifications
       end
 
       def call
-        Faraday.post Rails.configuration.netam.dig(:notification, :slack_webhook), payload.to_json
+        Faraday.post Rails.configuration.netdiver.dig(:notification, :slack_webhook), payload.to_json
       end
 
       private

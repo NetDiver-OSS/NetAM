@@ -28,7 +28,7 @@ jobs:
         continue-on-error: true
         run: |
           git config --local user.email "contact@sdeu.fr"
-          git config --local user.name "NetAM-Bot"
+          git config --local user.name "NetDiver-Bot"
           git add app/assets/javascripts/locale
           git commit -am "feat: Update gettext for javascript"
       - name: Push changes

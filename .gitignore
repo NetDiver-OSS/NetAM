@@ -42,5 +42,5 @@ owasp/
 rubocop-result.json
 
 # Translation
-locale/*/netam.edit.po
-locale/*/netam.po.time_stamp
+locale/*/netdiver.edit.po
+locale/*/netdiver.po.time_stamp

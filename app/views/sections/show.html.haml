@@ -6,11 +6,11 @@
   page_action({ icon: fa_icon_with_text('solid', 'download', _('Export')), path: section_export_path(@section.id), method: 'post' }) if can? :export, @section
   page_action({ icon: fa_icon('solid', 'plus-square'), path: new_section_usage_path(@section.id) }) if can? :edit, @section
 
-  last_scan = NetAM::Section.get_last_scan(@section.id).to_i
-  all_jobs = NetAM::Section.get_all_jobs(@section.id)
+  last_scan = NetDiver::Section.get_last_scan(@section.id).to_i
+  all_jobs = NetDiver::Section.get_all_jobs(@section.id)
 
 
-%section-scan{ jid: params[:scan_id] || NetAM::Section.get_last_jid(@section.id) }
+%section-scan{ jid: params[:scan_id] || NetDiver::Section.get_last_jid(@section.id) }
 
 %div{ class: 'grid grid-cols-6 gap-3' }
   %div{ class: "col-span-6 sm:col-span-#{last_scan.zero? ? '3' : '2'}" }
@@ -116,10 +116,10 @@
   - if IPAddress(@section.network).ipv4? && IPAddress(@section.network).prefix >= 24
     %tab{ title: _('Address Matrix') }
       %div{ class: 'flex flex-wrap py-2' }
-        - NetAM::Network::Range.new(@section.network).all_ips.each do |address|
+        - NetDiver::Network::Range.new(@section.network).all_ips.each do |address|
           - ip_usage = @all_ip_used.filter_map { |entry| entry if entry[1].to_s == address.to_s }.first
           %a.text-center.w-8{ href: ip_usage.nil? ? new_section_usage_path(@section.id, { ip: address }) : edit_section_usage_path(@section, ip_usage[0]) }
-            %small= NetAM::Network::Range.clean_display(address)
+            %small= NetDiver::Network::Range.clean_display(address)
             %br
             - if ip_usage.nil?
               %fa-icon{ type: 'solid', name: 'question-circle', size: 16, class: 'inline-flex text-gray-400' }

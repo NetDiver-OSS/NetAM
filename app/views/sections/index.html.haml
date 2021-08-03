@@ -25,9 +25,9 @@
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-center' }
                   %div{ class: 'relative pt-1' }
                     %div{ class: 'overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200' }
-                      %div{ style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / NetAM::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500' }
-                      %div{ style: "width: #{section.usages.down.count * 100 / NetAM::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500' }
-                      %div{ style: "width: #{section.usages.dhcp.count * 100 / NetAM::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500' }
+                      %div{ style: "width: #{(section.usages.actived.count + section.usages.locked.count) * 100 / NetDiver::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500' }
+                      %div{ style: "width: #{section.usages.down.count * 100 / NetDiver::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500' }
+                      %div{ style: "width: #{section.usages.dhcp.count * 100 / NetDiver::Network::Range.new(section.network).free_ips}%", class: 'shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500' }
 
                 %td{ class: 'border-t-0 px-6 border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right' }
                   = link_to fa_icon_with_text('solid', 'folder', _('View')), section, class: 'w-full rounded-md border border-transparent shadow p-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:w-auto sm:text-sm'

@@ -8,7 +8,7 @@ class SessionsController < Devise::SessionsController
   def check_initial_setup
     return unless User.limit(1).count.zero?
 
-    user = User.create!(email: Rails.configuration.netam.dig(:auth, :default_account_email), password: User.generate_random_password, admin: true)
+    user = User.create!(email: Rails.configuration.netdiver.dig(:auth, :default_account_email), password: User.generate_random_password, admin: true)
 
     redirect_to edit_user_password_path(reset_password_token: user.generate_reset_token),
                 notice: _('Please create a password for your new account.')

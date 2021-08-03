@@ -9,10 +9,10 @@ RSpec.describe API::V1::Devices, type: :request do
   let(:device_type) { create(:device_type) }
 
   let(:api_token) do
-    User.create!(email: 'admin@netam.local', password: 'azertyuiop123', admin: true)
+    User.create!(email: 'admin@netdiver.local', password: 'azertyuiop123', admin: true)
 
     post oauth_token_path, { 'grant_type' => 'password',
-                             'username' => 'admin@netam.local',
+                             'username' => 'admin@netdiver.local',
                              'password' => 'azertyuiop123' }, headers: content_type_json
 
     oauth_response = JSON.parse(last_response.body)

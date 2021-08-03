@@ -8,7 +8,7 @@ module Notifications
       end
 
       def call
-        Faraday.post Rails.configuration.netam.dig(:notification, :msteams_webhook), payload.to_json, 'Content-Type' => 'application/json'
+        Faraday.post Rails.configuration.netdiver.dig(:notification, :msteams_webhook), payload.to_json, 'Content-Type' => 'application/json'
       end
 
       private
@@ -17,9 +17,9 @@ module Notifications
         {
           '@type': 'MessageCard',
           '@context': 'http://schema.org/extensions',
-          summary: 'NetAM Notif',
+          summary: 'NetDiver Notif',
           themeColor: '118811',
-          title: 'Notification from NetAM',
+          title: 'Notification from NetDiver',
           sections: [
             {
               activityTitle: '',

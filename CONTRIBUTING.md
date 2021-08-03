@@ -1,11 +1,11 @@
-# Contributing to NetAM
+# Contributing to NetDiver
 
-We welcome contributions to NetAM of any kind including documentation, tutorials,
+We welcome contributions to NetDiver of any kind including documentation, tutorials,
 blog posts, bug reports, issues, feature requests, feature implementations, pull requests,
 answering questions on the forum, helping to manage issues, etc.
 
-*Note that this repository only contains the actual source code of NetAM.
-For **only** documentation-related pull requests / issues please refer to the [NetAM documentation](https://github.com/NetAM-OSC/documentation) repository.*
+*Note that this repository only contains the actual source code of NetDiver.
+For **only** documentation-related pull requests / issues please refer to the [NetDiver documentation](https://github.com/NetDiver/documentation) repository.*
 
 *Changes to the codebase **and** related documentation, e.g. for a new feature, should still use a single pull request.*
 
@@ -20,8 +20,8 @@ For **only** documentation-related pull requests / issues please refer to the [N
 
 You can report any issues into project GitHub issue tracker
 
-- [NetAM Issues](https://github.com/NetaM-OSC/NetAM/issues)
-- [NetAM Documentation Issues](https://github.com/NetaM-OSC/documentation/issues)
+- [NetDiver Issues](https://github.com/NetDiver/NetDiver/issues)
+- [NetDiver Documentation Issues](https://github.com/NetDiver/documentation/issues)
 
 ## Code Contribution
 
@@ -32,7 +32,7 @@ interface and usage as simple as possible simple for a non expert user.
 
 ## Submitting Patches
 
-The NetAM project welcomes all contributors and contributions regardless of skill or experience level.
+The NetDiver project welcomes all contributors and contributions regardless of skill or experience level.
 If you are interested in helping with the project, we will help you with your contribution.
 
 ### Code Contribution Guidelines

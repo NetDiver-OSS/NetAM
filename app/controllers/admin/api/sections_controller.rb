@@ -10,7 +10,7 @@ module Admin
 
       # /status
       def status
-        render json: NetAM::ScannerLauncher.status(params[:jid])
+        render json: NetDiver::ScannerLauncher.status(params[:jid])
       end
 
       private
@@ -35,7 +35,7 @@ module Admin
             },
             {
               name: _('Free IP'),
-              value: NetAM::Network::Range.new(section.network).free_ips - section.usages.where(state: 0..3).count,
+              value: NetDiver::Network::Range.new(section.network).free_ips - section.usages.where(state: 0..3).count,
               itemStyle: { color: '#6B7280' }
             },
             {
