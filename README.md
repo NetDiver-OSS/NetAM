@@ -1,13 +1,13 @@
 # NetAM
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=security_rating)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=alert_status)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)  
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=bugs)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=coverage)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=NetaM-OSC_NetAM&metric=sqale_index)](https://sonarcloud.io/dashboard?id=NetaM-OSC_NetAM)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=security_rating)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=alert_status)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)  
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=bugs)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=coverage)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=NetDiver-OSS_NetAM&metric=sqale_index)](https://sonarcloud.io/dashboard?id=NetDiver-OSS_NetAM)
 
 [![Crowdin](https://badges.crowdin.net/netam/localized.svg)](https://crowdin.com/project/netam)
 
