@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :set_gettext_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end
 
   def index
-    @master_node = {
+    @main_node = {
       cpu: Vmstat.cpu,
       memory: Vmstat.memory,
       load_average: Vmstat.load_average,

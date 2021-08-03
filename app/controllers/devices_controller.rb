@@ -62,7 +62,7 @@ class DevicesController < ApplicationController
     @device_types = DeviceType.all.pluck(:name, :id)
   end
 
-  # Only allow a trusted parameter "white list" through.
+  # Only allow a trusted parameter
   def device_params
     params.require(:device).permit(:name, :rack_height, :depth_type, :device_type_id, rack_occupation_attributes: %i[id rackspace_id rack_anchor _destroy])
   end

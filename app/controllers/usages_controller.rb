@@ -104,7 +104,7 @@ class UsagesController < ApplicationController
     @usage = Usage.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
+  # Only allow a trusted parameter
   def usage_params
     params.require(:usage).permit(:ip_used, :fqdn, :description, :state, :section_id, :define_device)
   end
