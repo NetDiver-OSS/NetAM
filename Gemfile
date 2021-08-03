@@ -32,7 +32,7 @@ gem 'ruby_parser', '~> 3.16', require: false
 # Rails Delayed Jobs
 gem 'sidekiq', '6.2.1'
 gem 'sidekiq-cron', '= 1.2'
-gem 'sidekiq-status', '2.0.1'
+gem 'sidekiq-status', '2.0.2'
 
 gem 'redis', '~> 4.4'
 gem 'redis-rack-cache'
