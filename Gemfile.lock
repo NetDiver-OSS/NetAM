@@ -218,11 +218,11 @@ GEM
       rainbow
       rubocop (>= 0.50.0)
       sysexits (~> 1.1)
-    hamlit (2.15.0)
+    hamlit (2.15.1)
       temple (>= 0.8.2)
       thor
       tilt
-    hamlit (2.15.0-java)
+    hamlit (2.15.1-java)
       temple (>= 0.8.2)
       thor
       tilt
