@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Rails framework
 gem 'bootsnap', '>= 1.4.7', require: false
-gem 'puma', '5.3.2'
+gem 'puma', '5.4.0'
 gem 'rails', '6.1.4'
 
 # Database
@@ -32,7 +32,7 @@ gem 'ruby_parser', '~> 3.16', require: false
 # Rails Delayed Jobs
 gem 'sidekiq', '6.2.1'
 gem 'sidekiq-cron', '= 1.2'
-gem 'sidekiq-status', '2.0.1'
+gem 'sidekiq-status', '2.0.2'
 
 gem 'redis', '~> 4.3'
 gem 'redis-rack-cache'
@@ -60,9 +60,9 @@ gem 'grape-swagger', '~> 1.4'
 gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
-gem 'sentry-rails', '4.5.2'
-gem 'sentry-ruby', '4.5.2'
-gem 'sentry-sidekiq', '4.5.2'
+gem 'sentry-rails', '4.6.4'
+gem 'sentry-ruby', '4.6.4'
+gem 'sentry-sidekiq', '4.6.4'
 
 # Logs management
 gem 'amazing_print', '1.3.0'
@@ -98,7 +98,7 @@ group :development do
   gem 'better_errors', '2.9.1'
   gem 'binding_of_caller', '~> 1.0.0'
 
-  gem 'listen', '3.5.1'
+  gem 'listen', '3.6.0'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
