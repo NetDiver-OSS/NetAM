@@ -1,12 +1,12 @@
 # Documentation site configuration
-site_name: NetAM-OSC
-site_url: https://netam-osc.github.io/NetAM/
+site_name: NetDiver-OSS
+site_url: https://netdiver-oss.github.io/NetAM/
 site_description: Documentation for Network Address Manager software
-site_author: NetAM-OSC
+site_author: NetDiver-OSS
 
 # Documentation repository configuration
 repo_name: GitHub
-repo_url: https://github.com/NetAM-OSC/NetAM/
+repo_url: https://github.com/NetDiver-OSS/NetAM/
 edit_uri: edit/dev/docs/
 
 # Theme configuration

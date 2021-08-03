@@ -5,7 +5,7 @@ blog posts, bug reports, issues, feature requests, feature implementations, pull
 answering questions on the forum, helping to manage issues, etc.
 
 *Note that this repository only contains the actual source code of NetAM.
-For **only** documentation-related pull requests / issues please refer to the [NetAM documentation](https://github.com/NetAM-OSC/documentation) repository.*
+For **only** documentation-related pull requests / issues please refer to the [NetAM documentation](https://github.com/NetDiver-OSS/documentation) repository.*
 
 *Changes to the codebase **and** related documentation, e.g. for a new feature, should still use a single pull request.*
 
@@ -20,8 +20,8 @@ For **only** documentation-related pull requests / issues please refer to the [N
 
 You can report any issues into project GitHub issue tracker
 
-- [NetAM Issues](https://github.com/NetaM-OSC/NetAM/issues)
-- [NetAM Documentation Issues](https://github.com/NetaM-OSC/documentation/issues)
+- [NetAM Issues](https://github.com/NetDiver-OSS/NetAM/issues)
+- [NetAM Documentation Issues](https://github.com/NetDiver-OSS/documentation/issues)
 
 ## Code Contribution
 

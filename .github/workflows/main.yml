@@ -202,7 +202,7 @@ jobs:
       - name: Clean coverage file
         run: |
           ruby -rjson -e 'sqube = JSON.load(File.read("coverage/.resultset.json"))["RSpec"]["coverage"].transform_values {|lines| lines["lines"]}; total = { "RSpec" => { "coverage" => sqube, "timestamp" => Time.now.to_i }}; puts JSON.dump(total)' > coverage/.resultset.solarqube.json
-          sed -i 's,/home/runner/work/NetAM/NetAM/,/github/workspace/,g' coverage/.resultset.solarqube.json
+          sed -i 's,/home/runner/work/NetDiver/NetAM/,/github/workspace/,g' coverage/.resultset.solarqube.json
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

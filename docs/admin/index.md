@@ -27,7 +27,7 @@ When you have created your worker with their name, and their affected section, y
 
 ![Worker](images/worker-add.png)
 
-To start your new NetAM worker, you can use [docker-compose](https://github.com/NetaM-OSC/NetAM/blob/dev/docker-compose.worker.yml) located on GitHub.
+To start your new NetAM worker, you can use [docker-compose](https://github.com/NetDiver-OSS/NetAM/blob/dev/docker-compose.worker.yml) located on GitHub.
 ```yaml
 version: '3.7'
 
