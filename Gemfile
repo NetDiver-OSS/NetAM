@@ -20,7 +20,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.4.0'
 
 # Search engine
-gem 'typesense', '0.12.0'
+gem 'typesense', '0.13.0'
 
 # I18n
 gem 'gettext', '~> 3.3', require: false, group: :development
