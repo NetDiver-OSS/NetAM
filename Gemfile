@@ -62,7 +62,7 @@ gem 'grape-swagger-rails', '~> 0.3.1'
 # Error notifier
 gem 'sentry-rails', '4.6.4'
 gem 'sentry-ruby', '4.6.4'
-gem 'sentry-sidekiq', '4.6.4'
+gem 'sentry-sidekiq', '4.6.5'
 
 # Logs management
 gem 'amazing_print', '1.3.0'
