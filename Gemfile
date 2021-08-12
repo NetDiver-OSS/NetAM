@@ -61,7 +61,7 @@ gem 'grape-swagger-rails', '~> 0.3.1'
 
 # Error notifier
 gem 'sentry-rails', '4.6.4'
-gem 'sentry-ruby', '4.6.4'
+gem 'sentry-ruby', '4.6.5'
 gem 'sentry-sidekiq', '4.6.4'
 
 # Logs management
