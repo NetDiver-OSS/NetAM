@@ -30,7 +30,7 @@ gem 'rails-i18n', '~> 6.0'
 gem 'ruby_parser', '~> 3.16', require: false
 
 # Rails Delayed Jobs
-gem 'sidekiq', '6.2.1'
+gem 'sidekiq', '6.2.2'
 gem 'sidekiq-cron', '= 1.2'
 gem 'sidekiq-status', '2.0.2'
 
