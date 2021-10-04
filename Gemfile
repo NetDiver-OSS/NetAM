@@ -52,7 +52,7 @@ gem 'parallel', '~> 1.20'
 gem 'whois-parser', '~> 1.2'
 
 # API
-gem 'grape', '~> 1.5'
+gem 'grape', '~> 1.6'
 gem 'grape-active_model_serializers', '~> 1.5', '>= 1.5.2'
 gem 'grape-cancan', '~> 0.0.3'
 gem 'grape_on_rails_routes', '~> 0.3.2'
