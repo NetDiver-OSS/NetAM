@@ -65,7 +65,7 @@ gem 'sentry-ruby', '4.6.4'
 gem 'sentry-sidekiq', '4.6.4'
 
 # Logs management
-gem 'amazing_print', '1.3.0'
+gem 'amazing_print', '1.4.0'
 gem 'rails_semantic_logger', '4.6.0'
 
 gem 'logstash-logger', '= 0.26.1'
