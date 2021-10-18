@@ -302,6 +302,8 @@ GEM
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
+    pg (1.2.3-x86-mingw32)
     po_to_json (1.0.1)
       json (>= 1.6.0)
     public_suffix (4.0.6)
@@ -364,7 +366,7 @@ GEM
       csv (>= 3.0.5)
       rexml
       rubyzip
-    redis (4.4.0)
+    redis (4.5.1)
     redis-rack-cache (2.2.1)
       rack-cache (>= 1.10, < 2)
       redis-store (>= 1.6, < 2)
@@ -576,7 +578,7 @@ DEPENDENCIES
   rails (= 6.1.4)
   rails-i18n (~> 6.0)
   rails_semantic_logger (= 4.6.0)
-  redis (~> 4.3)
+  redis (~> 4.5)
   redis-rack-cache
   rqrcode (~> 2.0)
   rspec-rails (~> 5.0)
