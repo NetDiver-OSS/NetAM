@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="NetDiver-OSS">
+        <link rel="canonical" href="https://netdiver-oss.github.io/NetAM/usage/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Usage - NetDiver-OSS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/docco.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">NetDiver-OSS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NetAM <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../architecture/" class="dropdown-item">Architecture</a>
+</li>
+                                    
+<li>
+    <a href="../configuration/" class="dropdown-item">Configuration</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Usage</a>
+</li>
+                                    
+<li>
+    <a href="../admin/" class="dropdown-item">Administration</a>
+</li>
+                                    
+<li>
+    <a href="../api/" class="dropdown-item">API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../configuration/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../admin/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/NetDiver-OSS/NetAM/edit/dev/docs/usage/index.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#usage_guide" class="nav-link">Usage guide</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#login_register" class="nav-link">Login / Register</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#main" class="nav-link">Main</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#section" class="nav-link">Section</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#view_section" class="nav-link">View Section</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#create_section" class="nav-link">Create Section</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#vlans" class="nav-link">Vlans</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#vlan_view" class="nav-link">Vlan view</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#vlan_edit" class="nav-link">Vlan edit</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#create_vlan" class="nav-link">Create Vlan</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#devices" class="nav-link">Devices</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#create_device" class="nav-link">Create Device</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#edit_device" class="nav-link">Edit Device</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#devices_type" class="nav-link">Devices Type</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#create_device_type" class="nav-link">Create Device Type</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#edit_device_type" class="nav-link">Edit Device Type</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#rackspaces" class="nav-link">Rackspaces</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#create_rackspaces" class="nav-link">Create Rackspaces</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#edit_rackspaces" class="nav-link">Edit Rackspaces</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#view_rackspaces" class="nav-link">View Rackspaces</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#utils" class="nav-link">Utils</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#ip_calculator" class="nav-link">IP Calculator</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#mac_vendor" class="nav-link">MAC Vendor</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#network_splitter" class="nav-link">Network Splitter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ptr_resolver" class="nav-link">PTR Resolver</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dns_resolver" class="nav-link">DNS Resolver</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#whois" class="nav-link">Whois</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="usage_guide">Usage guide<a class="headerlink" href="#usage_guide" title="Permanent link">&para;</a></h1>
+<h2 id="login_register">Login / Register<a class="headerlink" href="#login_register" title="Permanent link">&para;</a></h2>
+<hr />
+<p><img alt="Login" src="img/main/login.png" /></p>
+<p>This is where you login after creating an account or using your LDAP server.</p>
+<p><img alt="Register" src="img/main/register.png" /></p>
+<p>When you don&rsquo;t use your LDAP server, you will create your account here.</p>
+<p>We recommend using a strong password.</p>
+<h1 id="main">Main<a class="headerlink" href="#main" title="Permanent link">&para;</a></h1>
+<hr />
+<p>After login , you will be redirected on the main page.</p>
+<p><img alt="main" src="img/main/main.png" /></p>
+<p>On the top center, you will have the search bar where you can find all your sections and access them.</p>
+<p>On the center, you will have all the information of :</p>
+<ul>
+<li>The control node<ul>
+<li>CPU core</li>
+<li>Memory Usage</li>
+<li>Load Average</li>
+<li>Uptime</li>
+</ul>
+</li>
+<li>Agent node</li>
+</ul>
+<p>On the top right, you can change the theme (light / dark), change your language and user settings.</p>
+<p>On the left, you have all the tools proposed by NetAM.</p>
+<h1 id="section">Section<a class="headerlink" href="#section" title="Permanent link">&para;</a></h1>
+<hr />
+<p><img alt="section" src="img/section/section.png" /></p>
+<p>This is where you can see all of your sections created with usage info, buttons to View, Scan, Edit or Delete a section</p>
+<h2 id="view_section">View Section<a class="headerlink" href="#view_section" title="Permanent link">&para;</a></h2>
+<p><img alt="section" src="img/section/section_view.png" /></p>
+<p>On the View page, you have all the information of your network :</p>
+<ul>
+<li>Section VLAN</li>
+<li>Affected worker</li>
+<li>Last scan time</li>
+</ul>
+<p>Network information :</p>
+<ul>
+<li>Locked IP</li>
+<li>Down IP</li>
+<li>Activated IP</li>
+<li>DHCP IP</li>
+<li>Free IP</li>
+</ul>
+<p>On the bottom, you have 3 tabs where you can see your network in a different view.</p>
+<h3 id="address_table">Address table<a class="headerlink" href="#address_table" title="Permanent link">&para;</a></h3>
+<p><img alt="section" src="img/section/section_view_table.png" /></p>
+<h3 id="address_matrix">Address Matrix<a class="headerlink" href="#address_matrix" title="Permanent link">&para;</a></h3>
+<p><img alt="section" src="img/section/section_view_matrix.png" /></p>
+<p>Note: The address matrix will only be displayed for IPv4 ranges with less than 255 addresses.</p>
+<h3 id="all_jobs">All Jobs<a class="headerlink" href="#all_jobs" title="Permanent link">&para;</a></h3>
+<p><img alt="section" src="img/section/section_view_jobs.png" /></p>
+<p>Here are some logs for each job executed on this network.</p>
+<h2 id="create_section">Create Section<a class="headerlink" href="#create_section" title="Permanent link">&para;</a></h2>
+<p><img alt="section_create" src="img/section/section_create.png" /></p>
+<p>After creating your section, you will return on the section page.</p>
+<h1 id="vlans">Vlans<a class="headerlink" href="#vlans" title="Permanent link">&para;</a></h1>
+<hr />
+<p><img alt="vlans" src="img/vlans/vlans.png" /></p>
+<p>This is where you can see all of your vlans created with info, button for View, Edit or Delete vlan.</p>
+<p>Note : The default vlan here has been automatically created during installation.</p>
+<h2 id="vlan_view">Vlan view<a class="headerlink" href="#vlan_view" title="Permanent link">&para;</a></h2>
+<p><img alt="vlan_view" src="img/vlans/vlans_view.png" /></p>
+<p>On this page, you can see all sections using a chosen vlan.</p>
+<h2 id="vlan_edit">Vlan edit<a class="headerlink" href="#vlan_edit" title="Permanent link">&para;</a></h2>
+<p><img alt="vlan_view" src="img/vlans/vlans_edit.png" /></p>
+<h2 id="create_vlan">Create Vlan<a class="headerlink" href="#create_vlan" title="Permanent link">&para;</a></h2>
+<p><img alt="vlans_create" src="img/vlans/vlans_create.png" /></p>
+<ul>
+<li>Vlan ID (Vid)</li>
+<li>Name of your vlan</li>
+<li>Description</li>
+</ul>
+<h1 id="devices">Devices<a class="headerlink" href="#devices" title="Permanent link">&para;</a></h1>
+<hr />
+<p><img alt="devices" src="img/devices/devices.png" /></p>
+<p>Define a device. You can edit their:</p>
+<ul>
+<li>Type (cf. <a href="#devices_type">device_type</a>) of your devices</li>
+<li>Rack Height</li>
+<li>Depth Type<ul>
+<li>Small : For small sized equipments only attached on one side of rack</li>
+<li>Half : For medium sized equipments</li>
+<li>Full : For full rack length sized equipments attached on both sides of rack</li>
+</ul>
+</li>
+<li>Rackspace</li>
+<li>Rack anchor</li>
+</ul>
+<h2 id="create_device">Create Device<a class="headerlink" href="#create_device" title="Permanent link">&para;</a></h2>
+<p><img alt="devices_create" src="img/devices/devices_create.png" /></p>
+<h2 id="edit_device">Edit Device<a class="headerlink" href="#edit_device" title="Permanent link">&para;</a></h2>
+<p><img alt="devices_edit" src="img/devices/devices_edit.png" /></p>
+<h1 id="devices_type">Devices Type<a class="headerlink" href="#devices_type" title="Permanent link">&para;</a></h1>
+<hr />
+<p><img alt="devices_type" src="img/devices_type/devices_type.png" /></p>
+<p>Define a type of devices, you can change the color of the devices.</p>
+<h2 id="create_device_type">Create Device Type<a class="headerlink" href="#create_device_type" title="Permanent link">&para;</a></h2>
+<p><img alt="devices_type_create" src="img/devices_type/devices_type_create.png" /></p>
+<h2 id="edit_device_type">Edit Device Type<a class="headerlink" href="#edit_device_type" title="Permanent link">&para;</a></h2>
+<p><img alt="devices_type_edit" src="img/devices_type/devices_type_edit.png" /></p>
+<h1 id="rackspaces">Rackspaces<a class="headerlink" href="#rackspaces" title="Permanent link">&para;</a></h1>
+<hr />
+<p><img alt="rackspaces" src="img/rackspaces/rackspaces.png" /></p>
+<p>Rackspace section where you can create your rackspace for organization.</p>
+<h2 id="create_rackspaces">Create Rackspaces<a class="headerlink" href="#create_rackspaces" title="Permanent link">&para;</a></h2>
+<p><img alt="rackspaces_create" src="img/rackspaces/rackspaces_create.png" /></p>
+<h2 id="edit_rackspaces">Edit Rackspaces<a class="headerlink" href="#edit_rackspaces" title="Permanent link">&para;</a></h2>
+<p><img alt="rackspaces_edit" src="img/rackspaces/rackspaces_edit.png" /></p>
+<h2 id="view_rackspaces">View Rackspaces<a class="headerlink" href="#view_rackspaces" title="Permanent link">&para;</a></h2>
+<p><img alt="rackspaces_view" src="img/rackspaces/rackspaces_view.png" /></p>
+<h1 id="utils">Utils<a class="headerlink" href="#utils" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="ip_calculator">IP Calculator<a class="headerlink" href="#ip_calculator" title="Permanent link">&para;</a></h2>
+<p><img alt="ip_calculator" src="img/utils/ip_calculator.png" /></p>
+<p>Calculate network range per subnet.</p>
+<h2 id="mac_vendor">MAC Vendor<a class="headerlink" href="#mac_vendor" title="Permanent link">&para;</a></h2>
+<p><img alt="mac_vendor" src="img/utils/mac_vendor.png" /></p>
+<p>Found a vendor with a Mac Address.</p>
+<h2 id="network_splitter">Network Splitter<a class="headerlink" href="#network_splitter" title="Permanent link">&para;</a></h2>
+<p><img alt="network_splitter" src="img/utils/network_splitter.png" /></p>
+<p>Split a network range by a number of subnet.</p>
+<h2 id="ptr_resolver">PTR Resolver<a class="headerlink" href="#ptr_resolver" title="Permanent link">&para;</a></h2>
+<p><img alt="ptr_resolver" src="img/utils/ptr_resolver.png" /></p>
+<p>Resolve a PTR</p>
+<h2 id="dns_resolver">DNS Resolver<a class="headerlink" href="#dns_resolver" title="Permanent link">&para;</a></h2>
+<p><img alt="dns_resolver" src="img/utils/dns_resolver.png" /></p>
+<p>Resolve a DNS information</p>
+<h2 id="whois">Whois<a class="headerlink" href="#whois" title="Permanent link">&para;</a></h2>
+<p><img alt="whois" src="img/utils/whois.png" /></p>
+<p>Whois tools for DNS / IP address info.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

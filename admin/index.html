@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="NetDiver-OSS">
+        <link rel="canonical" href="https://netdiver-oss.github.io/NetAM/admin/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Administration - NetDiver-OSS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/docco.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">NetDiver-OSS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NetAM <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../architecture/" class="dropdown-item">Architecture</a>
+</li>
+                                    
+<li>
+    <a href="../configuration/" class="dropdown-item">Configuration</a>
+</li>
+                                    
+<li>
+    <a href="../usage/" class="dropdown-item">Usage</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Administration</a>
+</li>
+                                    
+<li>
+    <a href="../api/" class="dropdown-item">API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../usage/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../api/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/NetDiver-OSS/NetAM/edit/dev/docs/admin/index.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#administration_guide" class="nav-link">Administration guide</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#users" class="nav-link">Users</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#backups" class="nav-link">Backups</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#workers" class="nav-link">Workers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sidekiq" class="nav-link">Sidekiq</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#stack_management" class="nav-link">Stack management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="administration_guide">Administration guide<a class="headerlink" href="#administration_guide" title="Permanent link">&para;</a></h1>
+<p>In this guide we will see how to administrate the NetAM stack</p>
+<h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h2>
+<p>In Admin Center you have the capability to create, edit or remove users.</p>
+<p><img alt="Users" src="images/users.png" /></p>
+<p>When you are on the user page, you can also see its permissions on different NetAM module. </p>
+<p><img alt="User permission" src="images/user-permission.png" /></p>
+<h2 id="backups">Backups<a class="headerlink" href="#backups" title="Permanent link">&para;</a></h2>
+<p>You can launch a database backup directly from the interface.</p>
+<p><img alt="Backups" src="images/backups.png" /></p>
+<h2 id="workers">Workers<a class="headerlink" href="#workers" title="Permanent link">&para;</a></h2>
+<p>To allow you to split load between multiple workers, we provide a worker registration space.</p>
+<p>The default worker is installed on the same host as NetAM manager and cannot be managed, it is used only for internal tasks.</p>
+<p><img alt="Workers" src="images/workers.png" /></p>
+<h3 id="how_to_add_worker_to_netam">How to add worker to NetAM<a class="headerlink" href="#how_to_add_worker_to_netam" title="Permanent link">&para;</a></h3>
+<p>When you have created your worker with their name, and their affected section, you can launch it.</p>
+<p><img alt="Worker" src="images/worker-add.png" /></p>
+<p>To start your new NetAM worker, you can use <a href="https://github.com/NetDiver-OSS/NetAM/blob/dev/docker-compose.worker.yml">docker-compose</a> located on GitHub.</p>
+<pre><code class="language-yaml">version: '3.7'
+
+services:
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: netam/netam
+    environment:
+      SECRET_KEY_BASE: v1jFMms5qurpiYdw
+      SENTRY_DSN: ''
+      REDIS_HOST: 10.0.0.10
+      DB_HOST: 10.0.0.10
+      DB_NAME: netam
+      DB_USER: admin
+      DB_PASS: _PASSWORD_
+    restart: always
+    command: sidekiq -q &quot;node:175df88d-691a-4457-8bde-189091235a72&quot;
+
+</code></pre>
+<h2 id="sidekiq">Sidekiq<a class="headerlink" href="#sidekiq" title="Permanent link">&para;</a></h2>
+<p>If you are an advanced user of Sidekiq, you have direct access to Sidekiq dashboard.</p>
+<p><img alt="Sidekiq" src="images/sidekiq.png" /></p>
+<h2 id="stack_management">Stack management<a class="headerlink" href="#stack_management" title="Permanent link">&para;</a></h2>
+<h3 id="upgrade_stack">Upgrade stack<a class="headerlink" href="#upgrade_stack" title="Permanent link">&para;</a></h3>
+<p>After you have installed the NetAM stack, you can update with two commands:</p>
+<pre><code class="language-shell">docker-compose pull 
+docker-compose up -d
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

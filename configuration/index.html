@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="NetDiver-OSS">
+        <link rel="canonical" href="https://netdiver-oss.github.io/NetAM/configuration/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Configuration - NetDiver-OSS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/docco.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">NetDiver-OSS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NetAM <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../architecture/" class="dropdown-item">Architecture</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Configuration</a>
+</li>
+                                    
+<li>
+    <a href="../usage/" class="dropdown-item">Usage</a>
+</li>
+                                    
+<li>
+    <a href="../admin/" class="dropdown-item">Administration</a>
+</li>
+                                    
+<li>
+    <a href="../api/" class="dropdown-item">API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../architecture/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../usage/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/NetDiver-OSS/NetAM/edit/dev/docs/configuration/index.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#configuration" class="nav-link">Configuration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#environment_variables" class="nav-link">Environment variables</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#application" class="nav-link">Application</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#authentication" class="nav-link">Authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sentry" class="nav-link">Sentry</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#backup" class="nav-link">Backup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#otp" class="nav-link">Otp</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#redis" class="nav-link">Redis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#database" class="nav-link">Database</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#puma" class="nav-link">Puma</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sidekiq" class="nav-link">Sidekiq</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#notifications" class="nav-link">Notifications</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#typesense" class="nav-link">Typesense</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#mail" class="nav-link">Mail</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#logging" class="nav-link">Logging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
+<p>NetAM is designed to use environment variables and/or configuration file.</p>
+<p>All application configuration is set into <code>config/netam.yml</code></p>
+<h1 id="environment_variables">Environment variables<a class="headerlink" href="#environment_variables" title="Permanent link">&para;</a></h1>
+<h2 id="application">Application<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>APP_NAME</td>
+<td>Override application name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<h3 id="ldap">LDAP<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>LDAP_HOST</td>
+<td>localhost</td>
+<td>LDAP host</td>
+</tr>
+<tr>
+<td>port</td>
+<td>LDAP_PORT</td>
+<td>389</td>
+<td>LDAP port</td>
+</tr>
+<tr>
+<td>encryption</td>
+<td>LDAP_ENCRYPTION</td>
+<td>false</td>
+<td>LDAPS encryption</td>
+</tr>
+<tr>
+<td>base</td>
+<td>LDAP_BASE</td>
+<td>dc=example,dc=com</td>
+<td>LDAP base DN</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>LDAP_UID</td>
+<td>uid</td>
+<td>LDAP attribute to map username</td>
+</tr>
+<tr>
+<td>bind_dn</td>
+<td>LDAP_BIND_USER</td>
+<td>cn=admin,dc=example.dc=com</td>
+<td>LDAP user to bind</td>
+</tr>
+<tr>
+<td>password</td>
+<td>LDAP_BIND_PASSWORD</td>
+<td>password</td>
+<td>LDAP bind password</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sentry">Sentry<a class="headerlink" href="#sentry" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sentry</td>
+<td>SENTRY_DSN</td>
+<td>Sentry full DSN</td>
+</tr>
+</tbody>
+</table>
+<h2 id="backup">Backup<a class="headerlink" href="#backup" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>BACKUP_PATH</td>
+<td>/backups</td>
+<td>Backup path</td>
+</tr>
+</tbody>
+</table>
+<h2 id="otp">Otp<a class="headerlink" href="#otp" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>secret</td>
+<td>OTP_SECRET</td>
+<td>ch@ngeMech@ngeMech@ngeMech@ngeMe</td>
+<td>OTP Secret salt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="redis">Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>REDIS_HOST</td>
+<td>localhost</td>
+<td>Redis server</td>
+</tr>
+<tr>
+<td>port</td>
+<td>REDIS_PORT</td>
+<td>6379</td>
+<td>Redis server port</td>
+</tr>
+<tr>
+<td>db</td>
+<td>REDIS_DB</td>
+<td>0</td>
+<td>Redis DB name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pool</td>
+<td>DB_MAX_THREADS</td>
+<td>5</td>
+<td>Max connection threads to DB</td>
+</tr>
+<tr>
+<td>host</td>
+<td>DB_HOST</td>
+<td>localhost</td>
+<td>Database host</td>
+</tr>
+<tr>
+<td>port</td>
+<td>DB_PORT</td>
+<td>5432</td>
+<td>Database post</td>
+</tr>
+<tr>
+<td>username</td>
+<td>DB_USER</td>
+<td>admin</td>
+<td>Database username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>DB_PASS</td>
+<td>password</td>
+<td>Database password</td>
+</tr>
+<tr>
+<td>database</td>
+<td>DB_NAME</td>
+<td>netam</td>
+<td>Database name</td>
+</tr>
+</tbody>
+</table>
+<h2 id="puma">Puma<a class="headerlink" href="#puma" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max_thread</td>
+<td>PUMA_MAX_THREADS</td>
+<td>5</td>
+<td>Puma max threads</td>
+</tr>
+<tr>
+<td>min_thread</td>
+<td>PUMA_MIN_THREADS</td>
+<td>1</td>
+<td>Puma min threads</td>
+</tr>
+<tr>
+<td>port</td>
+<td>PUMA_PORT</td>
+<td>3000</td>
+<td>Puma listen port</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sidekiq">Sidekiq<a class="headerlink" href="#sidekiq" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>threads</td>
+<td>SIDEKIQ_MAX_THREADS</td>
+<td>5</td>
+<td>Sidekiq threads number</td>
+</tr>
+<tr>
+<td>concurent jobs</td>
+<td>SIDEKIQ_PARALLEL</td>
+<td>10</td>
+<td>Sidekiq max parallels jobs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notifications">Notifications<a class="headerlink" href="#notifications" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>slack webhook</td>
+<td>SLACK_WEBHOOK</td>
+<td>Slack webhook URL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="typesense">Typesense<a class="headerlink" href="#typesense" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>default value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enabled</td>
+<td>TYPESENSE_ENABLED</td>
+<td>true</td>
+<td>Typesense search switch</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>TYPESENSE_PROTOCOL</td>
+<td>http</td>
+<td>Typesense protocol</td>
+</tr>
+<tr>
+<td>host</td>
+<td>TYPESENSE_HOST</td>
+<td>localhost</td>
+<td>Typesense hostname</td>
+</tr>
+<tr>
+<td>port</td>
+<td>TYPESENSE_PORT</td>
+<td>8108</td>
+<td>Typesense port</td>
+</tr>
+<tr>
+<td>api_key</td>
+<td>TYPESENSE_API_KEY</td>
+<td>managementkey</td>
+<td>Typesense API key for management</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mail">Mail<a class="headerlink" href="#mail" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>environment variable</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAIL_HOST</td>
+<td>SMTP Host</td>
+</tr>
+<tr>
+<td>MAIL_POST</td>
+<td>SMTP Port</td>
+</tr>
+<tr>
+<td>MAIL_USER</td>
+<td>SMTP User</td>
+</tr>
+<tr>
+<td>MAIL_PASS</td>
+<td>SMTP Password</td>
+</tr>
+<tr>
+<td>MAIL_AUTH_TYPE</td>
+<td>SMTP Auth Method</td>
+</tr>
+<tr>
+<td>MAIL_HELO</td>
+<td>SMTP HELO</td>
+</tr>
+<tr>
+<td>MAIL_SSL_ENABLE</td>
+<td>SMTP SSL enabling</td>
+</tr>
+<tr>
+<td>MAIL_FROM</td>
+<td>From field</td>
+</tr>
+<tr>
+<td>MAIL_TO</td>
+<td>Receivers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>environment variable</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable syslog</td>
+<td>SYSLOG_ENABLED</td>
+<td>Enable Syslog appender</td>
+</tr>
+<tr>
+<td>syslog URL</td>
+<td>SYSLOG_URL</td>
+<td>Syslog endpoint</td>
+</tr>
+<tr>
+<td>enable splunk</td>
+<td>SPLUNK_ENABLED</td>
+<td>Enable Splunk appender</td>
+</tr>
+<tr>
+<td>splunk URL</td>
+<td>SPLUNK_URL</td>
+<td>Splunk endpoint</td>
+</tr>
+<tr>
+<td>splunk TOKEN</td>
+<td>SPLUNK_TOKEN</td>
+<td>Splunk token</td>
+</tr>
+<tr>
+<td>enable elasticsearch</td>
+<td>ELASTICSEARCH_ENABLED</td>
+<td>Enable elasticsearch appender</td>
+</tr>
+<tr>
+<td>elasticsearch URL</td>
+<td>ELASTICSEARCH_URL</td>
+<td>elasticsearch endpoint</td>
+</tr>
+<tr>
+<td>enable logstash</td>
+<td>LOGSTASH_ENABLED</td>
+<td>Enable logstash appender</td>
+</tr>
+<tr>
+<td>logstash HOST</td>
+<td>LOGSTASH_HOST</td>
+<td>logstash endpoint</td>
+</tr>
+<tr>
+<td>logstash PORT</td>
+<td>LOGSTASH_PORT</td>
+<td>logstash port</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

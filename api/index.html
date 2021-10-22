@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="NetDiver-OSS">
+        <link rel="canonical" href="https://netdiver-oss.github.io/NetAM/api/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>API - NetDiver-OSS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/docco.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">NetDiver-OSS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NetAM <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../architecture/" class="dropdown-item">Architecture</a>
+</li>
+                                    
+<li>
+    <a href="../configuration/" class="dropdown-item">Configuration</a>
+</li>
+                                    
+<li>
+    <a href="../usage/" class="dropdown-item">Usage</a>
+</li>
+                                    
+<li>
+    <a href="../admin/" class="dropdown-item">Administration</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">API</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../license/" class="nav-link">License</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../admin/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../license/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/NetDiver-OSS/NetAM/edit/dev/docs/api/index.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#api_documentation" class="nav-link">API documentation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#get_token" class="nav-link">Get token</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sections" class="nav-link">Sections</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#vlan" class="nav-link">VLAN</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#backups" class="nav-link">Backups</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="api_documentation">API documentation<a class="headerlink" href="#api_documentation" title="Permanent link">&para;</a></h1>
+<p>All API except token generation are automatically documented directly inside application throught swagger.<br />
+Internal documentation is accessible throught the url <code>http://&lt;netam_host&gt;/docs</code> when you&rsquo;re logged in.</p>
+<h2 id="get_token">Get token<a class="headerlink" href="#get_token" title="Permanent link">&para;</a></h2>
+<p>NetAM use oauth mechanism to provide tokens.<br />
+To request token, you must send POST request to endpoint <code>http://&lt;netam_host&gt;/oauth/token</code> and fill form datas :</p>
+<ul>
+<li>username : &lt;mail_address></li>
+<li>password : &lt;associated_password></li>
+<li>grant_type : password</li>
+</ul>
+<p>Token validity are limited to one day next to generation.</p>
+<p><strong>The token must be declared in each API request into headers with format <code>'Authorization: Bearer &lt;getted_token&gt;'</code></strong></p>
+<h3 id="request_answer">Request answer<a class="headerlink" href="#request_answer" title="Permanent link">&para;</a></h3>
+<p>This request give you an answer like:</p>
+<pre><code class="language-json">{
+    &quot;access_token&quot;: &quot;zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;,
+    &quot;expires_in&quot;: 430010,
+    &quot;created_at&quot;: 1597607513
+}
+</code></pre>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">curl --location \
+     -XPOST 'http://localhost:3000/oauth/token' \
+     --form 'username=toto@me.com' \
+     --form 'password=azazazazazaz' \
+     --form 'grant_type=password'
+</code></pre>
+<h2 id="sections">Sections<a class="headerlink" href="#sections" title="Permanent link">&para;</a></h2>
+<h3 id="get_sections_list">Get Sections list<a class="headerlink" href="#get_sections_list" title="Permanent link">&para;</a></h3>
+<p>You could retrieve a list of all sections you was granted in software.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_1">Request answer<a class="headerlink" href="#request_answer_1" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;example_v6&quot;,
+    &quot;description&quot;: &quot;This section is designed for example with IPv6&quot;,
+    &quot;network&quot;: &quot;::/124&quot;,
+    &quot;schedule&quot;: &quot;&quot;
+  },
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;example_v4&quot;,
+    &quot;description&quot;: &quot;This section is designed for example with IPv4&quot;,
+    &quot;network&quot;: &quot;127.0.0.0/24&quot;,
+    &quot;schedule&quot;: &quot;&quot;
+  }
+]
+</code></pre>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/sections' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="create_sections">Create Sections<a class="headerlink" href="#create_sections" title="Permanent link">&para;</a></h3>
+<p>You could create sections through API if account as required ability.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_2">Request answer<a class="headerlink" href="#request_answer_2" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+    &quot;id&quot;: 3,
+    &quot;name&quot;: &quot;example_api&quot;,
+    &quot;description&quot;: null,
+    &quot;network&quot;: &quot;127.0.0.0/25&quot;,
+    &quot;schedule&quot;: &quot;&quot;
+}
+</code></pre>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/sections' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
+     -d '{
+       &quot;id&quot;: 3,
+       &quot;name&quot;: &quot;example_api&quot;,
+       &quot;description&quot;: null,
+       &quot;network&quot;: &quot;127.0.0.0/25&quot;,
+       &quot;schedule&quot;: &quot;&quot;
+     }'
+</code></pre>
+<h3 id="get_section_details">Get Section details<a class="headerlink" href="#get_section_details" title="Permanent link">&para;</a></h3>
+<p>You could retrieve details of specific section.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections/&lt;section_id></td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_3">Request answer<a class="headerlink" href="#request_answer_3" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;example_v4&quot;,
+    &quot;description&quot;: &quot;This section is designed for example with IPv4&quot;,
+    &quot;network&quot;: &quot;127.0.0.0/24&quot;,
+    &quot;schedule&quot;: &quot;&quot;
+  }
+]
+</code></pre>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/sections/1' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="launch_section_scan">Launch section scan<a class="headerlink" href="#launch_section_scan" title="Permanent link">&para;</a></h3>
+<p>You could launch section scan.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections/&lt;section_id>/scan</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_4">Request answer<a class="headerlink" href="#request_answer_4" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;ack&quot;
+}
+</code></pre>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XPOST 'http://&lt;netam_host&gt;/api/v1/sections/1/scan' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="export_section_usage">Export section usage<a class="headerlink" href="#export_section_usage" title="Permanent link">&para;</a></h3>
+<p>You could perform section csv export.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections/&lt;section_id>/export</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_5">Request answer<a class="headerlink" href="#request_answer_5" title="Permanent link">&para;</a></h4>
+<pre><code class="language-csv">ID,Section,Address,FQDN,Description,State
+1,example_v4,127.0.0.1,,,Active
+1,example_v4,127.0.0.2,,,Active
+1,example_v4,127.0.0.3,,,Active
+</code></pre>
+<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/sections/1/export' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="get_section_usage">Get section usage<a class="headerlink" href="#get_section_usage" title="Permanent link">&para;</a></h3>
+<p>You could get section usage.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections/&lt;section_id>/usages</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_6">Request answer<a class="headerlink" href="#request_answer_6" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 14,
+        &quot;ip_used&quot;: &quot;127.0.0.1&quot;,
+        &quot;fqdn&quot;: null,
+        &quot;description&quot;: null,
+        &quot;state&quot;: &quot;actived&quot;
+    },
+    {
+        &quot;id&quot;: 15,
+        &quot;ip_used&quot;: &quot;127.0.0.2&quot;,
+        &quot;fqdn&quot;: null,
+        &quot;description&quot;: null,
+        &quot;state&quot;: &quot;actived&quot;
+    },
+    ...
+]
+</code></pre>
+<h4 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/sections/1/usages' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="create_section_usage">Create section usage<a class="headerlink" href="#create_section_usage" title="Permanent link">&para;</a></h3>
+<p>You could create section usage.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections/&lt;section_id>/usages</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_7">Request answer<a class="headerlink" href="#request_answer_7" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 274,
+  &quot;ip_used&quot;: &quot;127.0.0.1&quot;,
+  &quot;fqdn&quot;: &quot;&quot;,
+  &quot;description&quot;: null,
+  &quot;state&quot;: &quot;actived&quot;
+}
+</code></pre>
+<h4 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XPOST 'http://&lt;netam_host&gt;/api/v1/sections/1/usages' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
+     -d '{
+       &quot;ip_used&quot;: &quot;127.0.0.1&quot;,
+       &quot;fqdn&quot;: &quot;&quot;,
+       &quot;state&quot;: &quot;activated&quot;
+     }'
+</code></pre>
+<h3 id="request_ip_in_section">Request IP in section<a class="headerlink" href="#request_ip_in_section" title="Permanent link">&para;</a></h3>
+<p>You could create section usage.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/sections/&lt;section_id>/request_ip</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_8">Request answer<a class="headerlink" href="#request_answer_8" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 274,
+  &quot;ip_used&quot;: &quot;127.0.0.2&quot;,
+  &quot;fqdn&quot;: null,
+  &quot;description&quot;: null,
+  &quot;state&quot;: &quot;actived&quot;
+}
+</code></pre>
+<h4 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XPOST 'http://&lt;netam_host&gt;/api/v1/sections/1/request_ip' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h2 id="vlan">VLAN<a class="headerlink" href="#vlan" title="Permanent link">&para;</a></h2>
+<h3 id="get_vlans_list">Get VLANs list<a class="headerlink" href="#get_vlans_list" title="Permanent link">&para;</a></h3>
+<p>You could retrieve a list of all vlans you was granted in software.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/vlans</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_9">Request answer<a class="headerlink" href="#request_answer_9" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 1,
+        &quot;vid&quot;: 1,
+        &quot;name&quot;: &quot;default&quot;,
+        &quot;description&quot;: &quot;Default Vlan.&quot;
+    }
+]
+</code></pre>
+<h4 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/vlans' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="get_vlans_details">Get VLANs details<a class="headerlink" href="#get_vlans_details" title="Permanent link">&para;</a></h3>
+<p>You could retrieve a list of all vlans you was granted in software.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/vlans/1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_10">Request answer<a class="headerlink" href="#request_answer_10" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;vid&quot;: 1,
+    &quot;name&quot;: &quot;default&quot;,
+    &quot;description&quot;: &quot;Default Vlan.&quot;
+}
+</code></pre>
+<h4 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/vlans/1' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o'
+</code></pre>
+<h3 id="create_vlan">Create VLAN<a class="headerlink" href="#create_vlan" title="Permanent link">&para;</a></h3>
+<p>You could create sections through API if account as required ability.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/vlans</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_11">Request answer<a class="headerlink" href="#request_answer_11" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+    &quot;id&quot;: 2,
+    &quot;vid&quot;: 3,
+    &quot;name&quot;: &quot;example_api&quot;,
+    &quot;description&quot;: null
+}
+</code></pre>
+<h4 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/vlans' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
+     -d '{
+       &quot;vid&quot;: 3,
+       &quot;name&quot;: &quot;example_vlan&quot;,
+       &quot;description&quot;: null
+     }'
+</code></pre>
+<h2 id="backups">Backups<a class="headerlink" href="#backups" title="Permanent link">&para;</a></h2>
+<h3 id="list_backup">List Backup<a class="headerlink" href="#list_backup" title="Permanent link">&para;</a></h3>
+<p>You could list backups through API if account as required ability</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/backups</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_12">Request answer<a class="headerlink" href="#request_answer_12" title="Permanent link">&para;</a></h4>
+<pre><code class="language-json">{
+    &quot;backups&quot;: [
+        &quot;1604758813_2020_11_07_1.5.0-pre.sql.gz&quot;,
+        &quot;1604758815_2020_11_07_1.5.0-pre.sql.gz&quot;
+    ]
+}
+</code></pre>
+<h4 id="example_12">Example<a class="headerlink" href="#example_12" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XGET 'http://&lt;netam_host&gt;/api/v1/backups' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
+</code></pre>
+<h3 id="create_backup">Create Backup<a class="headerlink" href="#create_backup" title="Permanent link">&para;</a></h3>
+<p>You could create backups through API if account as required ability</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>http://&lt;netam_server>/api/v1/backups</td>
+</tr>
+</tbody>
+</table>
+<h4 id="request_answer_13">Request answer<a class="headerlink" href="#request_answer_13" title="Permanent link">&para;</a></h4>
+<pre><code>&quot;7169176bc7e2fddf121264bd&quot;
+</code></pre>
+<h4 id="example_13">Example<a class="headerlink" href="#example_13" title="Permanent link">&para;</a></h4>
+<pre><code class="language-bash">curl --location \
+     -XPOST 'http://&lt;netam_host&gt;/api/v1/backups' \
+     --header 'Authorization: Bearer zmL0UxPjqJhfzSXDcbjJp7Hs6wr6JF6SnHp1ybxBH_o' \
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
