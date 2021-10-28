@@ -7,7 +7,7 @@
     "@rails/activestorage": "6.1.4",
     "@rails/ujs": "6.1.4",
     "@rails/webpacker": "5.4.3",
-    "autoprefixer": "10.3.7",
+    "autoprefixer": "10.4.0",
     "axios": "0.23.0",
     "cron-validator": "^1.2.1",
     "echarts": "^5.1.2",
