@@ -110,7 +110,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.10.0)
+    devise-i18n (1.10.1)
       devise (>= 4.8.0)
     devise-two-factor (4.0.1)
       activesupport (< 6.2)
@@ -300,6 +300,8 @@ GEM
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
+    pg (1.2.3-x64-mingw32)
+    pg (1.2.3-x86-mingw32)
     po_to_json (1.0.1)
       json (>= 1.6.0)
     public_suffix (4.0.6)
