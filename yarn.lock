@@ -2230,10 +2230,10 @@ create-hmac@^1.1.0, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cron-validator@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/cron-validator/-/cron-validator-1.2.1.tgz#0f0de2de36d231a6ace0e43ffc6c0564fe6edf1a"
-  integrity sha512-RqdpGSokGFICPc8qAkT38aXqZLLanXghQTK2q7a2x2FabSwDd2ARrazd5ElEWAXzToUcMG4cZIwDH+5RM0q1mA==
+cron-validator@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/cron-validator/-/cron-validator-1.3.1.tgz#8f2fe430f92140df77f91178ae31fc1e3a48a20e"
+  integrity sha512-C1HsxuPCY/5opR55G5/WNzyEGDWFVG+6GLrA+fW/sCTcP6A6NTjUP2AK7B8n2PyFs90kDG2qzwm8LMheADku6A==
 
 cross-spawn@^6.0.5:
   version "6.0.5"
