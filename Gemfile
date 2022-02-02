@@ -34,7 +34,7 @@ gem 'sidekiq', '6.2.2'
 gem 'sidekiq-cron', '= 1.2'
 gem 'sidekiq-status', '2.1.0'
 
-gem 'redis', '~> 4.3'
+gem 'redis', '~> 4.6'
 gem 'redis-rack-cache'
 
 # Authentification
