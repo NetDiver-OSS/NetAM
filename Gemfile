@@ -48,7 +48,7 @@ gem 'omniauth-ldap', '~> 2.0'
 # Jobs dependencies
 gem 'ipaddress', '~> 0.8.3'
 gem 'net-ping', '~> 2.0', '>= 2.0.6'
-gem 'parallel', '~> 1.20'
+gem 'parallel', '~> 1.22'
 gem 'whois-parser', '~> 1.2'
 
 # API
